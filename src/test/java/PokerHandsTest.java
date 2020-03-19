@@ -8,7 +8,7 @@ public class PokerHandsTest {
     private static final int IS_GREATER = 1;
 
     @Test
-    public void compare_hands_by_highest_card() {
+    public void compare_to_is_minus_1_when_the_hand_is_lower() {
         PokerHand hand = new PokerHand(new Card(Value.Four));
         PokerHand otherHand = new PokerHand(new Card(Value.Five));
 
