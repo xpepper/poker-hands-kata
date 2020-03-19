@@ -6,7 +6,8 @@ class Card {
         this.value = value;
     }
 
-    public Value value() {
-        return value;
+    public int compareTo(Card otherCard) {
+        if (value.numericValue > otherCard.value.numericValue) return 1;
+        return -1;
     }
 }

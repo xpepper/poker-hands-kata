@@ -1,3 +1,10 @@
 public enum Value {
-    Five, Four
+    Four(4),
+    Five(5);
+
+    public int numericValue;
+
+    Value(int numericValue) {
+        this.numericValue = numericValue;
+    }
 }
