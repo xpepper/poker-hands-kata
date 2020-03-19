@@ -6,6 +6,7 @@ Kata: http://codingdojo.org/kata/PokerHands/
 
 ### NEXT STEPS
 * from a single-card poker hand to a 5-cards poker hand
+    * introducing the "suit" of each card
 * from simply telling which hand is higher than another to showing the actual winning rank
 
 ### Notes
