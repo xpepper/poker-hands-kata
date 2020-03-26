@@ -15,7 +15,7 @@ public class PokerHandTest {
     public void an_hand_with_a_four_is_lower_than_an_hand_with_a_five() {
         PokerHand hand = new PokerHand(new Card(Value.Four));
         PokerHand otherHand = new PokerHand(new Card(Value.Five));
-
+        
         assertEquals(IS_LOWER, hand.compareTo(otherHand));
     }
 

@@ -9,18 +9,16 @@ public class Card {
     }
 
     public int compareTo(Card otherCard) {
-        if (value.numericValue > otherCard.value.numericValue) return 1;
-        if (value.numericValue == otherCard.value.numericValue) return 0;
-        return -1;
+        return value.numericValue.compareTo(otherCard.value.numericValue);
     }
 
     public enum Value {
         Four(4),
         Five(5);
 
-        public int numericValue;
+        public final Integer numericValue;
 
-        Value(int numericValue) {
+        Value(Integer numericValue) {
             this.numericValue = numericValue;
         }
     }
