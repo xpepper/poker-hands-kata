@@ -1,4 +1,6 @@
-class Card {
+package com.kata.poker;
+
+public class Card {
 
     private Value value;
 
@@ -11,4 +13,16 @@ class Card {
         if (value.numericValue == otherCard.value.numericValue) return 0;
         return -1;
     }
+
+    public enum Value {
+        Four(4),
+        Five(5);
+
+        public int numericValue;
+
+        Value(int numericValue) {
+            this.numericValue = numericValue;
+        }
+    }
+
 }

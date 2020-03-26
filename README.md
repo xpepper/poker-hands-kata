@@ -1,8 +1,7 @@
 Kata: http://codingdojo.org/kata/PokerHands/
 
 ### TODO
-* complete the comparison logic between two `Cards`
-* compare two "tie" poker hands
+* add all the possible values for the poker `Cards`
 
 ### NEXT STEPS
 * from a single-card poker hand to a 5-cards poker hand
@@ -13,14 +12,14 @@ Kata: http://codingdojo.org/kata/PokerHands/
 
 Deck of 52 cards
 
-Each **Card** has:
+Each **com.kata.poker.Card** has:
 
 * one of 4 suits (clubs, ....) => (C,D,H,S)
 * a value in (2-10, Jack, Queen, King, Ace) => (2-9,T,J,Q,K,A)
 
 each **Poker Hand** has 5 cards taken from DECK
 
-* *High Card*: lowest ranking - 
+* *High com.kata.poker.Card*: lowest ranking - 
 
 es:  (2C, 3D, 6H, 9S, 5H) => rank: *9*
 

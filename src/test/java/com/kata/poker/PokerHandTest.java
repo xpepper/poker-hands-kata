@@ -1,8 +1,11 @@
+package com.kata.poker;
+
+import com.kata.poker.Card.Value;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class PokerHandsTest {
+public class PokerHandTest {
 
     public static final int IS_LOWER = -1;
     private static final int IS_GREATER = 1;

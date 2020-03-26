@@ -1,3 +1,5 @@
+package com.kata.poker;
+
 public class PokerHand implements Comparable<PokerHand> {
 
     private Card card;
