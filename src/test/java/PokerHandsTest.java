@@ -6,6 +6,7 @@ public class PokerHandsTest {
 
     public static final int IS_LOWER = -1;
     private static final int IS_GREATER = 1;
+    public static final int IS_TIE = 0;
 
     @Test
     public void an_hand_with_a_four_is_lower_than_an_hand_with_a_five() {
@@ -21,6 +22,14 @@ public class PokerHandsTest {
         PokerHand otherHand = new PokerHand(new Card(Value.Four));
 
         assertEquals(IS_GREATER, hand.compareTo(otherHand));
+    }
+
+    @Test
+    public void two_hands_with_the_same_card_are_tie() {
+        PokerHand hand = new PokerHand(new Card(Value.Five));
+        PokerHand otherHand = new PokerHand(new Card(Value.Five));
+
+        assertEquals(IS_TIE, hand.compareTo(otherHand));
     }
 }
 
