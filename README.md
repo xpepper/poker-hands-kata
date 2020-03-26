@@ -1,25 +1,34 @@
 Kata: http://codingdojo.org/kata/PokerHands/
 
 ### TODO
+
+* poker hand with two cards
+    - pair against pair (3 cases)
+    - high card (3 cases)
+
+* from simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
+    * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
+
+* poker hand with three cards...
+
 * add all the possible values for the poker `Cards`
 
-### NEXT STEPS
 * from a single-card poker hand to a 5-cards poker hand
     * introducing the "suit" of each card
-* from simply telling which hand is higher than another to showing the actual winning rank
 
+    
 ### Notes
 
 Deck of 52 cards
 
-Each **com.kata.poker.Card** has:
+Each `Card` has:
 
 * one of 4 suits (clubs, ....) => (C,D,H,S)
 * a value in (2-10, Jack, Queen, King, Ace) => (2-9,T,J,Q,K,A)
 
 each **Poker Hand** has 5 cards taken from DECK
 
-* *High com.kata.poker.Card*: lowest ranking - 
+* *High Card*: lowest ranking - 
 
 es:  (2C, 3D, 6H, 9S, 5H) => rank: *9*
 
