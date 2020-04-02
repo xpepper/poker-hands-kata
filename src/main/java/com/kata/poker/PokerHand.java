@@ -2,15 +2,15 @@ package com.kata.poker;
 
 public class PokerHand implements Comparable<PokerHand> {
 
-    private Card card;
+    private Card firstCard;
     private Card secondCard;
 
-    public PokerHand(Card card) {
-        this.card = card;
+    public PokerHand(Card first) {
+        this.firstCard = first;
     }
 
     public PokerHand(Card first, Card second) {
-        card = first;
+        firstCard = first;
         secondCard = second;
     }
 
@@ -20,8 +20,8 @@ public class PokerHand implements Comparable<PokerHand> {
     }
 
     private Card highestCard() {
-        if (secondCard == null) return card;
+        if (secondCard == null) return firstCard;
 
-        return card.compareTo(secondCard) == 1 ? card : secondCard;
+        return firstCard.compareTo(secondCard) == 1 ? firstCard : secondCard;
     }
 }
