@@ -1,4 +1,4 @@
-Kata: http://codingdojo.org/kata/PokerHands/
+[PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
 
