@@ -10,6 +10,10 @@ public class PokerHand implements Comparable<PokerHand> {
 
     @Override
     public int compareTo(PokerHand other) {
-        return card.compareTo(other.card);
+        return highestCard().compareTo(other.highestCard());
+    }
+
+    private Card highestCard() {
+        return card;
     }
 }
