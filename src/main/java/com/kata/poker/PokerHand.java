@@ -5,10 +5,6 @@ public class PokerHand implements Comparable<PokerHand> {
     private Card firstCard;
     private Card secondCard;
 
-    public PokerHand(Card first) {
-        this.firstCard = first;
-    }
-
     public PokerHand(Card first, Card second) {
         firstCard = first;
         secondCard = second;
