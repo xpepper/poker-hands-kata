@@ -41,8 +41,9 @@ public class PokerHandTest {
         PokerHand otherHand = new PokerHand(four(), five());
 
         assertEquals(IS_LOWER, hand.compareTo(otherHand));
+        assertEquals(IS_GREATER, otherHand.compareTo(hand));
     }
-
+    
     private Card three() {
         return new Card(Value.Three);
     }
@@ -55,5 +56,3 @@ public class PokerHandTest {
         return new Card(Value.Five);
     }
 }
-
-

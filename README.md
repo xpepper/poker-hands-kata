@@ -3,13 +3,14 @@
 ### TODO
 
 * poker hand with two cards
+    - high card (2/3 cases)
     - pair against pair (3 cases)
-    - high card (3 cases)
 
 * from simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
 
 * poker hand with three cards...
+    * rewrite the logic to find the highest card in a hand using sorting
 
 * add all the possible values for the poker `Cards`
 
