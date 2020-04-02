@@ -3,7 +3,6 @@
 ### TODO
 
 * poker hand with two cards
-    - high card (2/3 cases)
     - pair against pair (3 cases)
 
 * from simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
