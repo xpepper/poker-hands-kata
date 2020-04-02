@@ -16,8 +16,6 @@ public class PokerHand implements Comparable<PokerHand> {
     }
 
     private Card highestCard() {
-        if (secondCard == null) return firstCard;
-
         return firstCard.compareTo(secondCard) == 1 ? firstCard : secondCard;
     }
 }
