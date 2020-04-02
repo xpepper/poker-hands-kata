@@ -13,6 +13,7 @@ public class Card {
     }
 
     public enum Value {
+        Three(3),
         Four(4),
         Five(5);
 

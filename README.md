@@ -16,6 +16,7 @@
 * from a single-card poker hand to a 5-cards poker hand
     * introducing the "suit" of each card
 
+* are we sure we are testing all the possible combinations of hands
     
 ### Notes
 

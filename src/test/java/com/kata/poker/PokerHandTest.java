@@ -34,6 +34,14 @@ public class PokerHandTest {
 
         assertEquals(IS_TIE, hand.compareTo(otherHand));
     }
+
+    @Test
+    public void compare_hands_by_highest_card() {
+        PokerHand hand = new PokerHand(new Card(Value.Four), new Card(Value.Three));
+        PokerHand otherHand = new PokerHand(new Card(Value.Four), new Card(Value.Five));
+
+        assertEquals(IS_LOWER, hand.compareTo(otherHand));
+    }
 }
 
 
