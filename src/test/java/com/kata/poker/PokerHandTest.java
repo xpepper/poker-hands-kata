@@ -13,34 +13,46 @@ public class PokerHandTest {
 
     @Test
     public void an_hand_with_a_four_is_lower_than_an_hand_with_a_five() {
-        PokerHand hand = new PokerHand(new Card(Value.Four));
-        PokerHand otherHand = new PokerHand(new Card(Value.Five));
+        PokerHand hand = new PokerHand(four());
+        PokerHand otherHand = new PokerHand(five());
 
         assertEquals(IS_LOWER, hand.compareTo(otherHand));
     }
 
     @Test
     public void an_hand_with_a_five_is_greater_than_an_hand_with_a_four() {
-        PokerHand hand = new PokerHand(new Card(Value.Five));
-        PokerHand otherHand = new PokerHand(new Card(Value.Four));
+        PokerHand hand = new PokerHand(five());
+        PokerHand otherHand = new PokerHand(four());
 
         assertEquals(IS_GREATER, hand.compareTo(otherHand));
     }
 
     @Test
     public void two_hands_with_the_same_card_are_tie() {
-        PokerHand hand = new PokerHand(new Card(Value.Five));
-        PokerHand otherHand = new PokerHand(new Card(Value.Five));
+        PokerHand hand = new PokerHand(five());
+        PokerHand otherHand = new PokerHand(five());
 
         assertEquals(IS_TIE, hand.compareTo(otherHand));
     }
 
     @Test
     public void compare_hands_by_highest_card() {
-        PokerHand hand = new PokerHand(new Card(Value.Four), new Card(Value.Three));
-        PokerHand otherHand = new PokerHand(new Card(Value.Four), new Card(Value.Five));
+        PokerHand hand = new PokerHand(four(), three());
+        PokerHand otherHand = new PokerHand(four(), five());
 
         assertEquals(IS_LOWER, hand.compareTo(otherHand));
+    }
+
+    private Card three() {
+        return new Card(Value.Three);
+    }
+
+    private Card four() {
+        return new Card(Value.Four);
+    }
+
+    private Card five() {
+        return new Card(Value.Five);
     }
 }
 
