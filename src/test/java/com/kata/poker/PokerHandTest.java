@@ -43,6 +43,14 @@ public class PokerHandTest {
         assertEquals(IS_TIE, otherHand.compareTo(otherHand));
     }
 
+    @Test
+    public void two_hands_with_the_same_pair_are_tie() {
+        PokerHand hand = new PokerHand(five(), five());
+        PokerHand otherHand = new PokerHand(five(), five());
+
+        assertEquals(IS_TIE, hand.compareTo(otherHand));
+    }
+
     private Card three() {
         return new Card(Value.Three);
     }

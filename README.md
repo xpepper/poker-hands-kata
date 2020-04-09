@@ -5,7 +5,6 @@
 * rename first test on highest card
 
 * poker hand with two cards
-    - pair against pair (3 cases)
     - pair against high card (1 cases)
 
 * from simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
