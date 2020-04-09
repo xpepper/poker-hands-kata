@@ -2,23 +2,25 @@
 
 ### TODO
 
-* rename first test on highest card
+* Poker hand with two cards
+    - straight (e.g. (1,2) vs (3,3), (1,2) vs (3,4), (1,2) vs (1,2), (1,2) vs (1,3))
+    - flush (=> suit!)
+    - straight flush
+    
+* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
-* poker hand with two cards
-    - pair against high card (1 cases)
-
-* from simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
+* From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
 
-* poker hand with three cards...
+* Poker hand with three cards...
     * rewrite the logic to find the highest card in a hand using sorting
 
-* add all the possible values for the poker `Cards`
+* Add all the possible values for the poker `Cards`
 
-* from a single-card poker hand to a 5-cards poker hand
+* From a single-card poker hand to a 5-cards poker hand
     * introducing the "suit" of each card
 
-* are we sure we are testing all the possible combinations of hands?
+* Are we sure we are testing all the possible combinations of hands?
     
 ### Notes
 
