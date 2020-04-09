@@ -1,6 +1,7 @@
 package com.kata.poker;
 
 import com.kata.poker.Card.Value;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -49,6 +50,14 @@ public class PokerHandTest {
         PokerHand otherHand = new PokerHand(five(), five());
 
         assertEquals(IS_TIE, hand.compareTo(otherHand));
+    }
+
+    @Test @Ignore
+    public void a_pair_always_wins_against_a_highest_card() {
+        PokerHand handWithPair = new PokerHand(three(), three());
+        PokerHand handWithHighestCard = new PokerHand(five(), four());
+
+        assertEquals(IS_GREATER, handWithPair.compareTo(handWithHighestCard));
     }
 
     private Card three() {
