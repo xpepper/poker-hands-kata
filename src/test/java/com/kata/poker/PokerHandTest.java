@@ -1,7 +1,6 @@
 package com.kata.poker;
 
 import com.kata.poker.Card.Value;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -32,7 +31,7 @@ public class PokerHandTest {
         assertEquals(IS_TIE, hand.compareTo(otherHand));
     }
 
-    @Test @Ignore
+    @Test
     public void compare_hands_having_both_a_pair() {
         PokerHand hand = new PokerHand(four(), four());
         PokerHand otherHand = new PokerHand(five(), five());
