@@ -12,6 +12,8 @@
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
 
+* Encapsulate the firstCard and secondCard into a "cards" concept (a list of cards...) 
+
 * Poker hand with three cards...
     * rewrite the logic to find the highest card in a hand using sorting
 
