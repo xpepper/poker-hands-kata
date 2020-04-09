@@ -44,7 +44,7 @@ public class PokerHandTest {
         assertEquals(IS_TIE, otherHand.compareTo(otherHand));
     }
 
-    @Test @Ignore
+    @Test
     public void two_hands_with_the_same_pair_are_tie() {
         PokerHand hand = new PokerHand(five(), five());
         PokerHand otherHand = new PokerHand(five(), five());
@@ -58,6 +58,7 @@ public class PokerHandTest {
         PokerHand handWithHighestCard = new PokerHand(five(), four());
 
         assertEquals(IS_GREATER, handWithPair.compareTo(handWithHighestCard));
+        assertEquals(IS_LOWER, handWithHighestCard.compareTo(handWithPair));
     }
 
     private Card three() {
