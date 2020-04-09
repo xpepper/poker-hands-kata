@@ -12,16 +12,16 @@ public class PokerHand implements Comparable<PokerHand> {
 
     @Override
     public int compareTo(PokerHand other) {
-        if (other.hasPair() && hasPair()) {
+        if (hasPair() && other.hasPair()) {
             return highestCard().compareTo(other.highestCard());
-        }
-
-        if (other.hasPair()) {
-            return -1;
         }
 
         if (hasPair()) {
             return 1;
+        }
+
+        if (other.hasPair()) {
+            return -1;
         }
 
         return highestCard().compareTo(other.highestCard());
