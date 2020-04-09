@@ -2,6 +2,8 @@
 
 ### TODO
 
+* rename first test on highest card
+
 * poker hand with two cards
     - pair against pair (3 cases)
     - pair against high card (1 cases)
@@ -17,7 +19,7 @@
 * from a single-card poker hand to a 5-cards poker hand
     * introducing the "suit" of each card
 
-* are we sure we are testing all the possible combinations of hands
+* are we sure we are testing all the possible combinations of hands?
     
 ### Notes
 
