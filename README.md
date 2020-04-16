@@ -3,7 +3,11 @@
 ### TODO
 
 * Poker hand with two cards
-    - straight (e.g. (1,2) vs (3,3), (1,2) vs (3,4), (1,2) vs (1,2), (1,2) vs (1,3))
+    - straight
+        - (1,2) vs (3,3) TODO
+        - (1,2) vs (3,4)
+        - (1,2) vs (1,2)
+        - (1,2) vs (1,3) DOING
     - flush (=> suit!)
     - straight flush
     
