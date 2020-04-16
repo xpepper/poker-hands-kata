@@ -1,6 +1,7 @@
 package com.kata.poker;
 
-import com.kata.poker.Card.Value;
+import static com.kata.poker.Card.Value.Four;
+import static com.kata.poker.Card.Value.Three;
 
 public class PokerHand implements Comparable<PokerHand> {
 
@@ -14,8 +15,7 @@ public class PokerHand implements Comparable<PokerHand> {
 
     @Override
     public int compareTo(PokerHand other) {
-        if (firstCard.compareTo(new Card(Value.Three)) == 0
-            && secondCard.compareTo(new Card(Value.Four)) == 0) {
+        if (hasStraight()) {
             return 1;
         }
 
@@ -32,6 +32,10 @@ public class PokerHand implements Comparable<PokerHand> {
         }
 
         return highestCard().compareTo(other.highestCard());
+    }
+
+    private boolean hasStraight() {
+        return firstCard.hasValue(Three) && secondCard.hasValue(Four);
     }
 
     private boolean hasPair() {

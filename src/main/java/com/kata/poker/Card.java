@@ -12,6 +12,10 @@ public class Card {
         return value.numericValue.compareTo(otherCard.value.numericValue);
     }
 
+    boolean hasValue(Value value) {
+        return compareTo(new Card(value)) == 0;
+    }
+
     public enum Value {
         Three(3),
         Four(4),
