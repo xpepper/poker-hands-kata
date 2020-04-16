@@ -1,8 +1,5 @@
 package com.kata.poker;
 
-import static com.kata.poker.Card.Value.Four;
-import static com.kata.poker.Card.Value.Three;
-
 public class PokerHand implements Comparable<PokerHand> {
 
     private Card firstCard;
@@ -35,7 +32,7 @@ public class PokerHand implements Comparable<PokerHand> {
     }
 
     private boolean hasStraight() {
-        return firstCard.hasValue(Three) && secondCard.hasValue(Four);
+        return secondCard.isConsecutiveTo(firstCard);
     }
 
     private boolean hasPair() {
