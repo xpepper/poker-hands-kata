@@ -15,13 +15,14 @@ public class Card {
     }
 
     public boolean hasValueConsecutiveTo(Card card) {
-        return Four.isConsecutiveTo(card.value);
+        return value.isConsecutiveTo(card.value);
     }
 
     public enum Value {
         Three(3),
         Four(4),
-        Five(5);
+        Five(5),
+        Seven(7);
 
         public final Integer numericValue;
 

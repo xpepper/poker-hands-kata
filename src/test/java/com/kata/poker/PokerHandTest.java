@@ -13,14 +13,14 @@ public class PokerHandTest {
 
     @Test
     public void compare_hands_by_highest_card() {
-        PokerHand hand = new PokerHand(four(), three());
-        PokerHand otherHand = new PokerHand(four(), five());
+        PokerHand hand = new PokerHand(five(), three());
+        PokerHand handWithHighestCard = new PokerHand(seven(), five());
 
-        assertEquals(IS_LOWER, hand.compareTo(otherHand));
-        assertEquals(IS_GREATER, otherHand.compareTo(hand));
+        assertEquals(IS_LOWER, hand.compareTo(handWithHighestCard));
+        assertEquals(IS_GREATER, handWithHighestCard.compareTo(hand));
 
         assertEquals(IS_TIE, hand.compareTo(hand));
-        assertEquals(IS_TIE, otherHand.compareTo(otherHand));
+        assertEquals(IS_TIE, handWithHighestCard.compareTo(handWithHighestCard));
     }
 
     @Test
@@ -78,5 +78,9 @@ public class PokerHandTest {
 
     private Card five() {
         return new Card(Value.Five);
+    }
+
+    private Card seven() {
+        return new Card(Value.Seven);
     }
 }

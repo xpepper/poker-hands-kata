@@ -4,10 +4,11 @@
 
 * Poker hand with two cards
     - straight
-        - (1,2) vs (3,3) TODO
-        - (1,2) vs (3,4)
-        - (1,2) vs (1,2)
-        - (1,2) vs (1,3) DOING
+        - (1,2) vs (1,3) DONE
+        - (2,1) vs (1,3) NEXT
+        - (1,2) vs (3,3) or (2,1) vs (3,3) TODO
+        - (1,2) vs (3,4) or (2,1) vs (4,3) 
+        - (1,2) vs (1,2) or (2,1) vs (2,1)
     - flush (=> suit!)
     - straight flush
 
