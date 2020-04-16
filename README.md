@@ -10,7 +10,9 @@
         - (1,2) vs (1,3) DOING
     - flush (=> suit!)
     - straight flush
-    
+
+* Building a Card is not easy. Also comparing a Card against another is straightforward.
+ 
 * Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
