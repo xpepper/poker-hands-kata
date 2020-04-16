@@ -1,7 +1,6 @@
 package com.kata.poker;
 
 import static com.kata.poker.Card.Value.Four;
-import static com.kata.poker.Card.Value.Three;
 
 public class Card {
 
@@ -15,12 +14,8 @@ public class Card {
         return value.numericValue.compareTo(otherCard.value.numericValue);
     }
 
-    public boolean isConsecutiveTo(Card card) {
-        return card.hasValue(Three) && hasValue(Four);
-    }
-
-    private boolean hasValue(Value value) {
-        return compareTo(new Card(value)) == 0;
+    public boolean hasValueConsecutiveTo(Card card) {
+        return Four.isConsecutiveTo(card.value);
     }
 
     public enum Value {
@@ -34,5 +29,8 @@ public class Card {
             this.numericValue = numericValue;
         }
 
+        public boolean isConsecutiveTo(Value value) {
+            return numericValue == value.numericValue + 1;
+        }
     }
 }
