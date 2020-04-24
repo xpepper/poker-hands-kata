@@ -1,5 +1,10 @@
 package com.kata.poker;
 
+import java.util.List;
+
+import static java.util.Arrays.asList;
+import static java.util.Collections.sort;
+
 public class PokerHand implements Comparable<PokerHand> {
 
     private Card firstCard;
@@ -32,8 +37,9 @@ public class PokerHand implements Comparable<PokerHand> {
     }
 
     private boolean hasStraight() {
-        return secondCard.hasValueConsecutiveTo(firstCard)
-                || firstCard.hasValueConsecutiveTo(secondCard);
+        List<Card> cards = asList(firstCard, secondCard);
+        sort(cards);
+        return cards.get(1).hasValueConsecutiveTo(cards.get(0));
     }
 
     private boolean hasPair() {

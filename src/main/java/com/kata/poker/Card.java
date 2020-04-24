@@ -1,8 +1,6 @@
 package com.kata.poker;
 
-import static com.kata.poker.Card.Value.Four;
-
-public class Card {
+public class Card implements Comparable<Card> {
 
     private Value value;
 
