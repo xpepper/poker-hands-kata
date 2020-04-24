@@ -80,6 +80,14 @@ public class PokerHandTest {
         assertEquals(IS_LOWER, handWithPair.compareTo(handWithStraight));
     }
 
+    @Test
+    public void two_hands_with_the_same_straight_are_tie() {
+        PokerHand hand = new PokerHand(five(), four());
+        PokerHand otherHand = new PokerHand(four(), five());
+
+        assertEquals(IS_TIE, hand.compareTo(otherHand));
+        assertEquals(IS_TIE, otherHand.compareTo(hand));
+    }
 
     private Card three() {
         return new Card(Value.Three);
