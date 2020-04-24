@@ -66,6 +66,16 @@ public class PokerHandTest {
         PokerHand handWithHighestCard = new PokerHand(three(), five());
 
         assertEquals(IS_GREATER, handWithStraight.compareTo(handWithHighestCard));
+        assertEquals(IS_LOWER, handWithHighestCard.compareTo(handWithStraight));
+    }
+
+    @Test
+    public void a_straight_always_wins_against_a_pair() {
+        PokerHand handWithStraight = new PokerHand(four(), three());
+        PokerHand handWithPair = new PokerHand(seven(), seven());
+
+        assertEquals(IS_GREATER, handWithStraight.compareTo(handWithPair));
+        assertEquals(IS_LOWER, handWithPair.compareTo(handWithStraight));
     }
 
     private Card three() {

@@ -21,6 +21,10 @@ public class PokerHand implements Comparable<PokerHand> {
             return 1;
         }
 
+        if (other.hasStraight()) {
+            return -1;
+        }
+
         if (hasPair() && other.hasPair()) {
             return highestCard().compareTo(other.highestCard());
         }

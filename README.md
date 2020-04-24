@@ -6,7 +6,9 @@
     - straight
         - (1,2) vs (1,3) DONE
         - (2,1) vs (1,3) DONE
+        - (1,3) vs (2,1) DONE
         - (1,2) vs (3,3) or (2,1) vs (3,3) TODO
+        - (3,3) vs (1,2) or (3,3) vs (2,1)
         - (1,2) vs (3,4) or (2,1) vs (4,3) 
         - (1,2) vs (1,2) or (2,1) vs (2,1)
     - flush (=> suit!)
