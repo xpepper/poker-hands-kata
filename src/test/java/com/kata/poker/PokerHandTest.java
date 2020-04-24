@@ -1,7 +1,6 @@
 package com.kata.poker;
 
 import com.kata.poker.Card.Value;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -14,14 +13,11 @@ public class PokerHandTest {
 
     @Test
     public void compare_hands_by_highest_card() {
-        PokerHand hand = new PokerHand(five(), three());
-        PokerHand handWithHighestCard = new PokerHand(seven(), five());
+        PokerHand lowerHighestCard = new PokerHand(five(), three());
+        PokerHand higherHighestCard = new PokerHand(seven(), five());
 
-        assertEquals(IS_LOWER, hand.compareTo(handWithHighestCard));
-        assertEquals(IS_HIGHER, handWithHighestCard.compareTo(hand));
-
-        assertEquals(IS_TIE, hand.compareTo(hand));
-        assertEquals(IS_TIE, handWithHighestCard.compareTo(handWithHighestCard));
+        assertEquals(IS_LOWER, lowerHighestCard.compareTo(higherHighestCard));
+        assertEquals(IS_HIGHER, higherHighestCard.compareTo(lowerHighestCard));
     }
 
     @Test
@@ -30,15 +26,16 @@ public class PokerHandTest {
         PokerHand otherHand = new PokerHand(three(), seven());
 
         assertEquals(IS_TIE, hand.compareTo(otherHand));
+        assertEquals(IS_TIE, otherHand.compareTo(hand));
     }
 
     @Test
     public void compare_hands_having_both_a_pair() {
-        PokerHand hand = new PokerHand(four(), four());
-        PokerHand otherHand = new PokerHand(five(), five());
+        PokerHand lowerPair = new PokerHand(four(), four());
+        PokerHand higherPair = new PokerHand(five(), five());
 
-        assertEquals(IS_LOWER, hand.compareTo(otherHand));
-        assertEquals(IS_HIGHER, otherHand.compareTo(hand));
+        assertEquals(IS_LOWER, lowerPair.compareTo(higherPair));
+        assertEquals(IS_HIGHER, higherPair.compareTo(lowerPair));
     }
 
     @Test
