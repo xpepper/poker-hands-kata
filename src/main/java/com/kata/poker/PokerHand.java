@@ -39,7 +39,7 @@ public class PokerHand implements Comparable<PokerHand> {
     private boolean hasStraight() {
         List<Card> cards = asList(firstCard, secondCard);
         sort(cards);
-        return cards.get(1).hasValueConsecutiveTo(cards.get(0));
+        return cards.get(0).comesBefore(cards.get(1));
     }
 
     private boolean hasPair() {

@@ -12,8 +12,8 @@ public class Card implements Comparable<Card> {
         return value.numericValue.compareTo(otherCard.value.numericValue);
     }
 
-    public boolean hasValueConsecutiveTo(Card card) {
-        return value.isConsecutiveTo(card.value);
+    public boolean comesBefore(Card card) {
+        return value.comesBefore(card.value);
     }
 
     public enum Value {
@@ -28,8 +28,8 @@ public class Card implements Comparable<Card> {
             this.numericValue = numericValue;
         }
 
-        public boolean isConsecutiveTo(Value value) {
-            return numericValue == value.numericValue + 1;
+        public boolean comesBefore(Value value) {
+            return numericValue + 1 == value.numericValue;
         }
     }
 }

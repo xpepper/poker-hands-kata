@@ -2,8 +2,6 @@
 
 ### TODO
 
-* improve name of hasValueConsecutiveTo?
-
 * Poker hand with two cards
     - straight
         - (1,2) vs (1,3) DONE
