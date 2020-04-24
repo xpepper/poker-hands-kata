@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class PokerHandTest {
 
     private static final int IS_LOWER = -1;
-    private static final int IS_GREATER = 1;
+    private static final int IS_HIGHER = 1;
     private static final int IS_TIE = 0;
 
     @Test
@@ -18,7 +18,7 @@ public class PokerHandTest {
         PokerHand handWithHighestCard = new PokerHand(seven(), five());
 
         assertEquals(IS_LOWER, hand.compareTo(handWithHighestCard));
-        assertEquals(IS_GREATER, handWithHighestCard.compareTo(hand));
+        assertEquals(IS_HIGHER, handWithHighestCard.compareTo(hand));
 
         assertEquals(IS_TIE, hand.compareTo(hand));
         assertEquals(IS_TIE, handWithHighestCard.compareTo(handWithHighestCard));
@@ -38,7 +38,7 @@ public class PokerHandTest {
         PokerHand otherHand = new PokerHand(five(), five());
 
         assertEquals(IS_LOWER, hand.compareTo(otherHand));
-        assertEquals(IS_GREATER, otherHand.compareTo(hand));
+        assertEquals(IS_HIGHER, otherHand.compareTo(hand));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class PokerHandTest {
         PokerHand handWithPair = new PokerHand(three(), three());
         PokerHand handWithHighestCard = new PokerHand(five(), three());
 
-        assertEquals(IS_GREATER, handWithPair.compareTo(handWithHighestCard));
+        assertEquals(IS_HIGHER, handWithPair.compareTo(handWithHighestCard));
         assertEquals(IS_LOWER, handWithHighestCard.compareTo(handWithPair));
     }
 
@@ -64,7 +64,7 @@ public class PokerHandTest {
         PokerHand handWithStraight = new PokerHand(four(), three());
         PokerHand handWithHighestCard = new PokerHand(three(), five());
 
-        assertEquals(IS_GREATER, handWithStraight.compareTo(handWithHighestCard));
+        assertEquals(IS_HIGHER, handWithStraight.compareTo(handWithHighestCard));
         assertEquals(IS_LOWER, handWithHighestCard.compareTo(handWithStraight));
     }
 
@@ -73,7 +73,7 @@ public class PokerHandTest {
         PokerHand handWithStraight = new PokerHand(four(), three());
         PokerHand handWithPair = new PokerHand(seven(), seven());
 
-        assertEquals(IS_GREATER, handWithStraight.compareTo(handWithPair));
+        assertEquals(IS_HIGHER, handWithStraight.compareTo(handWithPair));
         assertEquals(IS_LOWER, handWithPair.compareTo(handWithStraight));
     }
 
@@ -92,7 +92,7 @@ public class PokerHandTest {
         PokerHand higherStraight = new PokerHand(four(), five());
 
         assertEquals(IS_LOWER, lowerStraight.compareTo(higherStraight));
-        assertEquals(IS_GREATER, higherStraight.compareTo(lowerStraight));
+        assertEquals(IS_HIGHER, higherStraight.compareTo(lowerStraight));
     }
 
     private Card three() {
