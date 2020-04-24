@@ -1,6 +1,7 @@
 package com.kata.poker;
 
 import com.kata.poker.Card.Value;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -49,6 +50,7 @@ public class PokerHandTest {
         PokerHand otherHand = new PokerHand(five(), five());
 
         assertEquals(IS_TIE, hand.compareTo(otherHand));
+        assertEquals(IS_TIE, otherHand.compareTo(hand));
     }
 
     @Test
@@ -77,6 +79,7 @@ public class PokerHandTest {
         assertEquals(IS_GREATER, handWithStraight.compareTo(handWithPair));
         assertEquals(IS_LOWER, handWithPair.compareTo(handWithStraight));
     }
+
 
     private Card three() {
         return new Card(Value.Three);
