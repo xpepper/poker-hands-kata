@@ -2,17 +2,12 @@
 
 ### TODO
 
-* rename IS_GREATER => IS_HIGHER
-* rename hand / otherHand with lower / higher  
+* highest card computation could use the "sorted list" approach?
+
+* (get rid of first/second card fields) 
+    => Encapsulate the firstCard and secondCard into a "cards" concept (a list of cards...)
+     
 * Poker hand with two cards
-    - straight
-        - (1,2) vs (1,3) DONE
-        - (2,1) vs (1,3) DONE
-        - (1,3) vs (2,1) DONE
-        - (1,2) vs (3,3) or (2,1) vs (3,3) DONE
-        - (3,3) vs (1,2) or (3,3) vs (2,1) DONE
-        - (2,3) vs (3,4) or (2,1) vs (4,3) 
-        - (1,2) vs (1,2) or (2,1) vs (2,1) DONE
     - flush (=> suit!)
     - straight flush
 
@@ -22,8 +17,6 @@
 
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
-
-* Encapsulate the firstCard and secondCard into a "cards" concept (a list of cards...) 
 
 * Poker hand with three cards...
     * rewrite the logic to find the highest card in a hand using sorting
