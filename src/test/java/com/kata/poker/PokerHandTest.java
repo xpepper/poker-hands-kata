@@ -25,8 +25,8 @@ public class PokerHandTest {
 
     @Test
     public void two_hands_with_the_same_highest_card_are_tie() {
-        PokerHand hand = new PokerHand(five(), four());
-        PokerHand otherHand = new PokerHand(three(), five());
+        PokerHand hand = new PokerHand(seven(), four());
+        PokerHand otherHand = new PokerHand(three(), seven());
 
         assertEquals(IS_TIE, hand.compareTo(otherHand));
     }
@@ -54,7 +54,7 @@ public class PokerHandTest {
     @Test
     public void a_pair_always_wins_against_a_highest_card() {
         PokerHand handWithPair = new PokerHand(three(), three());
-        PokerHand handWithHighestCard = new PokerHand(five(), four());
+        PokerHand handWithHighestCard = new PokerHand(five(), three());
 
         assertEquals(IS_GREATER, handWithPair.compareTo(handWithHighestCard));
         assertEquals(IS_LOWER, handWithHighestCard.compareTo(handWithPair));
@@ -62,7 +62,7 @@ public class PokerHandTest {
 
     @Test
     public void a_straight_always_wins_against_a_highest_card() {
-        PokerHand handWithStraight = new PokerHand(three(), four());
+        PokerHand handWithStraight = new PokerHand(four(), three());
         PokerHand handWithHighestCard = new PokerHand(three(), five());
 
         assertEquals(IS_GREATER, handWithStraight.compareTo(handWithHighestCard));
