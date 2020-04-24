@@ -86,6 +86,15 @@ public class PokerHandTest {
         assertEquals(IS_TIE, otherHand.compareTo(hand));
     }
 
+    @Test
+    public void compare_hands_having_both_a_straight() {
+        PokerHand lowerStraight = new PokerHand(three(), four());
+        PokerHand higherStraight = new PokerHand(four(), five());
+
+        assertEquals(IS_LOWER, lowerStraight.compareTo(higherStraight));
+        assertEquals(IS_GREATER, higherStraight.compareTo(lowerStraight));
+    }
+
     private Card three() {
         return new Card(Value.Three);
     }
