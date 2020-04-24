@@ -39,9 +39,6 @@ public class PokerHandTest {
 
         assertEquals(IS_LOWER, hand.compareTo(otherHand));
         assertEquals(IS_GREATER, otherHand.compareTo(hand));
-
-        assertEquals(IS_TIE, hand.compareTo(hand));
-        assertEquals(IS_TIE, otherHand.compareTo(otherHand));
     }
 
     @Test
