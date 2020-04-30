@@ -13,10 +13,10 @@
 
 * Building a Card is not easy. Also comparing a Card against another is NOT straightforward.
  
-* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
-
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
+
+* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
 * Poker hand with three cards...
     * rewrite the logic to find the highest card in a hand using sorting
