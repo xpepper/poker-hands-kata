@@ -3,6 +3,7 @@ package com.kata.poker;
 import com.kata.poker.Card.Value;
 import org.junit.Test;
 
+import static com.kata.poker.Card.Suit.*;
 import static org.junit.Assert.assertEquals;
 
 public class PokerHandTest {
@@ -90,6 +91,27 @@ public class PokerHandTest {
 
         assertEquals(IS_LOWER, lowerStraight.compareTo(higherStraight));
         assertEquals(IS_HIGHER, higherStraight.compareTo(lowerStraight));
+    }
+
+    @Test
+    public void a_flush_always_wins_against_a_highest_card() {
+        PokerHand flush = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
+        PokerHand highestCard = new PokerHand(threeOf(Hearts), sevenOf(Diamonds));
+
+        assertEquals(IS_HIGHER, flush.compareTo(highestCard));
+        assertEquals(IS_LOWER, highestCard.compareTo(flush));
+    }
+
+    private Card threeOf(Card.Suit suit) {
+        return new Card(Value.Three, suit);
+    }
+
+    private Card fiveOf(Card.Suit suit) {
+        return new Card(Value.Five, suit);
+    }
+
+    private Card sevenOf(Card.Suit suit) {
+        return new Card(Value.Seven, suit);
     }
 
     private Card three() {

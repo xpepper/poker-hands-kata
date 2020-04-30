@@ -2,10 +2,16 @@ package com.kata.poker;
 
 public class Card implements Comparable<Card> {
 
-    private Value value;
+    private final Value value;
+    private final Suit suit;
 
     public Card(Value value) {
+        this(value, null);
+    }
+
+    public Card(Value value, Suit suit) {
         this.value = value;
+        this.suit = suit;
     }
 
     public int compareTo(Card otherCard) {
@@ -36,4 +42,6 @@ public class Card implements Comparable<Card> {
             return numericValue + 1 == otherValue.numericValue;
         }
     }
+
+    public enum Suit {Hearts, Diamonds}
 }
