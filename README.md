@@ -11,7 +11,7 @@
         - (3D, 7D) vs (3S, 7S) is a TIE
     - straight flush
 
-* Building a Card is not easy. Also comparing a Card against another is straightforward.
+* Building a Card is not easy. Also comparing a Card against another is NOT straightforward.
  
 * Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
