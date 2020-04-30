@@ -2,7 +2,7 @@
 
 ### TODO
 
-* Improve the check of two cards with the same value (card.hasSameValueOf ?)
+* Improve the check of two cards with the same value (`card.hasSameValueOf` ?)
      
 * Poker hand with two cards
     - flush (=> suit!)

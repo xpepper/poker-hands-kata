@@ -1,17 +1,18 @@
 package com.kata.poker;
 
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.*;
 import static java.util.Collections.sort;
 
 public class PokerHand implements Comparable<PokerHand> {
 
-    private List<Card> cards;
+    private final List<Card> cards;
 
     public PokerHand(Card first, Card second) {
-        cards = asList(first, second);
-        sort(cards);
+        this.cards = sortedListOf(first, second);
     }
 
     @Override
@@ -53,5 +54,11 @@ public class PokerHand implements Comparable<PokerHand> {
 
     private Card highestCard() {
         return cards.get(1);
+    }
+
+    private List<Card> sortedListOf(Card first, Card second) {
+        List<Card> cards = asList(first, second);
+        sort(cards);
+        return unmodifiableList(cards);
     }
 }
