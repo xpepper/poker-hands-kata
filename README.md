@@ -2,8 +2,6 @@
 
 ### TODO
 
-* highest card computation could use the "sorted list" approach?
-
 * (get rid of first/second card fields) 
     => Encapsulate the firstCard and secondCard into a "cards" concept (a list of cards...)
      
