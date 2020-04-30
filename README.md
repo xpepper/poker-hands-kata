@@ -2,8 +2,7 @@
 
 ### TODO
 
-* (get rid of first/second card fields) 
-    => Encapsulate the firstCard and secondCard into a "cards" concept (a list of cards...)
+* Improve the check of two cards with the same value (card.hasSameValueOf ?)
      
 * Poker hand with two cards
     - flush (=> suit!)

@@ -7,12 +7,11 @@ import static java.util.Collections.sort;
 
 public class PokerHand implements Comparable<PokerHand> {
 
-    private Card firstCard;
-    private Card secondCard;
+    private List<Card> cards;
 
     public PokerHand(Card first, Card second) {
-        firstCard = first;
-        secondCard = second;
+        cards = asList(first, second);
+        sort(cards);
     }
 
     @Override
@@ -45,18 +44,14 @@ public class PokerHand implements Comparable<PokerHand> {
     }
 
     private boolean hasStraight() {
-        List<Card> cards = asList(firstCard, secondCard);
-        sort(cards);
         return cards.get(0).comesBefore(cards.get(1));
     }
 
     private boolean hasPair() {
-        return firstCard.compareTo(secondCard) == 0;
+        return cards.get(0).compareTo(cards.get(1)) == 0;
     }
 
     private Card highestCard() {
-        List<Card> cards = asList(firstCard, secondCard);
-        sort(cards);
         return cards.get(1);
     }
 }
