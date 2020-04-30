@@ -1,8 +1,6 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
-
-* Improve the check of two cards with the same value (`card.hasSameValueOf` ?)
      
 * Poker hand with two cards
     - flush (=> suit!)

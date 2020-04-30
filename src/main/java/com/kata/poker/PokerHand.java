@@ -1,6 +1,5 @@
 package com.kata.poker;
 
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -49,7 +48,7 @@ public class PokerHand implements Comparable<PokerHand> {
     }
 
     private boolean hasPair() {
-        return cards.get(0).compareTo(cards.get(1)) == 0;
+        return cards.get(0).hasSameValueOf(cards.get(1));
     }
 
     private Card highestCard() {

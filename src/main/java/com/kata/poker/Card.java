@@ -16,6 +16,10 @@ public class Card implements Comparable<Card> {
         return value.comesBefore(card.value);
     }
 
+    public boolean hasSameValueOf(Card otherCard) {
+        return value.equals(otherCard.value);
+    }
+
     public enum Value {
         Three(3),
         Four(4),
@@ -28,8 +32,8 @@ public class Card implements Comparable<Card> {
             this.numericValue = numericValue;
         }
 
-        public boolean comesBefore(Value value) {
-            return numericValue + 1 == value.numericValue;
+        public boolean comesBefore(Value otherValue) {
+            return numericValue + 1 == otherValue.numericValue;
         }
     }
 }
