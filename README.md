@@ -3,13 +3,12 @@
 ### TODO
 
 * Poker hand with two cards
-    - flush (=> suit!) (D,H,C,S)
-        - (3D, 5D) WINS over (3H, 7D) **DONE**
-        - (3D, 5D) WINS over (3H, 3C) **DONE**
-        - (3D, 5D) WINS over (3H, 4C) **DONE**
-        - (3D, 7D) WINS over (3S, 5S) **DONE**
-        - (3D, 7D) vs (3S, 7S) is a TIE **DONE**
     - straight flush
+        - (3D, 4D) WINS over flush (3C, 5C)
+        - (3D, 4D) WINS over straight (4H, 5D)
+        - (3D, 4D) WINS over pair (3H, 3C)
+        - (3D, 4D) WINS over highest card (3S, 7C)
+        - (3D, 4D) vs (3S, 4S) is a TIE
  
 * Building a Card is not easy. Also, comparing a Card against another is NOT straightforward.
  
