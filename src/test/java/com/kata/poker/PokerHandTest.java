@@ -100,7 +100,7 @@ public class PokerHandTest {
         PokerHand highestCard = new PokerHand(threeOf(Hearts), sevenOf(Diamonds));
 
         assertEquals(IS_HIGHER, flush.compareTo(highestCard));
-//        assertEquals(IS_LOWER, highestCard.compareTo(flush));
+        assertEquals(IS_LOWER, highestCard.compareTo(flush));
     }
 
     private Card threeOf(Card.Suit suit) {
