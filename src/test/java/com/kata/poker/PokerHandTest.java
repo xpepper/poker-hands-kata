@@ -1,7 +1,6 @@
 package com.kata.poker;
 
 import com.kata.poker.Card.Value;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
@@ -119,6 +118,15 @@ public class PokerHandTest {
 
         assertEquals(IS_HIGHER, flush.compareTo(straight));
         assertEquals(IS_LOWER, straight.compareTo(flush));
+    }
+
+    @Test
+    public void highest_card_wins_when_both_hands_have_a_flush() {
+        PokerHand lowerFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
+        PokerHand higherFlush = new PokerHand(fourOf(Spades), fiveOf(Spades));
+
+        assertEquals(IS_LOWER, lowerFlush.compareTo(higherFlush));
+        assertEquals(IS_HIGHER, higherFlush.compareTo(lowerFlush));
     }
 
     private Card threeOf(Card.Suit suit) {

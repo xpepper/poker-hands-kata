@@ -7,10 +7,11 @@
         - (3D, 5D) WINS over (3H, 7D) **DONE**
         - (3D, 5D) WINS over (3H, 3C) **DONE**
         - (3D, 5D) WINS over (3H, 4C) **DONE**
-        - (3D, 7D) WINS over (3S, 5S)
+        - (3D, 7D) WINS over (3S, 5S) **DOING**
         - (3D, 7D) vs (3S, 7S) is a TIE
     - straight flush
 
+* rename compare_hands_having_both_a_straight, compare_hands_by_highest_card, compare_hands_having_both_a_pair and 
 * Building a Card is not easy. Also, comparing a Card against another is NOT straightforward.
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
