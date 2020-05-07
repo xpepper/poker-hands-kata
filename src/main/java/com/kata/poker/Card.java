@@ -22,6 +22,10 @@ public class Card implements Comparable<Card> {
         return value.equals(otherCard.value);
     }
 
+    public boolean hasSameSuitOf(Card otherCard) {
+        return suit.equals(otherCard.suit);
+    }
+
     public enum Value {
         Three(3),
         Four(4),

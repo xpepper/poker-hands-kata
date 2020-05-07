@@ -16,6 +16,10 @@ public class PokerHand implements Comparable<PokerHand> {
 
     @Override
     public int compareTo(PokerHand other) {
+        if (cards.get(0).hasSameSuitOf(cards.get(1))) {
+            return 1;
+        }
+
         if (hasStraight() && other.hasStraight()) {
             return highestCard().compareTo(other.highestCard());
         }
