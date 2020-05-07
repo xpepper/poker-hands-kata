@@ -13,7 +13,7 @@ public class PokerHandTest {
     private static final int IS_TIE = 0;
 
     @Test
-    public void compare_hands_by_highest_card() {
+    public void highest_card_wins_when_both_hands_do_not_fit_any_higher_ranking() {
         PokerHand lowerHighestCard = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand higherHighestCard = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
@@ -31,7 +31,7 @@ public class PokerHandTest {
     }
 
     @Test
-    public void compare_hands_having_both_a_pair() {
+    public void highest_card_wins_when_both_hands_have_a_pair() {
         PokerHand lowerPair = new PokerHand(fourOf(Diamonds), fourOf(Hearts));
         PokerHand higherPair = new PokerHand(fiveOf(Spades), fiveOf(Spades));
 
@@ -85,7 +85,7 @@ public class PokerHandTest {
     }
 
     @Test
-    public void compare_hands_having_both_a_straight() {
+    public void highest_card_wins_when_both_hands_have_a_straight() {
         PokerHand lowerStraight = new PokerHand(threeOf(Diamonds), fourOf(Hearts));
         PokerHand higherStraight = new PokerHand(fourOf(Hearts), fiveOf(Spades));
 
