@@ -10,22 +10,26 @@
         - (3D, 4D) WINS over highest card (3S, 7C)
         - (3D, 4D) vs (3S, 4S) is a TIE
  
-* Building a Card is not easy. Also, comparing a Card against another is NOT straightforward.
+* Building a Card is not easy (new Card(Value.Three, suit) vs some of builder / factory). 
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
 
 * Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
-* Poker hand with three cards...
+* Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting
-
+    * three of a kind ranking
+    
 * Add all the possible values for the poker `Cards`
 
 * From a single-card poker hand to a 5-cards poker hand
-    * introducing the "suit" of each card
+    * two pairs ("4 cards" world)
+    * four of a kind (poker) ranking ("4 cards" world)
+    * full house ranking ("5 cards" world)
 
 * Are we sure we are testing all the possible combinations of hands?
+    * parametrize test?
 
 * New "Texas Hold'em" rule: 2 cards in your hand + 5 common cards on the table
     - hand1: (2, 4), hand2: (8, 5), table: (3, 5, 6, 8, 8) 
