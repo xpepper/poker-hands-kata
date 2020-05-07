@@ -112,6 +112,15 @@ public class PokerHandTest {
     }
 
     @Test
+    public void two_hands_with_the_same_flush_are_tie() {
+        PokerHand hand = new PokerHand(fourOf(Spades), sevenOf(Spades));
+        PokerHand otherHand = new PokerHand(fourOf(Diamonds), sevenOf(Diamonds));
+
+        assertEquals(IS_TIE, hand.compareTo(otherHand));
+        assertEquals(IS_TIE, otherHand.compareTo(hand));
+    }
+
+    @Test
     public void a_flush_always_wins_against_a_straight() {
         PokerHand flush = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
         PokerHand straight = new PokerHand(threeOf(Hearts), fourOf(Diamonds));
