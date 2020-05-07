@@ -1,7 +1,7 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
-     
+
 * Poker hand with two cards
     - flush (=> suit!) (D,H,C,S)
         - (3D, 5D) WINS over (3H, 7D) **DOING**
@@ -11,7 +11,7 @@
         - (3D, 7D) vs (3S, 7S) is a TIE
     - straight flush
 
-* Building a Card is not easy. Also comparing a Card against another is NOT straightforward.
+* Building a Card is not easy. Also, comparing a Card against another is NOT straightforward.
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
@@ -27,6 +27,10 @@
     * introducing the "suit" of each card
 
 * Are we sure we are testing all the possible combinations of hands?
+
+* New "Texas Hold'em" rule: 2 cards in your hand + 5 common cards on the table
+    - hand1: (2, 4), hand2: (8, 5), table: (3, 5, 6, 8, 8) 
+     
     
 ### Notes
 
