@@ -5,7 +5,7 @@
 * Poker hand with two cards
     - flush (=> suit!) (D,H,C,S)
         - (3D, 5D) WINS over (3H, 7D) **DONE**
-        - (3D, 5D) WINS over (3H, 3C)
+        - (3D, 5D) WINS over (3H, 3C) **DONE**
         - (3D, 5D) WINS over (3H, 4C)
         - (3D, 7D) WINS over (3S, 5S)
         - (3D, 7D) vs (3S, 7S) is a TIE
