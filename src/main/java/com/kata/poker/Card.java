@@ -5,10 +5,6 @@ public class Card implements Comparable<Card> {
     private final Value value;
     private final Suit suit;
 
-    public Card(Value value) {
-        this(value, null);
-    }
-
     public Card(Value value, Suit suit) {
         this.value = value;
         this.suit = suit;
@@ -43,5 +39,5 @@ public class Card implements Comparable<Card> {
         }
     }
 
-    public enum Suit {Hearts, Diamonds}
+    public enum Suit {Hearts, Spades, Clubs, Diamonds}
 }
