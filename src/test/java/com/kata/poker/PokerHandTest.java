@@ -174,6 +174,15 @@ public class PokerHandTest {
         assertEquals(IS_LOWER, highestCard.compareTo(straightFlush));
     }
 
+    @Test
+    public void two_hands_with_the_same_straight_flush_are_tie() {
+        PokerHand hand = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
+        PokerHand otherHand = new PokerHand(threeOf(Spades), fourOf(Spades));
+
+        assertEquals(IS_TIE, hand.compareTo(otherHand));
+        assertEquals(IS_TIE, otherHand.compareTo(hand));
+    }
+
     private Card threeOf(Card.Suit suit) {
         return new Card(Value.Three, suit);
     }
