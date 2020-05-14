@@ -131,11 +131,20 @@ public class PokerHandTest {
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_flush() {
-        PokerHand lowerFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
-        PokerHand higherFlush = new PokerHand(fourOf(Spades), fiveOf(Spades));
+        PokerHand lowerFlush = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
+        PokerHand higherFlush = new PokerHand(fourOf(Spades), sevenOf(Spades));
 
         assertEquals(IS_LOWER, lowerFlush.compareTo(higherFlush));
         assertEquals(IS_HIGHER, higherFlush.compareTo(lowerFlush));
+    }
+
+    @Test
+    public void a_straight_flush_always_wins_against_a_flush() {
+        PokerHand straightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
+        PokerHand flush = new PokerHand(threeOf(Clubs), fiveOf(Clubs));
+
+        assertEquals(IS_HIGHER, straightFlush.compareTo(flush));
+        assertEquals(IS_LOWER, flush.compareTo(straightFlush));
     }
 
     private Card threeOf(Card.Suit suit) {
