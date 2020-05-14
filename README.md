@@ -4,11 +4,12 @@
 
 * Poker hand with two cards
     - straight flush
-        - (3D, 4D) WINS over flush (3C, 5C)
-        - (3D, 4D) WINS over straight (4H, 5D)
+        - (3D, 4D) WINS over flush (3C, 5C) DONE
+        - (3D, 4D) WINS over straight (4H, 5D) DONE
         - (3D, 4D) WINS over pair (3H, 3C)
         - (3D, 4D) WINS over highest card (3S, 7C)
         - (3D, 4D) vs (3S, 4S) is a TIE
+        - (3D, 4D) vs (4S, 5S), highest card win
  
 * Building a Card is not easy (new Card(Value.Three, suit) vs some of builder / factory). 
  
