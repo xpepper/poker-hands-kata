@@ -156,6 +156,15 @@ public class PokerHandTest {
         assertEquals(IS_LOWER, straight.compareTo(straightFlush));
     }
 
+    @Test
+    public void a_straight_flush_always_wins_against_a_pair() {
+        PokerHand straightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
+        PokerHand pair = new PokerHand(fourOf(Clubs), fourOf(Hearts));
+
+        assertEquals(IS_HIGHER, straightFlush.compareTo(pair));
+        assertEquals(IS_LOWER, pair.compareTo(straightFlush));
+    }
+
     private Card threeOf(Card.Suit suit) {
         return new Card(Value.Three, suit);
     }
