@@ -14,11 +14,11 @@ public class PokerHandTest {
 
     @Test
     public void highest_card_wins_when_both_hands_do_not_fit_any_higher_ranking() {
-        PokerHand lowerHighestCard = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
-        PokerHand higherHighestCard = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
+        PokerHand lowerHand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
+        PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
-        assertEquals(IS_LOWER, lowerHighestCard.compareTo(higherHighestCard));
-        assertEquals(IS_HIGHER, higherHighestCard.compareTo(lowerHighestCard));
+        assertEquals(IS_LOWER, lowerHand.compareTo(higherHand));
+        assertEquals(IS_HIGHER, higherHand.compareTo(lowerHand));
     }
 
     @Test
@@ -32,11 +32,11 @@ public class PokerHandTest {
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_pair() {
-        PokerHand lowerPair = new PokerHand(fourOf(Diamonds), fourOf(Hearts));
-        PokerHand higherPair = new PokerHand(fiveOf(Spades), fiveOf(Spades));
+        PokerHand lowerHand = new PokerHand(fourOf(Diamonds), fourOf(Hearts));
+        PokerHand higherHand = new PokerHand(fiveOf(Spades), fiveOf(Spades));
 
-        assertEquals(IS_LOWER, lowerPair.compareTo(higherPair));
-        assertEquals(IS_HIGHER, higherPair.compareTo(lowerPair));
+        assertEquals(IS_LOWER, lowerHand.compareTo(higherHand));
+        assertEquals(IS_HIGHER, higherHand.compareTo(lowerHand));
     }
 
     @Test
@@ -86,11 +86,11 @@ public class PokerHandTest {
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_straight() {
-        PokerHand lowerStraight = new PokerHand(threeOf(Diamonds), fourOf(Hearts));
-        PokerHand higherStraight = new PokerHand(fourOf(Hearts), fiveOf(Spades));
+        PokerHand lowerHand = new PokerHand(threeOf(Diamonds), fourOf(Hearts));
+        PokerHand higherHand = new PokerHand(fourOf(Hearts), fiveOf(Spades));
 
-        assertEquals(IS_LOWER, lowerStraight.compareTo(higherStraight));
-        assertEquals(IS_HIGHER, higherStraight.compareTo(lowerStraight));
+        assertEquals(IS_LOWER, lowerHand.compareTo(higherHand));
+        assertEquals(IS_HIGHER, higherHand.compareTo(lowerHand));
     }
 
     @Test
@@ -131,11 +131,11 @@ public class PokerHandTest {
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_flush() {
-        PokerHand lowerFlush = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
-        PokerHand higherFlush = new PokerHand(fourOf(Spades), sevenOf(Spades));
+        PokerHand lowerHand = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
+        PokerHand higherHand = new PokerHand(fourOf(Spades), sevenOf(Spades));
 
-        assertEquals(IS_LOWER, lowerFlush.compareTo(higherFlush));
-        assertEquals(IS_HIGHER, higherFlush.compareTo(lowerFlush));
+        assertEquals(IS_LOWER, lowerHand.compareTo(higherHand));
+        assertEquals(IS_HIGHER, higherHand.compareTo(lowerHand));
     }
 
     @Test
@@ -185,11 +185,11 @@ public class PokerHandTest {
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_straight_flush() {
-        PokerHand lowerStraightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
-        PokerHand higherStraightFlush = new PokerHand(fourOf(Spades), fiveOf(Spades));
+        PokerHand lowerHand = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
+        PokerHand higherHand = new PokerHand(fourOf(Spades), fiveOf(Spades));
 
-        assertEquals(IS_LOWER, lowerStraightFlush.compareTo(higherStraightFlush));
-        assertEquals(IS_HIGHER, higherStraightFlush.compareTo(lowerStraightFlush));
+        assertEquals(IS_LOWER, lowerHand.compareTo(higherHand));
+        assertEquals(IS_HIGHER, higherHand.compareTo(lowerHand));
     }
 
     private Card threeOf(Card.Suit suit) {
