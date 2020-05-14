@@ -192,19 +192,19 @@ public class PokerHandTest {
         assertEquals(IS_HIGHER, higherHand.compareTo(lowerHand));
     }
 
-    private Card threeOf(Card.Suit suit) {
+    public static Card threeOf(Card.Suit suit) {
         return new Card(Value.Three, suit);
     }
 
-    private Card fourOf(Card.Suit suit) {
+    public static Card fourOf(Card.Suit suit) {
         return new Card(Value.Four, suit);
     }
 
-    private Card fiveOf(Card.Suit suit) {
+    public static Card fiveOf(Card.Suit suit) {
         return new Card(Value.Five, suit);
     }
 
-    private Card sevenOf(Card.Suit suit) {
+    public static Card sevenOf(Card.Suit suit) {
         return new Card(Value.Seven, suit);
     }
 

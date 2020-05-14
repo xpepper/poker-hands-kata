@@ -3,6 +3,7 @@
 ### TODO
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
+    * explore how to tell which hand winds in a game, like `WinningRank r = new Game(hand, otherHand).play()`
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
 
 * Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
@@ -20,6 +21,8 @@
 
 * Are we sure we are testing all the possible combinations of hands?
     * parametrize test?
+
+* Play a poker game between two players starting from a text input
 
 * Building a Card is not easy (new Card(Value.Three, suit) vs some of builder / factory).
     * Waiting to have an application code that needs to create many cards in order to play a game
