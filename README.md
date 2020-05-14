@@ -2,15 +2,6 @@
 
 ### TODO
 
-* Poker hand with two cards
-    - straight flush
-        - (3D, 4D) WINS over flush (3C, 5C) DONE
-        - (3D, 4D) WINS over straight (4H, 5D) DONE
-        - (3D, 4D) WINS over pair (3H, 3C) DONE
-        - (3D, 4D) WINS over highest card (3S, 7C) DONE
-        - (3D, 4D) vs (3S, 4S) is a TIE - DONE
-        - (3D, 4D) vs (4S, 5S), highest card win
- 
 * Building a Card is not easy (new Card(Value.Three, suit) vs some of builder / factory). 
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)

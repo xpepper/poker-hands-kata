@@ -183,6 +183,15 @@ public class PokerHandTest {
         assertEquals(IS_TIE, otherHand.compareTo(hand));
     }
 
+    @Test
+    public void highest_card_wins_when_both_hands_have_a_straight_flush() {
+        PokerHand lowerStraightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
+        PokerHand higherStraightFlush = new PokerHand(fourOf(Spades), fiveOf(Spades));
+
+        assertEquals(IS_LOWER, lowerStraightFlush.compareTo(higherStraightFlush));
+        assertEquals(IS_HIGHER, higherStraightFlush.compareTo(lowerStraightFlush));
+    }
+
     private Card threeOf(Card.Suit suit) {
         return new Card(Value.Three, suit);
     }
