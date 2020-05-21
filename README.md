@@ -3,10 +3,6 @@
 ### TODO
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
-    * explore how to tell which hand wins in a game
-        * First Hand wins. - DONE
-        * Second Hand wins. - DONE
-        * Tie.
     * explore how to tell which player name wins in a game
         * Black wins.
         * White wins.
@@ -15,7 +11,7 @@
         * White wins. - with high card
         * Black wins. - with full house
         * Tie.
-     * explore how to tell which is the winning rank and its point
+    * explore how to tell which is the winning rank and its point
         * White wins. - with high card: Ace
         * Black wins. - with full house: 4 over 2
         * Tie.
