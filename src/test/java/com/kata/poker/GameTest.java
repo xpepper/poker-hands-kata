@@ -25,4 +25,13 @@ public class GameTest {
         assertEquals("Tie.", new Game(hand, otherHand).play());
     }
 
+    @Test
+    public void returns_the_name_of_the_player_with_the_winning_hand() {
+        PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
+        PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
+
+        assertEquals("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).play());
+        assertEquals("Black wins.", new Game(new Player("White", hand), new Player("Black", higherHand)).play());
+    }
+
 }

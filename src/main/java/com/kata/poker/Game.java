@@ -5,21 +5,25 @@ public class Game {
     private static final int FIRST_HAND = 1;
     private static final int TIE = 0;
 
-    private final PokerHand firstHand;
-    private final PokerHand secondHand;
+    private final Player firstPlayer;
+    private final Player secondPlayer;
 
     public Game(PokerHand firstHand, PokerHand secondHand) {
-        this.firstHand = firstHand;
-        this.secondHand = secondHand;
+        this(new Player("first hand", firstHand), new Player("second hand", secondHand));
+    }
+
+    public Game(Player firstPlayer, Player secondPlayer) {
+        this.firstPlayer = firstPlayer;
+        this.secondPlayer = secondPlayer;
     }
 
     public String play() {
-        int winningHand = firstHand.compareTo(secondHand);
+        int winningHand = firstPlayer.hand.compareTo(secondPlayer.hand);
         switch (winningHand) {
             case FIRST_HAND:
-                return "first hand wins.";
+                return firstPlayer.name + " wins.";
             case SECOND_HAND:
-                return "second hand wins.";
+                return secondPlayer.name + " wins.";
             case TIE:
             default:
                 return "Tie.";
