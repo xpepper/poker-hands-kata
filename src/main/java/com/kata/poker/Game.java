@@ -8,10 +8,6 @@ public class Game {
     private final Player firstPlayer;
     private final Player secondPlayer;
 
-    public Game(PokerHand firstHand, PokerHand secondHand) {
-        this(new Player("first hand", firstHand), new Player("second hand", secondHand));
-    }
-
     public Game(Player firstPlayer, Player secondPlayer) {
         this.firstPlayer = firstPlayer;
         this.secondPlayer = secondPlayer;
