@@ -12,8 +12,8 @@ public class Game {
     public String play() {
         if (firstHand.compareTo(secondHand) == -1) {
             return "second hand wins.";
+        } else {
+            return "first hand wins.";
         }
-
-        return null;
     }
 }

@@ -4,7 +4,7 @@
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
     * explore how to tell which hand wins in a game
-        * First Hand wins.
+        * First Hand wins. - DONE
         * Second Hand wins. - DONE
         * Tie.
     * explore how to tell which player name wins in a game
