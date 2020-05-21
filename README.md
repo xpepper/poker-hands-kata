@@ -3,6 +3,7 @@
 ### TODO
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
+    * is Game bound to be "inlined" and removed?
     * find a way to have a shorter statement than `assertEquals("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).play());`
     * explore how to tell which is the winning rank of the player
         * White wins. - with high card
