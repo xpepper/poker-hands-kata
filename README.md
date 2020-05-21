@@ -3,7 +3,22 @@
 ### TODO
  
 * From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
-    * explore how to tell which hand winds in a game, like `WinningRank r = new Game(hand, otherHand).play()`
+    * explore how to tell which hand wins in a game
+        * First Hand wins.
+        * Second Hand wins. - DONE
+        * Tie.
+    * explore how to tell which player name wins in a game
+        * Black wins.
+        * White wins.
+        * Tie.
+    * explore how to tell which is the winning rank of the player
+        * White wins. - with high card
+        * Black wins. - with full house
+        * Tie.
+     * explore how to tell which is the winning rank and its point
+        * White wins. - with high card: Ace
+        * Black wins. - with full house: 4 over 2
+        * Tie.
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
 
 * Smells like a rule engine is yelling to be implemented to evaluate the poker hands...

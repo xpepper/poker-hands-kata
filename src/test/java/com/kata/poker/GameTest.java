@@ -14,8 +14,8 @@ public class GameTest {
         PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand otherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
-        WinningRank winningRank = new Game(hand, otherHand).play();
+        String winningHand = new Game(hand, otherHand).play();
 
-        assertEquals("second hand wins", winningRank.toString());
+        assertEquals("second hand wins.", winningHand);
     }
 }
