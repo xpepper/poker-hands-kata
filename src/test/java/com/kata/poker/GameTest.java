@@ -5,6 +5,7 @@ import org.junit.Test;
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.PokerHandTest.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class GameTest {
 
@@ -13,8 +14,8 @@ public class GameTest {
         PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
-        assertEquals("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).play());
-        assertEquals("Black wins.", new Game(new Player("White", hand), new Player("Black", higherHand)).play());
+        assertWinningMessage("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).play());
+        assertWinningMessage("Black wins.", new Game(new Player("White", hand), new Player("Black", higherHand)).play());
     }
 
     @Test
@@ -26,6 +27,10 @@ public class GameTest {
         Player anotherPlayer = new Player("anotherPlayer", otherHand);
 
         assertEquals("Tie.", new Game(aPlayer, anotherPlayer).play());
+    }
+
+    private void assertWinningMessage(String expected, String gameResult) {
+        assertTrue(gameResult.startsWith(expected));
     }
 
 }
