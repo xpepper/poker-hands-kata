@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class GameTest {
 
     @Test
-    public void returns_the_name_of_the_player_with_the_winning_hand() {
+    public void returns_the_name_of_the_player_having_the_winning_hand() {
         PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
