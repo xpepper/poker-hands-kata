@@ -17,7 +17,7 @@ public class Game {
         int winningPlayer = firstPlayer.playAgainst(secondPlayer);
         switch (winningPlayer) {
             case FIRST_PLAYER:
-                return firstPlayer.name + " wins.";
+                return firstPlayer.name + " wins. - with high card";
             case SECOND_PLAYER:
                 return secondPlayer.name + " wins.";
             case TIE:

@@ -19,6 +19,14 @@ public class GameTest {
     }
 
     @Test
+    public void returns_the_rank_of_the_winning_hand() {
+        PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
+        PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
+
+        assertWinningRank("with high card", new Game(new Player("White", higherHand), new Player("Black", hand)).play());
+    }
+
+    @Test
     public void returns_a_tie_when_no_player_has_a_winning_hand() {
         PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand otherHand = new PokerHand(fiveOf(Clubs), threeOf(Spades));
@@ -29,8 +37,12 @@ public class GameTest {
         assertEquals("Tie.", new Game(aPlayer, anotherPlayer).play());
     }
 
-    private void assertWinningMessage(String expected, String gameResult) {
-        assertTrue(gameResult.startsWith(expected));
+    private void assertWinningRank(String rankMessage, String gameResult) {
+        assertTrue(gameResult.contains(rankMessage));
+    }
+
+    private void assertWinningMessage(String winningMessage, String gameResult) {
+        assertTrue(gameResult.startsWith(winningMessage));
     }
 
 }
