@@ -8,4 +8,8 @@ public class Player {
         this.name = name;
         this.hand = hand;
     }
+
+    int playAgainst(Player opponent) {
+        return hand.compareTo(opponent.hand);
+    }
 }

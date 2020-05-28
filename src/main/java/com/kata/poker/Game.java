@@ -1,8 +1,8 @@
 package com.kata.poker;
 
 public class Game {
-    private static final int SECOND_HAND = -1;
-    private static final int FIRST_HAND = 1;
+    private static final int SECOND_PLAYER = -1;
+    private static final int FIRST_PLAYER = 1;
     private static final int TIE = 0;
 
     private final Player firstPlayer;
@@ -14,15 +14,16 @@ public class Game {
     }
 
     public String play() {
-        int winningHand = firstPlayer.hand.compareTo(secondPlayer.hand);
-        switch (winningHand) {
-            case FIRST_HAND:
+        int winningPlayer = firstPlayer.playAgainst(secondPlayer);
+        switch (winningPlayer) {
+            case FIRST_PLAYER:
                 return firstPlayer.name + " wins.";
-            case SECOND_HAND:
+            case SECOND_PLAYER:
                 return secondPlayer.name + " wins.";
             case TIE:
             default:
                 return "Tie.";
         }
     }
+
 }
