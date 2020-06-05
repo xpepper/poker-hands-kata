@@ -2,13 +2,9 @@
 
 ### TODO
  
-* From simply telling which hand is higher than another to showing the actual winning rank (e.g. _"White wins. - with high card: Ace"_)
+* From simply telling which hand is higher than another to showing the actual winning rank
     * we need to have someone telling the Game which is the rank of the winning hand (not just which hand is the winner...)
     * it's weird we have to have a double assertion around the winning rank (is it because of our design in the play method?)
-    * (game result + game result printer) it's strange to have to test a game result message comparing the message as a string instead of having an object that represent the game result 
-      (and then having someone printing that result as a string...)
-        - are we testing too much logic in one shot?
-    * is Game bound to be "inlined" and removed?
     * find a way to have a shorter statement than `assertEquals("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).play());`
     * explore how to tell which is the winning rank of the player
         * White wins. - with high card
@@ -19,6 +15,9 @@
         * Black wins. - with full house: 4 over 2
         * Tie.
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...)
+
+* We want to print a GameResult into something like _"White wins. - with high card: Ace"_
+    * game result + game result printer? 
 
 * Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
