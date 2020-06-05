@@ -15,8 +15,8 @@ public class GameTest {
         PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
-        assertEquals(new GameResult("White"), new Game(new Player("White", higherHand), new Player("Black", hand)).play());
-        assertEquals(new GameResult("Black"), new Game(new Player("White", hand), new Player("Black", higherHand)).play());
+        assertEquals(new Winner("White"), new Game(new Player("White", higherHand), new Player("Black", hand)).play());
+        assertEquals(new Winner("Black"), new Game(new Player("White", hand), new Player("Black", higherHand)).play());
     }
 
     @Test @Ignore

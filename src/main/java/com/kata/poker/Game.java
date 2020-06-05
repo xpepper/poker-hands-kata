@@ -26,9 +26,9 @@ public class Game {
         int winningPlayer = firstPlayer.playAgainst(secondPlayer);
         switch (winningPlayer) {
             case FIRST_PLAYER:
-                return new GameResult(firstPlayer.name);
+                return new Winner(firstPlayer.name);
             case SECOND_PLAYER:
-                return new GameResult(secondPlayer.name);
+                return new Winner(secondPlayer.name);
             case TIE:
             default:
                 return null;
