@@ -13,7 +13,7 @@ public class Game {
         this.secondPlayer = secondPlayer;
     }
 
-    public String play() {
+    public String playOld() {
         int winningPlayer = firstPlayer.playAgainst(secondPlayer);
         switch (winningPlayer) {
             case FIRST_PLAYER:

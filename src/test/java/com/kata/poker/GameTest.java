@@ -9,13 +9,14 @@ import static org.junit.Assert.assertTrue;
 
 public class GameTest {
 
+
     @Test
     public void returns_the_name_of_the_player_having_the_winning_hand() {
         PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
-        assertWinningMessage("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).play());
-        assertWinningMessage("Black wins.", new Game(new Player("White", hand), new Player("Black", higherHand)).play());
+        assertWinningMessage("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).playOld());
+        assertWinningMessage("Black wins.", new Game(new Player("White", hand), new Player("Black", higherHand)).playOld());
     }
 
     @Test
@@ -23,7 +24,7 @@ public class GameTest {
         PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
-        assertWinningRank("with high card", new Game(new Player("White", higherHand), new Player("Black", hand)).play());
+        assertWinningRank("with high card", new Game(new Player("White", higherHand), new Player("Black", hand)).playOld());
     }
 
     @Test
@@ -34,7 +35,7 @@ public class GameTest {
         Player aPlayer = new Player("aPlayer", hand);
         Player anotherPlayer = new Player("anotherPlayer", otherHand);
 
-        assertEquals("Tie.", new Game(aPlayer, anotherPlayer).play());
+        assertEquals("Tie.", new Game(aPlayer, anotherPlayer).playOld());
     }
 
     private void assertWinningRank(String rankMessage, String gameResult) {
