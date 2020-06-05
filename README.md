@@ -3,9 +3,8 @@
 ### TODO
  
 * From simply telling which hand is higher than another to showing the actual winning rank
-    * we need to have someone telling the Game which is the rank of the winning hand (not just which hand is the winner...)
-    * it's weird we have to have a double assertion around the winning rank (is it because of our design in the play method?)
-    * find a way to have a shorter statement than `assertEquals("White wins.", new Game(new Player("White", higherHand), new Player("Black", hand)).play());`
+    * SPIKE: compute the rank of a poker rank
+        - then, use that rank when comparing against another poker hand 
     * explore how to tell which is the winning rank of the player
         * White wins. - with high card
         * Black wins. - with full house

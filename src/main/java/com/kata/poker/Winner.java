@@ -3,10 +3,10 @@ package com.kata.poker;
 import java.util.Objects;
 
 public class Winner implements GameResult {
-    private final String playerName;
+    private final Player player;
 
-    public Winner(String playerName) {
-        this.playerName = playerName;
+    public Winner(Player player) {
+        this.player = player;
     }
 
     @Override
@@ -14,6 +14,6 @@ public class Winner implements GameResult {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Winner that = (Winner) o;
-        return Objects.equals(playerName, that.playerName);
+        return Objects.equals(player, that.player);
     }
 }
