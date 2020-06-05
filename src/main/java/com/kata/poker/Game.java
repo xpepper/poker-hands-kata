@@ -13,15 +13,6 @@ public class Game {
         this.secondPlayer = secondPlayer;
     }
 
-    public String playOld() {
-        int winningPlayer = firstPlayer.playAgainst(secondPlayer);
-        switch (winningPlayer) {
-            case TIE:
-            default:
-                return "Tie.";
-        }
-    }
-
     public GameResult play() {
         int winningPlayer = firstPlayer.playAgainst(secondPlayer);
         switch (winningPlayer) {
@@ -31,7 +22,7 @@ public class Game {
                 return new Winner(secondPlayer.name);
             case TIE:
             default:
-                return null;
+                return new Tie();
         }
     }
 }
