@@ -26,7 +26,7 @@ public class GameTest {
         Player aPlayer = new Player("aPlayer", hand);
         Player anotherPlayer = new Player("anotherPlayer", otherHand);
 
-        assertEquals(new Tie(), new Game(aPlayer, anotherPlayer).play());
+        assertEquals(GameResult.tie, new Game(aPlayer, anotherPlayer).play());
     }
 
     @Test @Ignore

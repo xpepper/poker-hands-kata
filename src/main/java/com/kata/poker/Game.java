@@ -22,7 +22,7 @@ public class Game {
                 return new Winner(secondPlayer.name);
             case TIE:
             default:
-                return new Tie();
+                return GameResult.tie;
         }
     }
 }

@@ -2,8 +2,8 @@ package com.kata.poker;
 
 import java.util.Objects;
 
-public class Winner extends GameResult {
-    private String playerName;
+public class Winner implements GameResult {
+    private final String playerName;
 
     public Winner(String playerName) {
         this.playerName = playerName;
