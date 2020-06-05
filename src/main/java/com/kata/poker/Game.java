@@ -16,14 +16,22 @@ public class Game {
     public String playOld() {
         int winningPlayer = firstPlayer.playAgainst(secondPlayer);
         switch (winningPlayer) {
-            case FIRST_PLAYER:
-                return firstPlayer.name + " wins. - with high card";
-            case SECOND_PLAYER:
-                return secondPlayer.name + " wins.";
             case TIE:
             default:
                 return "Tie.";
         }
     }
 
+    public GameResult play() {
+        int winningPlayer = firstPlayer.playAgainst(secondPlayer);
+        switch (winningPlayer) {
+            case FIRST_PLAYER:
+                return new GameResult(firstPlayer.name);
+            case SECOND_PLAYER:
+                return new GameResult(secondPlayer.name);
+            case TIE:
+            default:
+                return null;
+        }
+    }
 }
