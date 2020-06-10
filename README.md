@@ -4,7 +4,6 @@
  
 * From simply telling which hand is higher than another to showing the actual winning rank
     * write the hand comparison in terms of the domain language (avoid -1, 0, 1...) - DOING
-    * find a better name for `HandOutcome`
     * SPIKE: compute the rank of a poker hand
         - then, use that rank when comparing against another poker hand 
     * explore how to tell which is the winning rank of the player

@@ -1,5 +1,5 @@
 package com.kata.poker;
 
-public enum HandOutcome {
+public enum Outcome {
     Win, Tie, Lose
 }

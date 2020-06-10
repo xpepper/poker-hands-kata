@@ -4,7 +4,7 @@ import com.kata.poker.Card.Value;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
-import static com.kata.poker.HandOutcome.*;
+import static com.kata.poker.Outcome.*;
 import static org.junit.Assert.assertEquals;
 
 public class PokerHandTest {

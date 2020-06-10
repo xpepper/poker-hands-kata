@@ -2,7 +2,7 @@ package com.kata.poker;
 
 import java.util.List;
 
-import static com.kata.poker.HandOutcome.*;
+import static com.kata.poker.Outcome.*;
 import static java.util.Arrays.asList;
 import static java.util.Collections.*;
 import static java.util.Collections.sort;
@@ -15,7 +15,7 @@ public class PokerHand {
         this.cards = sortedListOf(first, second);
     }
 
-    public HandOutcome playAgainst(PokerHand other) {
+    public Outcome playAgainst(PokerHand other) {
         if (hasStraightFlush() && other.hasStraightFlush()) {
             return compareHighestCard(other);
         }
@@ -67,7 +67,7 @@ public class PokerHand {
         return compareHighestCard(other);
     }
 
-    private HandOutcome compareHighestCard(PokerHand other) {
+    private Outcome compareHighestCard(PokerHand other) {
         return highestCard().playAgainst(other.highestCard());
     }
 
