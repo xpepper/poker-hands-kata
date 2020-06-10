@@ -11,10 +11,10 @@ public class Player {
     }
 
     GameResult playAgainst(Player other) {
-        switch (hand.compareToXXX(other.hand)) {
-            case Winner:
+        switch (hand.playAgainst(other.hand)) {
+            case Win:
                 return new Winner(this);
-            case Loser:
+            case Lose:
                 return new Winner(other);
             case Tie:
             default:

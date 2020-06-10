@@ -6,7 +6,10 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.*;
 import static java.util.Collections.sort;
 
-public class PokerHand implements Comparable<PokerHand> {
+public class PokerHand {
+
+    private static final int WINNER = 1;
+    private static final int LOSER = -1;
 
     private final List<Card> cards;
 
@@ -14,56 +17,71 @@ public class PokerHand implements Comparable<PokerHand> {
         this.cards = sortedListOf(first, second);
     }
 
-    @Override
-    public int compareTo(PokerHand other) {
+    public HandOutcome playAgainst(PokerHand other) {
+        int outcome = compareTo(other);
+        switch (outcome) {
+            case WINNER:
+                return HandOutcome.Win;
+            case LOSER:
+                return HandOutcome.Lose;
+            default:
+                return HandOutcome.Tie;
+        }
+    }
+
+    private int compareTo(PokerHand other) {
         if (hasStraightFlush() && other.hasStraightFlush()) {
-            return highestCard().compareTo(other.highestCard());
+            return compareHighestCard(other);
         }
 
         if (hasStraightFlush()) {
-            return 1;
+            return WINNER;
         }
 
         if (other.hasStraightFlush()) {
-            return -1;
+            return LOSER;
         }
 
         if (hasFlush() && other.hasFlush()) {
-            return highestCard().compareTo(other.highestCard());
+            return compareHighestCard(other);
         }
 
         if (hasFlush()) {
-            return 1;
+            return WINNER;
         }
 
         if (other.hasFlush()) {
-            return -1;
+            return LOSER;
         }
 
         if (hasStraight() && other.hasStraight()) {
-            return highestCard().compareTo(other.highestCard());
+            return compareHighestCard(other);
         }
 
         if (hasStraight()) {
-            return 1;
+            return WINNER;
         }
 
         if (other.hasStraight()) {
-            return -1;
+            return LOSER;
         }
 
         if (hasPair() && other.hasPair()) {
-            return highestCard().compareTo(other.highestCard());
+            return compareHighestCard(other);
         }
 
         if (hasPair()) {
-            return 1;
+            return WINNER;
         }
 
         if (other.hasPair()) {
-            return -1;
+            return LOSER;
         }
 
+        return compareHighestCard(other);
+    }
+
+    private int compareHighestCard(PokerHand other) {
         return highestCard().compareTo(other.highestCard());
     }
 
@@ -91,17 +109,6 @@ public class PokerHand implements Comparable<PokerHand> {
         List<Card> cards = asList(first, second);
         sort(cards);
         return unmodifiableList(cards);
-    }
-
-    public HandOutcome compareToXXX(PokerHand other) {
-        switch (compareTo(other)) {
-            case 1:
-                return HandOutcome.Winner;
-            case -1:
-                return HandOutcome.Loser;
-            default:
-                return HandOutcome.Tie;
-        }
     }
 
 
