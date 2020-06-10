@@ -5,7 +5,6 @@ import java.util.List;
 import static com.kata.poker.Outcome.*;
 import static java.util.Arrays.asList;
 import static java.util.Collections.*;
-import static java.util.Collections.sort;
 
 public class PokerHand {
 
@@ -93,7 +92,18 @@ public class PokerHand {
 
     private List<Card> sortedListOf(Card first, Card second) {
         List<Card> cards = asList(first, second);
-        sort(cards);
+        cards.sort(this::compareCards);
         return unmodifiableList(cards);
+    }
+
+    private int compareCards(Card card, Card otherCard) {
+        switch (card.playAgainst(otherCard)) {
+            case Win:
+                return 1;
+            case Lose:
+                return -1;
+            default:
+                return 0;
+        }
     }
 }

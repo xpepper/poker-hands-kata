@@ -2,7 +2,7 @@ package com.kata.poker;
 
 import static com.kata.poker.Outcome.*;
 
-public class Card implements Comparable<Card> {
+public class Card {
 
     private final Value value;
     private final Suit suit;
@@ -13,27 +13,13 @@ public class Card implements Comparable<Card> {
     }
 
     public Outcome playAgainst(Card otherCard) {
-        int outcome = value.numericValue.compareTo(otherCard.value.numericValue);
-        switch (outcome) {
+        switch (value.numericValue.compareTo(otherCard.value.numericValue)) {
             case 1:
                 return Win;
             case -1:
                 return Lose;
             default:
                 return Tie;
-        }
-    }
-
-    @Override
-    public int compareTo(Card otherCard) {
-        Outcome outcome = playAgainst(otherCard);
-        switch (outcome) {
-            case Win:
-                return 1;
-            case Lose:
-                return -1;
-            default:
-                return 0;
         }
     }
 
