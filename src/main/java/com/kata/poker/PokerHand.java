@@ -2,14 +2,12 @@ package com.kata.poker;
 
 import java.util.List;
 
+import static com.kata.poker.HandOutcome.*;
 import static java.util.Arrays.asList;
 import static java.util.Collections.*;
 import static java.util.Collections.sort;
 
 public class PokerHand {
-
-    private static final int WINNER = 1;
-    private static final int LOSER = -1;
 
     private final List<Card> cards;
 
@@ -18,28 +16,16 @@ public class PokerHand {
     }
 
     public HandOutcome playAgainst(PokerHand other) {
-        int outcome = compareTo(other);
-        switch (outcome) {
-            case WINNER:
-                return HandOutcome.Win;
-            case LOSER:
-                return HandOutcome.Lose;
-            default:
-                return HandOutcome.Tie;
-        }
-    }
-
-    private int compareTo(PokerHand other) {
         if (hasStraightFlush() && other.hasStraightFlush()) {
             return compareHighestCard(other);
         }
 
         if (hasStraightFlush()) {
-            return WINNER;
+            return Win;
         }
 
         if (other.hasStraightFlush()) {
-            return LOSER;
+            return Lose;
         }
 
         if (hasFlush() && other.hasFlush()) {
@@ -47,11 +33,11 @@ public class PokerHand {
         }
 
         if (hasFlush()) {
-            return WINNER;
+            return Win;
         }
 
         if (other.hasFlush()) {
-            return LOSER;
+            return Lose;
         }
 
         if (hasStraight() && other.hasStraight()) {
@@ -59,11 +45,11 @@ public class PokerHand {
         }
 
         if (hasStraight()) {
-            return WINNER;
+            return Win;
         }
 
         if (other.hasStraight()) {
-            return LOSER;
+            return Lose;
         }
 
         if (hasPair() && other.hasPair()) {
@@ -71,18 +57,18 @@ public class PokerHand {
         }
 
         if (hasPair()) {
-            return WINNER;
+            return Win;
         }
 
         if (other.hasPair()) {
-            return LOSER;
+            return Lose;
         }
 
         return compareHighestCard(other);
     }
 
-    private int compareHighestCard(PokerHand other) {
-        return highestCard().compareTo(other.highestCard());
+    private HandOutcome compareHighestCard(PokerHand other) {
+        return highestCard().playAgainst(other.highestCard());
     }
 
     private boolean hasStraightFlush() {
@@ -110,6 +96,4 @@ public class PokerHand {
         sort(cards);
         return unmodifiableList(cards);
     }
-
-
 }

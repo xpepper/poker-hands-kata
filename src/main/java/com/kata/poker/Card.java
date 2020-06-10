@@ -1,5 +1,7 @@
 package com.kata.poker;
 
+import static com.kata.poker.HandOutcome.*;
+
 public class Card implements Comparable<Card> {
 
     private final Value value;
@@ -10,8 +12,23 @@ public class Card implements Comparable<Card> {
         this.suit = suit;
     }
 
+    public HandOutcome playAgainst(Card otherCard) {
+        int outcome = value.numericValue.compareTo(otherCard.value.numericValue);
+        switch (outcome) {
+            case 1: return Win;
+            case -1: return Lose;
+            default: return Tie;
+        }
+    }
+
+    @Override
     public int compareTo(Card otherCard) {
-        return value.numericValue.compareTo(otherCard.value.numericValue);
+        HandOutcome outcome = playAgainst(otherCard);
+        switch (outcome) {
+            case Win: return 1;
+            case Lose: return -1;
+            default: return 0;
+        }
     }
 
     public boolean comesBefore(Card card) {
