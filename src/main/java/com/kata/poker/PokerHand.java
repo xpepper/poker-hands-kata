@@ -92,4 +92,17 @@ public class PokerHand implements Comparable<PokerHand> {
         sort(cards);
         return unmodifiableList(cards);
     }
+
+    public HandOutcome compareToXXX(PokerHand other) {
+        switch (compareTo(other)) {
+            case 1:
+                return HandOutcome.Winner;
+            case -1:
+                return HandOutcome.Loser;
+            default:
+                return HandOutcome.Tie;
+        }
+    }
+
+
 }

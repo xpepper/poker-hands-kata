@@ -1,9 +1,6 @@
 package com.kata.poker;
 
 public class Player {
-    static final int WINNER = 1;
-    static final int LOSER = -1;
-    static final int TIE = 0;
 
     public final String name;
     public final PokerHand hand;
@@ -14,12 +11,12 @@ public class Player {
     }
 
     GameResult playAgainst(Player other) {
-        switch (hand.compareTo(other.hand)) {
-            case WINNER:
+        switch (hand.compareToXXX(other.hand)) {
+            case Winner:
                 return new Winner(this);
-            case LOSER:
+            case Loser:
                 return new Winner(other);
-            case TIE:
+            case Tie:
             default:
                 return GameResult.tie;
         }

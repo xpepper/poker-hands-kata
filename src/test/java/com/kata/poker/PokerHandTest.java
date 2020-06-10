@@ -4,21 +4,18 @@ import com.kata.poker.Card.Value;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
+import static com.kata.poker.HandOutcome.*;
 import static org.junit.Assert.assertEquals;
 
 public class PokerHandTest {
-
-    private static final int LOSER = -1;
-    private static final int WINNER = 1;
-    private static final int TIE = 0;
 
     @Test
     public void highest_card_wins_when_both_hands_do_not_fit_any_higher_ranking() {
         PokerHand lowerHand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
         PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
 
-        assertEquals(LOSER, lowerHand.compareTo(higherHand));
-        assertEquals(WINNER, higherHand.compareTo(lowerHand));
+        assertEquals(Loser, lowerHand.compareToXXX(higherHand));
+        assertEquals(Winner, higherHand.compareToXXX(lowerHand));
     }
 
     @Test
@@ -26,8 +23,8 @@ public class PokerHandTest {
         PokerHand hand = new PokerHand(sevenOf(Hearts), fourOf(Diamonds));
         PokerHand otherHand = new PokerHand(threeOf(Hearts), sevenOf(Diamonds));
 
-        assertEquals(TIE, hand.compareTo(otherHand));
-        assertEquals(TIE, otherHand.compareTo(hand));
+        assertEquals(Tie, hand.compareToXXX(otherHand));
+        assertEquals(Tie, otherHand.compareToXXX(hand));
     }
 
     @Test
@@ -35,8 +32,8 @@ public class PokerHandTest {
         PokerHand lowerHand = new PokerHand(fourOf(Diamonds), fourOf(Hearts));
         PokerHand higherHand = new PokerHand(fiveOf(Spades), fiveOf(Spades));
 
-        assertEquals(LOSER, lowerHand.compareTo(higherHand));
-        assertEquals(WINNER, higherHand.compareTo(lowerHand));
+        assertEquals(Loser, lowerHand.compareToXXX(higherHand));
+        assertEquals(Winner, higherHand.compareToXXX(lowerHand));
     }
 
     @Test
@@ -44,8 +41,8 @@ public class PokerHandTest {
         PokerHand hand = new PokerHand(fiveOf(Spades), fiveOf(Diamonds));
         PokerHand otherHand = new PokerHand(fiveOf(Clubs), fiveOf(Spades));
 
-        assertEquals(TIE, hand.compareTo(otherHand));
-        assertEquals(TIE, otherHand.compareTo(hand));
+        assertEquals(Tie, hand.compareToXXX(otherHand));
+        assertEquals(Tie, otherHand.compareToXXX(hand));
     }
 
     @Test
@@ -53,8 +50,8 @@ public class PokerHandTest {
         PokerHand handWithPair = new PokerHand(threeOf(Diamonds), threeOf(Diamonds));
         PokerHand handWithHighestCard = new PokerHand(fiveOf(Spades), threeOf(Diamonds));
 
-        assertEquals(WINNER, handWithPair.compareTo(handWithHighestCard));
-        assertEquals(LOSER, handWithHighestCard.compareTo(handWithPair));
+        assertEquals(Winner, handWithPair.compareToXXX(handWithHighestCard));
+        assertEquals(Loser, handWithHighestCard.compareToXXX(handWithPair));
     }
 
     @Test
@@ -62,8 +59,8 @@ public class PokerHandTest {
         PokerHand handWithStraight = new PokerHand(fourOf(Hearts), threeOf(Diamonds));
         PokerHand handWithHighestCard = new PokerHand(threeOf(Diamonds), fiveOf(Spades));
 
-        assertEquals(WINNER, handWithStraight.compareTo(handWithHighestCard));
-        assertEquals(LOSER, handWithHighestCard.compareTo(handWithStraight));
+        assertEquals(Winner, handWithStraight.compareToXXX(handWithHighestCard));
+        assertEquals(Loser, handWithHighestCard.compareToXXX(handWithStraight));
     }
 
     @Test
@@ -71,8 +68,8 @@ public class PokerHandTest {
         PokerHand handWithStraight = new PokerHand(fourOf(Hearts), threeOf(Diamonds));
         PokerHand handWithPair = new PokerHand(sevenOf(Clubs), sevenOf(Spades));
 
-        assertEquals(WINNER, handWithStraight.compareTo(handWithPair));
-        assertEquals(LOSER, handWithPair.compareTo(handWithStraight));
+        assertEquals(Winner, handWithStraight.compareToXXX(handWithPair));
+        assertEquals(Loser, handWithPair.compareToXXX(handWithStraight));
     }
 
     @Test
@@ -80,8 +77,8 @@ public class PokerHandTest {
         PokerHand hand = new PokerHand(fiveOf(Spades), fourOf(Hearts));
         PokerHand otherHand = new PokerHand(fourOf(Hearts), fiveOf(Spades));
 
-        assertEquals(TIE, hand.compareTo(otherHand));
-        assertEquals(TIE, otherHand.compareTo(hand));
+        assertEquals(Tie, hand.compareToXXX(otherHand));
+        assertEquals(Tie, otherHand.compareToXXX(hand));
     }
 
     @Test
@@ -89,8 +86,8 @@ public class PokerHandTest {
         PokerHand lowerHand = new PokerHand(threeOf(Diamonds), fourOf(Hearts));
         PokerHand higherHand = new PokerHand(fourOf(Hearts), fiveOf(Spades));
 
-        assertEquals(LOSER, lowerHand.compareTo(higherHand));
-        assertEquals(WINNER, higherHand.compareTo(lowerHand));
+        assertEquals(Loser, lowerHand.compareToXXX(higherHand));
+        assertEquals(Winner, higherHand.compareToXXX(lowerHand));
     }
 
     @Test
@@ -98,8 +95,8 @@ public class PokerHandTest {
         PokerHand flush = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
         PokerHand highestCard = new PokerHand(threeOf(Hearts), sevenOf(Diamonds));
 
-        assertEquals(WINNER, flush.compareTo(highestCard));
-        assertEquals(LOSER, highestCard.compareTo(flush));
+        assertEquals(Winner, flush.compareToXXX(highestCard));
+        assertEquals(Loser, highestCard.compareToXXX(flush));
     }
 
     @Test
@@ -107,8 +104,8 @@ public class PokerHandTest {
         PokerHand flush = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
         PokerHand pair = new PokerHand(threeOf(Hearts), threeOf(Diamonds));
 
-        assertEquals(WINNER, flush.compareTo(pair));
-        assertEquals(LOSER, pair.compareTo(flush));
+        assertEquals(Winner, flush.compareToXXX(pair));
+        assertEquals(Loser, pair.compareToXXX(flush));
     }
 
     @Test
@@ -116,8 +113,8 @@ public class PokerHandTest {
         PokerHand hand = new PokerHand(fourOf(Spades), sevenOf(Spades));
         PokerHand otherHand = new PokerHand(fourOf(Diamonds), sevenOf(Diamonds));
 
-        assertEquals(TIE, hand.compareTo(otherHand));
-        assertEquals(TIE, otherHand.compareTo(hand));
+        assertEquals(Tie, hand.compareToXXX(otherHand));
+        assertEquals(Tie, otherHand.compareToXXX(hand));
     }
 
     @Test
@@ -125,8 +122,8 @@ public class PokerHandTest {
         PokerHand flush = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
         PokerHand straight = new PokerHand(threeOf(Hearts), fourOf(Diamonds));
 
-        assertEquals(WINNER, flush.compareTo(straight));
-        assertEquals(LOSER, straight.compareTo(flush));
+        assertEquals(Winner, flush.compareToXXX(straight));
+        assertEquals(Loser, straight.compareToXXX(flush));
     }
 
     @Test
@@ -134,8 +131,8 @@ public class PokerHandTest {
         PokerHand lowerHand = new PokerHand(threeOf(Diamonds), fiveOf(Diamonds));
         PokerHand higherHand = new PokerHand(fourOf(Spades), sevenOf(Spades));
 
-        assertEquals(LOSER, lowerHand.compareTo(higherHand));
-        assertEquals(WINNER, higherHand.compareTo(lowerHand));
+        assertEquals(Loser, lowerHand.compareToXXX(higherHand));
+        assertEquals(Winner, higherHand.compareToXXX(lowerHand));
     }
 
     @Test
@@ -143,8 +140,8 @@ public class PokerHandTest {
         PokerHand straightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
         PokerHand flush = new PokerHand(threeOf(Clubs), fiveOf(Clubs));
 
-        assertEquals(WINNER, straightFlush.compareTo(flush));
-        assertEquals(LOSER, flush.compareTo(straightFlush));
+        assertEquals(Winner, straightFlush.compareToXXX(flush));
+        assertEquals(Loser, flush.compareToXXX(straightFlush));
     }
 
     @Test
@@ -152,8 +149,8 @@ public class PokerHandTest {
         PokerHand straightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
         PokerHand straight = new PokerHand(fourOf(Clubs), fiveOf(Diamonds));
 
-        assertEquals(WINNER, straightFlush.compareTo(straight));
-        assertEquals(LOSER, straight.compareTo(straightFlush));
+        assertEquals(Winner, straightFlush.compareToXXX(straight));
+        assertEquals(Loser, straight.compareToXXX(straightFlush));
     }
 
     @Test
@@ -161,8 +158,8 @@ public class PokerHandTest {
         PokerHand straightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
         PokerHand pair = new PokerHand(fourOf(Clubs), fourOf(Hearts));
 
-        assertEquals(WINNER, straightFlush.compareTo(pair));
-        assertEquals(LOSER, pair.compareTo(straightFlush));
+        assertEquals(Winner, straightFlush.compareToXXX(pair));
+        assertEquals(Loser, pair.compareToXXX(straightFlush));
     }
 
     @Test
@@ -170,8 +167,8 @@ public class PokerHandTest {
         PokerHand straightFlush = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
         PokerHand highestCard = new PokerHand(fourOf(Clubs), sevenOf(Hearts));
 
-        assertEquals(WINNER, straightFlush.compareTo(highestCard));
-        assertEquals(LOSER, highestCard.compareTo(straightFlush));
+        assertEquals(Winner, straightFlush.compareToXXX(highestCard));
+        assertEquals(Loser, highestCard.compareToXXX(straightFlush));
     }
 
     @Test
@@ -179,8 +176,8 @@ public class PokerHandTest {
         PokerHand hand = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
         PokerHand otherHand = new PokerHand(threeOf(Spades), fourOf(Spades));
 
-        assertEquals(TIE, hand.compareTo(otherHand));
-        assertEquals(TIE, otherHand.compareTo(hand));
+        assertEquals(Tie, hand.compareToXXX(otherHand));
+        assertEquals(Tie, otherHand.compareToXXX(hand));
     }
 
     @Test
@@ -188,8 +185,8 @@ public class PokerHandTest {
         PokerHand lowerHand = new PokerHand(threeOf(Diamonds), fourOf(Diamonds));
         PokerHand higherHand = new PokerHand(fourOf(Spades), fiveOf(Spades));
 
-        assertEquals(LOSER, lowerHand.compareTo(higherHand));
-        assertEquals(WINNER, higherHand.compareTo(lowerHand));
+        assertEquals(Loser, lowerHand.compareToXXX(higherHand));
+        assertEquals(Winner, higherHand.compareToXXX(lowerHand));
     }
 
     public static Card threeOf(Card.Suit suit) {
