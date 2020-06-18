@@ -108,6 +108,9 @@ public class PokerHand {
     }
 
     public Rank rank() {
+        if (hasPair()) {
+            return Rank.Pair;
+        }
         return Rank.HighCard;
     }
 }
