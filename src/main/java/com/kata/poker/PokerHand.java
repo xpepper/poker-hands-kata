@@ -106,4 +106,8 @@ public class PokerHand {
                 return 0;
         }
     }
+
+    public Rank rank() {
+        return Rank.HighCard;
+    }
 }

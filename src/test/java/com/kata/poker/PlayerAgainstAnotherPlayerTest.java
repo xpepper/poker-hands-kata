@@ -1,6 +1,5 @@
 package com.kata.poker;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
