@@ -6,6 +6,14 @@ public class GameResultPrinter {
     }
 
     private String print(Rank rank) {
-        return "high card";
+        switch (rank) {
+            case Pair:
+                return "pair";
+            case HighCard:
+                return "high card";
+            default:
+                throw new IllegalStateException("Unexpected value: " + rank);
+        }
+
     }
 }
