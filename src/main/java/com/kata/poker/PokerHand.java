@@ -51,19 +51,25 @@ public class PokerHand {
             return Lose;
         }
 
-        if (hasPair() && other.hasPair()) {
-            return compareHighestCard(other);
-        }
+//        if (hasPair() && other.hasPair()) {
+//            return compareHighestCard(other);
+//        }
+//
+//        if (hasPair()) {
+//            return Win;
+//        }
+//
+//        if (other.hasPair()) {
+//            return Lose;
+//        }
 
-        if (hasPair()) {
+        int i = rank().compareTo(other.rank());
+        if (i > 0)
             return Win;
-        }
-
-        if (other.hasPair()) {
+        else if (i < 0)
             return Lose;
-        }
-
-        return compareHighestCard(other);
+        else
+            return compareHighestCard(other);
     }
 
     public Rank rank() {

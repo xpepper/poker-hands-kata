@@ -1,25 +1,21 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
+* WIP: we are trying to use the rank() method in `PokerHand#playAgainst()` to derive the winning hand
  
 * From simply telling which hand is higher than another to showing the actual winning rank
-    * `Winner.rank()` -> (`Player.rank()` -> `PokerHand.rank()`)
-       <- Rank           <- Rank            <- Rank
-    * SPIKE: compute the rank of a poker hand
-        - then, use that rank when comparing against another poker hand 
-    * explore how to tell which is the winning rank of the player
-        * White wins. - with high card
-        * Black wins. - with full house
-        * Tie.
-    * explore how to tell which is the winning rank and its point
+    * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
         * Black wins. - with full house: 4 over 2
         * Tie.
 
-* We want to print a GameResult into something like _"White wins. - with high card: Ace"_
-    * game result + game result printer? 
-
 * Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
+
+* Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH` and prints the outcome of the match as a string like `White wins. - with high card: Ace`
+
+* `GameResultPrinter` print a `Winner`... is it ok? What happens with a `Tie`?
+* Add the missing convertions from rank to string in `GameResultPrinter`
+* Add the missing ranks in `Rank` enumeration
 
 * Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting
