@@ -66,6 +66,13 @@ public class PokerHand {
         return compareHighestCard(other);
     }
 
+    public Rank rank() {
+        if (hasPair()) {
+            return Rank.Pair;
+        }
+        return Rank.HighCard;
+    }
+
     private Outcome compareHighestCard(PokerHand other) {
         return highestCard().playAgainst(other.highestCard());
     }
@@ -105,12 +112,5 @@ public class PokerHand {
             default:
                 return 0;
         }
-    }
-
-    public Rank rank() {
-        if (hasPair()) {
-            return Rank.Pair;
-        }
-        return Rank.HighCard;
     }
 }

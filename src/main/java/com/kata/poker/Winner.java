@@ -9,6 +9,14 @@ public class Winner implements GameResult {
         this.player = player;
     }
 
+    public Rank rank() {
+        return player.hand.rank();
+    }
+
+    public String playerName() {
+        return player.name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -16,4 +24,5 @@ public class Winner implements GameResult {
         Winner that = (Winner) o;
         return Objects.equals(player, that.player);
     }
+
 }
