@@ -2,9 +2,10 @@ package com.kata.poker;
 
 import java.util.List;
 
-import static com.kata.poker.Outcome.*;
+import static com.kata.poker.Outcome.Lose;
+import static com.kata.poker.Outcome.Win;
 import static java.util.Arrays.asList;
-import static java.util.Collections.*;
+import static java.util.Collections.unmodifiableList;
 
 public class PokerHand {
 
@@ -15,54 +16,6 @@ public class PokerHand {
     }
 
     public Outcome playAgainst(PokerHand other) {
-        if (hasStraightFlush() && other.hasStraightFlush()) {
-            return compareHighestCard(other);
-        }
-
-        if (hasStraightFlush()) {
-            return Win;
-        }
-
-        if (other.hasStraightFlush()) {
-            return Lose;
-        }
-
-        if (hasFlush() && other.hasFlush()) {
-            return compareHighestCard(other);
-        }
-
-        if (hasFlush()) {
-            return Win;
-        }
-
-        if (other.hasFlush()) {
-            return Lose;
-        }
-
-        if (hasStraight() && other.hasStraight()) {
-            return compareHighestCard(other);
-        }
-
-        if (hasStraight()) {
-            return Win;
-        }
-
-        if (other.hasStraight()) {
-            return Lose;
-        }
-
-//        if (hasPair() && other.hasPair()) {
-//            return compareHighestCard(other);
-//        }
-//
-//        if (hasPair()) {
-//            return Win;
-//        }
-//
-//        if (other.hasPair()) {
-//            return Lose;
-//        }
-
         int i = rank().compareTo(other.rank());
         if (i > 0)
             return Win;
@@ -73,6 +26,15 @@ public class PokerHand {
     }
 
     public Rank rank() {
+        if (hasStraightFlush()) {
+            return Rank.StraightFlush;
+        }
+        if (hasFlush()) {
+            return Rank.Flush;
+        }
+        if (hasStraight()) {
+            return Rank.Straight;
+        }
         if (hasPair()) {
             return Rank.Pair;
         }
