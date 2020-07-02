@@ -16,13 +16,13 @@ public class PokerHand {
     }
 
     public Outcome playAgainst(PokerHand other) {
-        int i = rank().compareTo(other.rank());
-        if (i > 0)
+        if (rank().higherThan(other.rank())) {
             return Win;
-        else if (i < 0)
+        }
+        if (rank().lowerThan(other.rank())) {
             return Lose;
-        else
-            return compareHighestCard(other);
+        }
+        return highestCard().playAgainst(other.highestCard());
     }
 
     public Rank rank() {
@@ -39,10 +39,6 @@ public class PokerHand {
             return Rank.Pair;
         }
         return Rank.HighCard;
-    }
-
-    private Outcome compareHighestCard(PokerHand other) {
-        return highestCard().playAgainst(other.highestCard());
     }
 
     private boolean hasStraightFlush() {
