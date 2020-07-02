@@ -1,24 +1,41 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
- 
+
+* Write an AT that accept an input like `Black: 2H 3D  White: 2C 5H`
+  and prints the outcome of the match as a string like `White wins. - with high card`
+
+  * WIP: Parsing of the player white from an input string
+  * Parsing of the poker hand of the player white from an input string
+  * Build a `Winner` and print it
+  * Complete the parsing to handle the player black and its poker hand
+  * Let the players play against each other
+  * Print the GameResult
+
+* Write an AT that accept an input like `Black: 2H 5D  White: 2C 3H`
+  and prints the outcome of the match as a string like `Black wins. - with high card`
+
+* Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
+  and prints the outcome of the match as a string like `Tie.`
+
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
         * Black wins. - with full house: 4 over 2
         * Tie.
 
-* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
+* Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
+  and prints the outcome of the match as a string like `White wins. - with high card: Ace`
 
-* Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH` and prints the outcome of the match as a string like `White wins. - with high card: Ace`
+* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
 * `GameResultPrinter` print a `Winner`... is it ok? What happens with a `Tie`?
 * Add the missing conversions from rank to string in `GameResultPrinter`
-* Add the missing ranks in `Rank` enumeration
 
 * Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting
     * three of a kind ranking
+    * Add the missing ranks in `Rank` enumeration
     
 * Add all the possible values for the poker `Cards`
 
@@ -26,11 +43,10 @@
     * two pairs ("4 cards" world)
     * four of a kind (poker) ranking ("4 cards" world)
     * full house ranking ("5 cards" world)
+    * Add the missing ranks in `Rank` enumeration
 
 * Are we sure we are testing all the possible combinations of hands?
     * parametrize test?
-
-* Play a poker game between two players starting from a text input
 
 * Building a Card is not easy (new Card(Value.Three, suit) vs some of builder / factory).
     * Waiting to have an application code that needs to create many cards in order to play a game
@@ -38,6 +54,7 @@
 * New "Texas Hold'em" rule: 2 cards in your hand + 5 common cards on the table
     - hand1: (2, 4), hand2: (8, 5), table: (3, 5, 6, 8, 8) 
      
+* What changes if we had to expose as an HTTP service?
     
 ### Notes
 
