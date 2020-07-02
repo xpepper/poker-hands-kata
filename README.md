@@ -14,7 +14,7 @@
 * Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH` and prints the outcome of the match as a string like `White wins. - with high card: Ace`
 
 * `GameResultPrinter` print a `Winner`... is it ok? What happens with a `Tie`?
-* Add the missing convertions from rank to string in `GameResultPrinter`
+* Add the missing conversions from rank to string in `GameResultPrinter`
 * Add the missing ranks in `Rank` enumeration
 
 * Poker hand with three cards... ("3 cards" world)
