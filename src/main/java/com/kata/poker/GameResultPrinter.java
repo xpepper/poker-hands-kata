@@ -7,8 +7,6 @@ public class GameResultPrinter {
 
     private String print(Rank rank) {
         switch (rank) {
-            case Pair:
-                return "pair";
             case HighCard:
                 return "high card";
             default:

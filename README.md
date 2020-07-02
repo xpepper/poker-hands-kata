@@ -1,7 +1,6 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
-* WIP: we are trying to use the rank() method in `PokerHand#playAgainst()` to derive the winning hand
  
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
