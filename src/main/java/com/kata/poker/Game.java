@@ -20,10 +20,7 @@ public class Game {
         String playerName = secondPlayerInput.split(":")[0];
         String[] rawPlayerHand = secondPlayerInput.split(": ")[1].split(" ");
 
-        String rawFirstCard = rawPlayerHand[0];
-        char rawFirstCardValue = rawFirstCard.charAt(0);
-        Card.Value firstCardValue = CHAR_TO_VALUE.get(rawFirstCardValue);
-        Card firstCard = new Card(firstCardValue, Card.Suit.Spades);
+        Card firstCard = parseCard(rawPlayerHand[0]);
 
         String rawSecondCard = rawPlayerHand[1];
         char rawSecondCardValue = rawSecondCard.charAt(0);
@@ -32,5 +29,11 @@ public class Game {
 
         Winner winner = new Winner(new Player(playerName, new PokerHand(firstCard, secondCard)));
         return new GameResultPrinter().print(winner);
+    }
+
+    private Card parseCard(String rawCard) {
+        char rawFirstCardValue = rawCard.charAt(0);
+        Card.Value firstCardValue = CHAR_TO_VALUE.get(rawFirstCardValue);
+        return new Card(firstCardValue, Card.Suit.Spades);
     }
 }
