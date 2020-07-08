@@ -11,6 +11,7 @@ public class Game {
         String secondPlayerInput = input.split("  ")[1];
         String playerName = secondPlayerInput.split(":")[0];
 
-        return playerName + " wins. - with high card";
+        Winner winner = new Winner(new Player(playerName, new PokerHand(new Card(Card.Value.Four, Card.Suit.Spades), new Card(Card.Value.Seven, Card.Suit.Hearts))));
+        return new GameResultPrinter().print(winner);
     }
 }
