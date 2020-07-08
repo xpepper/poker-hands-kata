@@ -12,6 +12,10 @@
   * Let the players play against each other
   * Print the GameResult
 
+* Improve the Player tests: maybe using a builder would help in improving the readability of the test
+    * like `aPlayer().with(highestHand())`...
+    * add helper assertions to "hide" the pair of symmetric assertions
+
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 3H`
   and prints the outcome of the match as a string like `Black wins. - with high card`
 
