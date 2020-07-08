@@ -25,11 +25,7 @@ public class Game {
         String[] rawPlayerHand = secondPlayerInput.split(": ")[1].split(" ");
 
         Card firstCard = parseCard(rawPlayerHand[0]);
-
-        String rawSecondCard = rawPlayerHand[1];
-        char rawSecondCardValue = rawSecondCard.charAt(0);
-        Card.Value secondCardValue = CHAR_TO_VALUE.get(rawSecondCardValue);
-        Card secondCard = new Card(secondCardValue, Card.Suit.Hearts);
+        Card secondCard = parseCard(rawPlayerHand[1]);
 
         Winner winner = new Winner(new Player(playerName, new PokerHand(firstCard, secondCard)));
         return new GameResultPrinter().print(winner);
