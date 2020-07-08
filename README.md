@@ -5,12 +5,14 @@
 * Write an AT that accept an input like `Black: 2H 3D  White: 2C 5H`
   and prints the outcome of the match as a string like `White wins. - with high card`
 
-  * WIP: Parsing of the player white from an input string
-  * Parsing of the poker hand of the player white from an input string
-  * Build a `Winner` and print it
-  * Complete the parsing to handle the player black and its poker hand
+  * Parse of the PokerHand
+  * Parse of the Player
   * Let the players play against each other
   * Print the GameResult
+  * CardParserTest ?
+  * Make sure you cannot create invalid Cards.
+
+* Rename `PokerHand` in `Hand`.
 
 * Improve the Player tests: maybe using a builder would help in improving the readability of the test
     * like `aPlayer().with(highestHand())`...
