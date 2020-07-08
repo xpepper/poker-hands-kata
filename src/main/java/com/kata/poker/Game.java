@@ -10,8 +10,16 @@ public class Game {
     public String play() {
         String secondPlayerInput = input.split("  ")[1];
         String playerName = secondPlayerInput.split(":")[0];
+        String[] rawPlayerHand = secondPlayerInput.split(": ")[1].split(" ");
+        String rawFirstCard = rawPlayerHand[0];
+        char rawFirstCardValue = rawFirstCard.charAt(0);
+        String rawSecondCard = rawPlayerHand[1];
+        char rawSecondCardValue = rawSecondCard.charAt(0);
 
-        Winner winner = new Winner(new Player(playerName, new PokerHand(new Card(Card.Value.Four, Card.Suit.Spades), new Card(Card.Value.Seven, Card.Suit.Hearts))));
+        Card.Value firstCardValue = Card.Value.Four;
+        Card firstCard = new Card(firstCardValue, Card.Suit.Spades);
+        Card secondCard = new Card(Card.Value.Seven, Card.Suit.Hearts);
+        Winner winner = new Winner(new Player(playerName, new PokerHand(firstCard, secondCard)));
         return new GameResultPrinter().print(winner);
     }
 }
