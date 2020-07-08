@@ -36,12 +36,12 @@ public class Game {
     }
 
     private Card parseCard(String rawCard) {
-        char rawFirstCardValue = rawCard.charAt(0);
-        Card.Value firstCardValue = CHAR_TO_VALUE.get(rawFirstCardValue);
+        char rawCardValue = rawCard.charAt(0);
+        Card.Value value = CHAR_TO_VALUE.get(rawCardValue);
 
         Character rawCardSuit = rawCard.charAt(1);
         Card.Suit suit = CHAR_TO_SUIT.get(rawCardSuit);
 
-        return new Card(firstCardValue, suit);
+        return new Card(value, suit);
     }
 }
