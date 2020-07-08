@@ -9,6 +9,10 @@ public class Game {
         put('5', Card.Value.Five);
     }};
 
+    private static final Map<Character, Card.Suit> CHAR_TO_SUIT = new HashMap<Character, Card.Suit>() {{
+        put('C', Card.Suit.Clubs);
+    }};
+
     private String input;
 
     public Game(String input) {
@@ -34,6 +38,10 @@ public class Game {
     private Card parseCard(String rawCard) {
         char rawFirstCardValue = rawCard.charAt(0);
         Card.Value firstCardValue = CHAR_TO_VALUE.get(rawFirstCardValue);
-        return new Card(firstCardValue, Card.Suit.Spades);
+
+        Character rawCardSuit = rawCard.charAt(1);
+        Card.Suit suit = CHAR_TO_SUIT.get(rawCardSuit);
+
+        return new Card(firstCardValue, suit);
     }
 }
