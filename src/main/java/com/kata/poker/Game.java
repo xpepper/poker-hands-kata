@@ -1,5 +1,7 @@
 package com.kata.poker;
 
+import java.util.HashMap;
+
 public class Game {
     private String input;
 
@@ -16,9 +18,14 @@ public class Game {
         String rawSecondCard = rawPlayerHand[1];
         char rawSecondCardValue = rawSecondCard.charAt(0);
 
-        Card.Value firstCardValue = Card.Value.Four;
+        HashMap<Character, Card.Value> charToValue = new HashMap<>();
+        charToValue.put('2', Card.Value.Two);
+        charToValue.put('5', Card.Value.Five);
+
+        Card.Value firstCardValue = charToValue.get(rawFirstCardValue);
         Card firstCard = new Card(firstCardValue, Card.Suit.Spades);
-        Card secondCard = new Card(Card.Value.Seven, Card.Suit.Hearts);
+        Card.Value secondCardValue = charToValue.get(rawSecondCardValue);
+        Card secondCard = new Card(secondCardValue, Card.Suit.Hearts);
         Winner winner = new Winner(new Player(playerName, new PokerHand(firstCard, secondCard)));
         return new GameResultPrinter().print(winner);
     }
