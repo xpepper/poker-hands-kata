@@ -2,12 +2,13 @@ package com.kata.poker;
 
 public class Game {
 
+    public static final String PLAYER_SEPARATOR = "  ";
     private final PlayerParser playerParser = new PlayerParser();
 
-    private String input;
+    private String rawGameInput;
 
-    public Game(String input) {
-        this.input = input;
+    public Game(String rawGameInput) {
+        this.rawGameInput = rawGameInput;
     }
 
     public String play() {
@@ -17,13 +18,13 @@ public class Game {
     }
 
     private Player firstPlayer() {
-        String firstPlayerInput = input.split("  ")[0];
-        return playerParser.parse(firstPlayerInput);
+        String rawFirstPlayer = rawGameInput.split(PLAYER_SEPARATOR)[0];
+        return playerParser.parse(rawFirstPlayer);
     }
 
     private Player secondPlayer() {
-        String secondPlayerInput = input.split("  ")[1];
-        return playerParser.parse(secondPlayerInput);
+        String rawSecondPlayer = rawGameInput.split(PLAYER_SEPARATOR)[1];
+        return playerParser.parse(rawSecondPlayer);
     }
 
 }
