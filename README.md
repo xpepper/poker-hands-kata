@@ -4,10 +4,6 @@
 
 * Rename `PokerHand` in `Hand`.
 
-* Improve the Player tests: maybe using a builder would help in improving the readability of the test
-    * like `aPlayer().with(highestHand())`...
-    * add helper assertions to "hide" the pair of symmetric assertions
-
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`
     * GameResultPrint should print a GameResult
@@ -16,6 +12,10 @@
         - add support to more values and suites?
       * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
       * Make sure you cannot create invalid Cards.
+
+* Improve the Player tests: maybe using a builder would help in improving the readability of the test
+    * like `aPlayer().with(highestHand())`...
+    * add helper assertions to "hide" the pair of symmetric assertions
 
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
