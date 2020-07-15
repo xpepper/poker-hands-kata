@@ -5,7 +5,7 @@
 * Write an AT that accept an input like `Black: 2H 4D  White: 2C 5H`
   and prints the outcome of the match as a string like `White wins. - with high card`
 
-  * Parse of the Player
+  * Extract Player Parsing
   * Print the GameResult
   * CardParserTest
     - add support to more values and suites?
@@ -17,9 +17,6 @@
 * Improve the Player tests: maybe using a builder would help in improving the readability of the test
     * like `aPlayer().with(highestHand())`...
     * add helper assertions to "hide" the pair of symmetric assertions
-
-* Write an AT that accept an input like `Black: 2C 5D  White: 2H 4D`
-  and prints the outcome of the match as a string like `Black wins. - with high card`
 
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`

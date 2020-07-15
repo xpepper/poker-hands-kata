@@ -17,9 +17,10 @@ public class Game {
 
     public String play() {
         String firstPlayerInput = input.split("  ")[0];
+        String firstPlayerName = firstPlayerInput.split(":")[0];
         String rawFirstPlayerHand = firstPlayerInput.split(": ")[1];
         PokerHand firstPlayerHand = pokerHandParser.parse(rawFirstPlayerHand);
-        Player firstPlayer = new Player("Foo", firstPlayerHand);
+        Player firstPlayer = new Player(firstPlayerName, firstPlayerHand);
 
         String secondPlayerInput = input.split("  ")[1];
         String secondPlayerName = secondPlayerInput.split(":")[0];
