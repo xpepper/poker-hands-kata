@@ -11,7 +11,7 @@ public class Game {
     }
 
     public String play() {
-        Winner winner = (Winner) secondPlayer().playAgainst(firstPlayer());
+        Winner winner = (Winner) firstPlayer().playAgainst(secondPlayer());
 
         return new GameResultPrinter().print(winner);
     }
