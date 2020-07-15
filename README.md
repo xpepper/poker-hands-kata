@@ -2,15 +2,6 @@
 
 ### TODO
 
-* Write an AT that accept an input like `Black: 2H 4D  White: 2C 5H`
-  and prints the outcome of the match as a string like `White wins. - with high card`
-
-  * Print the GameResult
-  * CardParserTest
-    - add support to more values and suites?
-  * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
-  * Make sure you cannot create invalid Cards.
-
 * Rename `PokerHand` in `Hand`.
 
 * Improve the Player tests: maybe using a builder would help in improving the readability of the test
@@ -20,6 +11,11 @@
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`
     * GameResultPrint should print a GameResult
+    * Print the GameResult
+      * CardParserTest
+        - add support to more values and suites?
+      * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
+      * Make sure you cannot create invalid Cards.
 
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
