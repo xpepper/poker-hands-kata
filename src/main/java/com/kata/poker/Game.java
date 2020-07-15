@@ -21,7 +21,7 @@ public class Game {
 
         String rawSecondPlayerHand = secondPlayerInput.split(": ")[1];
         
-        PokerHand firstPlayerHand = pokerHandParser.parse("2C 4D");
+        PokerHand firstPlayerHand = pokerHandParser.parse("2H 4D");
         PokerHand secondPlayerHand = pokerHandParser.parse(rawSecondPlayerHand);
 
         Player winnerPlayer = new Player(playerName, secondPlayerHand);

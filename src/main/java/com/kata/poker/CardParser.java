@@ -12,6 +12,7 @@ public class CardParser {
 
     private static final Map<Character, Card.Suit> CHAR_TO_SUIT = new HashMap<Character, Card.Suit>() {{
         put('C', Card.Suit.Clubs);
+        put('H', Card.Suit.Hearts);
         put('D', Card.Suit.Diamonds);
     }};
 

@@ -2,7 +2,7 @@
 
 ### TODO
 
-* Write an AT that accept an input like `Black: 2H 3D  White: 2C 5H`
+* Write an AT that accept an input like `Black: 2H 4D  White: 2C 5H`
   and prints the outcome of the match as a string like `White wins. - with high card`
 
   * Parse of the PokerHand
@@ -19,7 +19,7 @@
     * like `aPlayer().with(highestHand())`...
     * add helper assertions to "hide" the pair of symmetric assertions
 
-* Write an AT that accept an input like `Black: 2H 5D  White: 2C 3H`
+* Write an AT that accept an input like `Black: 2C 5D  White: 2H 4D`
   and prints the outcome of the match as a string like `Black wins. - with high card`
 
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
