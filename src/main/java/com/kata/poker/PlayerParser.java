@@ -6,7 +6,7 @@ public class PlayerParser {
     Player parse(String rawPlayer) {
         String name = rawPlayer.split(":")[0];
         String rawPokerHand = rawPlayer.split(": ")[1];
-        PokerHand pokerHand = pokerHandParser.parse(rawPokerHand);
-        return new Player(name, pokerHand);
+        Hand hand = pokerHandParser.parse(rawPokerHand);
+        return new Player(name, hand);
     }
 }

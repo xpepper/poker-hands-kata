@@ -3,15 +3,15 @@ package com.kata.poker;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
-import static com.kata.poker.PokerHandTest.*;
+import static com.kata.poker.HandTest.*;
 import static org.junit.Assert.assertEquals;
 
 public class PlayerAgainstAnotherPlayerTest {
 
     @Test
     public void returns_the_winner() {
-        PokerHand higherHand = new PokerHand(sevenOf(Diamonds), fiveOf(Hearts));
-        PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
+        Hand higherHand = new Hand(sevenOf(Diamonds), fiveOf(Hearts));
+        Hand hand = new Hand(fiveOf(Diamonds), threeOf(Hearts));
 
         Player winningPlayer = new Player("aPlayer", higherHand);
         Player losingPlayer = new Player("anotherPlayer", hand);
@@ -22,8 +22,8 @@ public class PlayerAgainstAnotherPlayerTest {
 
     @Test
     public void returns_a_tie_when_no_player_has_a_winning_hand() {
-        PokerHand hand = new PokerHand(fiveOf(Diamonds), threeOf(Hearts));
-        PokerHand otherHand = new PokerHand(fiveOf(Clubs), threeOf(Spades));
+        Hand hand = new Hand(fiveOf(Diamonds), threeOf(Hearts));
+        Hand otherHand = new Hand(fiveOf(Clubs), threeOf(Spades));
 
         Player aPlayer = new Player("aPlayer", hand);
         Player anotherPlayer = new Player("anotherPlayer", otherHand);

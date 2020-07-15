@@ -2,8 +2,6 @@
 
 ### TODO
 
-* Rename `PokerHand` in `Hand`.
-
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`
     * GameResultPrint should print a GameResult

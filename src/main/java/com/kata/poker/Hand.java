@@ -7,15 +7,15 @@ import static com.kata.poker.Outcome.Win;
 import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableList;
 
-public class PokerHand {
+public class Hand {
 
     private final List<Card> cards;
 
-    public PokerHand(Card first, Card second) {
+    public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
     }
 
-    public Outcome playAgainst(PokerHand other) {
+    public Outcome playAgainst(Hand other) {
         if (rank().higherThan(other.rank())) {
             return Win;
         }
