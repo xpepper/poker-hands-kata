@@ -1,5 +1,10 @@
 package com.kata.poker;
 
+import static com.kata.poker.Card.Suit.Clubs;
+import static com.kata.poker.Card.Suit.Diamonds;
+import static com.kata.poker.Card.Value.Four;
+import static com.kata.poker.Card.Value.Two;
+
 public class Game {
 
     private final CardParser cardParser = new CardParser();
@@ -19,7 +24,10 @@ public class Game {
         Card secondCard = cardParser.parse(rawPlayerHand[1]);
         PokerHand hand = new PokerHand(firstCard, secondCard);
 
-        Winner winner = new Winner(new Player(playerName, hand));
+        Player winnerPlayer = new Player(playerName, hand);
+        Player alwaysLoosingPlayer = new Player("Foo", new PokerHand(new Card(Two, Clubs), new Card(Four, Diamonds)));
+        Winner winner = (Winner) winnerPlayer.playAgainst(alwaysLoosingPlayer);
+
         return new GameResultPrinter().print(winner);
     }
 

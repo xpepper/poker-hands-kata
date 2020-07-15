@@ -23,6 +23,7 @@
 
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`
+    * GameResultPrint should print a GameResult
 
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
