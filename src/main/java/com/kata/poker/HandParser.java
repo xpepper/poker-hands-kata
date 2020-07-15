@@ -1,6 +1,6 @@
 package com.kata.poker;
 
-public class PokerHandParser {
+public class HandParser {
     private final CardParser cardParser = new CardParser();
 
     Hand parse(String rawPokerHand) {
