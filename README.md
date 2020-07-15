@@ -51,6 +51,7 @@
     - hand1: (2, 4), hand2: (8, 5), table: (3, 5, 6, 8, 8) 
      
 * What changes if we had to expose as an HTTP service?
+* EXTRA: What would you need to change if a new game input should be supported?
     
 ### Notes
 
