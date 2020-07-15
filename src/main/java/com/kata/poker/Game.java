@@ -11,15 +11,19 @@ public class Game {
     }
 
     public String play() {
-        String firstPlayerInput = input.split("  ")[0];
-        Player firstPlayer = playerParser.parse(firstPlayerInput);
-
-        String secondPlayerInput = input.split("  ")[1];
-        Player secondPlayer = playerParser.parse(secondPlayerInput);
-
-        Winner winner = (Winner) secondPlayer.playAgainst(firstPlayer);
+        Winner winner = (Winner) secondPlayer().playAgainst(firstPlayer());
 
         return new GameResultPrinter().print(winner);
+    }
+
+    private Player firstPlayer() {
+        String firstPlayerInput = input.split("  ")[0];
+        return playerParser.parse(firstPlayerInput);
+    }
+
+    private Player secondPlayer() {
+        String secondPlayerInput = input.split("  ")[1];
+        return playerParser.parse(secondPlayerInput);
     }
 
 }
