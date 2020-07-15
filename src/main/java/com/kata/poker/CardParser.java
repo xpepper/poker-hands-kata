@@ -6,11 +6,13 @@ import java.util.Map;
 public class CardParser {
     private static final Map<Character, Card.Value> CHAR_TO_VALUE = new HashMap<Character, Card.Value>() {{
         put('2', Card.Value.Two);
+        put('4', Card.Value.Four);
         put('5', Card.Value.Five);
     }};
 
     private static final Map<Character, Card.Suit> CHAR_TO_SUIT = new HashMap<Character, Card.Suit>() {{
         put('C', Card.Suit.Clubs);
+        put('D', Card.Suit.Diamonds);
     }};
 
     Card parse(String rawCard) {

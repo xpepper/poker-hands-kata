@@ -7,7 +7,7 @@ import static com.kata.poker.Card.Value.Two;
 
 public class Game {
 
-    private final CardParser cardParser = new CardParser();
+    private final PokerHandParser pokerHandParser = new PokerHandParser();
 
     private String input;
 
@@ -20,21 +20,14 @@ public class Game {
         String playerName = secondPlayerInput.split(":")[0];
 
         String rawSecondPlayerHand = secondPlayerInput.split(": ")[1];
+        
+        PokerHand firstPlayerHand = pokerHandParser.parse("2C 4D");
+        PokerHand secondPlayerHand = pokerHandParser.parse(rawSecondPlayerHand);
 
-        PokerHand hand = parsePokerHand(rawSecondPlayerHand);
-
-        Player winnerPlayer = new Player(playerName, hand);
-        Player alwaysLoosingPlayer = new Player("Foo", new PokerHand(new Card(Two, Clubs), new Card(Four, Diamonds)));
+        Player winnerPlayer = new Player(playerName, secondPlayerHand);
+        Player alwaysLoosingPlayer = new Player("Foo", firstPlayerHand);
         Winner winner = (Winner) winnerPlayer.playAgainst(alwaysLoosingPlayer);
 
         return new GameResultPrinter().print(winner);
     }
-
-    private PokerHand parsePokerHand(String rawPokerHand) {
-        String[] rawCards = rawPokerHand.split(" ");
-        Card firstCard = cardParser.parse(rawCards[0]);
-        Card secondCard = cardParser.parse(rawCards[1]);
-        return new PokerHand(firstCard, secondCard);
-    }
-
 }

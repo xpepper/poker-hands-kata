@@ -8,7 +8,9 @@
   * Parse of the PokerHand
   * Parse of the Player
   * Print the GameResult
-  * CardParserTest ?
+  * CardParserTest
+    - add support to more values and suites?
+  * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
   * Make sure you cannot create invalid Cards.
 
 * Rename `PokerHand` in `Hand`.
