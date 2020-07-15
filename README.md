@@ -5,7 +5,6 @@
 * Write an AT that accept an input like `Black: 2H 4D  White: 2C 5H`
   and prints the outcome of the match as a string like `White wins. - with high card`
 
-  * Parse of the PokerHand
   * Parse of the Player
   * Print the GameResult
   * CardParserTest
