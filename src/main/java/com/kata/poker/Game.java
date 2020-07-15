@@ -17,19 +17,20 @@ public class Game {
 
     public String play() {
         String firstPlayerInput = input.split("  ")[0];
-        String firstPlayerName = firstPlayerInput.split(":")[0];
-        String rawFirstPlayerHand = firstPlayerInput.split(": ")[1];
-        PokerHand firstPlayerHand = pokerHandParser.parse(rawFirstPlayerHand);
-        Player firstPlayer = new Player(firstPlayerName, firstPlayerHand);
+        Player firstPlayer = parsePlayer(firstPlayerInput);
 
         String secondPlayerInput = input.split("  ")[1];
-        String secondPlayerName = secondPlayerInput.split(":")[0];
-        String rawSecondPlayerHand = secondPlayerInput.split(": ")[1];
-        PokerHand secondPlayerHand = pokerHandParser.parse(rawSecondPlayerHand);
-        Player secondPlayer = new Player(secondPlayerName, secondPlayerHand);
+        Player secondPlayer = parsePlayer(secondPlayerInput);
 
         Winner winner = (Winner) secondPlayer.playAgainst(firstPlayer);
 
         return new GameResultPrinter().print(winner);
+    }
+
+    private Player parsePlayer(String rawPlayer) {
+        String name = rawPlayer.split(":")[0];
+        String rawPokerHand = rawPlayer.split(": ")[1];
+        PokerHand pokerHand = pokerHandParser.parse(rawPokerHand);
+        return new Player(name, pokerHand);
     }
 }
