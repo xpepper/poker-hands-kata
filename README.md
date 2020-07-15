@@ -7,16 +7,14 @@
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`
     * GameResultPrint should print a GameResult
-    * Print the GameResult
-      * CardParserTest
-        - add support to more values and suites?
-      * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
-      * Make sure you cannot create invalid Cards.
-
-* Improve the Player tests: maybe using a builder would help in improving the readability of the test
-    * like `aPlayer().with(highestHand())`...
-    * add helper assertions to "hide" the pair of symmetric assertions
-
+    * CardParserTest
+       - add support to more values and suites?
+    * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
+    * Make sure you cannot create invalid Cards.
+    * `GameResultPrinter` print a `Winner`... is it ok? What happens with a `Tie`?
+    
+* Add the missing conversions from rank to string in `GameResultPrinter`    
+    
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
@@ -26,10 +24,11 @@
 * Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
   and prints the outcome of the match as a string like `White wins. - with high card: Ace`
 
-* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
+* Improve the Player tests: maybe using a builder would help in improving the readability of the test
+    * like `aPlayer().with(highestHand())`...
+    * add helper assertions to "hide" the pair of symmetric assertions
 
-* `GameResultPrinter` print a `Winner`... is it ok? What happens with a `Tie`?
-* Add the missing conversions from rank to string in `GameResultPrinter`
+* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
 
 * Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting
