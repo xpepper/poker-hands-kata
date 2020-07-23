@@ -1,7 +1,13 @@
 package com.kata.poker;
 
 public class GameResultPrinter {
-    public String print(Winner winner) {
+
+    public String print(GameResult gameResult) {
+        if (gameResult instanceof GameResult.Tie) {
+            return "Tie.";
+        }
+
+        Winner winner = (Winner) gameResult;
         return winner.playerName() + " wins. - with " + print(winner.rank());
     }
 
