@@ -12,8 +12,12 @@ public class Game {
     }
 
     public String play() {
-        Winner winner = (Winner) firstPlayer().playAgainst(secondPlayer());
+        GameResult gameResult = firstPlayer().playAgainst(secondPlayer());
+        if (gameResult instanceof GameResult.Tie) {
+            return "Tie.";
+        }
 
+        Winner winner = (Winner) gameResult;
         return new GameResultPrinter().print(winner);
     }
 

@@ -18,4 +18,11 @@ public class GameTest {
 
         assertEquals("Black wins. - with high card", game.play());
     }
+
+    @Test
+    public void when_no_player_has_a_winning_hand_the_game_is_tie() {
+        Game game = new Game("Black: 2H 5D  White: 2C 5H");
+
+        assertEquals("Tie.", game.play());
+    }
 }
