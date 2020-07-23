@@ -1,17 +1,26 @@
 package com.kata.poker;
 
+import com.kata.poker.GameResult.Tie;
+
 public class GameResultPrinter {
 
-    public String print(GameResult gameResult) {
-        if (gameResult instanceof GameResult.Tie) {
-            return "Tie.";
+    public String print(GameResult result) {
+        if (result instanceof Tie) {
+            return tieMessage();
         }
 
-        Winner winner = (Winner) gameResult;
-        return winner.playerName() + " wins. - with " + print(winner.rank());
+        return winnerMessage((Winner) result);
     }
 
-    private String print(Rank rank) {
+    private String tieMessage() {
+        return "Tie.";
+    }
+
+    private String winnerMessage(Winner winner) {
+        return winner.playerName() + " wins. - with " + rankMessage(winner.rank());
+    }
+
+    private String rankMessage(Rank rank) {
         switch (rank) {
             case HighCard:
                 return "high card";
