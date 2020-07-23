@@ -17,7 +17,7 @@ public class GameResultFormatter {
     }
 
     private String winnerMessage(Winner winner) {
-        return winner.playerName() + " wins. - with " + rankMessage(winner.rank());
+        return winner.playerName() + " wins. - with " + rankMessage(winner.rank()) + ": 7";
     }
 
     private String rankMessage(Rank rank) {
@@ -27,6 +27,5 @@ public class GameResultFormatter {
             default:
                 throw new IllegalStateException("Unexpected value: " + rank);
         }
-
     }
 }
