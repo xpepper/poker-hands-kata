@@ -4,7 +4,6 @@
  
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`
-    * GameResultPrint should print a GameResult
     * CardParserTest
        - add support to more values and suites?
     * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
