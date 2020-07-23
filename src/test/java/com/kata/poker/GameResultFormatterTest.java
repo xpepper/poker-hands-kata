@@ -7,12 +7,12 @@ import static com.kata.poker.Card.Suit.Hearts;
 import static com.kata.poker.HandTest.*;
 import static org.junit.Assert.assertEquals;
 
-public class GameResultPrinterTest {
+public class GameResultFormatterTest {
 
     @Test
-    public void print_the_winner_name_and_its_rank() {
+    public void format_the_winner_name_and_its_rank() {
         Winner winner = new Winner(new Player("Peter", new Hand(threeOf(Clubs), sevenOf(Hearts))));
 
-        assertEquals("Peter wins. - with high card", new GameResultPrinter().print(winner));
+        assertEquals("Peter wins. - with high card", new GameResultFormatter().format(winner));
     }
 }

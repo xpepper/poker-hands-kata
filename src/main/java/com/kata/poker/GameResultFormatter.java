@@ -2,9 +2,9 @@ package com.kata.poker;
 
 import com.kata.poker.GameResult.Tie;
 
-public class GameResultPrinter {
+public class GameResultFormatter {
 
-    public String print(GameResult result) {
+    public String format(GameResult result) {
         if (result instanceof Tie) {
             return tieMessage();
         }

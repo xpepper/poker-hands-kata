@@ -13,7 +13,7 @@ public class Game {
 
     public String play() {
         GameResult gameResult = firstPlayer().playAgainst(secondPlayer());
-        return new GameResultPrinter().print(gameResult);
+        return new GameResultFormatter().format(gameResult);
     }
 
     private Player firstPlayer() {
