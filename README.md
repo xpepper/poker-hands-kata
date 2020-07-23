@@ -1,22 +1,18 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
- 
-* Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
-  and prints the outcome of the match as a string like `Tie.`
-    * CardParserTest
-       - add support to more values and suites?
-    * Should we add a validation when creating a Card (null values and suites should not be allowed) ?
-    * Make sure you cannot create invalid Cards.
-    * `GameResultPrinter` print a `Winner`... is it ok? What happens with a `Tie`?
-    
-* Add the missing conversions from rank to string in `GameResultPrinter`    
-    
+
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
         * Black wins. - with full house: 4 over 2
         * Tie.
+
+* CardParserTest
+   - add support to more values and suites?
+* Should we add a validation when creating a Card (null values and suites should not be allowed) ?
+* Make sure you cannot create invalid Cards.
+* Add the missing conversions from rank to string in `GameResultFormatter`
 
 * Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
   and prints the outcome of the match as a string like `White wins. - with high card: Ace`
