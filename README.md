@@ -1,7 +1,7 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
 
 ### TODO
-
+ 
 * Write an AT that accept an input like `Black: 2H 5D  White: 2C 5H`
   and prints the outcome of the match as a string like `Tie.`
     * GameResultPrint should print a GameResult
@@ -52,6 +52,9 @@
      
 * What changes if we had to expose as an HTTP service?
 * EXTRA: What would you need to change if a new game input should be supported?
+
+* What would happen if we try to write unit tests for `PlayerParser` and the other two parsers? 
+    * What feedback would we get from those tests? 
     
 ### Notes
 
