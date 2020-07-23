@@ -4,7 +4,7 @@ import static com.kata.poker.Outcome.*;
 
 public class Card {
 
-    private final Value value;
+    public final Value value;
     private final Suit suit;
 
     public Card(Value value, Suit suit) {

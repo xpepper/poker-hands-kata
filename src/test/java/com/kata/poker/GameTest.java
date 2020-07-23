@@ -10,7 +10,7 @@ public class GameTest {
     public void white_wins_with_high_card() {
         Game game = new Game("Black: 2H 4D  White: 2C 5H");
 
-        assertTrue(game.play().startsWith("White wins. - with high card"));
+        assertEquals("White wins. - with high card: 5", game.play());
     }
 
     @Test

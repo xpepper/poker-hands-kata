@@ -2,6 +2,8 @@
 
 ### TODO
 
+* GameResultFormatter should format the point message from the winner's highest card
+
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
