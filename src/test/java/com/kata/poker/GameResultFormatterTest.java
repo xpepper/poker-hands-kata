@@ -15,4 +15,9 @@ public class GameResultFormatterTest {
 
         assertEquals("Peter wins. - with high card", new GameResultFormatter().format(winner));
     }
+
+    @Test
+    public void format_tie_result() {
+        assertEquals("Tie.", new GameResultFormatter().format(GameResult.tie));
+    }
 }
