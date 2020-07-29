@@ -2,7 +2,9 @@
 
 ### TODO
 
-* idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
+* Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
+
+* Remove the magic number in all the `Rank` subclasses to represent the priority 
 
 * Add test on the missing ranks on `HandTest`
 
