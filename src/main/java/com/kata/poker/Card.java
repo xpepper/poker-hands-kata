@@ -3,6 +3,7 @@ package com.kata.poker;
 import java.util.Objects;
 
 import static com.kata.poker.Outcome.*;
+import static java.text.MessageFormat.format;
 
 public class Card {
 
@@ -41,10 +42,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "value=" + value +
-                ", suit=" + suit +
-                '}';
+        return format("Card'{'value={0}, suit={1}'}'", value, suit);
     }
 
     public boolean comesBefore(Card card) {
