@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.Outcome.*;
-import static com.kata.poker.Rank.Pair;
 import static org.junit.Assert.assertEquals;
 
 public class HandTest {
@@ -14,7 +13,7 @@ public class HandTest {
     public void tell_when_an_hand_has_a_pair_rank() {
         Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds));
 
-        assertEquals(Pair, hand.rank());
+        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), hand.rank());
     }
 
     @Test

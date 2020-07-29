@@ -36,7 +36,7 @@ public class Hand {
             return Rank.Straight;
         }
         if (hasPair()) {
-            return Rank.Pair;
+            return Rank.pair(cards.get(0), cards.get(1));
         }
         return Rank.highCard(highestCard());
     }

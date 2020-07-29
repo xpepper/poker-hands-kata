@@ -2,8 +2,9 @@ package com.kata.poker;
 
 import java.util.Objects;
 
+import static java.text.MessageFormat.format;
+
 public class Rank {
-    public static final Rank Pair = Rank.pair(null, null);
     public static final Rank Straight = new Rank(3);
     public static final Rank Flush = new Rank(4);
     public static final Rank StraightFlush = new Rank(5);
@@ -18,7 +19,7 @@ public class Rank {
         return new HighCard(highestCard);
     }
 
-    private static Rank pair(Card first, Card second) {
+    public static Rank pair(Card first, Card second) {
         return new Pair(first, second);
     }
 
@@ -54,9 +55,7 @@ public class Rank {
 
         @Override
         public String toString() {
-            return "HighCard{" +
-                    "highestCard=" + highestCard +
-                    '}';
+            return format("HighCard'{'highestCard={0}'}'", highestCard);
         }
 
         public Card.Value value() {
@@ -72,6 +71,25 @@ public class Rank {
             super(2);
             this.first = first;
             this.second = second;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
+            return Objects.equals(first, pair.first) &&
+                    Objects.equals(second, pair.second);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(first, second);
+        }
+
+        @Override
+        public String toString() {
+            return format("Pair'{'first={0}, second={1}'}'", first, second);
         }
     }
 }
