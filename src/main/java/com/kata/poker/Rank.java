@@ -1,7 +1,7 @@
 package com.kata.poker;
 
 public class Rank {
-    public static final Rank HighCard = new Rank(1);
+    public static final Rank HighCard = new HighCard();
     public static final Rank Pair = new Rank(2);
     public static final Rank Straight = new Rank(3);
     public static final Rank Flush = new Rank(4);
@@ -18,5 +18,12 @@ public class Rank {
 
     public boolean lowerThan(Rank other) {
         return priority < other.priority;
+    }
+
+    private static class HighCard extends Rank {
+
+        private HighCard() {
+            super(1);
+        }
     }
 }
