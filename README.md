@@ -2,9 +2,13 @@
 
 ### TODO
 
-* Add the information about the point as part of the Rank
+* idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
 
-* GameResultFormatter should format the point message from the winner's highest card
+* Add test on the missing ranks on `HandTest`
+
+* Add the information about the point as part of the `Rank`
+
+* `GameResultFormatter` should format the point message from the winner's highest card
     - be able to format the point even with figures like 'A', 'K', ... ?
 
 * From simply telling which hand is higher than another to showing the actual winning rank
@@ -13,9 +17,12 @@
         * Black wins. - with full house: 4 over 2
         * Tie.
 
-* CardParserTest
+* `CardParserTest`
    - add support to more values and suites?
-* Should we add a validation when creating a Card (null values and suites should not be allowed) ?
+* Should we add a validation when 
+    - creating a `Card` (null values and suites should not be allowed) ?
+    - creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or a `Pair` with two cards with the same suit)
+
 * Make sure you cannot create invalid Cards.
 * Add the missing conversions from rank to string in `GameResultFormatter`
 
