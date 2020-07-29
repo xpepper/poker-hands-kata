@@ -1,6 +1,7 @@
 package com.kata.poker;
 
 import com.kata.poker.GameResult.Tie;
+import com.kata.poker.Rank.HighCard;
 
 import static com.kata.poker.Card.Suit.Hearts;
 import static com.kata.poker.Card.Value.Seven;
@@ -38,7 +39,7 @@ public class GameResultFormatter {
     }
 
     private String rankMessage(Rank rank) {
-        if (Rank.HighCard.equals(rank)) {
+        if (rank instanceof HighCard) {
             return "high card";
         }
         throw new IllegalStateException("Unexpected value: " + rank);

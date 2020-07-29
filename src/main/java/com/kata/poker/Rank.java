@@ -20,7 +20,7 @@ public class Rank {
         return priority < other.priority;
     }
 
-    private static class HighCard extends Rank {
+    public static class HighCard extends Rank {
 
         private HighCard() {
             super(1);
