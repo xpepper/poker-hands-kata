@@ -38,11 +38,9 @@ public class GameResultFormatter {
     }
 
     private String rankMessage(Rank rank) {
-        switch (rank) {
-            case HighCard:
-                return "high card";
-            default:
-                throw new IllegalStateException("Unexpected value: " + rank);
+        if (Rank.HighCard.equals(rank)) {
+            return "high card";
         }
+        throw new IllegalStateException("Unexpected value: " + rank);
     }
 }
