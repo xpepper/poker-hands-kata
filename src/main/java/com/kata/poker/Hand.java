@@ -38,7 +38,7 @@ public class Hand {
         if (hasPair()) {
             return Rank.Pair;
         }
-        return Rank.HighCard;
+        return Rank.highCard(highestCard());
     }
 
     private boolean hasStraightFlush() {

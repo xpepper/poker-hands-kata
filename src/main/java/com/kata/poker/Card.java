@@ -1,5 +1,7 @@
 package com.kata.poker;
 
+import java.util.Objects;
+
 import static com.kata.poker.Outcome.*;
 
 public class Card {
@@ -21,6 +23,28 @@ public class Card {
             default:
                 return Tie;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Card)) return false;
+        Card card = (Card) o;
+        return value == card.value &&
+                suit == card.suit;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, suit);
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "value=" + value +
+                ", suit=" + suit +
+                '}';
     }
 
     public boolean comesBefore(Card card) {

@@ -22,7 +22,7 @@ public class HandTest {
     public void tell_when_an_hand_has_an_high_card_rank() {
         Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds));
 
-        assertEquals(HighCard, hand.rank());
+        assertEquals(Rank.highCard(sevenOf(Hearts)), hand.rank());
     }
 
     @Test
