@@ -5,6 +5,7 @@
 * Add the information about the point as part of the Rank
 
 * GameResultFormatter should format the point message from the winner's highest card
+    - be able to format the point even with figures like 'A', 'K', ... ?
 
 * From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
