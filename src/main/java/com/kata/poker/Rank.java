@@ -53,5 +53,9 @@ public class Rank {
                     "highestCard=" + highestCard +
                     '}';
         }
+
+        public Card.Value value() {
+            return highestCard.value;
+        }
     }
 }

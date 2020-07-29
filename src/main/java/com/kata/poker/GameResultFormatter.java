@@ -3,9 +3,6 @@ package com.kata.poker;
 import com.kata.poker.GameResult.Tie;
 import com.kata.poker.Rank.HighCard;
 
-import static com.kata.poker.Card.Suit.Hearts;
-import static com.kata.poker.Card.Value.Seven;
-
 public class GameResultFormatter {
 
     public String format(GameResult result) {
@@ -21,26 +18,18 @@ public class GameResultFormatter {
     }
 
     private String winnerMessage(Winner winner) {
-        return winner.playerName() + " wins. - with " + rankMessage(winner.rank()) + ": " + pointMessage();
-    }
-
-    private String pointMessage() {
-        Card highestCard = new Card(Seven, Hearts);
-        return cardMessage(highestCard);
-    }
-
-    private String cardMessage(Card card) {
-        switch (card.value) {
-            case Seven:
-                return "7";
-            default:
-                throw new IllegalStateException("Unexpected value: " + card);
-        }
+        return winner.playerName() + " wins. - with " + rankMessage(winner.rank());
     }
 
     private String rankMessage(Rank rank) {
         if (rank instanceof HighCard) {
-            return "high card";
+            HighCard highCard = (HighCard) rank;
+            Card.Value value = highCard.value();
+            String point = "";
+            if (value == Card.Value.Seven) {
+                point = "7";
+            }
+            return "high card: "+ point;
         }
         throw new IllegalStateException("Unexpected value: " + rank);
     }
