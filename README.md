@@ -2,8 +2,6 @@
 
 ### TODO
 
-* Use a Class instead of an Enum for the Rank
-
 * Add the information about the point as part of the Rank
 
 * GameResultFormatter should format the point message from the winner's highest card
