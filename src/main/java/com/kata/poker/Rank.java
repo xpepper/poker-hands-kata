@@ -3,7 +3,6 @@ package com.kata.poker;
 import java.util.Objects;
 
 public class Rank {
-    public static final Rank HighCard = new HighCard(null);
     public static final Rank Pair = new Rank(2);
     public static final Rank Straight = new Rank(3);
     public static final Rank Flush = new Rank(4);

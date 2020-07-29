@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.Outcome.*;
-import static com.kata.poker.Rank.HighCard;
 import static com.kata.poker.Rank.Pair;
 import static org.junit.Assert.assertEquals;
 
