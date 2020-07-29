@@ -24,7 +24,7 @@ public class GameResultFormatter {
     private String rankMessage(Rank rank) {
         if (rank instanceof HighCard) {
             HighCard highCard = (HighCard) rank;
-            return "high card: "+ highCard.value().numericValue;
+            return "high card: " + highCard.value().numericValue;
         }
         throw new IllegalStateException("Unexpected value: " + rank);
     }

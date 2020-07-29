@@ -3,10 +3,11 @@ package com.kata.poker;
 import java.util.Objects;
 
 public class Rank {
-    public static final Rank Pair = new Rank(2);
+    public static final Rank Pair = Rank.pair(null, null);
     public static final Rank Straight = new Rank(3);
     public static final Rank Flush = new Rank(4);
     public static final Rank StraightFlush = new Rank(5);
+
     private final int priority;
 
     private Rank(int priority) {
@@ -15,6 +16,10 @@ public class Rank {
 
     public static Rank highCard(Card highestCard) {
         return new HighCard(highestCard);
+    }
+
+    private static Rank pair(Card first, Card second) {
+        return new Pair(first, second);
     }
 
     public boolean higherThan(Rank other) {
@@ -56,6 +61,17 @@ public class Rank {
 
         public Card.Value value() {
             return highestCard.value;
+        }
+    }
+
+    public static class Pair extends Rank {
+        private final Card first;
+        private final Card second;
+
+        public Pair(Card first, Card second) {
+            super(2);
+            this.first = first;
+            this.second = second;
         }
     }
 }
