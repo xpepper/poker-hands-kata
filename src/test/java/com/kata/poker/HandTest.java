@@ -10,17 +10,17 @@ import static org.junit.Assert.assertEquals;
 public class HandTest {
 
     @Test
-    public void tell_when_an_hand_has_a_pair_rank() {
-        Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds));
-
-        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), hand.rank());
-    }
-
-    @Test
     public void tell_when_an_hand_has_an_high_card_rank() {
         Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds));
 
         assertEquals(Rank.highCard(sevenOf(Hearts)), hand.rank());
+    }
+
+    @Test
+    public void tell_when_an_hand_has_a_pair_rank() {
+        Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds));
+
+        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), hand.rank());
     }
 
     @Test
