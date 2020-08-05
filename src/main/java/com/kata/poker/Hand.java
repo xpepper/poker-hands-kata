@@ -33,7 +33,7 @@ public class Hand {
             return Rank.Flush;
         }
         if (hasStraight()) {
-            return Rank.Straight;
+            return Rank.straight();
         }
         if (hasPair()) {
             return Rank.pair(cards.get(0), cards.get(1));
