@@ -9,7 +9,7 @@
 
 * [T] Add test for straight flush ranks on `HandTest`
 
-* [F] Add the information about the point as part of the `Rank`
+* [F] Add the information about the point as part of the `Rank` for flush and straight flush
 
 * [F] `GameResultFormatter` should format the point message from the winner's highest card
     - be able to format the point even with figures like 'A', 'K', ... ?
