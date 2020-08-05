@@ -96,7 +96,7 @@ public class Rank {
         }
     }
 
-    private static class Straight extends Rank {
+    public static class Straight extends Rank {
         private final Card highestCard;
 
         private Straight(Card highestCard) {

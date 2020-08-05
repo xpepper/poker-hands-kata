@@ -3,6 +3,8 @@ package com.kata.poker;
 import com.kata.poker.GameResult.Tie;
 import com.kata.poker.Rank.HighCard;
 
+import static com.kata.poker.Rank.Straight;
+
 public class GameResultFormatter {
 
     public String format(GameResult result) {
@@ -25,6 +27,9 @@ public class GameResultFormatter {
         if (rank instanceof HighCard) {
             HighCard highCard = (HighCard) rank;
             return "high card: " + highCard.value().numericValue;
+        }
+        if (rank instanceof Straight) {
+            return "straight: 5-high";
         }
         throw new IllegalStateException("Unexpected value: " + rank);
     }
