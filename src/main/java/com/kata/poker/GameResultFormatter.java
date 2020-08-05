@@ -30,8 +30,7 @@ public class GameResultFormatter {
         }
         if (rank instanceof Straight) {
             Rank.Straight straight = (Straight) rank;
-            int highestCardNumericValue = straight.highestCardValue().numericValue;
-            return "straight: " + highestCardNumericValue + "-high";
+            return String.format("straight: %d-high", straight.highestCardValue().numericValue);
         }
         throw new IllegalStateException("Unexpected value: " + rank);
     }
