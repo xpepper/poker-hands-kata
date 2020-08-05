@@ -3,22 +3,27 @@
 
 ### TODO
 
-* [R] Extract separate classes for flush and straight flush from `Rank`
-
-* [F] `GameResultFormatter` should format the flush rank
-* [F] `GameResultFormatter` should format the straight flush rank
-
-* [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
-    - while a test on the high rank is missing
-
-* [F] `GameResultFormatter` should format the point message from the winner's highest card
-    - be able to format the point even with figures like 'A', 'K', ... ?
-
-* [F] From simply telling which hand is higher than another to showing the actual winning rank
+* [WIP] [F] From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
-        * Black wins. - with full house: 4 over 2
+        * ~~Black wins. - with full house: 4 over 2~~
         * Tie.
+
+    * [R] Extract separate classes for flush and straight flush from `Rank`
+    
+    * [F] `GameResultFormatter` should format the flush rank
+    * [F] `GameResultFormatter` should format the straight flush rank
+    
+    * [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
+        - while a test on the high rank is missing
+    
+    * [F] `GameResultFormatter` should format the point message from the winner's highest card
+        - be able to format the point even with figures like 'A', 'K', ... ?
+
+* [F] Poker hand with three cards... ("3 cards" world)
+    * rewrite the logic to find the highest card in a hand using sorting
+    * three of a kind ranking
+    * Add the missing ranks in `Rank`
 
 * [R] Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
 
@@ -27,25 +32,20 @@
 * [F] `CardParserTest`
    - add support to more values and suites?
 
-* Should we add a validation when 
+* [F] Should we add a validation when 
     - creating a `Card` (null values and suites should not be allowed) ?
     - creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or a `Pair` with two cards with the same suit)
 
-* Make sure you cannot create invalid Cards.
+* [F] Make sure you cannot create invalid Cards.
 
-* Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
+* Write an AT (end-to-end!) that accepts an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
   and prints the outcome of the match as a string like `White wins. - with high card: Ace`
 
-* Improve the Player tests: maybe using a builder would help in improving the readability of the test
+* [R] Improve the Player tests: maybe using a builder would help in improving the readability of the test
     * like `aPlayer().with(highestHand())`...
     * add helper assertions to "hide" the pair of symmetric assertions
 
-* Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
-
-* Poker hand with three cards... ("3 cards" world)
-    * rewrite the logic to find the highest card in a hand using sorting
-    * three of a kind ranking
-    * Add the missing ranks in `Rank` enumeration
+* [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
     
 * Add all the possible values for the poker `Cards`
 
