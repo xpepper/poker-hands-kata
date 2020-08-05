@@ -3,15 +3,13 @@
 
 ### TODO
 
-* [T] Add test for straight flush ranks on `HandTest`
-
-* [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
-    - while a test on the high rank is missing
-
 * [R] Extract separate classes for flush and straight flush from `Rank`
 
 * [F] `GameResultFormatter` should format the flush rank
 * [F] `GameResultFormatter` should format the straight flush rank
+
+* [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
+    - while a test on the high rank is missing
 
 * [F] `GameResultFormatter` should format the point message from the winner's highest card
     - be able to format the point even with figures like 'A', 'K', ... ?
