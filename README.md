@@ -2,22 +2,22 @@
 
 ### TODO
 
-* Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
+* [T] Add test on the missing ranks on `HandTest`
 
-* Remove the magic number in all the `Rank` subclasses to represent the priority 
+* [F] Add the information about the point as part of the `Rank`
 
-* Add test on the missing ranks on `HandTest`
-
-* Add the information about the point as part of the `Rank`
-
-* `GameResultFormatter` should format the point message from the winner's highest card
+* [F] `GameResultFormatter` should format the point message from the winner's highest card
     - be able to format the point even with figures like 'A', 'K', ... ?
 
-* From simply telling which hand is higher than another to showing the actual winning rank
+* [F] From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
         * Black wins. - with full house: 4 over 2
         * Tie.
+
+* [R] Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
+
+* [R] Remove the magic number in all the `Rank` subclasses to represent the priority 
 
 * `CardParserTest`
    - add support to more values and suites?

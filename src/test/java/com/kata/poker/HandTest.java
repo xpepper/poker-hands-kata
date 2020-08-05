@@ -24,6 +24,13 @@ public class HandTest {
     }
 
     @Test
+    public void tell_when_an_hand_has_a_straight() {
+        Hand hand = new Hand(threeOf(Hearts), fourOf(Diamonds));
+
+        assertEquals(Rank.Straight, hand.rank());
+    }
+
+    @Test
     public void highest_card_wins_when_both_hands_do_not_fit_any_higher_ranking() {
         Hand lowerHand = new Hand(fiveOf(Diamonds), threeOf(Hearts));
         Hand higherHand = new Hand(sevenOf(Diamonds), fiveOf(Hearts));
