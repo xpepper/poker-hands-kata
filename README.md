@@ -3,14 +3,15 @@
 
 ### TODO
 
+* [T] Add test for straight flush ranks on `HandTest`
+
 * [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
     - while a test on the high rank is missing
 
-* [T] Add test for flush ranks on `HandTest`
-
-* [T] Add test for straight flush ranks on `HandTest`
-
 * [R] Extract separate classes for flush and straight flush from `Rank`
+
+* [F] `GameResultFormatter` should format the flush rank
+* [F] `GameResultFormatter` should format the straight flush rank
 
 * [F] `GameResultFormatter` should format the point message from the winner's highest card
     - be able to format the point even with figures like 'A', 'K', ... ?
@@ -25,14 +26,14 @@
 
 * [R] Remove the magic number in all the `Rank` subclasses to represent the priority 
 
-* `CardParserTest`
+* [F] `CardParserTest`
    - add support to more values and suites?
+
 * Should we add a validation when 
     - creating a `Card` (null values and suites should not be allowed) ?
     - creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or a `Pair` with two cards with the same suit)
 
 * Make sure you cannot create invalid Cards.
-* Add the missing conversions from rank to string in `GameResultFormatter`
 
 * Write an AT that accept an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
   and prints the outcome of the match as a string like `White wins. - with high card: Ace`
