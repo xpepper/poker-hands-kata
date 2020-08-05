@@ -20,13 +20,13 @@ public class GameResultFormatter {
     }
 
     private String winnerMessage(Winner winner) {
-        return winner.playerName() + " wins. - with " + rankMessage(winner.rank());
+        return String.format("%s wins. - with %s", winner.playerName(), rankMessage(winner.rank()));
     }
 
     private String rankMessage(Rank rank) {
         if (rank instanceof HighCard) {
             HighCard highCard = (HighCard) rank;
-            return "high card: " + highCard.value().numericValue;
+            return String.format("high card: %d", highCard.value().numericValue);
         }
         if (rank instanceof Straight) {
             Rank.Straight straight = (Straight) rank;
