@@ -2,8 +2,8 @@ package com.kata.poker;
 
 import java.util.Objects;
 
-import static com.kata.poker.Card.*;
-import static java.text.MessageFormat.format;
+import static com.kata.poker.Card.Value;
+import static java.lang.String.format;
 
 public class Rank {
     public static final Rank Flush = new Rank(4);
@@ -59,7 +59,7 @@ public class Rank {
 
         @Override
         public String toString() {
-            return format("HighCard'{'highestCard={0}'}'", highestCard);
+            return format("HighCard'{'highestCard=%s'}'", highestCard);
         }
 
         public Value value() {
@@ -93,7 +93,7 @@ public class Rank {
 
         @Override
         public String toString() {
-            return format("Pair'{'first={0}, second={1}'}'", first, second);
+            return format("Pair'{'first=%s, second=%s'}'", first, second);
         }
     }
 
@@ -120,7 +120,7 @@ public class Rank {
 
         @Override
         public String toString() {
-            return String.format("Straight{highestCard=%s}", highestCard);
+            return format("Straight{highestCard=%s}", highestCard);
         }
 
         public Value highestCardValue() {
