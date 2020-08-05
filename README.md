@@ -1,8 +1,13 @@
 [PokerHands Kata](http://codingdojo.org/kata/PokerHands/)
+[List of Poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)
 
 ### TODO
 
-* [T] Add test on the missing ranks on `HandTest`
+* [F] `GameResultFormatter` should format the straight rank
+
+* [T] Add test for flush ranks on `HandTest`
+
+* [T] Add test for straight flush ranks on `HandTest`
 
 * [F] Add the information about the point as part of the `Rank`
 
