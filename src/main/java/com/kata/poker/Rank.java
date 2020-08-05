@@ -2,6 +2,7 @@ package com.kata.poker;
 
 import java.util.Objects;
 
+import static com.kata.poker.Card.*;
 import static java.text.MessageFormat.format;
 
 public class Rank {
@@ -61,7 +62,7 @@ public class Rank {
             return format("HighCard'{'highestCard={0}'}'", highestCard);
         }
 
-        public Card.Value value() {
+        public Value value() {
             return highestCard.value;
         }
     }
@@ -120,6 +121,10 @@ public class Rank {
         @Override
         public String toString() {
             return String.format("Straight{highestCard=%s}", highestCard);
+        }
+
+        public Value highestCardValue() {
+            return highestCard.value;
         }
     }
 }
