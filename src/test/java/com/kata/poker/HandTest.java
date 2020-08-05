@@ -27,7 +27,7 @@ public class HandTest {
     public void tell_when_an_hand_has_a_straight() {
         Hand hand = new Hand(threeOf(Hearts), fourOf(Diamonds));
 
-        assertEquals(Rank.Straight, hand.rank());
+        assertEquals(Rank.straight(), hand.rank());
     }
 
     @Test

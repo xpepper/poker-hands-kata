@@ -23,6 +23,10 @@ public class Rank {
         return new Pair(first, second);
     }
 
+    public static Rank straight() {
+        return Straight;
+    }
+
     public boolean higherThan(Rank other) {
         return priority > other.priority;
     }
