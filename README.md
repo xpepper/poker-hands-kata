@@ -3,8 +3,6 @@
 
 ### TODO
 
-* [F] `GameResultFormatter` should format the straight rank
-
 * [F] `GameResultFormatter` should format the pair rank
 
 * [T] Add test for flush ranks on `HandTest`
