@@ -95,6 +95,10 @@ public class Rank {
         public String toString() {
             return format("Pair'{'first=%s, second=%s'}'", first, second);
         }
+
+        public Card.Value value() {
+            return first.value;
+        }
     }
 
     public static class Straight extends Rank {

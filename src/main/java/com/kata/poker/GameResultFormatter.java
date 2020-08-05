@@ -2,6 +2,7 @@ package com.kata.poker;
 
 import com.kata.poker.GameResult.Tie;
 import com.kata.poker.Rank.HighCard;
+import com.kata.poker.Rank.Pair;
 
 import static com.kata.poker.Rank.Straight;
 
@@ -27,6 +28,10 @@ public class GameResultFormatter {
         if (rank instanceof HighCard) {
             HighCard highCard = (HighCard) rank;
             return String.format("high card: %d", highCard.value().numericValue);
+        }
+        if (rank instanceof Pair) {
+            Pair pair = (Pair) rank;
+            return String.format("pair: %ds", pair.value().numericValue);
         }
         if (rank instanceof Straight) {
             Rank.Straight straight = (Straight) rank;

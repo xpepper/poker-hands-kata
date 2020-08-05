@@ -20,6 +20,12 @@ public class GameResultFormatterTest {
     }
 
     @Test
+    public void format_the_pair_rank() {
+        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fiveOf(Diamonds))));
+
+        assertThat(formatter.format(winner), containsString("pair: 5s"));
+    }
+    @Test
     public void format_the_straight_rank() {
         Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fourOf(Diamonds))));
 

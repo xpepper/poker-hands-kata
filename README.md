@@ -3,8 +3,6 @@
 
 ### TODO
 
-* [F] `GameResultFormatter` should format the pair rank
-
 * [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
     - while a test on the high rank is missing
 
