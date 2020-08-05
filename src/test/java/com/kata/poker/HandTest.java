@@ -25,9 +25,9 @@ public class HandTest {
 
     @Test
     public void tell_when_an_hand_has_a_straight() {
-        Hand hand = new Hand(threeOf(Hearts), fourOf(Diamonds));
+        Hand hand = new Hand(fiveOf(Hearts), fourOf(Diamonds));
 
-        assertEquals(Rank.straight(), hand.rank());
+        assertEquals(Rank.straight(fiveOf(Hearts)), hand.rank());
     }
 
     @Test

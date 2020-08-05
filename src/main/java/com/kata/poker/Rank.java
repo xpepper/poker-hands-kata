@@ -5,7 +5,7 @@ import java.util.Objects;
 import static java.text.MessageFormat.format;
 
 public class Rank {
-    private static final Rank Straight = new Rank(3);
+    private static final Rank STRAIGHT = new Straight();
     public static final Rank Flush = new Rank(4);
     public static final Rank StraightFlush = new Rank(5);
 
@@ -23,8 +23,8 @@ public class Rank {
         return new Pair(first, second);
     }
 
-    public static Rank straight() {
-        return Straight;
+    public static Rank straight(Card highestCard) {
+        return STRAIGHT;
     }
 
     public boolean higherThan(Rank other) {
@@ -94,6 +94,14 @@ public class Rank {
         @Override
         public String toString() {
             return format("Pair'{'first={0}, second={1}'}'", first, second);
+        }
+    }
+
+    private static class Straight extends Rank {
+        private static final Straight instance = new Straight();
+
+        private Straight() {
+            super(3);
         }
     }
 }
