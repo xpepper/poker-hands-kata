@@ -5,7 +5,6 @@ import java.util.Objects;
 import static java.text.MessageFormat.format;
 
 public class Rank {
-    private static final Rank STRAIGHT = new Straight();
     public static final Rank Flush = new Rank(4);
     public static final Rank StraightFlush = new Rank(5);
 
@@ -24,7 +23,7 @@ public class Rank {
     }
 
     public static Rank straight(Card highestCard) {
-        return STRAIGHT;
+        return new Straight(highestCard);
     }
 
     public boolean higherThan(Rank other) {
@@ -98,10 +97,29 @@ public class Rank {
     }
 
     private static class Straight extends Rank {
-        private static final Straight instance = new Straight();
+        private final Card highestCard;
 
-        private Straight() {
+        private Straight(Card highestCard) {
             super(3);
+            this.highestCard = highestCard;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Straight)) return false;
+            Straight straight = (Straight) o;
+            return Objects.equals(highestCard, straight.highestCard);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(highestCard);
+        }
+
+        @Override
+        public String toString() {
+            return String.format("Straight{highestCard=%s}", highestCard);
         }
     }
 }
