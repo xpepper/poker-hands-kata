@@ -135,7 +135,7 @@ public class Rank {
         }
     }
 
-    private static class Flush extends Rank {
+    public static class Flush extends Rank {
         private Card highestCard;
 
         public Flush(Card highestCard) {
@@ -154,6 +154,10 @@ public class Rank {
         @Override
         public int hashCode() {
             return Objects.hash(highestCard);
+        }
+
+        public Value highestCardValue() {
+            return highestCard.value;
         }
     }
 }

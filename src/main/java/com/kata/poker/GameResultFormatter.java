@@ -1,6 +1,7 @@
 package com.kata.poker;
 
 import com.kata.poker.GameResult.Tie;
+import com.kata.poker.Rank.Flush;
 import com.kata.poker.Rank.HighCard;
 import com.kata.poker.Rank.Pair;
 
@@ -36,6 +37,10 @@ public class GameResultFormatter {
         if (rank instanceof Straight) {
             Rank.Straight straight = (Straight) rank;
             return String.format("straight: %d-high", straight.highestCardValue().numericValue);
+        }
+        if (rank instanceof Flush) {
+            Flush flush = (Flush) rank;
+            return String.format("flush: %d-high", flush.highestCardValue().numericValue);
         }
         throw new IllegalStateException("Unexpected value: " + rank);
     }
