@@ -20,6 +20,13 @@ public class GameResultFormatterTest {
     }
 
     @Test
+    public void format_the_high_card_rank() {
+        Winner winner = new Winner(new Player("anyName", new Hand(threeOf(Clubs), sevenOf(Hearts))));
+
+        assertThat(formatter.format(winner), containsString("high card: 7"));
+    }
+
+    @Test
     public void format_the_pair_rank() {
         Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fiveOf(Diamonds))));
 
