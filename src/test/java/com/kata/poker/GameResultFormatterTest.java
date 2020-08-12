@@ -25,11 +25,19 @@ public class GameResultFormatterTest {
 
         assertThat(formatter.format(winner), containsString("pair: 5s"));
     }
+
     @Test
     public void format_the_straight_rank() {
         Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fourOf(Diamonds))));
 
         assertThat(formatter.format(winner), containsString("straight: 5-high"));
+    }
+
+    @Test
+    public void format_the_flush_rank() {
+        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), sevenOf(Hearts))));
+
+        assertThat(formatter.format(winner), containsString("flush: 7-high"));
     }
 
     @Test
