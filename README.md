@@ -7,10 +7,6 @@
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
         * Tie.
-
-    * [R] Extract separate classes for `straight flush` from `Rank`
-    
-    * [F] `GameResultFormatter` should format the straight flush rank
     
     * [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
         - while a test on the high rank is missing

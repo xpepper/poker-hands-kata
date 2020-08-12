@@ -163,7 +163,7 @@ public class Rank {
         }
     }
 
-    private static class StraightFlush extends Rank {
+    public static class StraightFlush extends Rank {
         private final Card highestCard;
 
         public StraightFlush(Card highestCard) {
@@ -182,6 +182,10 @@ public class Rank {
         @Override
         public int hashCode() {
             return Objects.hash(highestCard);
+        }
+
+        public Value highestCardValue() {
+            return highestCard.value;
         }
     }
 }
