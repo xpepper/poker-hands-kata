@@ -30,7 +30,7 @@ public class Hand {
             return Rank.StraightFlush;
         }
         if (hasFlush()) {
-            return Rank.Flush;
+            return Rank.flush(highestCard());
         }
         if (hasStraight()) {
             return Rank.straight(highestCard());

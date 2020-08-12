@@ -34,7 +34,7 @@ public class HandTest {
     public void tell_when_an_hand_has_a_flush() {
         Hand hand = new Hand(fiveOf(Hearts), sevenOf(Hearts));
 
-        assertEquals(Rank.Flush, hand.rank());
+        assertEquals(Rank.flush(sevenOf(Hearts)), hand.rank());
     }
 
     @Test

@@ -6,7 +6,7 @@ import static com.kata.poker.Card.Value;
 import static java.lang.String.format;
 
 public class Rank {
-    public static final Rank Flush = new Rank(4);
+    private static final Rank Flush = new Rank(4);
     public static final Rank StraightFlush = new Rank(5);
 
     private final int priority;
@@ -25,6 +25,10 @@ public class Rank {
 
     public static Rank straight(Card highestCard) {
         return new Straight(highestCard);
+    }
+
+    public static Rank flush(Card highestCard) {
+        return Flush;
     }
 
     public boolean higherThan(Rank other) {
