@@ -8,9 +8,6 @@
         * White wins. - with high card: Ace
         * Tie.
     
-    * [R] Improve `GameFormatterTest`: the first test is generic, but the assertion is quite specific
-        - while a test on the high rank is missing
-    
     * [F] `GameResultFormatter` should format the point message from the winner's highest card
         - be able to format the point even with figures like 'A', 'K', ... ?
 
@@ -62,7 +59,10 @@
 * EXTRA: What would you need to change if a new game input should be supported?
 
 * What would happen if we try to write unit tests for `PlayerParser` and the other two parsers? 
-    * What feedback would we get from those tests? 
+    * What feedback would we get from those tests?
+    
+* `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
+    - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)    
     
 ### Notes
 
