@@ -27,7 +27,7 @@ public class Hand {
 
     public Rank rank() {
         if (hasStraightFlush()) {
-            return Rank.StraightFlush;
+            return Rank.straightFlush(highestCard());
         }
         if (hasFlush()) {
             return Rank.flush(highestCard());

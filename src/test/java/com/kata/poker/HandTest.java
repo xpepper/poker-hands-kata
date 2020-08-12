@@ -41,7 +41,7 @@ public class HandTest {
     public void tell_when_an_hand_has_a_straight_flush() {
         Hand hand = new Hand(fiveOf(Hearts), fourOf(Hearts));
 
-        assertEquals(Rank.StraightFlush, hand.rank());
+        assertEquals(Rank.straightFlush(fiveOf(Hearts)), hand.rank());
     }
 
     @Test
