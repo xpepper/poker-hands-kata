@@ -6,10 +6,9 @@
 * [WIP] [F] From simply telling which hand is higher than another to showing the actual winning rank
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
-        * ~~Black wins. - with full house: 4 over 2~~
         * Tie.
 
-    * [R] Extract separate classes for flush and straight flush from `Rank`
+    * [R] Extract separate classes for `flush` and `straight flush` from `Rank`
     
     * [F] `GameResultFormatter` should format the flush rank
     * [F] `GameResultFormatter` should format the straight flush rank
