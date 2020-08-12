@@ -6,7 +6,6 @@ import static com.kata.poker.Card.Value;
 import static java.lang.String.format;
 
 public class Rank {
-    private static final Rank Flush = new Rank(4);
     public static final Rank StraightFlush = new Rank(5);
 
     private final int priority;
@@ -28,7 +27,7 @@ public class Rank {
     }
 
     public static Rank flush(Card highestCard) {
-        return Flush;
+        return new Flush(highestCard);
     }
 
     public boolean higherThan(Rank other) {
@@ -133,6 +132,28 @@ public class Rank {
 
         public Value highestCardValue() {
             return highestCard.value;
+        }
+    }
+
+    private static class Flush extends Rank {
+        private Card highestCard;
+
+        public Flush(Card highestCard) {
+            super(4);
+            this.highestCard = highestCard;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Flush flush = (Flush) o;
+            return Objects.equals(highestCard, flush.highestCard);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(highestCard);
         }
     }
 }
