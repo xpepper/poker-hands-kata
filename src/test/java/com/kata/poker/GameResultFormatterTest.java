@@ -62,6 +62,13 @@ public class GameResultFormatterTest {
     }
 
     @Test
+    public void format_the_straight_rank_with_a_figure() {
+        Winner winner = new Winner(new Player("anyName", new Hand(kingOf(Hearts), aceOf(Diamonds))));
+
+        assertThat(formatter.format(winner), containsString("straight: Ace-high"));
+    }
+
+    @Test
     public void format_the_flush_rank() {
         Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), sevenOf(Hearts))));
 

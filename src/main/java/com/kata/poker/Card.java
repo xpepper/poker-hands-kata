@@ -63,6 +63,7 @@ public class Card {
         Four(4),
         Five(5),
         Seven(7),
+        King(13),
         Ace(14);
 
         public final Integer numericValue;

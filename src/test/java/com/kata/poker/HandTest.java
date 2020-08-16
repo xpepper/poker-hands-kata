@@ -240,6 +240,10 @@ public class HandTest {
         return new Card(Value.Seven, suit);
     }
 
+    public static Card kingOf(Card.Suit suit) {
+        return new Card(Value.King, suit);
+    }
+
     public static Card aceOf(Card.Suit suit) {
         return new Card(Value.Ace, suit);
     }

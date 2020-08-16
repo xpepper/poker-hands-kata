@@ -38,7 +38,7 @@ public class GameResultFormatter {
         }
         if (rank instanceof Straight) {
             Rank.Straight straight = (Straight) rank;
-            return String.format("straight: %d-high", straight.highestCardValue().numericValue);
+            return String.format("straight: %s-high", formatCardValue(straight.highestCardValue()));
         }
         if (rank instanceof Flush) {
             Flush flush = (Flush) rank;
