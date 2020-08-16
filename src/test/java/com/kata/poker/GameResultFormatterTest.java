@@ -90,6 +90,13 @@ public class GameResultFormatterTest {
     }
 
     @Test
+    public void format_the_straight_flush_rank_with_figure() {
+        Winner winner = new Winner(new Player("anyName", new Hand(kingOf(Hearts), aceOf(Hearts))));
+
+        assertThat(formatter.format(winner), containsString("straight flush: Ace-high"));
+    }
+
+    @Test
     public void format_tie_result() {
         assertEquals("Tie.", formatter.format(GameResult.tie));
     }

@@ -46,7 +46,7 @@ public class GameResultFormatter {
         }
         if (rank instanceof StraightFlush) {
             StraightFlush flush = (StraightFlush) rank;
-            return String.format("straight flush: %d-high", flush.highestCardValue().numericValue);
+            return String.format("straight flush: %s-high", formatCardValue(flush.highestCardValue()));
         }
         throw new IllegalStateException("Unexpected value: " + rank);
     }
