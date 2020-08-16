@@ -6,30 +6,31 @@ import static com.kata.poker.Card.Value;
 import static java.lang.String.format;
 
 public class Rank {
+
+    public static Rank highCard(Card highestCard) {
+        return new HighCard(1, highestCard);
+    }
+
+    public static Rank pair(Card first, Card second) {
+        return new Pair(2, first, second);
+    }
+
+    public static Rank straight(Card highestCard) {
+        return new Straight(3, highestCard);
+    }
+
+    public static Rank flush(Card highestCard) {
+        return new Flush(4, highestCard);
+    }
+
+    public static Rank straightFlush(Card highestCard) {
+        return new StraightFlush(5, highestCard);
+    }
+
     private final int priority;
 
     private Rank(int priority) {
         this.priority = priority;
-    }
-
-    public static Rank highCard(Card highestCard) {
-        return new HighCard(highestCard);
-    }
-
-    public static Rank pair(Card first, Card second) {
-        return new Pair(first, second);
-    }
-
-    public static Rank straight(Card highestCard) {
-        return new Straight(highestCard);
-    }
-
-    public static Rank flush(Card highestCard) {
-        return new Flush(highestCard);
-    }
-
-    public static Rank straightFlush(Card highestCard) {
-        return new StraightFlush(highestCard);
     }
 
     public boolean higherThan(Rank other) {
@@ -44,8 +45,8 @@ public class Rank {
 
         private final Card highestCard;
 
-        private HighCard(Card highestCard) {
-            super(1);
+        private HighCard(int priority, Card highestCard) {
+            super(priority);
             this.highestCard = highestCard;
         }
 
@@ -76,8 +77,8 @@ public class Rank {
         private final Card first;
         private final Card second;
 
-        public Pair(Card first, Card second) {
-            super(2);
+        public Pair(int priority, Card first, Card second) {
+            super(priority);
             this.first = first;
             this.second = second;
         }
@@ -109,8 +110,8 @@ public class Rank {
     public static class Straight extends Rank {
         private final Card highestCard;
 
-        private Straight(Card highestCard) {
-            super(3);
+        private Straight(int priority, Card highestCard) {
+            super(priority);
             this.highestCard = highestCard;
         }
 
@@ -140,8 +141,8 @@ public class Rank {
     public static class Flush extends Rank {
         private Card highestCard;
 
-        public Flush(Card highestCard) {
-            super(4);
+        public Flush(int priority, Card highestCard) {
+            super(priority);
             this.highestCard = highestCard;
         }
 
@@ -166,8 +167,8 @@ public class Rank {
     public static class StraightFlush extends Rank {
         private final Card highestCard;
 
-        public StraightFlush(Card highestCard) {
-            super(5);
+        public StraightFlush(int priority, Card highestCard) {
+            super(priority);
             this.highestCard = highestCard;
         }
 

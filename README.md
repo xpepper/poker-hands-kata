@@ -13,8 +13,6 @@
 
 * [R] Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
 
-* [R] Remove the magic number (the `priority` variable) in all the `Rank` subclasses to represent its priority.
-
 * [F] `CardParserTest` add support to more values and suites?
 
 * [F] Should we add a validation when 
