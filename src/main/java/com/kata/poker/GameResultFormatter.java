@@ -55,6 +55,9 @@ public class GameResultFormatter {
         if (Ace.equals(cardValue)) {
             return "Ace";
         }
+        if (cardValue.numericValue > 10) {
+            throw new IllegalStateException("Unexpected card value: " + cardValue);
+        }
         return cardValue.numericValue.toString();
     }
 }
