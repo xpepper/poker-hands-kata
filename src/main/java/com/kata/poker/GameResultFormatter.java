@@ -34,7 +34,7 @@ public class GameResultFormatter {
         }
         if (rank instanceof Pair) {
             Pair pair = (Pair) rank;
-            return String.format("pair: %ds", pair.value().numericValue);
+            return String.format("pair: %ss", formatCardValue(pair.value()));
         }
         if (rank instanceof Straight) {
             Rank.Straight straight = (Straight) rank;
