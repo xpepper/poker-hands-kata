@@ -6,6 +6,7 @@ import com.kata.poker.Rank.HighCard;
 import com.kata.poker.Rank.Pair;
 import com.kata.poker.Rank.StraightFlush;
 
+import static com.kata.poker.Card.Value.Ace;
 import static com.kata.poker.Rank.Straight;
 
 public class GameResultFormatter {
@@ -29,6 +30,10 @@ public class GameResultFormatter {
     private String rankMessage(Rank rank) {
         if (rank instanceof HighCard) {
             HighCard highCard = (HighCard) rank;
+            if (highCard.value().equals(Ace)) {
+                return "high card: Ace";
+            }
+
             return String.format("high card: %d", highCard.value().numericValue);
         }
         if (rank instanceof Pair) {

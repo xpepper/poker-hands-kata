@@ -62,7 +62,8 @@ public class Card {
         Three(3),
         Four(4),
         Five(5),
-        Seven(7);
+        Seven(7),
+        Ace(14);
 
         public final Integer numericValue;
 
