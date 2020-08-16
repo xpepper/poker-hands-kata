@@ -30,11 +30,7 @@ public class GameResultFormatter {
     private String rankMessage(Rank rank) {
         if (rank instanceof HighCard) {
             HighCard highCard = (HighCard) rank;
-            if (highCard.value().equals(Ace)) {
-                return "high card: Ace";
-            }
-
-            return String.format("high card: %d", highCard.value().numericValue);
+            return String.format("high card: %s", formatCardValue(highCard.value()));
         }
         if (rank instanceof Pair) {
             Pair pair = (Pair) rank;
@@ -53,5 +49,12 @@ public class GameResultFormatter {
             return String.format("straight flush: %d-high", flush.highestCardValue().numericValue);
         }
         throw new IllegalStateException("Unexpected value: " + rank);
+    }
+
+    private String formatCardValue(Card.Value cardValue) {
+        if (Ace.equals(cardValue)) {
+            return "Ace";
+        }
+        return cardValue.numericValue.toString();
     }
 }
