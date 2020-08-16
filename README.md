@@ -3,13 +3,15 @@
 
 ### TODO
 
-* [WIP] [F] From simply telling which hand is higher than another to showing the actual winning rank
+* [WIP] [F] From simply telling which hand is higher than another, to showing the actual winning rank.
     * explore how to tell which is the winning rank and **its point**
         * White wins. - with high card: Ace
         * Tie.
-    
+
     * [F] `GameResultFormatter` should format the point message from the winner's highest card
         - be able to format the point even with figures like 'A', 'K', ... ?
+
+    * [R] Introduce parametrize tests for `GameResultFormatter` to describe ranks that contains figures.
 
 * [F] Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting
@@ -18,10 +20,9 @@
 
 * [R] Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
 
-* [R] Remove the magic number in all the `Rank` subclasses to represent the priority 
+* [R] Remove the magic number (the `priority` variable) in all the `Rank` subclasses to represent its priority.
 
-* [F] `CardParserTest`
-   - add support to more values and suites?
+* [F] `CardParserTest` add support to more values and suites?
 
 * [F] Should we add a validation when 
     - creating a `Card` (null values and suites should not be allowed) ?
@@ -60,9 +61,12 @@
 
 * What would happen if we try to write unit tests for `PlayerParser` and the other two parsers? 
     * What feedback would we get from those tests?
-    
-* `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
-    - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)    
+
+* [R] `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
+    - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)
+
+* [F] Evaluate a straight with the [`high rules`](https://www.briggsoft.com/docs/pmavens/PMHoldem.htm):
+    - an ace can rank either high (as in A K Q J 10, an ace-high straight) or low (as in 5 4 3 2 A, a five-high straight)
     
 ### Notes
 
