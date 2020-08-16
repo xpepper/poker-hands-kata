@@ -42,7 +42,7 @@ public class GameResultFormatter {
         }
         if (rank instanceof Flush) {
             Flush flush = (Flush) rank;
-            return String.format("flush: %d-high", flush.highestCardValue().numericValue);
+            return String.format("flush: %s-high", formatCardValue(flush.highestCardValue()));
         }
         if (rank instanceof StraightFlush) {
             StraightFlush flush = (StraightFlush) rank;
