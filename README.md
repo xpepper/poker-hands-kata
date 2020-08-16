@@ -29,6 +29,7 @@
     * add helper assertions to "hide" the pair of symmetric assertions
 
 * [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
+    * The knowledge about the priorities of the Rank is expressed in two places `Hand.rank` and `Rank` priority field.
     
 * Add all the possible values for the poker `Cards`
     * [F] add the formatting of all the remaining figures (K, Q, J)
