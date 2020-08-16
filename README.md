@@ -3,15 +3,8 @@
 
 ### TODO
 
-* [WIP] [F] From simply telling which hand is higher than another, to showing the actual winning rank.
-    * explore how to tell which is the winning rank and **its point**
-        * White wins. - with high card: Ace
-        * Tie.
-
-    * [F] `GameResultFormatter` should format the point message from the winner's highest card
-        - be able to format the point even with figures like 'A', 'K', ... ?
-
-    * [R] Introduce parametrize tests for `GameResultFormatter` to describe ranks that contains figures.
+* [R] `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
+    - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)
 
 * [F] Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting
@@ -40,6 +33,7 @@
 * [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
     
 * Add all the possible values for the poker `Cards`
+    * [F] add the formatting of all the remaining figures (K, Q, J)
 
 * From a single-card poker hand to a 5-cards poker hand
     * two pairs ("4 cards" world)
@@ -61,9 +55,6 @@
 
 * What would happen if we try to write unit tests for `PlayerParser` and the other two parsers? 
     * What feedback would we get from those tests?
-
-* [R] `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
-    - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)
 
 * [F] Evaluate a straight with the [`high rules`](https://www.briggsoft.com/docs/pmavens/PMHoldem.htm):
     - an ace can rank either high (as in A K Q J 10, an ace-high straight) or low (as in 5 4 3 2 A, a five-high straight)
