@@ -10,6 +10,7 @@ import static java.util.Collections.unmodifiableList;
 public class Hand {
 
     private final List<Card> cards;
+    private final PairRule pairRule = new PairRule();
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
@@ -35,10 +36,16 @@ public class Hand {
         if (hasStraight()) {
             return Rank.straight(highestCard());
         }
-        if (hasPair()) {
-            return Rank.pair(cards.get(0), cards.get(1));
-        }
+        if (pairRule.canApply(this)) return pairRule.apply(this);
         return Rank.highCard(highestCard());
+    }
+
+    public Card firstCard() {
+        return cards.get(0);
+    }
+
+    public Card secondCard() {
+        return cards.get(1);
     }
 
     private boolean hasStraightFlush() {
@@ -51,10 +58,6 @@ public class Hand {
 
     private boolean hasStraight() {
         return cards.get(0).comesBefore(cards.get(1));
-    }
-
-    private boolean hasPair() {
-        return cards.get(0).hasSameValueOf(cards.get(1));
     }
 
     private Card highestCard() {
