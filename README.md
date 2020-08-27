@@ -3,13 +3,16 @@
 
 ### TODO
 
-* [R] `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
-    - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)
+* [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
+    * The knowledge about the priorities of the Rank is expressed in two places `Hand.rank` and `Rank` priority field.
 
 * [F] Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting
     * three of a kind ranking
     * Add the missing ranks in `Rank`
+
+* [R] `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
+    - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)
 
 * [R] Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
 
@@ -28,8 +31,6 @@
     * like `aPlayer().with(highestHand())`...
     * add helper assertions to "hide" the pair of symmetric assertions
 
-* [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
-    * The knowledge about the priorities of the Rank is expressed in two places `Hand.rank` and `Rank` priority field.
     
 * Add all the possible values for the poker `Cards`
     * [F] add the formatting of all the remaining figures (K, Q, J)
