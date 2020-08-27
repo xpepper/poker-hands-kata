@@ -5,6 +5,7 @@
 
 * [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
     * The knowledge about the priorities of the Rank is expressed in two places `Hand.rank` and `Rank` priority field.
+    * Rules is a collaborator of `Hand` or not?
 
 * [F] Poker hand with three cards... ("3 cards" world)
     * rewrite the logic to find the highest card in a hand using sorting

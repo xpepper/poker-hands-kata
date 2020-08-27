@@ -10,9 +10,7 @@ import static java.util.Collections.unmodifiableList;
 public class Hand {
 
     private final List<Card> cards;
-    private final Rule pairRule = new PairRule();
-    private final Rule straightRule = new StraightRule();
-    private final Rule highestCardRule = new HighestCardRule();
+    private final List<Rule> rules = asList(new StraightRule(), new PairRule(), new HighestCardRule());
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
@@ -35,14 +33,11 @@ public class Hand {
         if (hasFlush()) {
             return Rank.flush(highestCard());
         }
-        if (straightRule.canApply(this)) {
-            return straightRule.apply(this);
-        }
-        if (pairRule.canApply(this)) return pairRule.apply(this);
-        if (highestCardRule.canApply(this)) {
-            return highestCardRule.apply(this);
-        }
-        return null;
+        return rules.stream()
+                .filter(rule -> rule.canApply(this))
+                .findFirst()
+                .map(rule -> rule.apply(this))
+                .orElse(null);
     }
 
     public Card firstCard() {
@@ -54,7 +49,7 @@ public class Hand {
     }
 
     private boolean hasStraightFlush() {
-        return straightRule.canApply(this) && hasFlush();
+        return ((Rule) new StraightRule()).canApply(this) && hasFlush();
     }
 
     private boolean hasFlush() {
