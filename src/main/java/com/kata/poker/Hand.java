@@ -12,6 +12,7 @@ public class Hand {
     private final List<Card> cards;
     private final PairRule pairRule = new PairRule();
     private final StraightRule straightRule = new StraightRule();
+    private final HighestCardRule highestCardRule = new HighestCardRule();
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
@@ -38,7 +39,10 @@ public class Hand {
             return straightRule.apply(this);
         }
         if (pairRule.canApply(this)) return pairRule.apply(this);
-        return Rank.highCard(highestCard());
+        if (highestCardRule.canApply(this)) {
+            return highestCardRule.apply(this);
+        }
+        return null;
     }
 
     public Card firstCard() {
