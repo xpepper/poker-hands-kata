@@ -10,9 +10,9 @@ import static java.util.Collections.unmodifiableList;
 public class Hand {
 
     private final List<Card> cards;
-    private final PairRule pairRule = new PairRule();
-    private final StraightRule straightRule = new StraightRule();
-    private final HighestCardRule highestCardRule = new HighestCardRule();
+    private final Rule pairRule = new PairRule();
+    private final Rule straightRule = new StraightRule();
+    private final Rule highestCardRule = new HighestCardRule();
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);

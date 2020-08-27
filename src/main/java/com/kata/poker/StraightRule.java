@@ -1,11 +1,13 @@
 package com.kata.poker;
 
-public class StraightRule {
-    boolean canApply(Hand hand) {
+public class StraightRule implements Rule {
+    @Override
+    public boolean canApply(Hand hand) {
         return hand.firstCard().comesBefore(hand.secondCard());
     }
 
-    Rank apply(Hand hand) {
+    @Override
+    public Rank apply(Hand hand) {
         return Rank.straight(hand.highestCard());
     }
 }
