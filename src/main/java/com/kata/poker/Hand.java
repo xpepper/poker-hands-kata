@@ -11,6 +11,7 @@ public class Hand {
 
     private final List<Card> cards;
     private final PairRule pairRule = new PairRule();
+    private final StraightRule straightRule = new StraightRule();
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
@@ -33,8 +34,8 @@ public class Hand {
         if (hasFlush()) {
             return Rank.flush(highestCard());
         }
-        if (hasStraight()) {
-            return Rank.straight(highestCard());
+        if (straightRule.canApply(this)) {
+            return straightRule.apply(this);
         }
         if (pairRule.canApply(this)) return pairRule.apply(this);
         return Rank.highCard(highestCard());
@@ -49,18 +50,14 @@ public class Hand {
     }
 
     private boolean hasStraightFlush() {
-        return hasStraight() && hasFlush();
+        return straightRule.canApply(this) && hasFlush();
     }
 
     private boolean hasFlush() {
         return cards.get(0).hasSameSuitOf(cards.get(1));
     }
 
-    private boolean hasStraight() {
-        return cards.get(0).comesBefore(cards.get(1));
-    }
-
-    private Card highestCard() {
+    public Card highestCard() {
         return cards.get(1);
     }
 
