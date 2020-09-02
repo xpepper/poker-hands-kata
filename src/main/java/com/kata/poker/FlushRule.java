@@ -1,7 +1,6 @@
 package com.kata.poker;
 
 public class FlushRule implements Rule {
-
     @Override
     public boolean canApply(Hand hand) {
         return hand.firstCard().hasSameSuitOf(hand.secondCard());
