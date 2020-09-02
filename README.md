@@ -5,12 +5,14 @@
 
 * [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
     * The knowledge about the priorities of the Rank is expressed in two places `Hand.rank` and `Rank` priority field.
-    * Rules is a collaborator of `Hand` or not?
+    * Is `rules` a collaborator of `Hand` or not? Is there a `RankEngine`?
 
 * [F] Poker hand with three cards... ("3 cards" world)
-    * rewrite the logic to find the highest card in a hand using sorting
-    * three of a kind ranking
+    * Rewrite the logic to find the highest card in a hand using sorting
+    * Three of a kind ranking
     * Add the missing ranks in `Rank`
+
+* [R] Refactor rules as composition of other rules. The `StraightFlushRule` is a composition of `StraightRule` and `FlushRule`.
 
 * [R] `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
     - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)
@@ -20,10 +22,12 @@
 * [F] `CardParserTest` add support to more values and suites?
 
 * [F] Should we add a validation when 
-    - creating a `Card` (null values and suites should not be allowed) ?
-    - creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or a `Pair` with two cards with the same suit)
+    * creating a `Card` (null values and suites should not be allowed) ?
+    * creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or a `Pair` with two cards with the same suit)
 
 * [F] Make sure you cannot create invalid Cards.
+    * Is not possible to have two same cards in a hand.
+      (See [Domain Primitives](https://livebook.manning.com/book/secure-by-design/chapter-5/))
 
 * Write an AT (end-to-end!) that accepts an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
   and prints the outcome of the match as a string like `White wins. - with high card: Ace`
