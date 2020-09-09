@@ -10,7 +10,7 @@ import static java.util.Collections.unmodifiableList;
 public class Hand {
 
     private final List<Card> cards;
-    private final RankEngine rankEngine = new RankEngine();
+    private final GameRules gameRules = new GameRules();
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
@@ -27,7 +27,7 @@ public class Hand {
     }
 
     public Rank rank() {
-        return rankEngine.evaluate(this);
+        return gameRules.evaluate(this);
     }
 
     public Card firstCard() {

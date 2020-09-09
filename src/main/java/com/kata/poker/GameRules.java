@@ -4,7 +4,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class RankEngine {
+public class GameRules {
 
     private final List<Rule> rules = asList(
             new StraightFlushRule(),
