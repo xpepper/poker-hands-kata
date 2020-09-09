@@ -2,8 +2,7 @@ package com.kata.poker;
 
 import java.util.List;
 
-import static com.kata.poker.Outcome.Lose;
-import static com.kata.poker.Outcome.Win;
+import static com.kata.poker.Outcome.*;
 import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableList;
 
@@ -25,7 +24,7 @@ public class Hand {
         if (rank.lowerThan(otherRank)) {
             return Lose;
         }
-        return highestCard().playAgainst(other.highestCard());
+        return Tie;
     }
 
     public Card firstCard() {

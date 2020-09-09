@@ -5,8 +5,10 @@
 
 * [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
     * Is `rules` a collaborator of `Hand` or not? Is there a `GameRules`?
-    * remove highestCard field in all rank subclasses (boilerplate on equals()) 
-    * use a set instead of a list for the rules 
+    * Improve the way to express the comparison between the highest card of same ranks
+    * Introduce a compareTo for Card to get rid of `Hand#compareCards`
+    * Remove highestCard field in all rank subclasses (boilerplate on equals())
+    * Use a set instead of a list for the rules
     
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting

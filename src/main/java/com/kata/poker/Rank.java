@@ -28,16 +28,26 @@ public class Rank implements Comparable<Rank> {
     }
 
     private final int priority;
+    private final Card highestCard;
 
     private Rank(int priority, Card highestCard) {
         this.priority = priority;
+        this.highestCard = highestCard;
     }
 
     public boolean higherThan(Rank other) {
+        if (priority == other.priority) {
+            return highestCard.value.numericValue > other.highestCard.value.numericValue;
+        }
+
         return priority > other.priority;
     }
 
     public boolean lowerThan(Rank other) {
+        if (priority == other.priority) {
+            return highestCard.value.numericValue < other.highestCard.value.numericValue;
+        }
+
         return priority < other.priority;
     }
 
