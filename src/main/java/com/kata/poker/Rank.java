@@ -29,7 +29,7 @@ public class Rank implements Comparable<Rank> {
 
     private final int priority;
 
-    private Rank(int priority) {
+    private Rank(int priority, Card highestCard) {
         this.priority = priority;
     }
 
@@ -51,7 +51,7 @@ public class Rank implements Comparable<Rank> {
         private final Card highestCard;
 
         private HighCard(int priority, Card highestCard) {
-            super(priority);
+            super(priority, highestCard);
             this.highestCard = highestCard;
         }
 
@@ -83,7 +83,7 @@ public class Rank implements Comparable<Rank> {
         private final Card second;
 
         public Pair(int priority, Card first, Card second) {
-            super(priority);
+            super(priority, first);
             this.first = first;
             this.second = second;
         }
@@ -116,7 +116,7 @@ public class Rank implements Comparable<Rank> {
         private final Card highestCard;
 
         private Straight(int priority, Card highestCard) {
-            super(priority);
+            super(priority, highestCard);
             this.highestCard = highestCard;
         }
 
@@ -147,7 +147,7 @@ public class Rank implements Comparable<Rank> {
         private Card highestCard;
 
         public Flush(int priority, Card highestCard) {
-            super(priority);
+            super(priority, highestCard);
             this.highestCard = highestCard;
         }
 
@@ -173,7 +173,7 @@ public class Rank implements Comparable<Rank> {
         private final Card highestCard;
 
         public StraightFlush(int priority, Card highestCard) {
-            super(priority);
+            super(priority, highestCard);
             this.highestCard = highestCard;
         }
 
