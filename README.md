@@ -4,7 +4,7 @@
 ### TODO
 
 * [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
-    * Is `rules` a collaborator of `Hand` or not? Is there a `RankEngine`?
+    * Is `rules` a collaborator of `Hand` or not? Is there a `GameRules`?
     * use a set instead of a list for the rules 
     
 * [F] Poker hand with three cards... ("3 cards" world)
