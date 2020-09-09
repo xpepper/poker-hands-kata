@@ -5,7 +5,7 @@ import java.util.Objects;
 import static com.kata.poker.Card.Value;
 import static java.lang.String.format;
 
-public class Rank {
+public class Rank implements Comparable<Rank> {
 
     public static Rank highCard(Card highestCard) {
         return new HighCard(1, highestCard);
@@ -39,6 +39,11 @@ public class Rank {
 
     public boolean lowerThan(Rank other) {
         return priority < other.priority;
+    }
+
+    @Override
+    public int compareTo(Rank other) {
+        return Integer.compare(priority, other.priority);
     }
 
     public static class HighCard extends Rank {

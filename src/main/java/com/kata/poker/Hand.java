@@ -35,8 +35,8 @@ public class Hand {
     public Rank rank() {
         return rules.stream()
                 .filter(rule -> rule.canApply(this))
-                .findFirst()
                 .map(rule -> rule.apply(this))
+                .max(Rank::compareTo)
                 .orElse(null);
     }
 
