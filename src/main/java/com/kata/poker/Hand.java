@@ -10,24 +10,22 @@ import static java.util.Collections.unmodifiableList;
 public class Hand {
 
     private final List<Card> cards;
-    private final GameRules gameRules = new GameRules();
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
     }
 
     public Outcome playAgainst(Hand other) {
-        if (rank().higherThan(other.rank())) {
+        GameRules gameRules = new GameRules();
+        Rank rank = gameRules.evaluate(this);
+        Rank otherRank = gameRules.evaluate(other);
+        if (rank.higherThan(otherRank)) {
             return Win;
         }
-        if (rank().lowerThan(other.rank())) {
+        if (rank.lowerThan(otherRank)) {
             return Lose;
         }
         return highestCard().playAgainst(other.highestCard());
-    }
-
-    public Rank rank() {
-        return gameRules.evaluate(this);
     }
 
     public Card firstCard() {

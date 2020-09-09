@@ -13,35 +13,35 @@ public class HandTest {
     public void tell_when_an_hand_has_an_high_card_rank() {
         Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds));
 
-        assertEquals(Rank.highCard(sevenOf(Hearts)), hand.rank());
+        assertEquals(Rank.highCard(sevenOf(Hearts)), new GameRules().evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_pair_rank() {
         Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds));
 
-        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), hand.rank());
+        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), new GameRules().evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_straight() {
         Hand hand = new Hand(fiveOf(Hearts), fourOf(Diamonds));
 
-        assertEquals(Rank.straight(fiveOf(Hearts)), hand.rank());
+        assertEquals(Rank.straight(fiveOf(Hearts)), new GameRules().evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_flush() {
         Hand hand = new Hand(fiveOf(Hearts), sevenOf(Hearts));
 
-        assertEquals(Rank.flush(sevenOf(Hearts)), hand.rank());
+        assertEquals(Rank.flush(sevenOf(Hearts)), new GameRules().evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_straight_flush() {
         Hand hand = new Hand(fiveOf(Hearts), fourOf(Hearts));
 
-        assertEquals(Rank.straightFlush(fiveOf(Hearts)), hand.rank());
+        assertEquals(Rank.straightFlush(fiveOf(Hearts)), new GameRules().evaluate(hand));
     }
 
     @Test

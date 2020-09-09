@@ -10,7 +10,7 @@ public class Winner implements GameResult {
     }
 
     public Rank rank() {
-        return player.hand.rank();
+        return new GameRules().evaluate(player.hand);
     }
 
     public String playerName() {
