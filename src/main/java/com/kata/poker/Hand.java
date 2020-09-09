@@ -10,13 +10,7 @@ import static java.util.Collections.unmodifiableList;
 public class Hand {
 
     private final List<Card> cards;
-    private final List<Rule> rules = asList(
-            new StraightFlushRule(),
-            new FlushRule(),
-            new StraightRule(),
-            new PairRule(),
-            new HighestCardRule()
-    );
+    private final RankEngine rankEngine = new RankEngine();
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
@@ -33,11 +27,7 @@ public class Hand {
     }
 
     public Rank rank() {
-        return rules.stream()
-                .filter(rule -> rule.canApply(this))
-                .map(rule -> rule.apply(this))
-                .max(Rank::compareTo)
-                .orElse(null);
+        return rankEngine.evaluate(this);
     }
 
     public Card firstCard() {
