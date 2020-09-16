@@ -63,6 +63,8 @@
 
 * EXTRA: What would happen if we want to support a different set of rules? (e.g. full vs flush)
 
+* EXTRA: find a better way to sort hand's cards `Hand#sortedListOf`
+
 * What would happen if we try to write unit tests for `PlayerParser` and the other two parsers? 
     * What feedback would we get from those tests?
 
