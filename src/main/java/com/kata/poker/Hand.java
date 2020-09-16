@@ -41,18 +41,8 @@ public class Hand {
 
     private List<Card> sortedListOf(Card first, Card second) {
         List<Card> cards = asList(first, second);
-        cards.sort(this::compareCards);
+        cards.sort(Card::compareTo);
         return unmodifiableList(cards);
     }
 
-    private int compareCards(Card card, Card otherCard) {
-        switch (card.playAgainst(otherCard)) {
-            case Win:
-                return 1;
-            case Lose:
-                return -1;
-            default:
-                return 0;
-        }
-    }
 }

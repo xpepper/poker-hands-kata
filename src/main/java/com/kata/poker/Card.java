@@ -2,10 +2,9 @@ package com.kata.poker;
 
 import java.util.Objects;
 
-import static com.kata.poker.Outcome.*;
 import static java.text.MessageFormat.format;
 
-public class Card {
+public class Card implements Comparable<Card> {
 
     public final Value value;
     private final Suit suit;
@@ -15,15 +14,9 @@ public class Card {
         this.suit = suit;
     }
 
-    public Outcome playAgainst(Card otherCard) {
-        switch (value.numericValue.compareTo(otherCard.value.numericValue)) {
-            case 1:
-                return Win;
-            case -1:
-                return Lose;
-            default:
-                return Tie;
-        }
+    @Override
+    public int compareTo(Card otherCard) {
+        return value.numericValue.compareTo(otherCard.value.numericValue);
     }
 
     @Override
