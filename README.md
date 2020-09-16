@@ -5,11 +5,14 @@
 
 * [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
     * Is `rules` a collaborator of `Hand` or not? Is there a `GameRules`?
-    * Improve the way to express the comparison between the highest card of same ranks
+        * Rewrite all tests from `HandTest` to `PlayerTest`
+        * Remove the `Hand#playAgainst` (Use `GameRules` as a dependency of `Player`)
+    * Move `Player#playAgainst` to a new class (`Game` ???)
+        * Rename `Game` with more descriptive name
     * Extract `priority == other.priority` with a better name (are we mixing the concept of point and rank?)
     * Remove highestCard field in all rank subclasses (boilerplate on equals())
     * Use a set instead of a list for the rules
-    * move test helper methods to create cards in a better place (actually they're in `HandTest`)
+    * Move test helper methods to create cards in a better place (actually they're in `HandTest`)
     
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting

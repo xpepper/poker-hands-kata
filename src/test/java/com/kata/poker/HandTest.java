@@ -10,15 +10,6 @@ import static org.junit.Assert.assertEquals;
 public class HandTest {
 
     @Test
-    public void highest_card_wins_when_both_hands_do_not_fit_any_higher_ranking() {
-        Hand lowerHand = new Hand(fiveOf(Diamonds), threeOf(Hearts));
-        Hand higherHand = new Hand(sevenOf(Diamonds), fiveOf(Hearts));
-
-        assertEquals(Lose, lowerHand.playAgainst(higherHand));
-        assertEquals(Win, higherHand.playAgainst(lowerHand));
-    }
-
-    @Test
     public void two_hands_with_the_same_highest_card_are_tie() {
         Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds));
         Hand otherHand = new Hand(threeOf(Hearts), sevenOf(Diamonds));
