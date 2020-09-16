@@ -10,41 +10,6 @@ import static org.junit.Assert.assertEquals;
 public class HandTest {
 
     @Test
-    public void tell_when_an_hand_has_an_high_card_rank() {
-        Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds));
-
-        assertEquals(Rank.highCard(sevenOf(Hearts)), new GameRules().evaluate(hand));
-    }
-
-    @Test
-    public void tell_when_an_hand_has_a_pair_rank() {
-        Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds));
-
-        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), new GameRules().evaluate(hand));
-    }
-
-    @Test
-    public void tell_when_an_hand_has_a_straight() {
-        Hand hand = new Hand(fiveOf(Hearts), fourOf(Diamonds));
-
-        assertEquals(Rank.straight(fiveOf(Hearts)), new GameRules().evaluate(hand));
-    }
-
-    @Test
-    public void tell_when_an_hand_has_a_flush() {
-        Hand hand = new Hand(fiveOf(Hearts), sevenOf(Hearts));
-
-        assertEquals(Rank.flush(sevenOf(Hearts)), new GameRules().evaluate(hand));
-    }
-
-    @Test
-    public void tell_when_an_hand_has_a_straight_flush() {
-        Hand hand = new Hand(fiveOf(Hearts), fourOf(Hearts));
-
-        assertEquals(Rank.straightFlush(fiveOf(Hearts)), new GameRules().evaluate(hand));
-    }
-
-    @Test
     public void highest_card_wins_when_both_hands_do_not_fit_any_higher_ranking() {
         Hand lowerHand = new Hand(fiveOf(Diamonds), threeOf(Hearts));
         Hand higherHand = new Hand(sevenOf(Diamonds), fiveOf(Hearts));

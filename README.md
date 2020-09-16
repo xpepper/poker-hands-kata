@@ -9,6 +9,7 @@
     * Extract `priority == other.priority` with a better name (are we mixing the concept of point and rank?)
     * Remove highestCard field in all rank subclasses (boilerplate on equals())
     * Use a set instead of a list for the rules
+    * move test helper methods to create cards in a better place (actually they're in `HandTest`)
     
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting
