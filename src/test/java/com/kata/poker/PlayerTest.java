@@ -12,26 +12,24 @@ public class PlayerTest {
 
     @Test
     public void a_player_with_the_highest_card_wins_when_they_both_have_hands_with_the_same_rank() {
-        Hand lowerHighCardHand = new Hand(fiveOf(Diamonds), threeOf(Hearts));
-        Hand higherHighCardHand = new Hand(sevenOf(Diamonds), fiveOf(Hearts));
+        Player winningPlayer = aPlayerWithHand(sevenOf(Diamonds), fiveOf(Hearts));
+        Player otherPlayer = aPlayerWithHand(fiveOf(Diamonds), threeOf(Hearts));
 
-        Player playerWithLowerHand = new Player("lowerHandPlayer", lowerHighCardHand);
-        Player playerWithHigherHand = new Player("higherHandPlayer", higherHighCardHand);
-
-        assertEquals(new Winner(playerWithHigherHand), playerWithHigherHand.playAgainst(playerWithLowerHand));
-        assertEquals(new Winner(playerWithHigherHand), playerWithLowerHand.playAgainst(playerWithHigherHand));
+        assertEquals(new Winner(winningPlayer), winningPlayer.playAgainst(otherPlayer));
+        assertEquals(new Winner(winningPlayer), otherPlayer.playAgainst(winningPlayer));
     }
 
     @Test
     public void players_with_the_same_rank_and_highest_card_are_tie() {
-        Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds));
-        Hand otherHand = new Hand(threeOf(Hearts), sevenOf(Diamonds));
-
-        Player player = new Player("player", hand);
-        Player otherPlayer = new Player("other player", otherHand);
+        Player player = aPlayerWithHand(sevenOf(Hearts), fourOf(Diamonds));
+        Player otherPlayer = aPlayerWithHand(threeOf(Hearts), sevenOf(Diamonds));
 
         assertEquals(tie, player.playAgainst(otherPlayer));
         assertEquals(tie, otherPlayer.playAgainst(player));
+    }
+
+    private Player aPlayerWithHand(Card firstCard, Card secondCard) {
+        return new Player("a name", new Hand(firstCard, secondCard));
     }
 
 }
