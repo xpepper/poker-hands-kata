@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.Diamonds;
 import static com.kata.poker.Card.Suit.Hearts;
+import static com.kata.poker.GameResult.tie;
 import static com.kata.poker.HandTest.*;
 import static org.junit.Assert.assertEquals;
 
@@ -19,6 +20,18 @@ public class PlayerTest {
 
         assertEquals(new Winner(playerWithHigherHand), playerWithHigherHand.playAgainst(playerWithLowerHand));
         assertEquals(new Winner(playerWithHigherHand), playerWithLowerHand.playAgainst(playerWithHigherHand));
+    }
+
+    @Test
+    public void players_with_the_same_rank_and_highest_card_are_tie() {
+        Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds));
+        Hand otherHand = new Hand(threeOf(Hearts), sevenOf(Diamonds));
+
+        Player player = new Player("player", hand);
+        Player otherPlayer = new Player("other player", otherHand);
+
+        assertEquals(tie, player.playAgainst(otherPlayer));
+        assertEquals(tie, otherPlayer.playAgainst(player));
     }
 
 }
