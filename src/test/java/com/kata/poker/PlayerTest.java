@@ -1,5 +1,8 @@
 package com.kata.poker;
 
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.Diamonds;
@@ -7,6 +10,7 @@ import static com.kata.poker.Card.Suit.Hearts;
 import static com.kata.poker.GameResult.tie;
 import static com.kata.poker.HandTest.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class PlayerTest {
 
@@ -15,8 +19,36 @@ public class PlayerTest {
         Player winningPlayer = aPlayerWithHand(sevenOf(Diamonds), fiveOf(Hearts));
         Player otherPlayer = aPlayerWithHand(fiveOf(Diamonds), threeOf(Hearts));
 
-        assertEquals(new Winner(winningPlayer), winningPlayer.playAgainst(otherPlayer));
-        assertEquals(new Winner(winningPlayer), otherPlayer.playAgainst(winningPlayer));
+        assertThat(winningPlayer, winsAgainst(otherPlayer));
+    }
+
+    private Matcher<Player> winsAgainst(Player player) {
+        return new TypeSafeDiagnosingMatcher<Player>() {
+            private Winner winner;
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("winner to be " + winner);
+            }
+
+            @Override
+            protected boolean matchesSafely(Player winningPlayer, Description mismatchDescription) {
+                winner = new Winner(winningPlayer);
+                GameResult firstResult = winningPlayer.playAgainst(player);
+                GameResult secondResult = player.playAgainst(winningPlayer);
+
+                if (!firstResult.equals(winner)) {
+                    mismatchDescription.appendText("was " + firstResult);
+                    return false;
+                }
+                if (!secondResult.equals(winner)) {
+                    mismatchDescription.appendText("was " + secondResult);
+                    return false;
+                }
+                return true;
+            }
+
+        };
     }
 
     @Test

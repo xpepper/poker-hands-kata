@@ -13,7 +13,9 @@
     * Remove highestCard field in all rank subclasses (boilerplate on equals())
     * Use a set instead of a list for the rules
     * Move test helper methods to create cards in a better place (actually they're in `HandTest`)
-    
+
+* [R] Add `toString` to `GameResult` to improve the `PlayerTest` description when it fails
+      
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting
     * Three of a kind ranking
