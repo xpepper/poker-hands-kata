@@ -3,25 +3,28 @@
 
 ### TODO
 
-* [R] Smells like a rule engine is yelling to be implemented to evaluate the poker hands...
-    * Is `rules` a collaborator of `Hand` or not? Is there a `GameRules`?
-        * Rewrite all tests from `HandTest` to `PlayerTest`
-        * Remove the `Hand#playAgainst` (Use `GameRules` as a dependency of `Player`)
+* [R] Introduce a new `Game` class to make use the `GameRules` on the player hands
+    * Remove the `Hand#playAgainst` (Use `GameRules` as a dependency of `Player`)
     * Move `Player#playAgainst` to a new class (`Game` ???)
         * Rename `Game` with more descriptive name
-    * Extract `priority == other.priority` with a better name (are we mixing the concept of point and rank?)
-    * Remove highestCard field in all rank subclasses (boilerplate on equals())
-    * Use a set instead of a list for the rules
-    * Move test helper methods to create cards in a better place (actually they're in `HandTest`)
+    * Move all the helper methods of `HandTest` somewhere else
 
-* [R] Add `toString` to `GameResult` to improve the `PlayerTest` description when it fails
-      
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting
     * Three of a kind ranking
     * Add the missing ranks in `Rank`
 
+* [R] Extract `priority == other.priority` with a better name (are we mixing the concept of point and rank?)
+
 * [R] Refactor rules as composition of other rules. The `StraightFlushRule` is a composition of `StraightRule` and `FlushRule`.
+
+* [R] Add `toString` to `GameResult` to improve the `PlayerTest` description when it fails
+
+* [R] Extract a matcher to verify when two players are tie (See `PlayerTest`)
+
+* [R] Remove highestCard field in all rank subclasses (boilerplate on equals())
+
+* [R] Use a set instead of a list for the rules
 
 * [R] `GameResultFormatter` has too many responsibilities (format the player name, format the rank and combine them together)
     - This is making tests dependent each other (e.g. if we change the formatting of the high card we have two tests that fail)
@@ -31,8 +34,8 @@
 * [F] `CardParserTest` add support to more values and suites?
 
 * [F] Should we add a validation when 
-    * creating a `Card` (null values and suites should not be allowed) ?
-    * creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or a `Pair` with two cards with the same suit)
+    * Creating a `Card` (null values and suites should not be allowed) ?
+    * Creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or a `Pair` with two cards with the same suit)
 
 * [F] Make sure you cannot create invalid Cards.
     * Is not possible to have two same cards in a hand.
@@ -44,7 +47,6 @@
 * [R] Improve the Player tests: maybe using a builder would help in improving the readability of the test
     * like `aPlayer().with(highestHand())`...
     * add helper assertions to "hide" the pair of symmetric assertions
-
     
 * Add all the possible values for the poker `Cards`
     * [F] add the formatting of all the remaining figures (K, Q, J)
