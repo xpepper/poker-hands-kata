@@ -4,7 +4,6 @@
 ### TODO
 
 * [R] Introduce a new `Game` class to make use the `GameRules` on the player hands
-    * Remove the `Hand#playAgainst` (Use `GameRules` as a dependency of `Player`)
     * Move `Player#playAgainst` to a new class (`Game` ???)
         * Rename `Game` with more descriptive name
     * Move all the helper methods of `HandTest` somewhere else
