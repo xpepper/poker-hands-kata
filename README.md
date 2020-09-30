@@ -3,8 +3,9 @@
 
 ### TODO
 
-* [R] Introduce a new `Game` class to make use the `GameRules` on the player hands
-    * Move all the helper methods of `HandTest` somewhere else
+* [R] Pass `GameRules` as dependency of `Game`
+ 
+* [R] Move all the helper methods of `HandTest` somewhere else
 
 * [R] Move `rawGameInput` as parameter of `GameRunner#run` and pass the dependencies (`Game` and `PlayerParser`) in construction.
 
