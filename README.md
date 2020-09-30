@@ -4,7 +4,6 @@
 ### TODO
 
 * [R] Introduce a new `Game` class to make use the `GameRules` on the player hands
-    * Rename of `PlayerTest` to `GameTest`
     * Move all the helper methods of `HandTest` somewhere else
 
 * [R] Move `rawGameInput` as parameter of `GameRunner#run` and pass the dependencies (`Game` and `PlayerParser`) in construction.

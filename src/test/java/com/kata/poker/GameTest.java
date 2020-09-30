@@ -10,7 +10,7 @@ import static com.kata.poker.GameResult.tie;
 import static com.kata.poker.HandTest.*;
 import static org.junit.Assert.assertThat;
 
-public class PlayerTest {
+public class GameTest {
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_high_card() {
