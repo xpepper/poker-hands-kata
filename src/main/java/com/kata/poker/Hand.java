@@ -2,7 +2,6 @@ package com.kata.poker;
 
 import java.util.List;
 
-import static com.kata.poker.Outcome.*;
 import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableList;
 
@@ -12,19 +11,6 @@ public class Hand {
 
     public Hand(Card first, Card second) {
         this.cards = sortedListOf(first, second);
-    }
-
-    public Outcome playAgainst(Hand other) {
-        GameRules gameRules = new GameRules();
-        Rank rank = gameRules.evaluate(this);
-        Rank otherRank = gameRules.evaluate(other);
-        if (rank.higherThan(otherRank)) {
-            return Win;
-        }
-        if (rank.lowerThan(otherRank)) {
-            return Lose;
-        }
-        return Tie;
     }
 
     public Card firstCard() {
