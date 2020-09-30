@@ -11,7 +11,7 @@ public class GameRunner {
         this.rawGameInput = rawGameInput;
     }
 
-    public String play() {
+    public String run() {
         GameResult gameResult = firstPlayer().playAgainst(secondPlayer());
         return new GameResultFormatter().format(gameResult);
     }
