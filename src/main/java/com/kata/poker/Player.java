@@ -4,7 +4,6 @@ public class Player {
 
     public final String name;
     public final Hand hand;
-    private final Game game = new Game();
 
     public Player(String name, Hand hand) {
         this.name = name;
@@ -12,7 +11,7 @@ public class Player {
     }
 
     GameResult playAgainst(Player other) {
-        return game.play(this, other);
+        return new Game().play(this, other);
     }
 
 }
