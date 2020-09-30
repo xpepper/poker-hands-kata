@@ -3,16 +3,17 @@ package com.kata.poker;
 public class GameRunner {
 
     public static final String PLAYER_SEPARATOR = "  ";
-    private final PlayerParser playerParser = new PlayerParser();
 
-    private String rawGameInput;
+    private final PlayerParser playerParser = new PlayerParser();
+    private final Game game = new Game();
+    private final String rawGameInput;
 
     public GameRunner(String rawGameInput) {
         this.rawGameInput = rawGameInput;
     }
 
     public String run() {
-        GameResult gameResult = firstPlayer().playAgainst(secondPlayer());
+        GameResult gameResult = game.play(firstPlayer(), secondPlayer());
         return new GameResultFormatter().format(gameResult);
     }
 

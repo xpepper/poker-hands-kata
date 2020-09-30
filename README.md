@@ -4,8 +4,10 @@
 ### TODO
 
 * [R] Introduce a new `Game` class to make use the `GameRules` on the player hands
-    * Inline `Player#playAgainst`
+    * Rename of `PlayerTest` to `GameTest`
     * Move all the helper methods of `HandTest` somewhere else
+
+* [R] Move `rawGameInput` as parameter of `GameRunner#run` and pass the dependencies (`Game` and `PlayerParser`) in construction.
 
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting
