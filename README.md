@@ -65,11 +65,14 @@
     - hand1: (2, 4), hand2: (8, 5), table: (3, 5, 6, 8, 8) 
      
 * What changes if we had to expose as an HTTP service?
+
 * EXTRA: What would you need to change if a new game input should be supported?
 
 * EXTRA: What would happen if we want to support a different set of rules? (e.g. full vs flush)
 
 * EXTRA: find a better way to sort hand's cards `Hand#sortedListOf`
+
+* EXTRA: Do some practice with mutation testing
 
 * What would happen if we try to write unit tests for `PlayerParser` and the other two parsers? 
     * What feedback would we get from those tests?

@@ -178,6 +178,7 @@ public class PlayerTest {
 
     private Matcher<Player> winsAgainst(Player player) {
         return new TypeSafeDiagnosingMatcher<Player>() {
+            private final Game game = new Game();
             private Winner winner;
 
             @Override
@@ -188,8 +189,8 @@ public class PlayerTest {
             @Override
             protected boolean matchesSafely(Player winningPlayer, Description mismatchDescription) {
                 winner = new Winner(winningPlayer);
-                GameResult firstResult = winningPlayer.playAgainst(player);
-                GameResult secondResult = player.playAgainst(winningPlayer);
+                GameResult firstResult = game.play(winningPlayer, player);
+                GameResult secondResult = game.play(player, winningPlayer);
 
                 if (!firstResult.equals(winner)) {
                     mismatchDescription.appendText("was " + firstResult);
@@ -206,6 +207,8 @@ public class PlayerTest {
 
     private Matcher<Player> isTieWith(Player otherPlayer) {
         return new TypeSafeDiagnosingMatcher<Player>() {
+            private final Game game = new Game();
+
             @Override
             public void describeTo(Description description) {
                 description.appendText("result to be a tie");
@@ -213,17 +216,13 @@ public class PlayerTest {
 
             @Override
             protected boolean matchesSafely(Player player, Description mismatchDescription) {
-                GameResult firstResult = player.playAgainst(otherPlayer);
-                GameResult secondResult = otherPlayer.playAgainst(player);
+                GameResult result = game.play(player, otherPlayer);
 
-                if (!firstResult.equals(tie)) {
-                    mismatchDescription.appendText("was " + firstResult);
+                if (!result.equals(tie)) {
+                    mismatchDescription.appendText("was " + result);
                     return false;
                 }
-                if (!secondResult.equals(tie)) {
-                    mismatchDescription.appendText("was " + secondResult);
-                    return false;
-                }
+
                 return true;
             }
         };
