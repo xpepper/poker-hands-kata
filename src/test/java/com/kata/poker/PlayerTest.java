@@ -8,7 +8,6 @@ import org.junit.Test;
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.GameResult.tie;
 import static com.kata.poker.HandTest.*;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class PlayerTest {
@@ -26,8 +25,7 @@ public class PlayerTest {
         Player player = aPlayerWithHand(sevenOf(Hearts), fourOf(Diamonds));
         Player otherPlayer = aPlayerWithHand(threeOf(Hearts), sevenOf(Diamonds));
 
-        assertEquals(tie, player.playAgainst(otherPlayer));
-        assertEquals(tie, otherPlayer.playAgainst(player));
+        assertThat(player, isTieWith(otherPlayer));
     }
 
     @Test
@@ -43,8 +41,7 @@ public class PlayerTest {
         Player player = aPlayerWithHand(fiveOf(Spades), fiveOf(Diamonds));
         Player otherPlayer = aPlayerWithHand(fiveOf(Clubs), fiveOf(Spades));
 
-        assertEquals(tie, player.playAgainst(otherPlayer));
-        assertEquals(tie, otherPlayer.playAgainst(player));
+        assertThat(player, isTieWith(otherPlayer));
     }
 
     @Test
@@ -76,8 +73,7 @@ public class PlayerTest {
         Player player = aPlayerWithHand(fiveOf(Spades), fourOf(Hearts));
         Player otherPlayer = aPlayerWithHand(fourOf(Hearts), fiveOf(Spades));
 
-        assertEquals(tie, player.playAgainst(otherPlayer));
-        assertEquals(tie, otherPlayer.playAgainst(player));
+        assertThat(player, isTieWith(otherPlayer));
     }
 
     @Test
@@ -109,8 +105,7 @@ public class PlayerTest {
         Player player = aPlayerWithHand(fourOf(Spades), sevenOf(Spades));
         Player otherPlayer = aPlayerWithHand(fourOf(Diamonds), sevenOf(Diamonds));
 
-        assertEquals(tie, player.playAgainst(otherPlayer));
-        assertEquals(tie, otherPlayer.playAgainst(player));
+        assertThat(player, isTieWith(otherPlayer));
     }
 
     @Test
@@ -166,8 +161,7 @@ public class PlayerTest {
         Player player = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds));
         Player otherPlayer = aPlayerWithHand(threeOf(Spades), fourOf(Spades));
 
-        assertEquals(tie, player.playAgainst(otherPlayer));
-        assertEquals(tie, otherPlayer.playAgainst(player));
+        assertThat(player, isTieWith(otherPlayer));
     }
 
     @Test
@@ -207,7 +201,31 @@ public class PlayerTest {
                 }
                 return true;
             }
+        };
+    }
 
+    private Matcher<Player> isTieWith(Player otherPlayer) {
+        return new TypeSafeDiagnosingMatcher<Player>() {
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("result to be a tie");
+            }
+
+            @Override
+            protected boolean matchesSafely(Player player, Description mismatchDescription) {
+                GameResult firstResult = player.playAgainst(otherPlayer);
+                GameResult secondResult = otherPlayer.playAgainst(player);
+
+                if (!firstResult.equals(tie)) {
+                    mismatchDescription.appendText("was " + firstResult);
+                    return false;
+                }
+                if (!secondResult.equals(tie)) {
+                    mismatchDescription.appendText("was " + secondResult);
+                    return false;
+                }
+                return true;
+            }
         };
     }
 

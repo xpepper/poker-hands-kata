@@ -4,7 +4,6 @@
 ### TODO
 
 * [R] Introduce a new `Game` class to make use the `GameRules` on the player hands
-    * Create custom assertion for tie case
     * Inline `Player#playAgainst`
     * Move all the helper methods of `HandTest` somewhere else
 
