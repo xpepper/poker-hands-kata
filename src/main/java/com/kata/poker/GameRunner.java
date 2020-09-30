@@ -1,13 +1,13 @@
 package com.kata.poker;
 
-public class Game {
+public class GameRunner {
 
     public static final String PLAYER_SEPARATOR = "  ";
     private final PlayerParser playerParser = new PlayerParser();
 
     private String rawGameInput;
 
-    public Game(String rawGameInput) {
+    public GameRunner(String rawGameInput) {
         this.rawGameInput = rawGameInput;
     }
 
