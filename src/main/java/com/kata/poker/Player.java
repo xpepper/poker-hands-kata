@@ -4,6 +4,7 @@ public class Player {
 
     public final String name;
     public final Hand hand;
+    private final Game game = new Game();
 
     public Player(String name, Hand hand) {
         this.name = name;
@@ -11,18 +12,7 @@ public class Player {
     }
 
     GameResult playAgainst(Player other) {
-        GameRules gameRules = new GameRules();
-        Rank rank = gameRules.evaluate(hand);
-        Rank otherRank = gameRules.evaluate(other.hand);
-
-        if (rank.higherThan(otherRank)) {
-            return new Winner(this);
-        }
-
-        if (rank.lowerThan(otherRank)) {
-            return new Winner(other);
-        }
-
-        return GameResult.tie;
+        return game.play(this, other);
     }
+
 }

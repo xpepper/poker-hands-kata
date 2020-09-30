@@ -4,8 +4,9 @@
 ### TODO
 
 * [R] Introduce a new `Game` class to make use the `GameRules` on the player hands
-    * Move `Player#playAgainst` to a new class (`Game` ???)
     * Move all the helper methods of `HandTest` somewhere else
+    * Create custom assertion for tie case
+    * Inline `Player#playAgainst`
 
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting
