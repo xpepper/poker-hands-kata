@@ -5,7 +5,7 @@ public class GameRunner {
     public static final String PLAYER_SEPARATOR = "  ";
 
     private final PlayerParser playerParser = new PlayerParser();
-    private final Game game = new Game();
+    private final Game game = new Game(new GameRules());
     private final String rawGameInput;
 
     public GameRunner(String rawGameInput) {

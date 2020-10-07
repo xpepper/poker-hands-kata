@@ -178,7 +178,7 @@ public class GameTest {
 
     private Matcher<Player> winsAgainst(Player player) {
         return new TypeSafeDiagnosingMatcher<Player>() {
-            private final Game game = new Game();
+            private final Game game = new Game(new GameRules());
             private Winner winner;
 
             @Override
@@ -207,7 +207,7 @@ public class GameTest {
 
     private Matcher<Player> isTieWith(Player otherPlayer) {
         return new TypeSafeDiagnosingMatcher<Player>() {
-            private final Game game = new Game();
+            private final Game game = new Game(new GameRules());
 
             @Override
             public void describeTo(Description description) {

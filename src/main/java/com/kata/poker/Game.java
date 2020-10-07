@@ -2,10 +2,15 @@ package com.kata.poker;
 
 public class Game {
 
+    private final GameRules rules;
+
+    public Game(GameRules rules) {
+        this.rules = rules;
+    }
+
     GameResult play(Player firstPlayer, Player secondPlayer) {
-        GameRules gameRules = new GameRules();
-        Rank rank = gameRules.evaluate(firstPlayer.hand);
-        Rank otherRank = gameRules.evaluate(secondPlayer.hand);
+        Rank rank = rules.evaluate(firstPlayer.hand);
+        Rank otherRank = rules.evaluate(secondPlayer.hand);
 
         if (rank.higherThan(otherRank)) {
             return new Winner(firstPlayer);
