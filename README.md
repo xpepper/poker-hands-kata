@@ -3,12 +3,12 @@
 
 ### TODO
  
-* [R] Move `rawGameInput` as parameter of `GameRunner#run` and pass the dependencies (`Game` and `PlayerParser`) in construction.
-
 * [F] Poker hand with three cards... ("3 cards" world)
     * Rewrite the logic to find the highest card in a hand using sorting
     * Three of a kind ranking
     * Add the missing ranks in `Rank`
+
+* [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 
 * [R] Extract `priority == other.priority` with a better name (are we mixing the concept of point and rank?)
 
