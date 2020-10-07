@@ -28,4 +28,7 @@ public class CardBuilder {
         return new Card(Value.Ace, suit);
     }
 
+    public static Card twoOf(Card.Suit suit) {
+        return new Card(Value.Two, suit);
+    }
 }

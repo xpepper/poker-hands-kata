@@ -3,14 +3,13 @@ package com.kata.poker;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.unmodifiableList;
 
 public class Hand {
 
     private final List<Card> cards;
 
-    public Hand(Card first, Card second) {
-        this.cards = sortedListOf(first, second);
+    public Hand(Card... cards) {
+        this.cards = sortedListOf(asList(cards));
     }
 
     public Card firstCard() {
@@ -22,13 +21,12 @@ public class Hand {
     }
 
     public Card highestCard() {
-        return cards.get(1);
+        return cards.get(cards.size() - 1);
     }
 
-    private List<Card> sortedListOf(Card first, Card second) {
-        List<Card> cards = asList(first, second);
+    private List<Card> sortedListOf(List<Card> cards) {
         cards.sort(Card::compareTo);
-        return unmodifiableList(cards);
+        return cards;
     }
 
 }

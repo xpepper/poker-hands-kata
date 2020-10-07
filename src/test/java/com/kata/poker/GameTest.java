@@ -6,16 +6,16 @@ import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
-import static com.kata.poker.GameResult.tie;
 import static com.kata.poker.CardBuilder.*;
+import static com.kata.poker.GameResult.tie;
 import static org.junit.Assert.assertThat;
 
 public class GameTest {
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_high_card() {
-        Player winningPlayer = aPlayerWithHand(sevenOf(Diamonds), fiveOf(Hearts));
-        Player otherPlayer = aPlayerWithHand(fiveOf(Diamonds), threeOf(Hearts));
+        Player winningPlayer = aPlayerWithHand(sevenOf(Diamonds), fiveOf(Hearts), threeOf(Diamonds));
+        Player otherPlayer = aPlayerWithHand(fiveOf(Diamonds), fourOf(Hearts), twoOf(Clubs));
 
         assertThat(winningPlayer, winsAgainst(otherPlayer));
     }
@@ -174,6 +174,10 @@ public class GameTest {
 
     private Player aPlayerWithHand(Card firstCard, Card secondCard) {
         return new Player("a name", new Hand(firstCard, secondCard));
+    }
+
+    private Player aPlayerWithHand(Card firstCard, Card secondCard, Card thirdCard) {
+        return new Player("a name", new Hand(firstCard, secondCard, thirdCard));
     }
 
     private Matcher<Player> winsAgainst(Player player) {
