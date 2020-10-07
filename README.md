@@ -2,8 +2,6 @@
 [List of Poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)
 
 ### TODO
-
-* [R] Pass `GameRules` as dependency of `Game`
  
 * [R] Move all the helper methods of `HandTest` somewhere else
 
