@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.GameResult.tie;
-import static com.kata.poker.HandTest.*;
+import static com.kata.poker.CardBuilder.*;
 import static org.junit.Assert.assertThat;
 
 public class GameTest {

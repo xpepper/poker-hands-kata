@@ -3,8 +3,6 @@
 
 ### TODO
  
-* [R] Move all the helper methods of `HandTest` somewhere else
-
 * [R] Move `rawGameInput` as parameter of `GameRunner#run` and pass the dependencies (`Game` and `PlayerParser`) in construction.
 
 * [F] Poker hand with three cards... ("3 cards" world)

@@ -3,7 +3,7 @@ package com.kata.poker;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
-import static com.kata.poker.HandTest.*;
+import static com.kata.poker.CardBuilder.*;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;

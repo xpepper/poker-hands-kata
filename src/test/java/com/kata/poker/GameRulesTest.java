@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.Diamonds;
 import static com.kata.poker.Card.Suit.Hearts;
-import static com.kata.poker.HandTest.*;
+import static com.kata.poker.CardBuilder.*;
 import static org.junit.Assert.assertEquals;
 
 public class GameRulesTest {
