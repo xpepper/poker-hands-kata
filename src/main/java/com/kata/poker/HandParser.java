@@ -7,6 +7,7 @@ public class HandParser {
         String[] rawCards = rawPokerHand.split(" ");
         Card firstCard = cardParser.parse(rawCards[0]);
         Card secondCard = cardParser.parse(rawCards[1]);
-        return new Hand(firstCard, secondCard);
+        Card thirdCard = cardParser.parse(rawCards[2]);
+        return new Hand(firstCard, secondCard, thirdCard);
     }
 }

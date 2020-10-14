@@ -8,6 +8,8 @@ public class CardParser {
         put('2', Card.Value.Two);
         put('4', Card.Value.Four);
         put('5', Card.Value.Five);
+        put('6', Card.Value.Six);
+        put('7', Card.Value.Seven);
     }};
 
     private static final Map<Character, Card.Suit> CHAR_TO_SUIT = new HashMap<Character, Card.Suit>() {{

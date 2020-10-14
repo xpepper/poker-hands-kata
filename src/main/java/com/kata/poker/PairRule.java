@@ -10,6 +10,13 @@ public class PairRule implements Rule {
 
     @Override
     public Rank apply(Hand hand) {
-        return Rank.pair(hand.firstCard(), hand.secondCard());
+        if (hand.firstCard().hasSameValueOf(hand.secondCard())) {
+            return Rank.pair(hand.firstCard(), hand.secondCard());
+        }
+        if (hand.firstCard().hasSameValueOf(hand.highestCard())) {
+            return Rank.pair(hand.firstCard(), hand.highestCard());
+        }
+
+        return Rank.pair(hand.secondCard(), hand.highestCard());
     }
 }

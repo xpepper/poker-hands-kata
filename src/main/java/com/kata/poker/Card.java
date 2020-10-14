@@ -57,6 +57,7 @@ public class Card implements Comparable<Card> {
         Five(5),
         Six(6),
         Seven(7),
+        Queen(12),
         King(13),
         Ace(14);
 

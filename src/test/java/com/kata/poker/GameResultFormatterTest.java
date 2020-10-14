@@ -14,28 +14,28 @@ public class GameResultFormatterTest {
 
     @Test
     public void format_the_winner_name_with_its_rank_and_point() {
-        Winner winner = new Winner(new Player("Peter", new Hand(threeOf(Clubs), sevenOf(Hearts))));
+        Winner winner = new Winner(new Player("Peter", new Hand(threeOf(Clubs), fiveOf(Diamonds), sevenOf(Hearts))));
 
         assertEquals("Peter wins. - with high card: 7", formatter.format(winner));
     }
 
     @Test
     public void format_the_winner_player_name() {
-        Winner winner = new Winner(new Player("Peter", new Hand(threeOf(Clubs), sevenOf(Hearts))));
+        Winner winner = new Winner(new Player("Peter", new Hand(threeOf(Clubs), fiveOf(Diamonds), sevenOf(Hearts))));
 
         assertThat(formatter.format(winner), containsString("Peter wins."));
     }
 
     @Test
     public void format_the_high_card_rank() {
-        Winner winner = new Winner(new Player("anyName", new Hand(threeOf(Clubs), sevenOf(Hearts))));
+        Winner winner = new Winner(new Player("anyName", new Hand(threeOf(Clubs), fiveOf(Diamonds), sevenOf(Hearts))));
 
         assertThat(formatter.format(winner), containsString("high card: 7"));
     }
 
     @Test
     public void format_the_high_card_rank_with_a_figure() {
-        Winner winner = new Winner(new Player("anyName", new Hand(threeOf(Clubs), aceOf(Hearts))));
+        Winner winner = new Winner(new Player("anyName", new Hand(threeOf(Clubs), queenOf(Diamonds), aceOf(Hearts))));
 
         assertThat(formatter.format(winner), containsString("high card: Ace"));
     }
@@ -56,14 +56,14 @@ public class GameResultFormatterTest {
 
     @Test
     public void format_the_straight_rank() {
-        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fourOf(Diamonds))));
+        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fourOf(Diamonds), threeOf(Clubs))));
 
         assertThat(formatter.format(winner), containsString("straight: 5-high"));
     }
 
     @Test
     public void format_the_straight_rank_with_a_figure() {
-        Winner winner = new Winner(new Player("anyName", new Hand(kingOf(Hearts), aceOf(Diamonds))));
+        Winner winner = new Winner(new Player("anyName", new Hand(CardBuilder.queenOf(Clubs), kingOf(Hearts), aceOf(Diamonds))));
 
         assertThat(formatter.format(winner), containsString("straight: Ace-high"));
     }
@@ -84,14 +84,14 @@ public class GameResultFormatterTest {
 
     @Test
     public void format_the_straight_flush_rank() {
-        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fourOf(Hearts))));
+        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fourOf(Hearts), threeOf(Hearts))));
 
         assertThat(formatter.format(winner), containsString("straight flush: 5-high"));
     }
 
     @Test
     public void format_the_straight_flush_rank_with_figure() {
-        Winner winner = new Winner(new Player("anyName", new Hand(kingOf(Hearts), aceOf(Hearts))));
+        Winner winner = new Winner(new Player("anyName", new Hand(queenOf(Hearts), kingOf(Hearts), aceOf(Hearts))));
 
         assertThat(formatter.format(winner), containsString("straight flush: Ace-high"));
     }
