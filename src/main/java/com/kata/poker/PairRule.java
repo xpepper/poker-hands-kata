@@ -3,7 +3,9 @@ package com.kata.poker;
 public class PairRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
-        return hand.firstCard().hasSameValueOf(hand.secondCard());
+        return hand.firstCard().hasSameValueOf(hand.secondCard()) ||
+                hand.firstCard().hasSameValueOf(hand.highestCard()) ||
+                hand.secondCard().hasSameValueOf(hand.highestCard());
     }
 
     @Override

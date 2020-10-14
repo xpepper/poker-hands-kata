@@ -47,7 +47,7 @@ public class GameTest {
     @Test
     public void a_pair_always_wins_against_a_high_card() {
         Player playerWithPair = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs));
-        Player playerWithHighCard = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), aceOf(Spades));
+        Player playerWithHighCard = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), twoOf(Spades));
 
         assertThat(playerWithPair, winsAgainst(playerWithHighCard));
     }

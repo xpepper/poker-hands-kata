@@ -2,8 +2,6 @@ package com.kata.poker;
 
 import com.kata.poker.Card.Value;
 
-import javax.management.ValueExp;
-
 public class CardBuilder {
 
     public static Card threeOf(Card.Suit suit) {

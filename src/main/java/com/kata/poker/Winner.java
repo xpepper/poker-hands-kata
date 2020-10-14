@@ -25,4 +25,8 @@ public class Winner implements GameResult {
         return Objects.equals(player, that.player);
     }
 
+    @Override
+    public String toString() {
+        return playerName() + " with " + rank();
+    }
 }
