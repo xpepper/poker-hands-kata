@@ -6,10 +6,12 @@
 * [F] Poker hand with three cards... ("3 cards" world)
     * Keep on converting `GameTest` tests from a 2-cards world to a 3-cards world 
     * Rewrite the logic to find the highest card in a hand using sorting
+        * For example: `GameTest#a_pair_always_wins_against_a_high_card`
     * Three of a kind ranking
     * Add the missing ranks in `Rank`
     * Should `Hand` have a different structure to hold its cards (instead of a List...)?
     * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
+    * Check how the rules about a tie works when two hands have the same rank
 
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 
