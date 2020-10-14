@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with three cards... ("3 cards" world)
-    * Keep on converting `GameTest` tests from a 2-cards world to a 3-cards world 
     * Rewrite the logic to find the highest card in a hand using sorting
         * For example: `GameTest#a_pair_always_wins_against_a_high_card`
     * Three of a kind ranking

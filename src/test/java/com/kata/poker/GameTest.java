@@ -126,54 +126,50 @@ public class GameTest {
 
     @Test
     public void a_straight_flush_always_wins_against_a_flush() {
-        Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds));
-        Player playerWithFlush = aPlayerWithHand(threeOf(Clubs), fiveOf(Clubs));
+        Player playerWithStraightFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fourOf(Diamonds));
+        Player playerWithFlush = aPlayerWithHand(threeOf(Clubs), fiveOf(Clubs), sevenOf(Clubs));
 
         assertThat(playerWithStraightFlush, winsAgainst(playerWithFlush));
     }
 
     @Test
     public void a_straight_flush_always_wins_against_a_straight() {
-        Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds));
-        Player playerWithStraight = aPlayerWithHand(fourOf(Clubs), fiveOf(Diamonds));
+        Player playerWithStraightFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fourOf(Diamonds));
+        Player playerWithStraight = aPlayerWithHand(fourOf(Clubs), fiveOf(Diamonds), sixOf(Hearts));
 
         assertThat(playerWithStraightFlush, winsAgainst(playerWithStraight));
     }
 
     @Test
     public void a_straight_flush_always_wins_against_a_pair() {
-        Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds));
-        Player playerWithPair = aPlayerWithHand(fourOf(Clubs), fourOf(Hearts));
+        Player playerWithStraightFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fourOf(Diamonds));
+        Player playerWithPair = aPlayerWithHand(fourOf(Clubs), fourOf(Hearts), sevenOf(Hearts));
 
         assertThat(playerWithStraightFlush, winsAgainst(playerWithPair));
     }
 
     @Test
     public void a_straight_flush_always_wins_against_a_high_card() {
-        Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds));
-        Player playerWithHighCard = aPlayerWithHand(fourOf(Clubs), sevenOf(Hearts));
+        Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds), twoOf(Diamonds));
+        Player playerWithHighCard = aPlayerWithHand(fourOf(Clubs), sevenOf(Hearts), aceOf(Diamonds));
 
         assertThat(playerWithStraightFlush, winsAgainst(playerWithHighCard));
     }
 
     @Test
     public void two_hands_with_the_same_straight_flush_are_tie() {
-        Player player = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds));
-        Player otherPlayer = aPlayerWithHand(threeOf(Spades), fourOf(Spades));
+        Player player = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds), twoOf(Diamonds));
+        Player otherPlayer = aPlayerWithHand(threeOf(Spades), fourOf(Spades), twoOf(Spades));
 
         assertThat(player, isTieWith(otherPlayer));
     }
 
     @Test
     public void highest_card_wins_when_both_hands_have_a_straight_flush() {
-        Player winningPlayer = aPlayerWithHand(fourOf(Spades), fiveOf(Spades));
-        Player otherPlayer = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds));
+        Player winningPlayer = aPlayerWithHand(fourOf(Spades), fiveOf(Spades), threeOf(Spades));
+        Player otherPlayer = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds), twoOf(Diamonds));
 
         assertThat(winningPlayer, winsAgainst(otherPlayer));
-    }
-
-    private Player aPlayerWithHand(Card firstCard, Card secondCard) {
-        return new Player("a name", new Hand(firstCard, secondCard));
     }
 
     private Player aPlayerWithHand(Card firstCard, Card secondCard, Card thirdCard) {
