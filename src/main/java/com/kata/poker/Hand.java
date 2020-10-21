@@ -17,16 +17,12 @@ public class Hand {
         this.cards = sortedListOf(asList(cards));
     }
 
-    public Card firstCard() {
-        return cards.get(0);
-    }
-
-    public Card secondCard() {
-        return cards.get(1);
-    }
-
     public Card highestCard() {
         return cards.get(cards.size() - 1);
+    }
+
+    boolean hasAllCardsWithConsecutiveValues() {
+        return cards.get(0).comesBefore(cards.get(1)) && cards.get(1).comesBefore(highestCard());
     }
 
     boolean hasAllCardsWithTheSameSuit() {

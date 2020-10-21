@@ -3,7 +3,7 @@ package com.kata.poker;
 public class StraightRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
-        return hand.firstCard().comesBefore(hand.secondCard()) && hand.secondCard().comesBefore(hand.highestCard());
+        return hand.hasAllCardsWithConsecutiveValues();
     }
 
     @Override
