@@ -34,4 +34,21 @@ public class Hand {
         cards.sort(Card::compareTo);
         return cards;
     }
+
+    List<Card> selectTwoCardsWithTheSameValue() {
+        Card first;
+        Card second;
+
+        if (firstCard().hasSameValueOf(secondCard())) {
+            first = firstCard();
+            second = secondCard();
+        } else if (firstCard().hasSameValueOf(highestCard())) {
+            first = firstCard();
+            second = highestCard();
+        } else {
+            first = secondCard();
+            second = highestCard();
+        }
+        return asList(first, second);
+    }
 }

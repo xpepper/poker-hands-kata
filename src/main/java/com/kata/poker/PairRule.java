@@ -1,5 +1,7 @@
 package com.kata.poker;
 
+import java.util.List;
+
 public class PairRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
@@ -8,20 +10,8 @@ public class PairRule implements Rule {
 
     @Override
     public Rank apply(Hand hand) {
-        Card first;
-        Card second;
-
-        if (hand.firstCard().hasSameValueOf(hand.secondCard())) {
-            first = hand.firstCard();
-            second = hand.secondCard();
-        } else if (hand.firstCard().hasSameValueOf(hand.highestCard())) {
-            first = hand.firstCard();
-            second = hand.highestCard();
-        } else {
-            first = hand.secondCard();
-            second = hand.highestCard();
-        }
-
-        return Rank.pair(first, second);
+        List<Card> cards = hand.selectTwoCardsWithTheSameValue();
+        return Rank.pair(cards.get(0), cards.get(1));
     }
+
 }
