@@ -1,9 +1,11 @@
 package com.kata.poker;
 
+import java.util.Collection;
 import java.util.List;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
+import static java.util.stream.Collectors.groupingBy;
 
 public class Hand {
 
@@ -30,22 +32,20 @@ public class Hand {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        Card first;
-        Card second;
+        return selectGroupWithTwoCards(groupCardsByValue());
+    }
 
-        if (firstCard().hasSameValueOf(secondCard())) {
-            first = firstCard();
-            second = secondCard();
-        } else if (firstCard().hasSameValueOf(highestCard())) {
-            first = firstCard();
-            second = highestCard();
-        } else if (secondCard().hasSameValueOf(highestCard())) {
-            first = secondCard();
-            second = highestCard();
-        } else {
-            return emptyList();
-        }
-        return asList(first, second);
+    private List<Card> selectGroupWithTwoCards(Collection<List<Card>> groups) {
+        return groups.stream()
+                .filter(cards -> cards.size() == 2)
+                .findFirst()
+                .orElse(emptyList());
+    }
+
+    private Collection<List<Card>> groupCardsByValue() {
+        return cards.stream()
+                .collect(groupingBy(c -> c.value))
+                .values();
     }
 
     private List<Card> sortedListOf(List<Card> cards) {
