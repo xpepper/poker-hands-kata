@@ -19,7 +19,7 @@ public class GameRulesTest {
 
     @Test
     public void tell_when_an_hand_has_a_pair_rank() {
-        Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds));
+        Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs));
 
         assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), gameRules.evaluate(hand));
     }
@@ -33,9 +33,9 @@ public class GameRulesTest {
 
     @Test
     public void tell_when_an_hand_has_a_flush() {
-        Hand hand = new Hand(fiveOf(Hearts), sevenOf(Hearts));
+        Hand hand = new Hand(fiveOf(Hearts), sevenOf(Hearts), aceOf(Hearts));
 
-        assertEquals(Rank.flush(sevenOf(Hearts)), gameRules.evaluate(hand));
+        assertEquals(Rank.flush(aceOf(Hearts)), gameRules.evaluate(hand));
     }
 
     @Test

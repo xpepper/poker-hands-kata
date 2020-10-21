@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with three cards... ("3 cards" world)
-    * verify that we are building `Hand` with three cards
     * check and refactor all the `Rule`
         * decouple `Rules` from the `Hand` structure (sorted list of `Cards`)
         * Should `Hand` have a different structure to hold its cards (instead of a List...)?

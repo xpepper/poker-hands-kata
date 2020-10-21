@@ -42,14 +42,14 @@ public class GameResultFormatterTest {
 
     @Test
     public void format_the_pair_rank() {
-        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fiveOf(Diamonds))));
+        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), fiveOf(Diamonds), threeOf(Clubs))));
 
         assertThat(formatter.format(winner), containsString("pair: 5s"));
     }
 
     @Test
     public void format_the_pair_rank_with_a_figure() {
-        Winner winner = new Winner(new Player("anyName", new Hand(aceOf(Hearts), aceOf(Diamonds))));
+        Winner winner = new Winner(new Player("anyName", new Hand(aceOf(Hearts), aceOf(Diamonds), threeOf(Clubs))));
 
         assertThat(formatter.format(winner), containsString("pair: Aces"));
     }
@@ -70,14 +70,14 @@ public class GameResultFormatterTest {
 
     @Test
     public void format_the_flush_rank() {
-        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), sevenOf(Hearts))));
+        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), sevenOf(Hearts), threeOf(Hearts))));
 
         assertThat(formatter.format(winner), containsString("flush: 7-high"));
     }
 
     @Test
     public void format_the_flush_rank_with_figure() {
-        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), aceOf(Hearts))));
+        Winner winner = new Winner(new Player("anyName", new Hand(fiveOf(Hearts), aceOf(Hearts), threeOf(Hearts))));
 
         assertThat(formatter.format(winner), containsString("flush: Ace-high"));
     }
