@@ -7,7 +7,7 @@ import static java.text.MessageFormat.format;
 public class Card implements Comparable<Card> {
 
     public final Value value;
-    private final Suit suit;
+    public final Suit suit;
 
     public Card(Value value, Suit suit) {
         this.value = value;

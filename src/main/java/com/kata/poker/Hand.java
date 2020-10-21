@@ -2,10 +2,12 @@ package com.kata.poker;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toSet;
 
 public class Hand {
 
@@ -27,12 +29,22 @@ public class Hand {
         return cards.get(cards.size() - 1);
     }
 
+    boolean hasAllCardsWithTheSameSuit() {
+        return selectAllSuits().size() == 1;
+    }
+
     boolean hasTwoCardsWithTheSameValue() {
         return !selectTwoCardsWithTheSameValue().isEmpty();
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
         return selectGroupWithTwoCards(groupCardsByValue());
+    }
+
+    private Set<Card.Suit> selectAllSuits() {
+        return cards.stream()
+                .map(c -> c.suit)
+                .collect(toSet());
     }
 
     private List<Card> selectGroupWithTwoCards(Collection<List<Card>> groups) {
