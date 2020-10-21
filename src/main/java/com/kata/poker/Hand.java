@@ -3,6 +3,7 @@ package com.kata.poker;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 
 public class Hand {
 
@@ -25,14 +26,7 @@ public class Hand {
     }
 
     boolean hasTwoCardsWithTheSameValue() {
-        return firstCard().hasSameValueOf(secondCard()) ||
-                firstCard().hasSameValueOf(highestCard()) ||
-                secondCard().hasSameValueOf(highestCard());
-    }
-
-    private List<Card> sortedListOf(List<Card> cards) {
-        cards.sort(Card::compareTo);
-        return cards;
+        return !selectTwoCardsWithTheSameValue().isEmpty();
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
@@ -45,10 +39,17 @@ public class Hand {
         } else if (firstCard().hasSameValueOf(highestCard())) {
             first = firstCard();
             second = highestCard();
-        } else {
+        } else if (secondCard().hasSameValueOf(highestCard())) {
             first = secondCard();
             second = highestCard();
+        } else {
+            return emptyList();
         }
         return asList(first, second);
+    }
+
+    private List<Card> sortedListOf(List<Card> cards) {
+        cards.sort(Card::compareTo);
+        return cards;
     }
 }
