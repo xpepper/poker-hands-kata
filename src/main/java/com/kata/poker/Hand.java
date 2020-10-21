@@ -22,7 +22,13 @@ public class Hand {
     }
 
     boolean hasAllCardsWithConsecutiveValues() {
-        return cards.get(0).comesBefore(cards.get(1)) && cards.get(1).comesBefore(highestCard());
+        for (int cardIndex = 1; cardIndex < cards.size(); cardIndex++) {
+            if (!cards.get(cardIndex - 1).comesBefore(cards.get(cardIndex))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     boolean hasAllCardsWithTheSameSuit() {

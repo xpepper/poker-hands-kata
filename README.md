@@ -4,14 +4,12 @@
 ### TODO
  
 * [F] Poker hand with three cards... ("3 cards" world)
-    * check and refactor all the `Rule`
-        * decouple `Rules` from the `Hand` structure (sorted list of `Cards`)
-        * Should `Hand` have a different structure to hold its cards (instead of a List...)?
+    * delegate responsibility of sorting cards in `Hand` methods that need to have them ordered.
     * [R] generalize `HandParser` to handle different number of cards     
     * when two hands have the same pair then the hand with the highest remaining card wins (e.g. 2S 2H 7D wins over 2D 2C 6D)
     * Add the missing rank three of a kind
     * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
-    * Review how the `Rank` are built (e.g. `Rank.pair(cards.get(0), ...`
+    * Review how the `Rank` are built (e.g. `Rank.pair(cards.get(0), ...`)
 
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 
