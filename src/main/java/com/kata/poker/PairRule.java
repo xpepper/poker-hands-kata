@@ -3,20 +3,25 @@ package com.kata.poker;
 public class PairRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
-        return hand.firstCard().hasSameValueOf(hand.secondCard()) ||
-                hand.firstCard().hasSameValueOf(hand.highestCard()) ||
-                hand.secondCard().hasSameValueOf(hand.highestCard());
+        return hand.hasTwoCardsWithTheSameValue();
     }
 
     @Override
     public Rank apply(Hand hand) {
+        Card first;
+        Card second;
+
         if (hand.firstCard().hasSameValueOf(hand.secondCard())) {
-            return Rank.pair(hand.firstCard(), hand.secondCard());
-        }
-        if (hand.firstCard().hasSameValueOf(hand.highestCard())) {
-            return Rank.pair(hand.firstCard(), hand.highestCard());
+            first = hand.firstCard();
+            second = hand.secondCard();
+        } else if (hand.firstCard().hasSameValueOf(hand.highestCard())) {
+            first = hand.firstCard();
+            second = hand.highestCard();
+        } else {
+            first = hand.secondCard();
+            second = hand.highestCard();
         }
 
-        return Rank.pair(hand.secondCard(), hand.highestCard());
+        return Rank.pair(first, second);
     }
 }

@@ -24,9 +24,14 @@ public class Hand {
         return cards.get(cards.size() - 1);
     }
 
+    boolean hasTwoCardsWithTheSameValue() {
+        return firstCard().hasSameValueOf(secondCard()) ||
+                firstCard().hasSameValueOf(highestCard()) ||
+                secondCard().hasSameValueOf(highestCard());
+    }
+
     private List<Card> sortedListOf(List<Card> cards) {
         cards.sort(Card::compareTo);
         return cards;
     }
-
 }
