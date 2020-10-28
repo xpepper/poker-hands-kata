@@ -9,6 +9,7 @@
     * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
     * [R] Review how the `Rank` are built (e.g. `Rank.pair(cards.get(0), ...`)
     * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
+    * Check duplication in finding max of a list of cards
 
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 

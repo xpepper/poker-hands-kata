@@ -21,7 +21,7 @@ public class GameRulesTest {
     public void tell_when_an_hand_has_a_pair_rank() {
         Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs));
 
-        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds)), gameRules.evaluate(hand));
+        assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds), null), gameRules.evaluate(hand));
     }
 
     @Test

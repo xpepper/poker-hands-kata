@@ -11,8 +11,8 @@ public class Rank implements Comparable<Rank> {
         return new HighCard(1, highestCard);
     }
 
-    public static Rank pair(Card first, Card second) {
-        return new Pair(2, first, second);
+    public static Rank pair(Card first, Card second, Card highestRankingKicker) {
+        return new Pair(2, first, second, highestRankingKicker);
     }
 
     public static Rank straight(Card highestCard) {
@@ -91,11 +91,13 @@ public class Rank implements Comparable<Rank> {
     public static class Pair extends Rank {
         private final Card first;
         private final Card second;
+        private Card highestRankingKicker;
 
-        public Pair(int priority, Card first, Card second) {
+        public Pair(int priority, Card first, Card second, Card highestRankingKicker) {
             super(priority, first);
             this.first = first;
             this.second = second;
+            this.highestRankingKicker = highestRankingKicker;
         }
 
         @Override

@@ -1,11 +1,11 @@
 package com.kata.poker;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.*;
 
 public class Hand {
 
@@ -66,5 +66,11 @@ public class Hand {
         List<Card> sortedList = new ArrayList<>(cards);
         sortedList.sort(Card::compareTo);
         return sortedList;
+    }
+
+    public List<Card> allExcept(List<Card> cardsToExclude) {
+        return cards.stream()
+                .filter(card -> !cardsToExclude.contains(card))
+                .collect(toList());
     }
 }
