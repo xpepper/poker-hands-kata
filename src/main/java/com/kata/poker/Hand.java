@@ -1,8 +1,6 @@
 package com.kata.poker;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
@@ -65,7 +63,8 @@ public class Hand {
     }
 
     private List<Card> sortedListOf(List<Card> cards) {
-        cards.sort(Card::compareTo);
-        return cards;
+        List<Card> sortedList = new ArrayList<>(cards);
+        sortedList.sort(Card::compareTo);
+        return sortedList;
     }
 }
