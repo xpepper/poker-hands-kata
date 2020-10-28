@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with three cards... ("3 cards" world)
-    * [R] generalize `HandParser` to handle different number of cards
     * [F] when two hands have the same pair then the hand with the highest remaining card wins (e.g. 2S 2H 7D wins over 2D 2C 6D)
     * [F] Add the missing rank three of a kind
     * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
