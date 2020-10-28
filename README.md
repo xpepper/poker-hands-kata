@@ -4,12 +4,12 @@
 ### TODO
  
 * [F] Poker hand with three cards... ("3 cards" world)
-    * delegate responsibility of sorting cards in `Hand` methods that need to have them ordered.
-    * [R] generalize `HandParser` to handle different number of cards     
-    * when two hands have the same pair then the hand with the highest remaining card wins (e.g. 2S 2H 7D wins over 2D 2C 6D)
-    * Add the missing rank three of a kind
+    * [R] generalize `HandParser` to handle different number of cards
+    * [F] when two hands have the same pair then the hand with the highest remaining card wins (e.g. 2S 2H 7D wins over 2D 2C 6D)
+    * [F] Add the missing rank three of a kind
     * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
-    * Review how the `Rank` are built (e.g. `Rank.pair(cards.get(0), ...`)
+    * [R] Review how the `Rank` are built (e.g. `Rank.pair(cards.get(0), ...`)
+    * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
 
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 

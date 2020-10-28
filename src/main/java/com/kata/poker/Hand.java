@@ -14,16 +14,18 @@ public class Hand {
     private final List<Card> cards;
 
     public Hand(Card... cards) {
-        this.cards = sortedListOf(asList(cards));
+        this.cards = asList(cards);
     }
 
     public Card highestCard() {
-        return cards.get(cards.size() - 1);
+        return cards.stream().max(Card::compareTo).get();
     }
 
     boolean hasAllCardsWithConsecutiveValues() {
-        for (int cardIndex = 1; cardIndex < cards.size(); cardIndex++) {
-            if (!cards.get(cardIndex - 1).comesBefore(cards.get(cardIndex))) {
+        List<Card> sortedCards = sortedListOf(cards);
+
+        for (int cardIndex = 1; cardIndex < sortedCards.size(); cardIndex++) {
+            if (!sortedCards.get(cardIndex - 1).comesBefore(sortedCards.get(cardIndex))) {
                 return false;
             }
         }
