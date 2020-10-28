@@ -3,6 +3,7 @@ package com.kata.poker;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
@@ -42,6 +43,14 @@ public class GameTest {
         Player otherPlayer = aPlayerWithHand(fiveOf(Clubs), fiveOf(Hearts), twoOf(Spades));
 
         assertThat(player, isTieWith(otherPlayer));
+    }
+
+    @Test @Ignore("WIP")
+    public void when_two_hands_have_the_same_pair_then_the_hand_with_the_highest_remaining_card_wins() {
+        Player winningPlayer = aPlayerWithHand(twoOf(Spades), twoOf(Hearts), sevenOf(Diamonds));
+        Player otherPlayer = aPlayerWithHand(twoOf(Diamonds), twoOf(Clubs), sixOf(Diamonds));
+
+        assertThat(winningPlayer, winsAgainst(otherPlayer));
     }
 
     @Test
