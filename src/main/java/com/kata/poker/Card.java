@@ -50,6 +50,10 @@ public class Card implements Comparable<Card> {
         return suit.equals(otherCard.suit);
     }
 
+    boolean higherThan(Card otherCard) {
+        return value.numericValue > otherCard.value.numericValue;
+    }
+
     public enum Value {
         Two(2),
         Three(3),

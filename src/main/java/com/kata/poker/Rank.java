@@ -36,15 +36,11 @@ public class Rank implements Comparable<Rank> {
     }
 
     public boolean higherThan(Rank other) {
-        if (hasSamePriority(other)) {
-            return highestCard.value.numericValue > other.highestCard.value.numericValue;
+        if (priority == other.priority) {
+            return highestCard.higherThan(other.highestCard);
         }
 
         return priority > other.priority;
-    }
-
-    protected boolean hasSamePriority(Rank other) {
-        return priority == other.priority;
     }
 
     @Override
@@ -87,7 +83,7 @@ public class Rank implements Comparable<Rank> {
     public static class Pair extends Rank {
         private final Card first;
         private final Card second;
-        private Card highestRankingKicker;
+        private final Card highestRankingKicker;
 
         public Pair(int priority, Card first, Card second, Card highestRankingKicker) {
             super(priority, first);
@@ -102,11 +98,16 @@ public class Rank implements Comparable<Rank> {
                 return true;
             }
 
-            if (hasSamePriority(other)) {
-                return highestRankingKicker.value.numericValue > ((Pair) other).highestRankingKicker.value.numericValue;
-            }
+            return isPair(other) && hasHighestKickerThan(other);
+        }
 
-            return false;
+        private boolean isPair(Rank other) {
+            return other instanceof Pair;
+        }
+
+        private boolean hasHighestKickerThan(Rank other) {
+            Pair otherPair = (Pair) other;
+            return highestRankingKicker.higherThan(otherPair.highestRankingKicker);
         }
 
         @Override
