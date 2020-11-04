@@ -42,14 +42,6 @@ public class Card implements Comparable<Card> {
         return value.comesBefore(card.value);
     }
 
-    public boolean hasSameValueOf(Card otherCard) {
-        return value.equals(otherCard.value);
-    }
-
-    public boolean hasSameSuitOf(Card otherCard) {
-        return suit.equals(otherCard.suit);
-    }
-
     boolean higherThan(Card otherCard) {
         return value.numericValue > otherCard.value.numericValue;
     }
