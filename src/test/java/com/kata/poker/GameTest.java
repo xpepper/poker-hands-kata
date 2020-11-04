@@ -30,7 +30,15 @@ public class GameTest {
     }
 
     @Test
-    public void highest_card_wins_when_both_hands_have_a_pair() {
+    public void a_pair_always_wins_against_a_high_card() {
+        Player playerWithPair = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs));
+        Player playerWithHighCard = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), twoOf(Spades));
+
+        assertThat(playerWithPair, winsAgainst(playerWithHighCard));
+    }
+
+    @Test
+    public void a_pair_with_highest_cards_wins_against_another_pair() {
         Player winningPlayer = aPlayerWithHand(fiveOf(Spades), fiveOf(Spades), twoOf(Clubs));
         Player otherPlayer = aPlayerWithHand(fourOf(Diamonds), fourOf(Hearts), twoOf(Spades));
 
@@ -38,7 +46,7 @@ public class GameTest {
     }
 
     @Test
-    public void two_hands_are_tie_when_they_have_the_same_pair_and_the_same_high_card() {
+    public void two_hands_with_the_same_pair_are_tie_when_they_have_the_same_kicker() {
         Player player = aPlayerWithHand(fiveOf(Spades), fiveOf(Diamonds), twoOf(Clubs));
         Player otherPlayer = aPlayerWithHand(fiveOf(Clubs), fiveOf(Hearts), twoOf(Spades));
 
@@ -46,19 +54,11 @@ public class GameTest {
     }
 
     @Test
-    public void when_two_hands_have_the_same_pair_then_the_hand_with_the_highest_remaining_card_wins() {
+    public void when_two_hands_have_the_same_pair_then_the_hand_with_the_highest_kicker_wins() {
         Player winningPlayer = aPlayerWithHand(twoOf(Spades), twoOf(Hearts), sevenOf(Diamonds));
         Player otherPlayer = aPlayerWithHand(twoOf(Diamonds), twoOf(Clubs), sixOf(Diamonds));
 
         assertThat(winningPlayer, winsAgainst(otherPlayer));
-    }
-
-    @Test
-    public void a_pair_always_wins_against_a_high_card() {
-        Player playerWithPair = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs));
-        Player playerWithHighCard = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), twoOf(Spades));
-
-        assertThat(playerWithPair, winsAgainst(playerWithHighCard));
     }
 
     @Test
