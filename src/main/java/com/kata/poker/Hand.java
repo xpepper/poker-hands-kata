@@ -1,7 +1,6 @@
 package com.kata.poker;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
@@ -40,7 +39,9 @@ public class Hand {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        return selectGroupWithTwoCards(groupCardsByValue());
+        return selectGroupWithAtLeastTwoCards(groupCardsByValue())
+                .map(cards -> cards.subList(0, 2))
+                .orElse(emptyList());
     }
 
     private Set<Card.Suit> selectAllSuits() {
@@ -49,11 +50,10 @@ public class Hand {
                 .collect(toSet());
     }
 
-    private List<Card> selectGroupWithTwoCards(Collection<List<Card>> groups) {
+    private Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
         return groups.stream()
-                .filter(cards -> cards.size() == 2)
-                .findFirst()
-                .orElse(emptyList());
+                .filter(cards -> cards.size() >= 2)
+                .findFirst();
     }
 
     private Collection<List<Card>> groupCardsByValue() {

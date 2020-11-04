@@ -2,12 +2,10 @@ package com.kata.poker;
 
 import org.junit.Test;
 
-import static com.kata.poker.Card.Suit.Clubs;
-import static com.kata.poker.Card.Suit.Hearts;
+import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.CardBuilder.*;
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class HandTest {
     @Test
@@ -20,5 +18,12 @@ public class HandTest {
     public void select_the_cards_with_the_same_value_when_at_least_two_cards_has_the_same_value() {
         Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), threeOf(Clubs));
         assertEquals(asList(threeOf(Hearts), threeOf(Clubs)), hand.selectTwoCardsWithTheSameValue());
+    }
+
+    @Test
+    public void select_two_cards_out_of_three_cards_with_the_same_value() {
+        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
+
+        assertEquals(2, hand.selectTwoCardsWithTheSameValue().size());
     }
 }
