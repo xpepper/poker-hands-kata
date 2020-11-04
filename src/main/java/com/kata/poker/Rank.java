@@ -36,11 +36,15 @@ public class Rank implements Comparable<Rank> {
     }
 
     public boolean higherThan(Rank other) {
-        if (priority == other.priority) {
+        if (hasSamePriority(other)) {
             return highestCard.value.numericValue > other.highestCard.value.numericValue;
         }
 
         return priority > other.priority;
+    }
+
+    protected boolean hasSamePriority(Rank other) {
+        return priority == other.priority;
     }
 
     @Override
@@ -90,6 +94,19 @@ public class Rank implements Comparable<Rank> {
             this.first = first;
             this.second = second;
             this.highestRankingKicker = highestRankingKicker;
+        }
+
+        @Override
+        public boolean higherThan(Rank other) {
+            if (super.higherThan(other)) {
+                return true;
+            }
+
+            if (hasSamePriority(other)) {
+                return highestRankingKicker.value.numericValue > ((Pair) other).highestRankingKicker.value.numericValue;
+            }
+
+            return false;
         }
 
         @Override

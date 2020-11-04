@@ -45,7 +45,7 @@ public class GameTest {
         assertThat(player, isTieWith(otherPlayer));
     }
 
-    @Test @Ignore("WIP")
+    @Test
     public void when_two_hands_have_the_same_pair_then_the_hand_with_the_highest_remaining_card_wins() {
         Player winningPlayer = aPlayerWithHand(twoOf(Spades), twoOf(Hearts), sevenOf(Diamonds));
         Player otherPlayer = aPlayerWithHand(twoOf(Diamonds), twoOf(Clubs), sixOf(Diamonds));
