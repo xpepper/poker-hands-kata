@@ -10,6 +10,8 @@
     * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
     * Check duplication in finding max of a list of cards
 
+* [R] `Hand#selectTwoCardsWithTheSameValue` should return an Optional
+
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 
 * [R] Extract `priority == other.priority` with a better name (are we mixing the concept of point and rank?)
