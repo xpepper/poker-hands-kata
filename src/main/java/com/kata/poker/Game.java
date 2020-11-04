@@ -16,7 +16,7 @@ public class Game {
             return new Winner(firstPlayer);
         }
 
-        if (rank.lowerThan(otherRank)) {
+        if (otherRank.higherThan(rank)) {
             return new Winner(secondPlayer);
         }
 

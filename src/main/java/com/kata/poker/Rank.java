@@ -43,14 +43,6 @@ public class Rank implements Comparable<Rank> {
         return priority > other.priority;
     }
 
-    public boolean lowerThan(Rank other) {
-        if (priority == other.priority) {
-            return highestCard.value.numericValue < other.highestCard.value.numericValue;
-        }
-
-        return priority < other.priority;
-    }
-
     @Override
     public int compareTo(Rank other) {
         return Integer.compare(priority, other.priority);
