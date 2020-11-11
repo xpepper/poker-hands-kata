@@ -116,7 +116,8 @@ public class Rank implements Comparable<Rank> {
             if (o == null || getClass() != o.getClass()) return false;
             Pair pair = (Pair) o;
             return Objects.equals(first, pair.first) &&
-                    Objects.equals(second, pair.second);
+                    Objects.equals(second, pair.second) &&
+                    Objects.equals(highestRankingKicker, pair.highestRankingKicker);
         }
 
         @Override
@@ -126,7 +127,7 @@ public class Rank implements Comparable<Rank> {
 
         @Override
         public String toString() {
-            return format("Pair'{'first=%s, second=%s'}'", first, second);
+            return format("Pair'{'first=%s, second=%s, highestRankingKicker=%s'}'", first, second, highestRankingKicker);
         }
 
         public Card.Value value() {
