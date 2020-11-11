@@ -10,6 +10,7 @@ public class GameRules {
             new StraightFlushRule(),
             new FlushRule(),
             new StraightRule(),
+            new ThreeOfKindRule(),
             new PairRule(),
             new HighestCardRule()
     );

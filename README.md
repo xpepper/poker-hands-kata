@@ -11,6 +11,8 @@
     * Check duplication in finding max of a list of cards
     * [F] Show the point for a hand with a three of a kind (e.g. when having (4H, 4C, 4S) then should show `"three of a kind: 4s"`)
 
+* [R] Remove duplication between `Hand#selectTwoCardsWithTheSameValue` and `Hand#selectThreeCardsWithTheSameValue`
+
 * [R] `Hand#selectTwoCardsWithTheSameValue` should return an Optional
 
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 

@@ -7,6 +7,13 @@ import static java.lang.String.format;
 
 public class Rank implements Comparable<Rank> {
 
+    private static final Rank THREE_OF_KIND = new Rank(3, null) {
+        @Override
+        public String toString() {
+            return "Three of a kind";
+        }
+    };
+
     public static Rank highCard(Card highestCard) {
         return new HighCard(1, highestCard);
     }
@@ -16,7 +23,7 @@ public class Rank implements Comparable<Rank> {
     }
 
     public static Rank threeOfKind() {
-        throw new UnsupportedOperationException();
+        return THREE_OF_KIND;
     }
 
     public static Rank straight(Card highestCard) {

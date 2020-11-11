@@ -69,7 +69,7 @@ public class GameTest {
         assertThat(playerWithThreeOfKind, winsAgainst(playerWithHighCard));
     }
 
-    @Test @Ignore
+    @Test
     public void a_three_of_a_kind_wins_against_a_pair() {
         Player playerWithThreeOfKind = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
         Player playerWithPair = aPlayerWithHand(sevenOf(Clubs), sevenOf(Spades), fiveOf(Clubs));

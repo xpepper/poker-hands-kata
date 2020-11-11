@@ -73,4 +73,20 @@ public class Hand {
                 .filter(card -> !cardsToExclude.contains(card))
                 .collect(toList());
     }
+
+    public boolean hasThreeCardsWithTheSameValue() {
+        return !selectThreeCardsWithTheSameValue().isEmpty();
+    }
+
+    private List<Card> selectThreeCardsWithTheSameValue() {
+        return selectGroupWithAtLeastThreeCards(groupCardsByValue())
+                .map(cards -> cards.subList(0, 3))
+                .orElse(emptyList());
+    }
+
+    private Optional<List<Card>> selectGroupWithAtLeastThreeCards(Collection<List<Card>> groups) {
+        return groups.stream()
+                .filter(cards -> cards.size() >= 3)
+                .findFirst();
+    }
 }
