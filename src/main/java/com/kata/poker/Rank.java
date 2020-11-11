@@ -15,6 +15,10 @@ public class Rank implements Comparable<Rank> {
         return new Pair(2, first, second, highestRankingKicker);
     }
 
+    public static Rank threeOfKind() {
+        throw new UnsupportedOperationException();
+    }
+
     public static Rank straight(Card highestCard) {
         return new Straight(3, highestCard);
     }
@@ -26,8 +30,8 @@ public class Rank implements Comparable<Rank> {
     public static Rank straightFlush(Card highestCard) {
         return new StraightFlush(5, highestCard);
     }
-
     private final int priority;
+
     private final Card highestCard;
 
     private Rank(int priority, Card highestCard) {

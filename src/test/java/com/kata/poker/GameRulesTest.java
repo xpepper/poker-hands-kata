@@ -1,5 +1,6 @@
 package com.kata.poker;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
@@ -22,6 +23,13 @@ public class GameRulesTest {
         Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs));
 
         assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs)), gameRules.evaluate(hand));
+    }
+
+    @Test @Ignore("wip")
+    public void tell_when_an_hand_has_a_three_of_a_kind_rank() {
+        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
+
+        assertEquals(Rank.threeOfKind(), gameRules.evaluate(hand));
     }
 
     @Test
