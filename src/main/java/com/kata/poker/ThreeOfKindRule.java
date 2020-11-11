@@ -1,7 +1,5 @@
 package com.kata.poker;
 
-import java.util.Collections;
-
 import static java.util.Collections.emptyList;
 
 public class ThreeOfKindRule implements Rule {
