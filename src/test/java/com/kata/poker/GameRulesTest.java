@@ -3,6 +3,7 @@ package com.kata.poker;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
+import static com.kata.poker.Card.Value.Four;
 import static com.kata.poker.CardBuilder.*;
 import static org.junit.Assert.assertEquals;
 
@@ -28,7 +29,7 @@ public class GameRulesTest {
     public void tell_when_an_hand_has_a_three_of_a_kind_rank() {
         Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
 
-        assertEquals(Rank.threeOfKind(), gameRules.evaluate(hand));
+        assertEquals(Rank.threeOfKind(Four), gameRules.evaluate(hand));
     }
 
     @Test

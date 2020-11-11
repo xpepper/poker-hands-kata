@@ -7,13 +7,6 @@ import static java.lang.String.format;
 
 public class Rank implements Comparable<Rank> {
 
-    private static final Rank THREE_OF_KIND = new Rank(3, null) {
-        @Override
-        public String toString() {
-            return "Three of a kind";
-        }
-    };
-
     public static Rank highCard(Card highestCard) {
         return new HighCard(1, highestCard);
     }
@@ -22,8 +15,8 @@ public class Rank implements Comparable<Rank> {
         return new Pair(2, first, second, highestRankingKicker);
     }
 
-    public static Rank threeOfKind() {
-        return THREE_OF_KIND;
+    public static Rank threeOfKind(Value value) {
+        return new ThreeOfKind(3, value);
     }
 
     public static Rank straight(Card highestCard) {
@@ -226,6 +219,33 @@ public class Rank implements Comparable<Rank> {
 
         public Value highestCardValue() {
             return highestCard.value;
+        }
+    }
+
+    private static class ThreeOfKind extends Rank {
+        private final Value value;
+
+        public ThreeOfKind(int priority, Value value) {
+            super(priority, new Card(value, Card.Suit.Clubs));
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Three of a kind";
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            ThreeOfKind threeOfKind = (ThreeOfKind) o;
+            return Objects.equals(value, threeOfKind.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(value);
         }
     }
 }

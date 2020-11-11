@@ -77,10 +77,10 @@ public class GameTest {
         assertThat(playerWithThreeOfKind, winsAgainst(playerWithPair));
     }
 
-    @Test @Ignore("WIP")
+    @Test
     public void a_three_of_a_kind_with_highest_cards_wins_against_another_three_of_a_kind() {
         Player winningPlayer = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
-        Player otherPlayer = aPlayerWithHand(twoOf(Clubs), twoOf(Spades), twoOf(Clubs));
+        Player otherPlayer = aPlayerWithHand(twoOf(Hearts), twoOf(Spades), twoOf(Clubs));
 
         assertThat(winningPlayer, winsAgainst(otherPlayer));
     }
