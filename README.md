@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with three cards... ("3 cards" world)
-    * [R] Review the `ThreeOfKindRule#apply` method
     * [F] A straight always wins against a three of a kind
     * [F] A flush always wins against a three of a kind
     * [F] A straight-flush always wins against a three of a kind
