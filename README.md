@@ -3,14 +3,18 @@
 
 ### TODO
  
-* [F] Poker hand with three cards... ("3 cards" world)
-    * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
+* [F] Poker hand with three cards
+    * [F] Show the point for a hand with a three of a kind (e.g. when having (4H, 4C, 4S) then should show `"three of a kind: 4s"`)    
+
+* [F] Poker hand with four cards
     * [R] Wrap a List of Card in a `Cards` object.
+        * Check duplication in finding max of a list of cards (`Hand` and `PairRule`)
     * [R] Review how the `Rank` is built (e.g. `Rank.pair(cards.get(0), ...`)
         * [?] Do we want to build the `Rank` with the `Card`s or just the minimum information needed (e.g. value vs card)
     * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
-    * Check duplication in finding max of a list of cards
-    * [F] Show the point for a hand with a three of a kind (e.g. when having (4H, 4C, 4S) then should show `"three of a kind: 4s"`)
+    * [F] Be sure to build a `Hand` with a specific number of cards
+    * [F] two pairs
+    * [F] four of a kind (poker) ranking
 
 * [R] Extract Ranks as upper level classes
 
@@ -56,8 +60,6 @@
     * [F] add the formatting of all the remaining figures (K, Q, J)
 
 * From a single-card poker hand to a 5-cards poker hand
-    * two pairs ("4 cards" world)
-    * four of a kind (poker) ranking ("4 cards" world)
     * full house ranking ("5 cards" world)
     * Add the missing ranks in `Rank` enumeration
 
