@@ -9,12 +9,13 @@
     * [F] A flush always wins against a three of a kind
     * [F] A straight-flush always wins against a three of a kind
     * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
-    * [R] Review how the `Rank` are built (e.g. `Rank.pair(cards.get(0), ...`)
+    * [R] Wrap a List of Card in a `Cards` object.
+    * [R] Review how the `Rank` is built (e.g. `Rank.pair(cards.get(0), ...`)
+        * [?] Do we want to build the `Rank` with the `Card`s or just the minimum information needed (e.g. value vs card)
     * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
     * Check duplication in finding max of a list of cards
     * [F] Show the point for a hand with a three of a kind (e.g. when having (4H, 4C, 4S) then should show `"three of a kind: 4s"`)
 
-* [R] Wrap a List of Card in a `Cards` object.
 
 * [R] Extract Ranks as upper level classes
 

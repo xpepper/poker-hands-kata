@@ -78,11 +78,7 @@ public class Hand {
         return !selectThreeCardsWithTheSameValue().isEmpty();
     }
 
-    public Card takeOne() {
-        return cards.get(0);
-    }
-
-    private List<Card> selectThreeCardsWithTheSameValue() {
+    public List<Card> selectThreeCardsWithTheSameValue() {
         return selectGroupWithAtLeastThreeCards(groupCardsByValue())
                 .map(cards -> cards.subList(0, 3))
                 .orElse(emptyList());
