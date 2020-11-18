@@ -4,6 +4,7 @@
 ### TODO
  
 * [F] Poker hand with three cards
+    * [R] improve GameResultFormatterTest readability when building a winner...
     * [F] Show the point for a hand with a three of a kind (e.g. when having (4H, 4C, 4S) then should show `"three of a kind: 4s"`)    
 
 * [F] Poker hand with four cards
