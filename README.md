@@ -14,6 +14,8 @@
     * Check duplication in finding max of a list of cards
     * [F] Show the point for a hand with a three of a kind (e.g. when having (4H, 4C, 4S) then should show `"three of a kind: 4s"`)
 
+* [R] Wrap a List of Card in a `Cards` object.
+
 * [R] Extract Ranks as upper level classes
 
 * [R] When comparing Ranks with the same priority we should compare only the value of the card.
