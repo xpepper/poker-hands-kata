@@ -151,7 +151,7 @@ public class GameTest {
 
     @Test
     public void a_flush_always_wins_against_a_straight() {
-        Player playerWithFlush = aPlayerWithHand(threeOf(Diamonds), fiveOf(Diamonds), sevenOf(Diamonds));
+        Player playerWithFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fiveOf(Diamonds));
         Player playerWithStraight = aPlayerWithHand(threeOf(Hearts), fourOf(Spades), fiveOf(Clubs));
 
         assertThat(playerWithFlush, winsAgainst(playerWithStraight));

@@ -24,11 +24,11 @@ public class Rank implements Comparable<Rank> {
     }
 
     public static Rank flush(Card highestCard) {
-        return new Flush(4, highestCard);
+        return new Flush(5, highestCard);
     }
 
     public static Rank straightFlush(Card highestCard) {
-        return new StraightFlush(5, highestCard);
+        return new StraightFlush(6, highestCard);
     }
     private final int priority;
 
