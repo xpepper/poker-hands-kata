@@ -20,7 +20,7 @@ public class Rank implements Comparable<Rank> {
     }
 
     public static Rank straight(Card highestCard) {
-        return new Straight(3, highestCard);
+        return new Straight(4, highestCard);
     }
 
     public static Rank flush(Card highestCard) {

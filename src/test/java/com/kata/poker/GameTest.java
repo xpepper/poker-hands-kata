@@ -101,7 +101,7 @@ public class GameTest {
         assertThat(playerWithStraight, winsAgainst(playerWithPair));
     }
 
-    @Test @Ignore("WIP")
+    @Test
     public void a_straight_always_wins_against_a_three_of_kind() {
         Player playerWithStraight = aPlayerWithHand(fourOf(Hearts), threeOf(Diamonds), twoOf(Diamonds));
         Player playerWithThreeOfKind = aPlayerWithHand(sevenOf(Clubs), sevenOf(Spades), sevenOf(Diamonds));

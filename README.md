@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with three cards... ("3 cards" world)
-    * [F] A straight always wins against a three of a kind
     * [F] A flush always wins against a three of a kind
     * [F] A straight-flush always wins against a three of a kind
     * Should we protect `Hand` from receiving weird number of cards (e.g. 10 cards!)?
