@@ -30,6 +30,7 @@ public class Rank implements Comparable<Rank> {
     public static Rank straightFlush(Card highestCard) {
         return new StraightFlush(6, highestCard);
     }
+
     private final int priority;
 
     private final Card highestCard;
@@ -222,7 +223,7 @@ public class Rank implements Comparable<Rank> {
         }
     }
 
-    private static class ThreeOfKind extends Rank {
+    public static class ThreeOfKind extends Rank {
         private final Value value;
 
         public ThreeOfKind(int priority, Value value) {
@@ -246,6 +247,10 @@ public class Rank implements Comparable<Rank> {
         @Override
         public int hashCode() {
             return Objects.hash(value);
+        }
+
+        public Value value() {
+            return value;
         }
     }
 }

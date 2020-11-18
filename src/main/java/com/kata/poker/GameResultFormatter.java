@@ -1,10 +1,7 @@
 package com.kata.poker;
 
 import com.kata.poker.GameResult.Tie;
-import com.kata.poker.Rank.Flush;
-import com.kata.poker.Rank.HighCard;
-import com.kata.poker.Rank.Pair;
-import com.kata.poker.Rank.StraightFlush;
+import com.kata.poker.Rank.*;
 
 import static com.kata.poker.Card.Value.Ace;
 import static com.kata.poker.Rank.Straight;
@@ -35,6 +32,10 @@ public class GameResultFormatter {
         if (rank instanceof Pair) {
             Pair pair = (Pair) rank;
             return String.format("pair: %ss", formatCardValue(pair.value()));
+        }
+        if (rank instanceof ThreeOfKind) {
+            ThreeOfKind threeOfKind = (ThreeOfKind) rank;
+            return String.format("three of a kind: %ss", formatCardValue(threeOfKind.value()));
         }
         if (rank instanceof Straight) {
             Rank.Straight straight = (Straight) rank;
