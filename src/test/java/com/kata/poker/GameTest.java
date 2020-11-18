@@ -174,19 +174,11 @@ public class GameTest {
     }
 
     @Test
-    public void a_straight_flush_always_wins_against_a_flush() {
-        Player playerWithStraightFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fourOf(Diamonds));
-        Player playerWithFlush = aPlayerWithHand(threeOf(Clubs), fiveOf(Clubs), sevenOf(Clubs));
+    public void a_straight_flush_always_wins_against_a_high_card() {
+        Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds), twoOf(Diamonds));
+        Player playerWithHighCard = aPlayerWithHand(fourOf(Clubs), sevenOf(Hearts), aceOf(Diamonds));
 
-        assertThat(playerWithStraightFlush, winsAgainst(playerWithFlush));
-    }
-
-    @Test
-    public void a_straight_flush_always_wins_against_a_straight() {
-        Player playerWithStraightFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fourOf(Diamonds));
-        Player playerWithStraight = aPlayerWithHand(fourOf(Clubs), fiveOf(Diamonds), sixOf(Hearts));
-
-        assertThat(playerWithStraightFlush, winsAgainst(playerWithStraight));
+        assertThat(playerWithStraightFlush, winsAgainst(playerWithHighCard));
     }
 
     @Test
@@ -198,11 +190,19 @@ public class GameTest {
     }
 
     @Test
-    public void a_straight_flush_always_wins_against_a_high_card() {
-        Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds), twoOf(Diamonds));
-        Player playerWithHighCard = aPlayerWithHand(fourOf(Clubs), sevenOf(Hearts), aceOf(Diamonds));
+    public void a_straight_flush_always_wins_against_a_straight() {
+        Player playerWithStraightFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fourOf(Diamonds));
+        Player playerWithStraight = aPlayerWithHand(fourOf(Clubs), fiveOf(Diamonds), sixOf(Hearts));
 
-        assertThat(playerWithStraightFlush, winsAgainst(playerWithHighCard));
+        assertThat(playerWithStraightFlush, winsAgainst(playerWithStraight));
+    }
+
+    @Test
+    public void a_straight_flush_always_wins_against_a_flush() {
+        Player playerWithStraightFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fourOf(Diamonds));
+        Player playerWithFlush = aPlayerWithHand(threeOf(Clubs), fiveOf(Clubs), sevenOf(Clubs));
+
+        assertThat(playerWithStraightFlush, winsAgainst(playerWithFlush));
     }
 
     @Test
