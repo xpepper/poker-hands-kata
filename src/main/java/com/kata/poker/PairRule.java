@@ -11,8 +11,8 @@ public class PairRule implements Rule {
     @Override
     public Rank apply(Hand hand) {
         List<Card> cards = hand.selectTwoCardsWithTheSameValue();
-        List<Card> kickers = hand.allExcept(cards);
-        return Rank.pair(cards.get(0), cards.get(1), new Cards(kickers).selectHighestRankingCard());
+        Cards kickers = hand.allCardsExcept(cards);
+        return Rank.pair(cards.get(0), cards.get(1), kickers.selectHighestRankingCard());
     }
 
 }

@@ -49,12 +49,6 @@ public class Hand {
         return sortedList;
     }
 
-    public List<Card> allExcept(List<Card> cardsToExclude) {
-        return cards.stream()
-                .filter(card -> !cardsToExclude.contains(card))
-                .collect(toList());
-    }
-
     public boolean hasThreeCardsWithTheSameValue() {
         return !selectThreeCardsWithTheSameValue().isEmpty();
     }
@@ -63,4 +57,13 @@ public class Hand {
         return cards1.selectThreeCardsWithTheSameValue();
     }
 
+    Cards allCardsExcept(List<Card> cards) {
+        return new Cards(allExcept(cards));
+    }
+
+    public List<Card> allExcept(List<Card> cardsToExclude) {
+        return cards.stream()
+                .filter(card -> !cardsToExclude.contains(card))
+                .collect(toList());
+    }
 }
