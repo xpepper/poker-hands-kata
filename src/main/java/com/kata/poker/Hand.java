@@ -3,7 +3,6 @@ package com.kata.poker;
 import java.util.*;
 
 import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.*;
 
 public class Hand {
 
@@ -58,12 +57,7 @@ public class Hand {
     }
 
     Cards allCardsExcept(List<Card> cards) {
-        return new Cards(allExcept(cards));
+        return new Cards(cards1.allExcept(cards));
     }
 
-    private List<Card> allExcept(List<Card> cardsToExclude) {
-        return cards.stream()
-                .filter(card -> !cardsToExclude.contains(card))
-                .collect(toList());
-    }
 }

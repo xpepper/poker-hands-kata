@@ -3,8 +3,7 @@ package com.kata.poker;
 import java.util.*;
 
 import static java.util.Collections.emptyList;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.*;
 
 public class Cards {
     private final List<Card> cards;
@@ -64,5 +63,11 @@ public class Cards {
     @Override
     public int hashCode() {
         return Objects.hash(cards);
+    }
+
+    List<Card> allExcept(List<Card> cardsToExclude) {
+        return this.cards.stream()
+                .filter(card -> !cardsToExclude.contains(card))
+                .collect(toList());
     }
 }
