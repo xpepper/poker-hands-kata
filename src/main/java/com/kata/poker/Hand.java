@@ -57,7 +57,7 @@ public class Hand {
     }
 
     Cards allCardsExcept(Cards cards) {
-        return new Cards(cards1.allExcept(cards));
+        return cards1.allExcept(cards);
     }
 
 }
