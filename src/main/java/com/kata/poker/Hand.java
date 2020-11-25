@@ -61,7 +61,7 @@ public class Hand {
         return new Cards(allExcept(cards));
     }
 
-    public List<Card> allExcept(List<Card> cardsToExclude) {
+    private List<Card> allExcept(List<Card> cardsToExclude) {
         return cards.stream()
                 .filter(card -> !cardsToExclude.contains(card))
                 .collect(toList());

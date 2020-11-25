@@ -1,9 +1,6 @@
 package com.kata.poker;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.groupingBy;
@@ -54,5 +51,18 @@ public class Cards {
 
     Card selectHighestRankingCard() {
         return cards.stream().max(Card::compareTo).get();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cards otherCards = (Cards) o;
+        return Objects.equals(cards, otherCards.cards);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cards);
     }
 }
