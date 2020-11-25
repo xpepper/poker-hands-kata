@@ -9,9 +9,11 @@ import static java.util.stream.Collectors.*;
 public class Hand {
 
     private final List<Card> cards;
+    private final Cards cards1;
 
     public Hand(Card... cards) {
         this.cards = asList(cards);
+        cards1 = new Cards(asList(cards));
     }
 
     public Card highestCard() {
@@ -45,7 +47,7 @@ public class Hand {
     }
 
     private Set<Card.Suit> selectAllSuits() {
-        return new Cards(this.cards).allSuits();
+        return cards1.allSuits();
     }
 
     private Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
