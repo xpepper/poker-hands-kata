@@ -3,7 +3,6 @@ package com.kata.poker;
 import java.util.*;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.*;
 
 public class Hand {
@@ -41,9 +40,7 @@ public class Hand {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        return cards1.selectGroupWithAtLeastTwoCards(cards1.groupCardsByValue())
-                .map(cards -> cards.subList(0, 2))
-                .orElse(emptyList());
+        return cards1.selectTwoCardsWithTheSameValue();
     }
 
     private List<Card> sortedListOf(List<Card> cards) {

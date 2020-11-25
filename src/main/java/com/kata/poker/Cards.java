@@ -22,6 +22,12 @@ public class Cards {
                 .collect(toSet());
     }
 
+    List<Card> selectTwoCardsWithTheSameValue() {
+        return selectGroupWithAtLeastTwoCards(groupCardsByValue())
+                .map(cards -> cards.subList(0, 2))
+                .orElse(emptyList());
+    }
+
     List<Card> selectThreeCardsWithTheSameValue() {
         return selectGroupWithAtLeastThreeCards(groupCardsByValue())
                 .map(cards -> cards.subList(0, 3))
