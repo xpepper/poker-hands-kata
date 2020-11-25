@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toSet;
 
@@ -21,10 +22,16 @@ public class Cards {
                 .collect(toSet());
     }
 
-    Collection<List<Card>> groupCardsByValue() {
-        return cards.stream()
-                .collect(groupingBy(c -> c.value))
-                .values();
+    List<Card> selectThreeCardsWithTheSameValue() {
+        return selectGroupWithAtLeastThreeCards(groupCardsByValue())
+                .map(cards -> cards.subList(0, 3))
+                .orElse(emptyList());
+    }
+
+    Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
+        return groups.stream()
+                .filter(cards -> cards.size() >= 2)
+                .findFirst();
     }
 
     Optional<List<Card>> selectGroupWithAtLeastThreeCards(Collection<List<Card>> groups) {
@@ -33,9 +40,9 @@ public class Cards {
                 .findFirst();
     }
 
-    Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
-        return groups.stream()
-                .filter(cards -> cards.size() >= 2)
-                .findFirst();
+    Collection<List<Card>> groupCardsByValue() {
+        return cards.stream()
+                .collect(groupingBy(c -> c.value))
+                .values();
     }
 }
