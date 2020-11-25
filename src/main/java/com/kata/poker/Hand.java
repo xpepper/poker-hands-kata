@@ -45,9 +45,7 @@ public class Hand {
     }
 
     private Set<Card.Suit> selectAllSuits() {
-        return cards.stream()
-                .map(c -> c.suit)
-                .collect(toSet());
+        return new Cards(this.cards).allSuits();
     }
 
     private Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
@@ -89,4 +87,5 @@ public class Hand {
                 .filter(cards -> cards.size() >= 3)
                 .findFirst();
     }
+
 }
