@@ -51,4 +51,8 @@ public class Cards {
                 .collect(groupingBy(c -> c.value))
                 .values();
     }
+
+    Card selectHighestRankingCard() {
+        return cards.stream().max(Card::compareTo).get();
+    }
 }
