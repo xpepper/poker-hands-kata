@@ -41,15 +41,9 @@ public class Hand {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        return selectGroupWithAtLeastTwoCards(cards1.groupCardsByValue())
+        return cards1.selectGroupWithAtLeastTwoCards(cards1.groupCardsByValue())
                 .map(cards -> cards.subList(0, 2))
                 .orElse(emptyList());
-    }
-
-    private Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
-        return groups.stream()
-                .filter(cards -> cards.size() >= 2)
-                .findFirst();
     }
 
     private List<Card> sortedListOf(List<Card> cards) {

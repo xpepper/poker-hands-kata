@@ -32,4 +32,10 @@ public class Cards {
                 .filter(cards -> cards.size() >= 3)
                 .findFirst();
     }
+
+    Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
+        return groups.stream()
+                .filter(cards -> cards.size() >= 2)
+                .findFirst();
+    }
 }
