@@ -2,9 +2,6 @@ package com.kata.poker;
 
 import org.junit.Test;
 
-import java.util.Collections;
-import java.util.List;
-
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.CardBuilder.*;
 import static java.util.Arrays.asList;
@@ -34,7 +31,7 @@ public class HandTest {
     public void returns_all_cards_except_the_provided_ones() {
         Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
 
-        Cards cards = hand.allCardsExcept(asList(fourOf(Hearts)));
+        Cards cards = hand.allCardsExcept(new Cards(asList(fourOf(Hearts))));
 
         assertEquals(new Cards(asList(fourOf(Diamonds), fourOf(Clubs))), cards);
     }

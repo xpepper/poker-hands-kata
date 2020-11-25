@@ -65,9 +65,9 @@ public class Cards {
         return Objects.hash(cards);
     }
 
-    List<Card> allExcept(List<Card> cardsToExclude) {
+    List<Card> allExcept(Cards cardsToExclude) {
         return this.cards.stream()
-                .filter(card -> !cardsToExclude.contains(card))
+                .filter(card -> !cardsToExclude.cards.contains(card))
                 .collect(toList());
     }
 }
