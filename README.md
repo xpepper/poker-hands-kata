@@ -6,6 +6,7 @@
 * [F] Poker hand with four cards
     * [R] Wrap a List of Card in a `Cards` object.
         * Check duplication in finding max of a list of cards (`Hand` and `PairRule`)
+    * [R] Cards methods should return Cards objects, not a `List<Card>`
     * [R] Review how the `Rank` is built (e.g. `Rank.pair(cards.get(0), ...`)
         * [?] Do we want to build the `Rank` with the `Card`s or just the minimum information needed (e.g. value vs card)
     * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)

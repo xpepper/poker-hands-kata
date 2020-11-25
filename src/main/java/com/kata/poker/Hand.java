@@ -69,15 +69,9 @@ public class Hand {
     }
 
     public List<Card> selectThreeCardsWithTheSameValue() {
-        return selectGroupWithAtLeastThreeCards(cards1.groupCardsByValue())
+        return cards1.selectGroupWithAtLeastThreeCards(cards1.groupCardsByValue())
                 .map(cards -> cards.subList(0, 3))
                 .orElse(emptyList());
-    }
-
-    private Optional<List<Card>> selectGroupWithAtLeastThreeCards(Collection<List<Card>> groups) {
-        return groups.stream()
-                .filter(cards -> cards.size() >= 3)
-                .findFirst();
     }
 
 }

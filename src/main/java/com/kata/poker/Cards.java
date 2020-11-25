@@ -2,6 +2,7 @@ package com.kata.poker;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import static java.util.stream.Collectors.groupingBy;
@@ -24,5 +25,11 @@ public class Cards {
         return cards.stream()
                 .collect(groupingBy(c -> c.value))
                 .values();
+    }
+
+    Optional<List<Card>> selectGroupWithAtLeastThreeCards(Collection<List<Card>> groups) {
+        return groups.stream()
+                .filter(cards -> cards.size() >= 3)
+                .findFirst();
     }
 }
