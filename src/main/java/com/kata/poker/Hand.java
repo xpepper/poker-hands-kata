@@ -41,7 +41,7 @@ public class Hand {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        return selectGroupWithAtLeastTwoCards(groupCardsByValue())
+        return selectGroupWithAtLeastTwoCards(cards1.groupCardsByValue())
                 .map(cards -> cards.subList(0, 2))
                 .orElse(emptyList());
     }
@@ -50,12 +50,6 @@ public class Hand {
         return groups.stream()
                 .filter(cards -> cards.size() >= 2)
                 .findFirst();
-    }
-
-    private Collection<List<Card>> groupCardsByValue() {
-        return cards.stream()
-                .collect(groupingBy(c -> c.value))
-                .values();
     }
 
     private List<Card> sortedListOf(List<Card> cards) {
@@ -75,7 +69,7 @@ public class Hand {
     }
 
     public List<Card> selectThreeCardsWithTheSameValue() {
-        return selectGroupWithAtLeastThreeCards(groupCardsByValue())
+        return selectGroupWithAtLeastThreeCards(cards1.groupCardsByValue())
                 .map(cards -> cards.subList(0, 3))
                 .orElse(emptyList());
     }
