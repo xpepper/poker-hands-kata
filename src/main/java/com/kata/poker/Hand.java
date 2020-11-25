@@ -33,7 +33,7 @@ public class Hand {
     }
 
     boolean hasAllCardsWithTheSameSuit() {
-        return selectAllSuits().size() == 1;
+        return cards1.allSuits().size() == 1;
     }
 
     boolean hasTwoCardsWithTheSameValue() {
@@ -44,10 +44,6 @@ public class Hand {
         return selectGroupWithAtLeastTwoCards(groupCardsByValue())
                 .map(cards -> cards.subList(0, 2))
                 .orElse(emptyList());
-    }
-
-    private Set<Card.Suit> selectAllSuits() {
-        return cards1.allSuits();
     }
 
     private Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
