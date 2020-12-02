@@ -46,6 +46,6 @@ public class Hand {
         if (twoCards.isEmpty()) {
             return Optional.empty();
         }
-        return Optional.of(new TwoCards(twoCards));
+        return Optional.of(new TwoCards(twoCards.get(0), twoCards.get(1)));
     }
 }
