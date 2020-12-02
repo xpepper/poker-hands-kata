@@ -4,12 +4,12 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [R] Wrap a List of Card in a `Cards` object.
-        * `Cards#allExcept` should receive a var arg of Card
+    * [R] Wrap a List of Card in a `Cards` object
         * move `PairRule#selectTwoCardsWithTheSameValue` to `Hand`
         * remove `Hand#allExcept(Cards)` fixing tests
         * Remove duplication between `Cards#selectTwoCardsWithTheSameValue` and `Cards#selectThreeCardsWithTheSameValue`
         * Check duplication in finding max of a list of cards (`Hand` and `PairRule`)
+        * Make the `Cards#allExcept` more readable (e.g. `.filter(card -> !asList(cardsToExclude).contains(card))`)
     * [R] Cards methods should return Cards objects, not a `List<Card>`
     * [R] Review how the `Rank` is built (e.g. `Rank.pair(cards.get(0), ...`)
         * [?] Do we want to build the `Rank` with the `Card`s or just the minimum information needed (e.g. value vs card)

@@ -57,7 +57,7 @@ public class Hand {
     }
 
     public Cards allCardsExcept(Card... cardsToExclude) {
-        return cards1.allExcept(new Cards(asList(cardsToExclude)));
+        return cards1.allExcept(cardsToExclude);
     }
 
 }

@@ -2,6 +2,7 @@ package com.kata.poker;
 
 import java.util.*;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.*;
 
@@ -52,6 +53,13 @@ public class Cards {
         return cards.stream().max(Card::compareTo).get();
     }
 
+    Cards allExcept(Card... cardsToExclude) {
+        List<Card> remainingCards = cards.stream()
+                .filter(card -> !asList(cardsToExclude).contains(card))
+                .collect(toList());
+        return new Cards(remainingCards);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,12 +71,5 @@ public class Cards {
     @Override
     public int hashCode() {
         return Objects.hash(cards);
-    }
-
-    Cards allExcept(Cards cardsToExclude) {
-        List<Card> remainingCards = this.cards.stream()
-                .filter(card -> !cardsToExclude.cards.contains(card))
-                .collect(toList());
-        return new Cards(remainingCards);
     }
 }
