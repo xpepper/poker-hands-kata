@@ -64,6 +64,19 @@ public class Cards {
         return cards.stream().max(Card::compareTo).get();
     }
 
+    boolean hasAllConsecutiveValues() {
+        List<Card> sortedList = new ArrayList<>(cards);
+        sortedList.sort(Card::compareTo);
+
+        for (int cardIndex = 1; cardIndex < sortedList.size(); cardIndex++) {
+            if (!sortedList.get(cardIndex - 1).comesBefore(sortedList.get(cardIndex))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

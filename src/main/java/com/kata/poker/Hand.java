@@ -6,32 +6,22 @@ import static java.util.Arrays.asList;
 
 public class Hand {
 
-    private final List<Card> cards;
-    private final Cards cards1;
+    private final Cards cards;
 
     public Hand(Card... cards) {
-        this.cards = asList(cards);
-        cards1 = new Cards(asList(cards));
+        this.cards = new Cards(asList(cards));
     }
 
     public Card highestCard() {
-        return cards1.highestCard();
+        return cards.highestCard();
     }
 
     boolean hasAllCardsWithConsecutiveValues() {
-        List<Card> sortedCards = sortedListOf(cards);
-
-        for (int cardIndex = 1; cardIndex < sortedCards.size(); cardIndex++) {
-            if (!sortedCards.get(cardIndex - 1).comesBefore(sortedCards.get(cardIndex))) {
-                return false;
-            }
-        }
-
-        return true;
+        return cards.hasAllConsecutiveValues();
     }
 
     boolean hasAllCardsWithTheSameSuit() {
-        return cards1.allSuits().size() == 1;
+        return cards.allSuits().size() == 1;
     }
 
     boolean hasTwoCardsWithTheSameValue() {
@@ -39,13 +29,7 @@ public class Hand {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        return cards1.selectTwoCardsWithTheSameValue();
-    }
-
-    private List<Card> sortedListOf(List<Card> cards) {
-        List<Card> sortedList = new ArrayList<>(cards);
-        sortedList.sort(Card::compareTo);
-        return sortedList;
+        return cards.selectTwoCardsWithTheSameValue();
     }
 
     public boolean hasThreeCardsWithTheSameValue() {
@@ -53,11 +37,11 @@ public class Hand {
     }
 
     public List<Card> selectThreeCardsWithTheSameValue() {
-        return cards1.selectThreeCardsWithTheSameValue();
+        return cards.selectThreeCardsWithTheSameValue();
     }
 
     public Cards allCardsExcept(Card... cardsToExclude) {
-        return cards1.allExcept(cardsToExclude);
+        return cards.allExcept(cardsToExclude);
     }
 
 }
