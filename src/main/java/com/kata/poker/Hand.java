@@ -15,7 +15,7 @@ public class Hand {
     }
 
     public Card highestCard() {
-        return cards.stream().max(Card::compareTo).get();
+        return cards1.highestCard();
     }
 
     boolean hasAllCardsWithConsecutiveValues() {

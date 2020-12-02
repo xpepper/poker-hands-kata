@@ -60,6 +60,10 @@ public class Cards {
         return new Cards(remainingCards);
     }
 
+    Card highestCard() {
+        return cards.stream().max(Card::compareTo).get();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
