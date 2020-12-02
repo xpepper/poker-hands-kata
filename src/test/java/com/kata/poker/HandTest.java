@@ -31,7 +31,7 @@ public class HandTest {
     public void returns_all_cards_except_the_provided_ones() {
         Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
 
-        Cards cards = hand.allCardsExcept(new Cards(asList(fourOf(Hearts))));
+        Cards cards = hand.allCardsExcept(fourOf(Hearts));
 
         assertEquals(new Cards(asList(fourOf(Diamonds), fourOf(Clubs))), cards);
     }

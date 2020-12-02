@@ -56,11 +56,8 @@ public class Hand {
         return cards1.selectThreeCardsWithTheSameValue();
     }
 
-    Cards allCardsExcept(Cards cards) {
-        return cards1.allExcept(cards);
-    }
-
     public Cards allCardsExcept(Card... cardsToExclude) {
         return cards1.allExcept(new Cards(asList(cardsToExclude)));
     }
+
 }
