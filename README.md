@@ -9,11 +9,11 @@
         * Check duplication in finding max of a list of cards (`Hand` and `PairRule`)
         * Make the `Cards#allExcept` more readable (e.g. `.filter(card -> !asList(cardsToExclude).contains(card))`)
         * Check asymmetry between `Hand#hasAllCardsWithConsecutiveValues` and `Hand#hasAllCardsWithTheSameSuit`
-    * [R] Cards methods should return Cards objects, not a `List<Card>`
-    * [R] Review how the `Rank` is built (e.g. `Rank.pair(cards.get(0), ...`)
-        * [?] Do we want to build the `Rank` with the `Card`s or just the minimum information needed (e.g. value vs card)
+    * [?] Cards methods should return Cards objects, not a `List<Card>`
+    * [?] `Rank.pair` should receive a `TwoCards` instead of two cards
+    * [?] Do we want to build the `Rank` with the `Card`s or just the minimum information needed (e.g. value vs card)
     * [R] use var args instead of a List for `Cards` constructor
-    * [R] change access modifier for `Cards` and `Hand` methods    
+    * [R] access modifier for `Cards` and `Hand` methods to have a coherent method visibility    
     * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
     * [F] Be sure to build a `Hand` with a specific number of cards
     * [F] two pairs
