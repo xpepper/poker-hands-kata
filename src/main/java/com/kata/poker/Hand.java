@@ -25,10 +25,10 @@ public class Hand {
     }
 
     boolean hasTwoCardsWithTheSameValue() {
-        return !selectTwoCardsWithTheSameValue().isEmpty();
+        return !selectTwoCardsWithTheSameValue2().isEmpty();
     }
 
-    List<Card> selectTwoCardsWithTheSameValue() {
+    List<Card> selectTwoCardsWithTheSameValue2() {
         return cards.selectTwoCardsWithTheSameValue();
     }
 
@@ -44,4 +44,8 @@ public class Hand {
         return cards.allExcept(cardsToExclude);
     }
 
+    TwoCards selectTwoCardsWithTheSameValue() {
+        List<Card> cards = selectTwoCardsWithTheSameValue2();
+        return new TwoCards(cards);
+    }
 }
