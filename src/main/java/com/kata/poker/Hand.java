@@ -26,11 +26,7 @@ public class Hand {
     }
 
     boolean hasTwoCardsWithTheSameValue() {
-        return !selectTwoCardsWithTheSameValue2().isEmpty();
-    }
-
-    List<Card> selectTwoCardsWithTheSameValue2() {
-        return cards.selectTwoCardsWithTheSameValue();
+        return selectTwoCardsWithTheSameValue().isPresent();
     }
 
     public boolean hasThreeCardsWithTheSameValue() {
@@ -46,10 +42,10 @@ public class Hand {
     }
 
     Optional<TwoCards> selectTwoCardsWithTheSameValue() {
-        List<Card> cards = selectTwoCardsWithTheSameValue2();
-        if (cards.isEmpty()) {
+        List<Card> twoCards = cards.selectTwoCardsWithTheSameValue();
+        if (twoCards.isEmpty()) {
             return Optional.empty();
         }
-        return Optional.of(new TwoCards(cards));
+        return Optional.of(new TwoCards(twoCards));
     }
 }

@@ -18,14 +18,13 @@ public class HandTest {
     @Test
     public void select_the_cards_with_the_same_value_when_at_least_two_cards_has_the_same_value() {
         Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), threeOf(Clubs));
-        assertEquals(asList(threeOf(Hearts), threeOf(Clubs)), hand.selectTwoCardsWithTheSameValue2());
+        assertEquals(new TwoCards(asList(threeOf(Hearts), threeOf(Clubs))), hand.selectTwoCardsWithTheSameValue().get());
     }
 
     @Test
     public void select_two_cards_out_of_three_cards_with_the_same_value() {
         Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
-
-        assertEquals(2, hand.selectTwoCardsWithTheSameValue2().size());
+        assertTrue(hand.selectTwoCardsWithTheSameValue().isPresent());
     }
 
     @Test
