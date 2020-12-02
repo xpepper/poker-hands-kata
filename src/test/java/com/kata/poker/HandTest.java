@@ -5,13 +5,14 @@ import org.junit.Test;
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.CardBuilder.*;
 import static java.util.Arrays.asList;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class HandTest {
     @Test
     public void select_no_cards_when_all_cards_has_different_value() {
         Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), aceOf(Hearts));
-        assertTrue(hand.selectTwoCardsWithTheSameValue2().isEmpty());
+        assertTrue(hand.selectTwoCardsWithTheSameValue().isEmpty());
     }
 
     @Test

@@ -24,7 +24,6 @@
 
 * [R] When comparing Ranks with the same priority we should compare only the value of the card.
 
-* [R] `Hand#selectTwoCardsWithTheSameValue` should return an Optional
 
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 
