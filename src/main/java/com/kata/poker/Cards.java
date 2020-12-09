@@ -35,7 +35,7 @@ public class Cards {
                 .values();
     }
 
-    Card selectHighestRankingCard() {
+    Card highestCard() {
         return cards.stream().max(Card::compareTo).get();
     }
 
@@ -44,10 +44,6 @@ public class Cards {
                 .filter(card -> !asList(cardsToExclude).contains(card))
                 .collect(toList());
         return new Cards(remainingCards);
-    }
-
-    Card highestCard() {
-        return cards.stream().max(Card::compareTo).get();
     }
 
     boolean hasAllConsecutiveValues() {
