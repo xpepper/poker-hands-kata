@@ -5,7 +5,6 @@
  
 * [F] Poker hand with four cards
     * [R] Wrap a List of Card in a `Cards` object
-        * Remove duplication between `Cards#selectTwoCardsWithTheSameValue` and `Cards#selectThreeCardsWithTheSameValue`
         * Check duplication in finding max of a list of cards (`Hand` and `PairRule`)
         * Make the `Cards#allExcept` more readable (e.g. `.filter(card -> !asList(cardsToExclude).contains(card))`)
         * Check asymmetry between `Hand#hasAllCardsWithConsecutiveValues` and `Hand#hasAllCardsWithTheSameSuit`

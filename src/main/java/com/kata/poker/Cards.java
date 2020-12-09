@@ -3,7 +3,6 @@ package com.kata.poker;
 import java.util.*;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.*;
 
 public class Cards {
@@ -19,10 +18,9 @@ public class Cards {
                 .collect(toSet());
     }
 
-    public List<Card> selectCardsWithTheSameValue(int size) {
+    public Optional<List<Card>> selectCardsWithTheSameValue(int size) {
         return groupWithAtLeastSize(size)
-                .map(cards -> cards.subList(0, size))
-                .orElse(emptyList());
+                .map(cards -> cards.subList(0, size));
     }
 
     private Optional<List<Card>> groupWithAtLeastSize(int groupSize) {

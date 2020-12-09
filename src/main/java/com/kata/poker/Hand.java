@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 
 public class Hand {
 
@@ -34,7 +35,8 @@ public class Hand {
     }
 
     public List<Card> selectThreeCardsWithTheSameValue() {
-        return cards.selectCardsWithTheSameValue(3);
+        return cards.selectCardsWithTheSameValue(3)
+                .orElse(emptyList());
     }
 
     public Cards allCardsExcept(Card... cardsToExclude) {
@@ -42,10 +44,7 @@ public class Hand {
     }
 
     Optional<TwoCards> selectTwoCardsWithTheSameValue() {
-        List<Card> twoCards = cards.selectCardsWithTheSameValue(2);
-        if (twoCards.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(new TwoCards(twoCards.get(0), twoCards.get(1)));
+        return cards.selectCardsWithTheSameValue(2)
+                .map(twoCards -> new TwoCards(twoCards.get(0), twoCards.get(1)));
     }
 }
