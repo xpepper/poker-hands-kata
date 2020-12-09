@@ -11,7 +11,11 @@ public class ThreeOfKindRule implements Rule {
     @Override
     public Rank apply(Hand hand) {
         ThreeCards threeCards = selectThreeCardsWithTheSameValue(hand);
-        return Rank.threeOfKind(threeCards.takeOne().value);
+        return Rank.threeOfKind(takeOneOf(threeCards).value);
+    }
+
+    private Card takeOneOf(ThreeCards threeCards) {
+        return threeCards.first();
     }
 
     private ThreeCards selectThreeCardsWithTheSameValue(Hand hand) {
@@ -40,10 +44,6 @@ public class ThreeOfKindRule implements Rule {
 
         public Card third() {
             return third;
-        }
-
-        private Card takeOne() {
-            return first;
         }
     }
 }
