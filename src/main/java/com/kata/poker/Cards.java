@@ -20,14 +20,16 @@ public class Cards {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        return groupWithAtLeastSize(2)
-                .map(cards -> cards.subList(0, 2))
-                .orElse(emptyList());
+        return selectCardsWithTheSameValue(2);
     }
 
     List<Card> selectThreeCardsWithTheSameValue() {
-        return groupWithAtLeastSize(3)
-                .map(cards -> cards.subList(0, 3))
+        return selectCardsWithTheSameValue(3);
+    }
+
+    private List<Card> selectCardsWithTheSameValue(int size) {
+        return groupWithAtLeastSize(size)
+                .map(cards -> cards.subList(0, size))
                 .orElse(emptyList());
     }
 
