@@ -4,18 +4,16 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [R] Wrap a List of Card in a `Cards` object
-        * Make the `Cards#allExcept` more readable (e.g. `.filter(card -> !asList(cardsToExclude).contains(card))`)
-        * Check asymmetry between `Hand#hasAllCardsWithConsecutiveValues` and `Hand#hasAllCardsWithTheSameSuit`
-    * [?] Cards methods should return Cards objects, not a `List<Card>`
-    * [?] `Rank.pair` should receive a `TwoCards` instead of two cards
-    * [?] Do we want to build the `Rank` with the `Card`s or just the minimum information needed (e.g. value vs card)
-    * [R] use var args instead of a List for `Cards` constructor
-    * [R] access modifier for `Cards` and `Hand` methods to have a coherent method visibility    
-    * [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
     * [F] Be sure to build a `Hand` with a specific number of cards
     * [F] two pairs
+      * [R] access modifier for `Cards` methods to have a coherent method visibility
     * [F] four of a kind (poker) ranking
+
+* [?] `Hand#allCardsExcept` seems to be at a too low level of detail
+
+* [R] Check asymmetry between `Hand#hasAllCardsWithConsecutiveValues` and `Hand#hasAllCardsWithTheSameSuit`
+
+* [R] Find a better and more descriptive name for the method `Card#comesBefore` (e.g. `isPrevious`, `preceeds`)
 
 * [R] Extract Ranks as upper level classes
 
