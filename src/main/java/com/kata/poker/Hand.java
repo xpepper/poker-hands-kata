@@ -16,15 +16,15 @@ public class Hand {
         return cards.highestCard();
     }
 
-    boolean hasAllCardsWithConsecutiveValues() {
+    public boolean hasAllCardsWithConsecutiveValues() {
         return cards.hasAllConsecutiveValues();
     }
 
-    boolean hasAllCardsWithTheSameSuit() {
+    public boolean hasAllCardsWithTheSameSuit() {
         return cards.allSuits().size() == 1;
     }
 
-    boolean hasTwoCardsWithTheSameValue() {
+    public boolean hasTwoCardsWithTheSameValue() {
         return selectTwoCardsWithTheSameValue().isPresent();
     }
 
@@ -36,12 +36,12 @@ public class Hand {
         return cards.allExcept(cardsToExclude);
     }
 
-    Optional<TwoCards> selectTwoCardsWithTheSameValue() {
+    public Optional<TwoCards> selectTwoCardsWithTheSameValue() {
         return cards.selectCardsWithTheSameValue(2)
                 .map(cards -> new TwoCards(cards.get(0), cards.get(1)));
     }
 
-    Optional<ThreeCards> selectThreeCardsWithTheSameValue() {
+    public Optional<ThreeCards> selectThreeCardsWithTheSameValue() {
         return cards.selectCardsWithTheSameValue(3)
                 .map(cards -> new ThreeCards(cards.get(0), cards.get(1), cards.get(2)));
     }
