@@ -32,12 +32,12 @@ public class Cards {
     }
 
     private Optional<List<Card>> groupWithAtLeastSize(int groupSize) {
-        return groups().stream()
+        return groupByValue().stream()
                 .filter(cards -> cards.size() >= groupSize)
                 .findFirst();
     }
 
-    private Collection<List<Card>> groups() {
+    private Collection<List<Card>> groupByValue() {
         return cards.stream()
                 .collect(groupingBy(c -> c.value))
                 .values();
