@@ -5,7 +5,6 @@
  
 * [F] Poker hand with four cards
     * [R] Wrap a List of Card in a `Cards` object
-        * `selectThreeCardsWithTheSameValue` should return an optional `ThreeCards`
         * Check duplication in finding max of a list of cards (`Hand` and `PairRule`)
         * Make the `Cards#allExcept` more readable (e.g. `.filter(card -> !asList(cardsToExclude).contains(card))`)
         * Check asymmetry between `Hand#hasAllCardsWithConsecutiveValues` and `Hand#hasAllCardsWithTheSameSuit`
@@ -22,7 +21,6 @@
 * [R] Extract Ranks as upper level classes
 
 * [R] When comparing Ranks with the same priority we should compare only the value of the card.
-
 
 * [R] extract a GameParser from `GameRunner` to remove the parsing logic of the player from that class 
 
