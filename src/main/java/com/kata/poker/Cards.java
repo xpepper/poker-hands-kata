@@ -20,32 +20,24 @@ public class Cards {
     }
 
     List<Card> selectTwoCardsWithTheSameValue() {
-        return selectGroupWithAtLeastTwoCards(groupCardsByValue())
+        return selectGroupWithAtLeast(2)
                 .map(cards -> cards.subList(0, 2))
                 .orElse(emptyList());
     }
 
     List<Card> selectThreeCardsWithTheSameValue() {
-        return selectGroupWithAtLeastThreeCards(groupCardsByValue())
+        return selectGroupWithAtLeast(3)
                 .map(cards -> cards.subList(0, 3))
                 .orElse(emptyList());
     }
 
-    private Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
-        return selectGroupWithAtLeast(2, groups);
-    }
-
-    private Optional<List<Card>> selectGroupWithAtLeastThreeCards(Collection<List<Card>> groups) {
-        return selectGroupWithAtLeast(3, groups);
-    }
-
-    private Optional<List<Card>> selectGroupWithAtLeast(int groupSize, Collection<List<Card>> groups) {
-        return groups.stream()
+    private Optional<List<Card>> selectGroupWithAtLeast(int groupSize) {
+        return groups().stream()
                 .filter(cards -> cards.size() >= groupSize)
                 .findFirst();
     }
 
-    Collection<List<Card>> groupCardsByValue() {
+    private Collection<List<Card>> groups() {
         return cards.stream()
                 .collect(groupingBy(c -> c.value))
                 .values();
