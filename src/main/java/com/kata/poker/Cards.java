@@ -19,15 +19,7 @@ public class Cards {
                 .collect(toSet());
     }
 
-    List<Card> selectTwoCardsWithTheSameValue() {
-        return selectCardsWithTheSameValue(2);
-    }
-
-    List<Card> selectThreeCardsWithTheSameValue() {
-        return selectCardsWithTheSameValue(3);
-    }
-
-    private List<Card> selectCardsWithTheSameValue(int size) {
+    public List<Card> selectCardsWithTheSameValue(int size) {
         return groupWithAtLeastSize(size)
                 .map(cards -> cards.subList(0, size))
                 .orElse(emptyList());

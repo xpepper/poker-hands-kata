@@ -34,7 +34,7 @@ public class Hand {
     }
 
     public List<Card> selectThreeCardsWithTheSameValue() {
-        return cards.selectThreeCardsWithTheSameValue();
+        return cards.selectCardsWithTheSameValue(3);
     }
 
     public Cards allCardsExcept(Card... cardsToExclude) {
@@ -42,7 +42,7 @@ public class Hand {
     }
 
     Optional<TwoCards> selectTwoCardsWithTheSameValue() {
-        List<Card> twoCards = cards.selectTwoCardsWithTheSameValue();
+        List<Card> twoCards = cards.selectCardsWithTheSameValue(2);
         if (twoCards.isEmpty()) {
             return Optional.empty();
         }
