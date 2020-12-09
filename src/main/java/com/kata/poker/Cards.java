@@ -31,15 +31,17 @@ public class Cards {
                 .orElse(emptyList());
     }
 
-    Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
-        return groups.stream()
-                .filter(cards -> cards.size() >= 2)
-                .findFirst();
+    private Optional<List<Card>> selectGroupWithAtLeastTwoCards(Collection<List<Card>> groups) {
+        return selectGroupWithAtLeast(2, groups);
     }
 
-    Optional<List<Card>> selectGroupWithAtLeastThreeCards(Collection<List<Card>> groups) {
+    private Optional<List<Card>> selectGroupWithAtLeastThreeCards(Collection<List<Card>> groups) {
+        return selectGroupWithAtLeast(3, groups);
+    }
+
+    private Optional<List<Card>> selectGroupWithAtLeast(int groupSize, Collection<List<Card>> groups) {
         return groups.stream()
-                .filter(cards -> cards.size() >= 3)
+                .filter(cards -> cards.size() >= groupSize)
                 .findFirst();
     }
 
