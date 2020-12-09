@@ -1,10 +1,8 @@
 package com.kata.poker;
 
-import java.util.List;
 import java.util.Optional;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 
 public class Hand {
 
@@ -31,12 +29,7 @@ public class Hand {
     }
 
     public boolean hasThreeCardsWithTheSameValue() {
-        return !selectThreeCardsWithTheSameValue().isEmpty();
-    }
-
-    public List<Card> selectThreeCardsWithTheSameValue() {
-        return cards.selectCardsWithTheSameValue(3)
-                .orElse(emptyList());
+        return selectThreeCardsWithTheSameValue().isPresent();
     }
 
     public Cards allCardsExcept(Card... cardsToExclude) {
@@ -45,6 +38,11 @@ public class Hand {
 
     Optional<TwoCards> selectTwoCardsWithTheSameValue() {
         return cards.selectCardsWithTheSameValue(2)
-                .map(twoCards -> new TwoCards(twoCards.get(0), twoCards.get(1)));
+                .map(cards -> new TwoCards(cards.get(0), cards.get(1)));
+    }
+
+    Optional<ThreeCards> selectThreeCardsWithTheSameValue() {
+        return cards.selectCardsWithTheSameValue(3)
+                .map(cards -> new ThreeCards(cards.get(0), cards.get(1), cards.get(2)));
     }
 }
