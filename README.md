@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [F] Be sure to build a `Hand` with a specific number of cards
     * [F] two pairs
       * [R] access modifier for `Cards` methods to have a coherent method visibility
     * [F] four of a kind (poker) ranking

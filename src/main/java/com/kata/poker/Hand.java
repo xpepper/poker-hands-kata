@@ -11,10 +11,6 @@ public class Hand {
 
     private final Cards cards;
 
-    public Hand(Card first, Card second, Card third) {
-        this.cards = new Cards(asList(first, second, third));
-    }
-
     public Hand(Card... cards) {
         if (cards.length != 4) {
             throw new FourCardsExpectedException();
