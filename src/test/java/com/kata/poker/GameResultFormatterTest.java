@@ -81,6 +81,6 @@ public class GameResultFormatterTest {
     }
 
     private Winner aWinnerWith(Card... cards) {
-        return new Winner(new Player("anyName", new Hand(cards)));
+        return new Winner(new Player("anyName", new Hand(cards[0], cards[1], cards[2])));
     }
 }
