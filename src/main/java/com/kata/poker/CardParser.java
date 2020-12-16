@@ -6,6 +6,7 @@ import java.util.Map;
 public class CardParser {
     private static final Map<Character, Card.Value> CHAR_TO_VALUE = new HashMap<Character, Card.Value>() {{
         put('2', Card.Value.Two);
+        put('3', Card.Value.Three);
         put('4', Card.Value.Four);
         put('5', Card.Value.Five);
         put('6', Card.Value.Six);

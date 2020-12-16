@@ -8,8 +8,7 @@ public class HandParser {
     private final CardParser cardParser = new CardParser();
 
     Hand parse(String rawPokerHand) {
-        Card[] cards = cardsFrom(rawPokerHand);
-        return new Hand(cards[0], cards[1], cards[2]);
+        return new Hand(cardsFrom(rawPokerHand));
     }
 
     private Card[] cardsFrom(String rawPokerHand) {
