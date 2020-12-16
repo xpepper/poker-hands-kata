@@ -19,28 +19,28 @@ public class HandTest {
 
     @Test
     public void select_no_cards_when_all_cards_has_different_value() {
-        Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), aceOf(Hearts));
+        Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), aceOf(Hearts), twoOf(Hearts));
         assertTrue(hand.selectTwoCardsWithTheSameValue().isEmpty());
     }
 
     @Test
-    public void select_the_cards_with_the_same_value_when_at_least_two_cards_has_the_same_value() {
-        Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), threeOf(Clubs));
+    public void select_the_cards_with_the_same_value_when_at_least_two_cards_have_the_same_value() {
+        Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), threeOf(Clubs), twoOf(Hearts));
         assertEquals(new TwoCards(threeOf(Hearts), threeOf(Clubs)), hand.selectTwoCardsWithTheSameValue().get());
     }
 
     @Test
     public void select_two_cards_out_of_three_cards_with_the_same_value() {
-        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
+        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), twoOf(Hearts));
         assertTrue(hand.selectTwoCardsWithTheSameValue().isPresent());
     }
 
     @Test
     public void returns_all_cards_except_the_provided_ones() {
-        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
+        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), twoOf(Hearts));
 
         Cards cards = hand.allCardsExcept(fourOf(Hearts));
 
-        assertEquals(new Cards(asList(fourOf(Diamonds), fourOf(Clubs))), cards);
+        assertEquals(new Cards(asList(fourOf(Diamonds), fourOf(Clubs), twoOf(Hearts))), cards);
     }
 }
