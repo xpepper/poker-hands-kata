@@ -13,42 +13,42 @@ public class GameRulesTest {
 
     @Test
     public void tell_when_an_hand_has_an_high_card_rank() {
-        Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds), twoOf(Clubs));
+        Hand hand = new Hand(sevenOf(Hearts), fourOf(Diamonds), twoOf(Clubs), threeOf(Hearts));
 
         assertEquals(Rank.highCard(sevenOf(Hearts)), gameRules.evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_pair_rank() {
-        Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs));
+        Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs), threeOf(Hearts));
 
         assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs)), gameRules.evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_three_of_a_kind_rank() {
-        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs));
+        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), twoOf(Hearts));
 
         assertEquals(Rank.threeOfKind(Four), gameRules.evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_straight() {
-        Hand hand = new Hand(fiveOf(Hearts), fourOf(Diamonds), threeOf(Clubs));
+        Hand hand = new Hand(fiveOf(Hearts), fourOf(Diamonds), threeOf(Clubs), twoOf(Hearts));
 
         assertEquals(Rank.straight(fiveOf(Hearts)), gameRules.evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_flush() {
-        Hand hand = new Hand(fiveOf(Hearts), sevenOf(Hearts), aceOf(Hearts));
+        Hand hand = new Hand(fiveOf(Hearts), sevenOf(Hearts), aceOf(Hearts), twoOf(Hearts));
 
         assertEquals(Rank.flush(aceOf(Hearts)), gameRules.evaluate(hand));
     }
 
     @Test
     public void tell_when_an_hand_has_a_straight_flush() {
-        Hand hand = new Hand(fiveOf(Hearts), fourOf(Hearts), sixOf(Hearts));
+        Hand hand = new Hand(fiveOf(Hearts), fourOf(Hearts), sixOf(Hearts), threeOf(Hearts));
 
         assertEquals(Rank.straightFlush(sixOf(Hearts)), gameRules.evaluate(hand));
     }
