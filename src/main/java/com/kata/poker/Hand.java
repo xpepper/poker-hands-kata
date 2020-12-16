@@ -6,6 +6,9 @@ import static java.util.Arrays.asList;
 
 public class Hand {
 
+    public class FourCardsExpectedException extends RuntimeException {
+    }
+
     private final Cards cards;
 
     public Hand(Card first, Card second, Card third) {
@@ -13,6 +16,9 @@ public class Hand {
     }
 
     public Hand(Card... cards) {
+        if (cards.length != 4) {
+            throw new FourCardsExpectedException();
+        }
         this.cards = new Cards(asList(cards));
     }
 

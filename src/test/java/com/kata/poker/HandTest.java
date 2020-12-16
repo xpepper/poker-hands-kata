@@ -1,6 +1,8 @@
 package com.kata.poker;
 
+import com.kata.poker.Hand.FourCardsExpectedException;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static com.kata.poker.Card.Suit.*;
 import static com.kata.poker.CardBuilder.*;
@@ -9,6 +11,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class HandTest {
+
+    @Test(expected = FourCardsExpectedException.class)
+    public void cannot_build_an_hand_with_no_cards() {
+        new Hand();
+    }
+
     @Test
     public void select_no_cards_when_all_cards_has_different_value() {
         Hand hand = new Hand(threeOf(Hearts), fiveOf(Hearts), aceOf(Hearts));
