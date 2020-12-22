@@ -156,6 +156,19 @@ public class Rank implements Comparable<Rank> {
         }
 
         @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            TwoPairs twoPairs = (TwoPairs) o;
+            return first == twoPairs.first && second == twoPairs.second;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(first, second);
+        }
+
+        @Override
         public String toString() {
             return String.format("TwoPairs{first=%s, second=%s}", first, second);
         }

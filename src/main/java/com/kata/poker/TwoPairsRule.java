@@ -8,6 +8,10 @@ public class TwoPairsRule implements Rule {
 
     @Override
     public Rank apply(Hand hand) {
-        throw new RuntimeException("Not yet implemented");
+        TwoCards firstPair = hand.selectTwoCardsWithTheSameValue().get();
+        Card.Value firstPairValue = firstPair.first().value;
+        Cards otherCards = hand.allCardsExcept(firstPair.first(), firstPair.second());
+        Card.Value secondPairValue = otherCards.highestCard().value;
+        return Rank.twoPairs(firstPairValue, secondPairValue);
     }
 }
