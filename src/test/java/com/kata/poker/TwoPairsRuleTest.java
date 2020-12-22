@@ -20,4 +20,13 @@ public class TwoPairsRuleTest {
 
         assertEquals(Rank.twoPairs(Two, Three), rule.apply(hand));
     }
+
+    @Test
+    public void detects_when_an_hand_has_two_pairs() {
+        Hand hand = new Hand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
+
+        TwoPairsRule rule = new TwoPairsRule();
+
+        assertTrue(rule.canApply(hand));
+    }
 }
