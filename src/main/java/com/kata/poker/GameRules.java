@@ -11,6 +11,7 @@ public class GameRules {
             new FlushRule(),
             new StraightRule(),
             new ThreeOfKindRule(),
+            new TwoPairsRule(),
             new PairRule(),
             new HighestCardRule()
     );
