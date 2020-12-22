@@ -15,6 +15,10 @@ public class Rank implements Comparable<Rank> {
         return new Pair(2, first, second, highestRankingKicker);
     }
 
+    public static Rank twoPairs(Value first, Value second) {
+        return new TwoPairs(-1, first, second);
+    }
+
     public static Rank threeOfKind(Value value) {
         return new ThreeOfKind(3, value);
     }
@@ -138,9 +142,27 @@ public class Rank implements Comparable<Rank> {
         public Card.Value value() {
             return first.value;
         }
+
+    }
+
+    private static class TwoPairs extends Rank {
+        private final Value first;
+        private final Value second;
+
+        public TwoPairs(int priority, Value first, Value second) {
+            super(priority, null);
+            this.first = first;
+            this.second = second;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("TwoPairs{first=%s, second=%s}", first, second);
+        }
     }
 
     public static class Straight extends Rank {
+
         private final Card highestCard;
 
         private Straight(int priority, Card highestCard) {
@@ -165,13 +187,13 @@ public class Rank implements Comparable<Rank> {
         public String toString() {
             return format("Straight{highestCard=%s}", highestCard);
         }
-
         public Value highestCardValue() {
             return highestCard.value;
         }
-    }
 
+    }
     public static class Flush extends Rank {
+
         private Card highestCard;
 
         public Flush(int priority, Card highestCard) {
@@ -191,13 +213,13 @@ public class Rank implements Comparable<Rank> {
         public int hashCode() {
             return Objects.hash(highestCard);
         }
-
         public Value highestCardValue() {
             return highestCard.value;
         }
-    }
 
+    }
     public static class StraightFlush extends Rank {
+
         private final Card highestCard;
 
         public StraightFlush(int priority, Card highestCard) {
@@ -217,13 +239,13 @@ public class Rank implements Comparable<Rank> {
         public int hashCode() {
             return Objects.hash(highestCard);
         }
-
         public Value highestCardValue() {
             return highestCard.value;
         }
-    }
 
+    }
     public static class ThreeOfKind extends Rank {
+
         private final Value value;
 
         public ThreeOfKind(int priority, Value value) {
@@ -248,9 +270,9 @@ public class Rank implements Comparable<Rank> {
         public int hashCode() {
             return Objects.hash(value);
         }
-
         public Value value() {
             return value;
         }
+
     }
 }

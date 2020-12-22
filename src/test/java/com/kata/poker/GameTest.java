@@ -61,6 +61,22 @@ public class GameTest {
     }
 
     @Test
+    public void two_pairs_always_wins_against_a_high_card() {
+        Player playerWithTwoPairs = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
+        Player playerWithHighCard = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), twoOf(Spades), sevenOf(Clubs));
+
+        assertThat(playerWithTwoPairs, winsAgainst(playerWithHighCard));
+    }
+
+    @Test
+    public void two_pairs_always_wins_against_a_pair() {
+        Player playerWithTwoPairs = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
+        Player playerWithPair = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), sevenOf(Spades), sevenOf(Clubs));
+
+        assertThat(playerWithTwoPairs, winsAgainst(playerWithPair));
+    }
+
+    @Test
     public void a_three_of_a_kind_wins_against_a_high_card() {
         Player playerWithThreeOfKind = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), threeOf(Hearts));
         Player playerWithHighCard = aPlayerWithHand(threeOf(Diamonds), fiveOf(Spades), aceOf(Clubs), fourOf(Spades));

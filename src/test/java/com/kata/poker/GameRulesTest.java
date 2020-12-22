@@ -3,7 +3,7 @@ package com.kata.poker;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
-import static com.kata.poker.Card.Value.Four;
+import static com.kata.poker.Card.Value.*;
 import static com.kata.poker.CardBuilder.*;
 import static org.junit.Assert.assertEquals;
 
@@ -23,6 +23,13 @@ public class GameRulesTest {
         Hand hand = new Hand(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs), threeOf(Hearts));
 
         assertEquals(Rank.pair(sevenOf(Hearts), sevenOf(Diamonds), fourOf(Clubs)), gameRules.evaluate(hand));
+    }
+
+    @Test
+    public void tell_when_an_hand_has_two_pairs_rank() {
+        Hand hand = new Hand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
+
+        assertEquals(Rank.twoPairs(Two, Three), gameRules.evaluate(hand));
     }
 
     @Test
