@@ -16,7 +16,7 @@ public class Rank implements Comparable<Rank> {
     }
 
     public static Rank twoPairs(Value first, Value second) {
-        return new TwoPairs(-1, first, second);
+        return new TwoPairs(3, first, second);
     }
 
     public static Rank threeOfKind(Value value) {

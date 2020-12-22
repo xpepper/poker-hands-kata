@@ -5,6 +5,7 @@
  
 * [F] Poker hand with four cards
     * [F] two pairs
+      * [R] refactor the `TwoPairsRule`
       * [R] access modifier for `Cards` methods to have a coherent method visibility
     * [F] four of a kind (poker) ranking
 
