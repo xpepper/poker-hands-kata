@@ -8,6 +8,7 @@
       * [R] refactor the `TwoPairsRule`
       * [R] access modifier for `Cards` methods to have a coherent method visibility
     * [F] four of a kind (poker) ranking
+    * [R] pass down the priority to the single rules in the `GameRules` instead of Rank
 
 * [?] `Hand#allCardsExcept` seems to be at a too low level of detail
 
@@ -71,7 +72,7 @@
 
 * EXTRA: What would you need to change if a new game input should be supported?
 
-* EXTRA: What would happen if we want to support a different set of rules? (e.g. full vs flush)
+* EXTRA: What would happen if we want to support a different set of rules and priorities? (e.g. full vs flush)
 
 * EXTRA: find a better way to sort hand's cards `Hand#sortedListOf`
 

@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import static com.kata.poker.Card.Value;
 import static java.lang.String.format;
+import static java.util.Arrays.asList;
 
 public class Rank implements Comparable<Rank> {
 
@@ -159,8 +160,8 @@ public class Rank implements Comparable<Rank> {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            TwoPairs twoPairs = (TwoPairs) o;
-            return first == twoPairs.first && second == twoPairs.second;
+            TwoPairs otherTwoPairs = (TwoPairs) o;
+            return asList(first, second).containsAll(asList(otherTwoPairs.first, otherTwoPairs.second));
         }
 
         @Override
@@ -200,11 +201,13 @@ public class Rank implements Comparable<Rank> {
         public String toString() {
             return format("Straight{highestCard=%s}", highestCard);
         }
+
         public Value highestCardValue() {
             return highestCard.value;
         }
 
     }
+
     public static class Flush extends Rank {
 
         private Card highestCard;
@@ -226,11 +229,13 @@ public class Rank implements Comparable<Rank> {
         public int hashCode() {
             return Objects.hash(highestCard);
         }
+
         public Value highestCardValue() {
             return highestCard.value;
         }
 
     }
+
     public static class StraightFlush extends Rank {
 
         private final Card highestCard;
@@ -252,11 +257,13 @@ public class Rank implements Comparable<Rank> {
         public int hashCode() {
             return Objects.hash(highestCard);
         }
+
         public Value highestCardValue() {
             return highestCard.value;
         }
 
     }
+
     public static class ThreeOfKind extends Rank {
 
         private final Value value;
@@ -283,6 +290,7 @@ public class Rank implements Comparable<Rank> {
         public int hashCode() {
             return Objects.hash(value);
         }
+
         public Value value() {
             return value;
         }
