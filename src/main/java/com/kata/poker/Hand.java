@@ -1,5 +1,6 @@
 package com.kata.poker;
 
+import java.util.List;
 import java.util.Optional;
 
 import static java.util.Arrays.asList;
@@ -40,6 +41,23 @@ public class Hand {
 
     public Cards allCardsExcept(Card... cardsToExclude) {
         return cards.allExcept(cardsToExclude);
+    }
+
+    public Optional<List<TwoCards>> getTwoPairs() {
+        if (selectTwoCardsWithTheSameValue().isEmpty()) {
+            return Optional.empty();
+        }
+
+        TwoCards firstPair = selectTwoCardsWithTheSameValue().get();
+        Cards otherCards = allCardsExcept(firstPair.first(), firstPair.second());
+        if (otherCards.selectCardsWithTheSameValue(2).isEmpty()) {
+            return Optional.empty();
+        }
+
+        List<Card> otherPairCards = otherCards.selectCardsWithTheSameValue(2).get();
+        TwoCards secondPair = new TwoCards(otherPairCards.get(0), otherPairCards.get(1));
+        List<TwoCards> twoPairs = asList(firstPair, secondPair);
+        return Optional.of(twoPairs);
     }
 
     public Optional<TwoCards> selectTwoCardsWithTheSameValue() {
