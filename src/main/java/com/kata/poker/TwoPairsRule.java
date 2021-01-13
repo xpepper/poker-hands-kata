@@ -12,11 +12,7 @@ public class TwoPairsRule implements Rule {
             return false;
         }
 
-        TwoCards firstPair = hand.selectTwoCardsWithTheSameValue().get();
-        Cards otherCards = hand.allCardsExcept(firstPair.first(), firstPair.second());
-        Card remainingHighestCard = otherCards.highestCard();
-        Cards cards = hand.allCardsExcept(firstPair.first(), firstPair.second(), remainingHighestCard);
-        return cards.highestCard().value == remainingHighestCard.value;
+        return getTwoPairs(hand).isPresent();
     }
 
     @Override
@@ -27,8 +23,16 @@ public class TwoPairsRule implements Rule {
     }
 
     private Optional<List<TwoCards>> getTwoPairs(Hand hand) {
+        if (hand.selectTwoCardsWithTheSameValue().isEmpty()) {
+            return Optional.empty();
+        }
+
         TwoCards firstPair = hand.selectTwoCardsWithTheSameValue().get();
         Cards otherCards = hand.allCardsExcept(firstPair.first(), firstPair.second());
+        if (otherCards.selectCardsWithTheSameValue(2).isEmpty()) {
+            return Optional.empty();
+        }
+
         List<Card> otherPairCards = otherCards.selectCardsWithTheSameValue(2).get();
         TwoCards secondPair = new TwoCards(otherPairCards.get(0), otherPairCards.get(1));
         List<TwoCards> twoPairs = asList(firstPair, secondPair);
