@@ -1,6 +1,5 @@
 package com.kata.poker;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +45,7 @@ public class Hand {
     }
 
     public Optional<List<TwoCards>> selectCoupleOfTwoCardsWithTheSameValue() {
-        List<List<Card>> couplesOfCardsWithTheSameValue = cards.selectAllCouplesOfCardsWithTheSameValue(new ArrayList<>());
+        List<List<Card>> couplesOfCardsWithTheSameValue = cards.selectAllCouplesWithTheSameValue();
         if (couplesOfCardsWithTheSameValue.isEmpty()) {
             return Optional.empty();
         }

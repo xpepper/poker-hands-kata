@@ -18,12 +18,16 @@ public class Cards {
                 .collect(toSet());
     }
 
-    public Optional<List<Card>> selectCardsWithTheSameValue(int size) {
-        return groupWithAtLeastSize(size)
-                .map(cards -> cards.subList(0, size));
+    public Optional<List<Card>> selectCardsWithTheSameValue(int groupSize) {
+        return groupWithAtLeastSize(groupSize)
+                .map(cards -> cards.subList(0, groupSize));
     }
 
-    public List<List<Card>> selectAllCouplesOfCardsWithTheSameValue(List<List<Card>> acc) {
+    public List<List<Card>> selectAllCouplesWithTheSameValue() {
+        return selectAllCouplesWithTheSameValue(new ArrayList<>());
+    }
+
+    private List<List<Card>> selectAllCouplesWithTheSameValue(List<List<Card>> acc) {
         if (cards.size() < 2) {
             return acc;
         }
@@ -32,7 +36,7 @@ public class Cards {
         }
         List<Card> pairCards = selectCardsWithTheSameValue(2).get();
         acc.add(pairCards);
-        return allExcept(pairCards.get(0), pairCards.get(1)).selectAllCouplesOfCardsWithTheSameValue(acc);
+        return allExcept(pairCards.get(0), pairCards.get(1)).selectAllCouplesWithTheSameValue(acc);
     }
 
     private Optional<List<Card>> groupWithAtLeastSize(int groupSize) {
