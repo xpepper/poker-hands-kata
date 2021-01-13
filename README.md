@@ -5,7 +5,6 @@
  
 * [F] Poker hand with four cards
     * [F] two pairs
-      * [R] refactor the `TwoPairsRule`
       * [R] introduce a new type `CoupleOfTwoCards` instead of a list of `TwoCards` ?
       * [R] access modifier for `Cards` methods to have a coherent method visibility
     * [F] four of a kind (poker) ranking
