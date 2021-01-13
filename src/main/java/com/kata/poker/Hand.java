@@ -56,8 +56,7 @@ public class Hand {
 
         List<Card> otherPairCards = otherCards.selectCardsWithTheSameValue(2).get();
         TwoCards secondPair = new TwoCards(otherPairCards.get(0), otherPairCards.get(1));
-        List<TwoCards> twoPairs = asList(firstPair, secondPair);
-        return Optional.of(twoPairs);
+        return Optional.of(asList(firstPair, secondPair));
     }
 
     public Optional<TwoCards> selectTwoCardsWithTheSameValue() {
