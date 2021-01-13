@@ -71,4 +71,8 @@ public class Cards {
     public int hashCode() {
         return Objects.hash(cards);
     }
+
+    public int size() {
+        return cards.size();
+    }
 }
