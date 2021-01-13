@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
 
 public class Hand {
 
@@ -45,21 +46,14 @@ public class Hand {
     }
 
     public Optional<List<TwoCards>> selectCoupleOfTwoCardsWithTheSameValue() {
-        List<TwoCards> value = new ArrayList<>();
-        return reduce(value, cards);
-    }
-
-    private Optional<List<TwoCards>> reduce(List<TwoCards> acc, Cards cards) {
-        if (cards.size() < 2) {
-            return Optional.of(acc);
-        }
-        if (cards.selectCardsWithTheSameValue(2).isEmpty()) {
+        List<List<Card>> couplesOfCardsWithTheSameValue = cards.selectAllCouplesOfCardsWithTheSameValue(new ArrayList<>());
+        if (couplesOfCardsWithTheSameValue.isEmpty()) {
             return Optional.empty();
         }
-        List<Card> pairCards = cards.selectCardsWithTheSameValue(2).get();
-        TwoCards pair = new TwoCards(pairCards.get(0), pairCards.get(1));
-        acc.add(pair);
-        return reduce(acc, cards.allExcept(pair.first(), pair.second()));
+        List<TwoCards> coupleOfTwoCards = couplesOfCardsWithTheSameValue.stream()
+                .map(couple -> new TwoCards(couple.get(0), couple.get(1)))
+                .collect(toList());
+        return Optional.of(coupleOfTwoCards);
     }
 
     public Optional<TwoCards> selectTwoCardsWithTheSameValue() {

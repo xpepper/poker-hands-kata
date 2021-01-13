@@ -23,6 +23,18 @@ public class Cards {
                 .map(cards -> cards.subList(0, size));
     }
 
+    public List<List<Card>> selectAllCouplesOfCardsWithTheSameValue(List<List<Card>> acc) {
+        if (cards.size() < 2) {
+            return acc;
+        }
+        if (selectCardsWithTheSameValue(2).isEmpty()) {
+            return Collections.emptyList();
+        }
+        List<Card> pairCards = selectCardsWithTheSameValue(2).get();
+        acc.add(pairCards);
+        return allExcept(pairCards.get(0), pairCards.get(1)).selectAllCouplesOfCardsWithTheSameValue(acc);
+    }
+
     private Optional<List<Card>> groupWithAtLeastSize(int groupSize) {
         return groupByValue().stream()
                 .filter(cards -> cards.size() >= groupSize)
@@ -70,9 +82,5 @@ public class Cards {
     @Override
     public int hashCode() {
         return Objects.hash(cards);
-    }
-
-    public int size() {
-        return cards.size();
     }
 }
