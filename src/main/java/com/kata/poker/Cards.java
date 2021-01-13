@@ -18,9 +18,9 @@ public class Cards {
                 .collect(toSet());
     }
 
-    public Optional<List<Card>> selectCardsWithTheSameValue(int size) {
-        return groupWithAtLeastSize(size)
-                .map(cards -> cards.subList(0, size));
+    public Optional<List<Card>> selectCardsWithTheSameValue(int groupSize) {
+        return groupWithAtLeastSize(groupSize)
+                .map(cards -> cards.subList(0, groupSize));
     }
 
     private Optional<List<Card>> groupWithAtLeastSize(int groupSize) {
