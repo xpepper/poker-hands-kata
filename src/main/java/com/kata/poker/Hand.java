@@ -43,7 +43,7 @@ public class Hand {
         return cards.allExcept(cardsToExclude);
     }
 
-    public Optional<List<TwoCards>> getTwoPairs() {
+    public Optional<List<TwoCards>> selectCoupleOfTwoCardsWithTheSameValue() {
         if (selectTwoCardsWithTheSameValue().isEmpty()) {
             return Optional.empty();
         }

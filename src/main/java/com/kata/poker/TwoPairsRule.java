@@ -9,12 +9,12 @@ public class TwoPairsRule implements Rule {
             return false;
         }
 
-        return hand.getTwoPairs().isPresent();
+        return hand.selectCoupleOfTwoCardsWithTheSameValue().isPresent();
     }
 
     @Override
     public Rank apply(Hand hand) {
-        List<TwoCards> twoPairs = hand.getTwoPairs().get();
+        List<TwoCards> twoPairs = hand.selectCoupleOfTwoCardsWithTheSameValue().get();
 
         return Rank.twoPairs(twoPairs.get(0).first().value, twoPairs.get(1).first().value);
     }
