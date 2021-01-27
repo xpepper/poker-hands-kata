@@ -4,8 +4,7 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [F] two pairs
-      * [R] Rename `TwoPairs` in `TwoPair`  
+    * [F] two pair
       * [R] try to reduce duplication in `Hand#selectCoupleOfTwoCardsWithTheSameValue`
           - maybe a `while...` would help?
       * [R] introduce a new type `CoupleOfTwoCards` instead of a list of `TwoCards` ?
@@ -117,7 +116,7 @@ es:
 * (3S, 3H, 5H, 6H, 9S) => 3  |=> WIN! 
 * (3C, 3D, 4S, 6S, 7C) => 3  
 
-* *Two Pairs*: 
+* *Two Pair*: 
 
 es: (*2C, 2D*, *6H, 6S*, 5H) 
 

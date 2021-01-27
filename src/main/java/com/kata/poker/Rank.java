@@ -16,8 +16,8 @@ public class Rank implements Comparable<Rank> {
         return new Pair(2, first, second, highestRankingKicker);
     }
 
-    public static Rank twoPairs(Value firstPairValue, Value secondPairValue) {
-        return new TwoPairs(3, firstPairValue, secondPairValue);
+    public static Rank twoPair(Value firstPairValue, Value secondPairValue) {
+        return new TwoPair(3, firstPairValue, secondPairValue);
     }
 
     public static Rank threeOfKind(Value value) {
@@ -146,11 +146,11 @@ public class Rank implements Comparable<Rank> {
 
     }
 
-    private static class TwoPairs extends Rank {
+    private static class TwoPair extends Rank {
         private final Value firstPairValue;
         private final Value secondPairValue;
 
-        public TwoPairs(int priority, Value firstPairValue, Value secondPairValue) {
+        public TwoPair(int priority, Value firstPairValue, Value secondPairValue) {
             super(priority, new Card(Value.max(firstPairValue, secondPairValue), null));
             this.firstPairValue = firstPairValue;
             this.secondPairValue = secondPairValue;
@@ -160,8 +160,8 @@ public class Rank implements Comparable<Rank> {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            TwoPairs otherTwoPairs = (TwoPairs) o;
-            return asList(firstPairValue, secondPairValue).containsAll(asList(otherTwoPairs.firstPairValue, otherTwoPairs.secondPairValue));
+            TwoPair otherTwoPair = (TwoPair) o;
+            return asList(firstPairValue, secondPairValue).containsAll(asList(otherTwoPair.firstPairValue, otherTwoPair.secondPairValue));
         }
 
         @Override
@@ -171,7 +171,7 @@ public class Rank implements Comparable<Rank> {
 
         @Override
         public String toString() {
-            return String.format("TwoPairs{first=%s, second=%s}", firstPairValue, secondPairValue);
+            return String.format("TwoPair{first=%s, second=%s}", firstPairValue, secondPairValue);
         }
     }
 

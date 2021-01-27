@@ -2,7 +2,7 @@ package com.kata.poker;
 
 import java.util.List;
 
-public class TwoPairsRule implements Rule {
+public class TwoPairRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
         if (!hand.hasTwoCardsWithTheSameValue()) {
@@ -14,9 +14,9 @@ public class TwoPairsRule implements Rule {
 
     @Override
     public Rank apply(Hand hand) {
-        List<TwoCards> twoPairs = hand.selectCoupleOfTwoCardsWithTheSameValue().get();
+        List<TwoCards> twoPair = hand.selectCoupleOfTwoCardsWithTheSameValue().get();
 
-        return Rank.twoPairs(twoPairs.get(0).first().value, twoPairs.get(1).first().value);
+        return Rank.twoPair(twoPair.get(0).first().value, twoPair.get(1).first().value);
     }
 
 }

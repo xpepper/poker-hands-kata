@@ -26,10 +26,10 @@ public class GameRulesTest {
     }
 
     @Test
-    public void tell_when_an_hand_has_two_pairs_rank() {
+    public void tell_when_an_hand_has_two_pair_rank() {
         Hand hand = new Hand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
 
-        assertEquals(Rank.twoPairs(Two, Three), gameRules.evaluate(hand));
+        assertEquals(Rank.twoPair(Two, Three), gameRules.evaluate(hand));
     }
 
     @Test

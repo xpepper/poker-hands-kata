@@ -61,23 +61,23 @@ public class GameTest {
     }
 
     @Test
-    public void two_pairs_always_wins_against_a_high_card() {
-        Player playerWithTwoPairs = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
+    public void two_pair_always_wins_against_a_high_card() {
+        Player playerWithTwoPair = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
         Player playerWithHighCard = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), twoOf(Spades), sevenOf(Clubs));
 
-        assertThat(playerWithTwoPairs, winsAgainst(playerWithHighCard));
+        assertThat(playerWithTwoPair, winsAgainst(playerWithHighCard));
     }
 
     @Test
-    public void two_pairs_always_wins_against_a_pair() {
-        Player playerWithTwoPairs = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
+    public void two_pair_always_wins_against_a_pair() {
+        Player playerWithTwoPair = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), twoOf(Clubs), twoOf(Hearts));
         Player playerWithPair = aPlayerWithHand(fiveOf(Spades), threeOf(Clubs), sevenOf(Spades), sevenOf(Clubs));
 
-        assertThat(playerWithTwoPairs, winsAgainst(playerWithPair));
+        assertThat(playerWithTwoPair, winsAgainst(playerWithPair));
     }
 
     @Test
-    public void two_pairs_with_highest_cards_wins_against_another_two_pairs() {
+    public void two_pair_with_highest_cards_wins_against_another_two_pair() {
         Player winningPlayer = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), threeOf(Hearts), threeOf(Diamonds));
         Player otherPlayer = aPlayerWithHand(twoOf(Clubs), twoOf(Spades), threeOf(Clubs), threeOf(Spades));
 

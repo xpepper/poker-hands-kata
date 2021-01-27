@@ -18,9 +18,9 @@ public class RankTest {
     }
 
     @Test
-    public void two_pairs_with_highest_card_is_higher_than_another_one() {
-        Rank highest = Rank.twoPairs(Two, Four);
-        Rank other = Rank.twoPairs(Three, Two);
+    public void two_pair_with_highest_card_is_higher_than_another_one() {
+        Rank highest = Rank.twoPair(Two, Four);
+        Rank other = Rank.twoPair(Three, Two);
 
         assertTrue(highest.higherThan(other));
     }
