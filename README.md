@@ -5,7 +5,6 @@
  
 * [F] Poker hand with four cards
     * [F] two pairs
-      * [F] straight vs two pairs
       * [F] flush vs two pairs
       * [F] straight flush vs two pairs
       * [R] Rename `TwoPairs` in `TwoPair`  

@@ -141,6 +141,14 @@ public class GameTest {
     }
 
     @Test
+    public void a_straight_always_wins_against_a_two_pair() {
+        Player playerWithStraight = aPlayerWithHand(fourOf(Hearts), threeOf(Diamonds), twoOf(Diamonds), fiveOf(Hearts));
+        Player playerWithTwoPair = aPlayerWithHand(fiveOf(Clubs), fiveOf(Spades), threeOf(Clubs), threeOf(Spades));
+
+        assertThat(playerWithStraight, winsAgainst(playerWithTwoPair));
+    }
+
+    @Test
     public void a_straight_always_wins_against_a_three_of_kind() {
         Player playerWithStraight = aPlayerWithHand(fourOf(Hearts), threeOf(Diamonds), twoOf(Diamonds), fiveOf(Hearts));
         Player playerWithThreeOfKind = aPlayerWithHand(sevenOf(Clubs), sevenOf(Spades), sevenOf(Diamonds), twoOf(Spades));
