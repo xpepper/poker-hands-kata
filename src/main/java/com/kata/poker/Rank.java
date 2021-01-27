@@ -16,8 +16,8 @@ public class Rank implements Comparable<Rank> {
         return new Pair(2, first, second, highestRankingKicker);
     }
 
-    public static Rank twoPairs(Value first, Value second) {
-        return new TwoPairs(3, first, second);
+    public static Rank twoPairs(Value firstPairValue, Value secondPairValue) {
+        return new TwoPairs(3, firstPairValue, secondPairValue);
     }
 
     public static Rank threeOfKind(Value value) {
@@ -147,13 +147,13 @@ public class Rank implements Comparable<Rank> {
     }
 
     private static class TwoPairs extends Rank {
-        private final Value first;
-        private final Value second;
+        private final Value firstPairValue;
+        private final Value secondPairValue;
 
-        public TwoPairs(int priority, Value first, Value second) {
-            super(priority, new Card(Value.max(first, second), null));
-            this.first = first;
-            this.second = second;
+        public TwoPairs(int priority, Value firstPairValue, Value secondPairValue) {
+            super(priority, new Card(Value.max(firstPairValue, secondPairValue), null));
+            this.firstPairValue = firstPairValue;
+            this.secondPairValue = secondPairValue;
         }
 
         @Override
@@ -161,17 +161,17 @@ public class Rank implements Comparable<Rank> {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             TwoPairs otherTwoPairs = (TwoPairs) o;
-            return asList(first, second).containsAll(asList(otherTwoPairs.first, otherTwoPairs.second));
+            return asList(firstPairValue, secondPairValue).containsAll(asList(otherTwoPairs.firstPairValue, otherTwoPairs.secondPairValue));
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(first, second);
+            return Objects.hash(firstPairValue, secondPairValue);
         }
 
         @Override
         public String toString() {
-            return String.format("TwoPairs{first=%s, second=%s}", first, second);
+            return String.format("TwoPairs{first=%s, second=%s}", firstPairValue, secondPairValue);
         }
     }
 
