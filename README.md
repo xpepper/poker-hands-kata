@@ -6,6 +6,7 @@
 * [F] Poker hand with four cards
     * [F] two pair
       * [R] try to generalize the use of `Hand#selectCoupleOfTwoCardsWithTheSameValue` for `Hand#selectTwoCardsWithTheSameValue` and `Hand#selectThreeCardsWithTheSameValue`
+      * [F] format `TwoPair` result
       * [R] introduce a new type `CoupleOfTwoCards` instead of a list of `TwoCards` ?
           - see `Optional<List<TwoCards>>` vs `Optional<CoupleOfTwoCards>` (now is an `Optional<List<TwoCards>>`)
       * [R] access modifier for `Cards` methods to have a coherent method visibility
