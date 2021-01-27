@@ -151,7 +151,7 @@ public class Rank implements Comparable<Rank> {
         private final Value second;
 
         public TwoPairs(int priority, Value first, Value second) {
-            super(priority, new Card(first.numericValue < second.numericValue ? second : first, null));
+            super(priority, new Card(Value.max(first, second), null));
             this.first = first;
             this.second = second;
         }

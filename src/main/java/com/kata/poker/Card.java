@@ -57,6 +57,10 @@ public class Card implements Comparable<Card> {
         King(13),
         Ace(14);
 
+        static Value max(Value first, Value second) {
+            return first.numericValue < second.numericValue ? second : first;
+        }
+
         public final Integer numericValue;
 
         Value(Integer numericValue) {
