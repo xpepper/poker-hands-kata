@@ -59,6 +59,10 @@ public class Cards {
         return true;
     }
 
+    public int size() {
+        return cards.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
