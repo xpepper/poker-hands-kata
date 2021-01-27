@@ -3,6 +3,7 @@ package com.kata.poker;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
+import static com.kata.poker.Card.Value.*;
 import static com.kata.poker.CardBuilder.*;
 import static org.junit.Assert.assertTrue;
 
@@ -14,5 +15,13 @@ public class RankTest {
         Rank anotherPair = Rank.pair(fiveOf(Clubs), fiveOf(Spades), sevenOf(Clubs));
 
         assertTrue(winningPair.higherThan(anotherPair));
+    }
+
+    @Test
+    public void two_pairs_with_highest_card_is_higher_than_another_one() {
+        Rank highest = Rank.twoPairs(Two, Four);
+        Rank other = Rank.twoPairs(Three, Two);
+
+        assertTrue(highest.higherThan(other));
     }
 }
