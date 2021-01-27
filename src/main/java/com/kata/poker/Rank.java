@@ -21,19 +21,19 @@ public class Rank implements Comparable<Rank> {
     }
 
     public static Rank threeOfKind(Value value) {
-        return new ThreeOfKind(3, value);
+        return new ThreeOfKind(4, value);
     }
 
     public static Rank straight(Card highestCard) {
-        return new Straight(4, highestCard);
+        return new Straight(5, highestCard);
     }
 
     public static Rank flush(Card highestCard) {
-        return new Flush(5, highestCard);
+        return new Flush(6, highestCard);
     }
 
     public static Rank straightFlush(Card highestCard) {
-        return new StraightFlush(6, highestCard);
+        return new StraightFlush(7, highestCard);
     }
 
     private final int priority;

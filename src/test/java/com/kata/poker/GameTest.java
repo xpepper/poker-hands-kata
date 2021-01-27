@@ -109,6 +109,14 @@ public class GameTest {
     }
 
     @Test
+    public void a_three_of_a_kind_wins_against_a_two_pair() {
+        Player playerWithThreeOfKind = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), threeOf(Hearts));
+        Player playerWithTwoPair = aPlayerWithHand(fiveOf(Clubs), fiveOf(Spades), threeOf(Clubs), threeOf(Spades));
+
+        assertThat(playerWithThreeOfKind, winsAgainst(playerWithTwoPair));
+    }
+
+    @Test
     public void a_three_of_a_kind_with_highest_cards_wins_against_another_three_of_a_kind() {
         Player winningPlayer = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), threeOf(Hearts));
         Player otherPlayer = aPlayerWithHand(twoOf(Hearts), twoOf(Spades), twoOf(Clubs), threeOf(Spades));
