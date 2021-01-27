@@ -5,6 +5,12 @@
  
 * [F] Poker hand with four cards
     * [F] two pairs
+      * [F] two pairs vs two pairs TIE ( 2H 2D 3H 3D vs 2C 2S 3C 3S )
+      * [F] two pairs vs two pairs WIN ( 4H 4D 3H 3D vs 2C 2S 3C 3S )
+      * [F] three of kind vs two pairs
+      * [F] straight vs two pairs
+      * [F] flush vs two pairs
+      * [F] straight flush vs two pairs  
       * [R] try to reduce duplication in `Hand#selectCoupleOfTwoCardsWithTheSameValue`
           - maybe a `while...` would help?
       * [R] introduce a new type `CoupleOfTwoCards` instead of a list of `TwoCards` ?
