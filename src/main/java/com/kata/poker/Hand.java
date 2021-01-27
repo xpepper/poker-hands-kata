@@ -49,6 +49,7 @@ public class Hand {
         }
 
         TwoCards firstPair = selectTwoCardsWithTheSameValue().get();
+
         Cards otherCards = allCardsExcept(firstPair.first(), firstPair.second());
         if (otherCards.selectCardsWithTheSameValue(2).isEmpty()) {
             return Optional.empty();

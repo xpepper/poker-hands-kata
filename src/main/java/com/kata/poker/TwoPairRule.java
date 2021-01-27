@@ -5,10 +5,6 @@ import java.util.List;
 public class TwoPairRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
-        if (!hand.hasTwoCardsWithTheSameValue()) {
-            return false;
-        }
-
         return hand.selectCoupleOfTwoCardsWithTheSameValue().isPresent();
     }
 
