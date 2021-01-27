@@ -189,6 +189,14 @@ public class GameTest {
     }
 
     @Test
+    public void a_flush_always_wins_against_a_two_pair() {
+        Player playerWithFlush = aPlayerWithHand(threeOf(Diamonds), fiveOf(Diamonds), sevenOf(Diamonds), twoOf(Diamonds));
+        Player playerWithTwoPair = aPlayerWithHand(fiveOf(Clubs), fiveOf(Spades), threeOf(Clubs), threeOf(Spades));
+
+        assertThat(playerWithFlush, winsAgainst(playerWithTwoPair));
+    }
+
+    @Test
     public void a_flush_always_wins_against_a_three_of_a_kind() {
         Player playerWithFlush = aPlayerWithHand(threeOf(Diamonds), fiveOf(Diamonds), sevenOf(Diamonds), twoOf(Diamonds));
         Player playerWithThreeOfKind = aPlayerWithHand(threeOf(Hearts), threeOf(Spades), threeOf(Clubs), twoOf(Spades));

@@ -5,7 +5,6 @@
  
 * [F] Poker hand with four cards
     * [F] two pairs
-      * [F] flush vs two pairs
       * [F] straight flush vs two pairs
       * [R] Rename `TwoPairs` in `TwoPair`  
       * [R] try to reduce duplication in `Hand#selectCoupleOfTwoCardsWithTheSameValue`
