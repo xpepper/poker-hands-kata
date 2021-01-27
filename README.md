@@ -10,7 +10,8 @@
       * [F] three of kind vs two pairs
       * [F] straight vs two pairs
       * [F] flush vs two pairs
-      * [F] straight flush vs two pairs  
+      * [F] straight flush vs two pairs
+      * [R] Rename `TwoPairs` in `TwoPair`  
       * [R] try to reduce duplication in `Hand#selectCoupleOfTwoCardsWithTheSameValue`
           - maybe a `while...` would help?
       * [R] introduce a new type `CoupleOfTwoCards` instead of a list of `TwoCards` ?
