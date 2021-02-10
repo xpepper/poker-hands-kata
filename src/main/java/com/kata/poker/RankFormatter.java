@@ -2,36 +2,36 @@ package com.kata.poker;
 
 import static com.kata.poker.Card.Value.Ace;
 
-class RankFormatter implements RankVisitor<String> {
-    @Override public String visit(Rank.TwoPair twoPair) {
+class RankFormatter implements RankDisplay<String> {
+    @Override public String display(Rank.TwoPair twoPair) {
         return String.format(
                 "two pair: %ss and %ss",
                 formatCardValue(twoPair.highestRankingPairValue()),
                 formatCardValue(twoPair.lowestRankingPairValue()));
     }
 
-    @Override public String visit(Rank.StraightFlush flush) {
+    @Override public String display(Rank.StraightFlush flush) {
         return String.format("straight flush: %s-high", formatCardValue(flush.highestCardValue()));
     }
 
-    @Override public String visit(Rank.Flush flush) {
+    @Override public String display(Rank.Flush flush) {
         return String.format("flush: %s-high", formatCardValue(flush.highestCardValue()));
     }
 
-    @Override public String visit(Rank.Straight straight) {
+    @Override public String display(Rank.Straight straight) {
         return String.format("straight: %s-high", formatCardValue(straight.highestCardValue()));
     }
 
-    @Override public String visit(Rank.ThreeOfKind threeOfKind) {
+    @Override public String display(Rank.ThreeOfKind threeOfKind) {
         return String.format("three of a kind: %ss", formatCardValue(threeOfKind.value()));
     }
 
-    @Override public String visit(Rank.Pair pair) {
+    @Override public String display(Rank.Pair pair) {
         return String.format("pair: %ss", formatCardValue(pair.value()));
     }
 
     @Override
-    public String visit(Rank.HighCard highCard) {
+    public String display(Rank.HighCard highCard) {
         return String.format("high card: %s", formatCardValue(highCard.value()));
     }
 

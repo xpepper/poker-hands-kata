@@ -58,7 +58,7 @@ public abstract class Rank implements Comparable<Rank> {
         return Integer.compare(priority, other.priority);
     }
 
-    public abstract <T> T accept(RankVisitor<T> rankVisitor);
+    public abstract <T> T displayUsing(RankDisplay<T> rankDisplay);
 
     public static class HighCard extends Rank {
 
@@ -69,8 +69,8 @@ public abstract class Rank implements Comparable<Rank> {
             this.highestCard = highestCard;
         }
 
-        @Override public <T> T accept(RankVisitor<T> rankVisitor) {
-            return rankVisitor.visit(this);
+        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
 
         @Override
@@ -151,8 +151,8 @@ public abstract class Rank implements Comparable<Rank> {
             return first.value;
         }
 
-        @Override public <T> T accept(RankVisitor<T> rankVisitor) {
-            return rankVisitor.visit(this);
+        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
     }
 
@@ -192,8 +192,8 @@ public abstract class Rank implements Comparable<Rank> {
             return Value.max(firstPairValue, secondPairValue);
         }
 
-        @Override public <T> T accept(RankVisitor<T> rankVisitor) {
-            return rankVisitor.visit(this);
+        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
     }
 
@@ -228,8 +228,8 @@ public abstract class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
-        @Override public <T> T accept(RankVisitor<T> rankVisitor) {
-            return rankVisitor.visit(this);
+        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
     }
 
@@ -259,8 +259,8 @@ public abstract class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
-        @Override public <T> T accept(RankVisitor<T> rankVisitor) {
-            return rankVisitor.visit(this);
+        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
     }
 
@@ -290,8 +290,8 @@ public abstract class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
-        @Override public <T> T accept(RankVisitor<T> rankVisitor) {
-            return rankVisitor.visit(this);
+        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
     }
 
@@ -326,8 +326,8 @@ public abstract class Rank implements Comparable<Rank> {
             return value;
         }
 
-        @Override public <T> T accept(RankVisitor<T> rankVisitor) {
-            return rankVisitor.visit(this);
+        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
     }
 }

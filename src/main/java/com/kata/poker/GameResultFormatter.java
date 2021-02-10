@@ -27,7 +27,7 @@ public class GameResultFormatter {
     }
 
     private String rankMessage(Rank rank) {
-        return rank.accept(rankFormatter);
+        return rank.displayUsing(rankFormatter);
     }
 
 }
