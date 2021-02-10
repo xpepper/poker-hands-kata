@@ -5,9 +5,9 @@ import com.kata.poker.Rank.*;
 
 import static com.kata.poker.Card.Value.Ace;
 
-public class GameResultFormatter implements RankFormatter {
+public class GameResultFormatter implements RankVisitor<String> {
 
-    public String format(GameResult result) {
+    public String visit(GameResult result) {
         if (result instanceof Tie) {
             return tieMessage();
         }
@@ -24,38 +24,38 @@ public class GameResultFormatter implements RankFormatter {
     }
 
     private String rankMessage(Rank rank) {
-        return rank.formatRank(this);
+        return rank.accept(this);
     }
 
-    @Override public String format(TwoPair twoPair) {
+    @Override public String visit(TwoPair twoPair) {
         return String.format(
                 "two pair: %ss and %ss",
                 formatCardValue(twoPair.highestRankingPairValue()),
                 formatCardValue(twoPair.lowestRankingPairValue()));
     }
 
-    @Override public String format(StraightFlush flush) {
+    @Override public String visit(StraightFlush flush) {
         return String.format("straight flush: %s-high", formatCardValue(flush.highestCardValue()));
     }
 
-    @Override public String format(Flush flush) {
+    @Override public String visit(Flush flush) {
         return String.format("flush: %s-high", formatCardValue(flush.highestCardValue()));
     }
 
-    @Override public String format(Straight straight) {
+    @Override public String visit(Straight straight) {
         return String.format("straight: %s-high", formatCardValue(straight.highestCardValue()));
     }
 
-    @Override public String format(ThreeOfKind threeOfKind) {
+    @Override public String visit(ThreeOfKind threeOfKind) {
         return String.format("three of a kind: %ss", formatCardValue(threeOfKind.value()));
     }
 
-    @Override public String format(Pair pair) {
+    @Override public String visit(Pair pair) {
         return String.format("pair: %ss", formatCardValue(pair.value()));
     }
 
     @Override
-    public String format(HighCard highCard) {
+    public String visit(HighCard highCard) {
         return String.format("high card: %s", formatCardValue(highCard.value()));
     }
 
