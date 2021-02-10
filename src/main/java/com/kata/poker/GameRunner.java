@@ -16,7 +16,7 @@ public class GameRunner {
 
     public String run(String rawGameInput) {
         GameResult gameResult = game.play(firstPlayer(rawGameInput), secondPlayer(rawGameInput));
-        return gameResultFormatter.visit(gameResult);
+        return gameResultFormatter.format(gameResult);
     }
 
     private Player firstPlayer(String rawGameInput) {
