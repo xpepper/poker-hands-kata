@@ -48,6 +48,13 @@ public class GameResultFormatterTest {
     }
 
     @Test
+    public void format_the_two_pair_rank() {
+        Winner winner = aWinnerWith(fiveOf(Hearts), fiveOf(Diamonds), threeOf(Clubs), threeOf(Hearts));
+
+        assertThat(formatter.format(winner), containsString("two pair: 5s and 3s"));
+    }
+
+    @Test
     public void format_the_three_of_a_kind_rank() {
         Winner winner = aWinnerWith(fiveOf(Hearts), fiveOf(Diamonds), fiveOf(Clubs), sixOf(Hearts));
 

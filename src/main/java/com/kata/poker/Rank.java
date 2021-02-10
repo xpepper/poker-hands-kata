@@ -146,7 +146,7 @@ public class Rank implements Comparable<Rank> {
 
     }
 
-    private static class TwoPair extends Rank {
+    public static class TwoPair extends Rank {
         private final Value firstPairValue;
         private final Value secondPairValue;
 
@@ -172,6 +172,14 @@ public class Rank implements Comparable<Rank> {
         @Override
         public String toString() {
             return String.format("TwoPair{first=%s, second=%s}", firstPairValue, secondPairValue);
+        }
+
+        public Value firstPairValue() {
+            return firstPairValue;
+        }
+
+        public Value secondPairValue() {
+            return secondPairValue;
         }
     }
 
