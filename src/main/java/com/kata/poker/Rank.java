@@ -88,6 +88,10 @@ public class Rank implements Comparable<Rank> {
         public Value value() {
             return highestCard.value;
         }
+
+        public String formatRank(RankFormatter rankFormatter) {
+            return rankFormatter.format(this);
+        }
     }
 
     public static class Pair extends Rank {

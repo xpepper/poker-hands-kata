@@ -5,7 +5,7 @@ import com.kata.poker.Rank.*;
 
 import static com.kata.poker.Card.Value.Ace;
 
-public class GameResultFormatter {
+public class GameResultFormatter implements RankFormatter {
 
     public String format(GameResult result) {
         if (result instanceof Tie) {
@@ -26,7 +26,7 @@ public class GameResultFormatter {
     private String rankMessage(Rank rank) {
         if (rank instanceof HighCard) {
             HighCard highCard = (HighCard) rank;
-            return String.format("high card: %s", formatCardValue(highCard.value()));
+            return highCard.formatRank(this);
         }
         if (rank instanceof Pair) {
             Pair pair = (Pair) rank;
@@ -66,5 +66,10 @@ public class GameResultFormatter {
             throw new IllegalStateException("Unexpected card value: " + cardValue);
         }
         return cardValue.numericValue.toString();
+    }
+
+    @Override
+    public String format(HighCard highCard) {
+        return String.format("high card: %s", formatCardValue(highCard.value()));
     }
 }
