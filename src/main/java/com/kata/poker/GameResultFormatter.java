@@ -24,38 +24,39 @@ public class GameResultFormatter implements RankFormatter {
     }
 
     private String rankMessage(Rank rank) {
-        if (rank instanceof HighCard) {
-            HighCard highCard = (HighCard) rank;
-            return highCard.formatRank(this);
-        }
-        if (rank instanceof Pair) {
-            Pair pair = (Pair) rank;
-            return String.format("pair: %ss", formatCardValue(pair.value()));
-        }
-        if (rank instanceof ThreeOfKind) {
-            ThreeOfKind threeOfKind = (ThreeOfKind) rank;
-            return String.format("three of a kind: %ss", formatCardValue(threeOfKind.value()));
-        }
-        if (rank instanceof Straight) {
-            Rank.Straight straight = (Straight) rank;
-            return String.format("straight: %s-high", formatCardValue(straight.highestCardValue()));
-        }
-        if (rank instanceof Flush) {
-            Flush flush = (Flush) rank;
-            return String.format("flush: %s-high", formatCardValue(flush.highestCardValue()));
-        }
-        if (rank instanceof StraightFlush) {
-            StraightFlush flush = (StraightFlush) rank;
-            return String.format("straight flush: %s-high", formatCardValue(flush.highestCardValue()));
-        }
-        if (rank instanceof TwoPair) {
-            TwoPair twoPair = (TwoPair) rank;
-            return String.format(
-                    "two pair: %ss and %ss",
-                    formatCardValue(twoPair.highestRankingPairValue()),
-                    formatCardValue(twoPair.lowestRankingPairValue()));
-        }
-        throw new IllegalStateException("Unexpected value: " + rank);
+        return rank.formatRank(this);
+    }
+
+    @Override public String format(TwoPair twoPair) {
+        return String.format(
+                "two pair: %ss and %ss",
+                formatCardValue(twoPair.highestRankingPairValue()),
+                formatCardValue(twoPair.lowestRankingPairValue()));
+    }
+
+    @Override public String format(StraightFlush flush) {
+        return String.format("straight flush: %s-high", formatCardValue(flush.highestCardValue()));
+    }
+
+    @Override public String format(Flush flush) {
+        return String.format("flush: %s-high", formatCardValue(flush.highestCardValue()));
+    }
+
+    @Override public String format(Straight straight) {
+        return String.format("straight: %s-high", formatCardValue(straight.highestCardValue()));
+    }
+
+    @Override public String format(ThreeOfKind threeOfKind) {
+        return String.format("three of a kind: %ss", formatCardValue(threeOfKind.value()));
+    }
+
+    @Override public String format(Pair pair) {
+        return String.format("pair: %ss", formatCardValue(pair.value()));
+    }
+
+    @Override
+    public String format(HighCard highCard) {
+        return String.format("high card: %s", formatCardValue(highCard.value()));
     }
 
     private String formatCardValue(Card.Value cardValue) {
@@ -66,10 +67,5 @@ public class GameResultFormatter implements RankFormatter {
             throw new IllegalStateException("Unexpected card value: " + cardValue);
         }
         return cardValue.numericValue.toString();
-    }
-
-    @Override
-    public String format(HighCard highCard) {
-        return String.format("high card: %s", formatCardValue(highCard.value()));
     }
 }

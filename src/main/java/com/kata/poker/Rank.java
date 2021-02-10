@@ -6,7 +6,7 @@ import static com.kata.poker.Card.Value;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 
-public class Rank implements Comparable<Rank> {
+public abstract class Rank implements Comparable<Rank> {
 
     public static Rank highCard(Card highestCard) {
         return new HighCard(1, highestCard);
@@ -57,6 +57,8 @@ public class Rank implements Comparable<Rank> {
     public int compareTo(Rank other) {
         return Integer.compare(priority, other.priority);
     }
+
+    public abstract String formatRank(RankFormatter rankFormatter);
 
     public static class HighCard extends Rank {
 
@@ -148,6 +150,9 @@ public class Rank implements Comparable<Rank> {
             return first.value;
         }
 
+        public String formatRank(RankFormatter rankFormatter) {
+            return rankFormatter.format(this);
+        }
     }
 
     public static class TwoPair extends Rank {
@@ -185,6 +190,10 @@ public class Rank implements Comparable<Rank> {
         public Value highestRankingPairValue() {
             return Value.max(firstPairValue, secondPairValue);
         }
+
+        @Override public String formatRank(RankFormatter rankFormatter) {
+            return rankFormatter.format(this);
+        }
     }
 
     public static class Straight extends Rank {
@@ -218,6 +227,9 @@ public class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
+        public String formatRank(RankFormatter rankFormatter) {
+            return rankFormatter.format(this);
+        }
     }
 
     public static class Flush extends Rank {
@@ -246,6 +258,9 @@ public class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
+        public String formatRank(RankFormatter rankFormatter) {
+            return rankFormatter.format(this);
+        }
     }
 
     public static class StraightFlush extends Rank {
@@ -274,6 +289,9 @@ public class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
+        public String formatRank(RankFormatter rankFormatter) {
+            return rankFormatter.format(this);
+        }
     }
 
     public static class ThreeOfKind extends Rank {
@@ -307,5 +325,8 @@ public class Rank implements Comparable<Rank> {
             return value;
         }
 
+        public String formatRank(RankFormatter rankFormatter) {
+            return rankFormatter.format(this);
+        }
     }
 }
