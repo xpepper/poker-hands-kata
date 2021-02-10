@@ -174,12 +174,12 @@ public class Rank implements Comparable<Rank> {
             return String.format("TwoPair{first=%s, second=%s}", firstPairValue, secondPairValue);
         }
 
-        public Value firstPairValue() {
-            return firstPairValue;
+        public Value lowestRankingPairValue() {
+            return Value.min(firstPairValue, secondPairValue);
         }
 
-        public Value secondPairValue() {
-            return secondPairValue;
+        public Value highestRankingPairValue() {
+            return Value.max(firstPairValue, secondPairValue);
         }
     }
 

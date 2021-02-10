@@ -52,8 +52,8 @@ public class GameResultFormatter {
             TwoPair twoPair = (TwoPair) rank;
             return String.format(
                     "two pair: %ss and %ss",
-                    formatCardValue(twoPair.firstPairValue()),
-                    formatCardValue(twoPair.secondPairValue()));
+                    formatCardValue(twoPair.highestRankingPairValue()),
+                    formatCardValue(twoPair.lowestRankingPairValue()));
         }
         throw new IllegalStateException("Unexpected value: " + rank);
     }
