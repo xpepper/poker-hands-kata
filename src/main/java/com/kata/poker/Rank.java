@@ -69,7 +69,8 @@ public abstract class Rank implements Comparable<Rank> {
             this.highestCard = highestCard;
         }
 
-        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
         }
 
@@ -151,7 +152,8 @@ public abstract class Rank implements Comparable<Rank> {
             return first.value;
         }
 
-        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
         }
     }
@@ -192,7 +194,8 @@ public abstract class Rank implements Comparable<Rank> {
             return Value.max(firstPairValue, secondPairValue);
         }
 
-        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
         }
     }
@@ -228,7 +231,8 @@ public abstract class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
-        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
         }
     }
@@ -259,7 +263,8 @@ public abstract class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
-        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
         }
     }
@@ -290,7 +295,8 @@ public abstract class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
-        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
         }
     }
@@ -326,7 +332,8 @@ public abstract class Rank implements Comparable<Rank> {
             return value;
         }
 
-        @Override public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
         }
     }
