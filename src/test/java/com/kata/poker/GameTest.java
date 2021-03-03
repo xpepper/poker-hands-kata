@@ -239,9 +239,9 @@ public class GameTest {
     @Test
     public void a_four_of_a_kind_wins_against_a_pair() {
         Player playerWithFourOfKind = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), fourOf(Spades));
-        Player playerWithHighCard = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), fiveOf(Spades), aceOf(Clubs));
+        Player playerWithPair = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), fiveOf(Spades), aceOf(Clubs));
 
-        assertThat(playerWithFourOfKind, winsAgainst(playerWithHighCard));
+        assertThat(playerWithFourOfKind, winsAgainst(playerWithPair));
     }
 
     @Test
