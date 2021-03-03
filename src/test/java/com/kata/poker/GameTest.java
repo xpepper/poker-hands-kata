@@ -229,6 +229,22 @@ public class GameTest {
     }
 
     @Test
+    public void a_four_of_a_kind_wins_against_a_high_card() {
+        Player playerWithFourOfKind = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), fourOf(Spades));
+        Player playerWithHighCard = aPlayerWithHand(threeOf(Diamonds), fiveOf(Spades), aceOf(Clubs), twoOf(Hearts));
+
+        assertThat(playerWithFourOfKind, winsAgainst(playerWithHighCard));
+    }
+
+    @Test
+    public void a_four_of_a_kind_wins_against_a_pair() {
+        Player playerWithFourOfKind = aPlayerWithHand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), fourOf(Spades));
+        Player playerWithHighCard = aPlayerWithHand(threeOf(Diamonds), threeOf(Hearts), fiveOf(Spades), aceOf(Clubs));
+
+        assertThat(playerWithFourOfKind, winsAgainst(playerWithHighCard));
+    }
+
+    @Test
     public void a_straight_flush_always_wins_against_a_high_card() {
         Player playerWithStraightFlush = aPlayerWithHand(threeOf(Diamonds), fourOf(Diamonds), twoOf(Diamonds), fiveOf(Diamonds));
         Player playerWithHighCard = aPlayerWithHand(fourOf(Clubs), sevenOf(Hearts), aceOf(Diamonds), twoOf(Spades));
