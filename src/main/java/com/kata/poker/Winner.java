@@ -27,6 +27,6 @@ public class Winner implements GameResult {
 
     @Override
     public String toString() {
-        return playerName() + " with " + rank();
+        return playerName() + " with " + rank() + " " + player.hand;
     }
 }

@@ -71,4 +71,9 @@ public class Hand {
         return cards.selectCardsWithTheSameValue(3)
                 .map(cards -> new ThreeCards(cards.get(0), cards.get(1), cards.get(2)));
     }
+
+    @Override
+    public String toString() {
+        return cards.toString();
+    }
 }

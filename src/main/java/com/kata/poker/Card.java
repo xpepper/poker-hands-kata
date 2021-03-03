@@ -35,7 +35,7 @@ public class Card implements Comparable<Card> {
 
     @Override
     public String toString() {
-        return format("Card'{'value={0}, suit={1}'}'", value, suit);
+        return format("{0} of {1}", value, suit);
     }
 
     public boolean comesBefore(Card card) {
