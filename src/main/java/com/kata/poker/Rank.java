@@ -6,7 +6,7 @@ import static com.kata.poker.Card.Value;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 
-public class Rank implements Comparable<Rank> {
+public abstract class Rank implements Comparable<Rank> {
 
     public static Rank highCard(Card highestCard) {
         return new HighCard(1, highestCard);
@@ -58,6 +58,8 @@ public class Rank implements Comparable<Rank> {
         return Integer.compare(priority, other.priority);
     }
 
+    public abstract <T> T displayUsing(RankDisplay<T> rankDisplay);
+
     public static class HighCard extends Rank {
 
         private final Card highestCard;
@@ -65,6 +67,11 @@ public class Rank implements Comparable<Rank> {
         private HighCard(int priority, Card highestCard) {
             super(priority, highestCard);
             this.highestCard = highestCard;
+        }
+
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
         }
 
         @Override
@@ -88,6 +95,7 @@ public class Rank implements Comparable<Rank> {
         public Value value() {
             return highestCard.value;
         }
+
     }
 
     public static class Pair extends Rank {
@@ -144,6 +152,10 @@ public class Rank implements Comparable<Rank> {
             return first.value;
         }
 
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
+        }
     }
 
     public static class TwoPair extends Rank {
@@ -181,6 +193,11 @@ public class Rank implements Comparable<Rank> {
         public Value highestRankingPairValue() {
             return Value.max(firstPairValue, secondPairValue);
         }
+
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
+        }
     }
 
     public static class Straight extends Rank {
@@ -214,6 +231,10 @@ public class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
+        }
     }
 
     public static class Flush extends Rank {
@@ -242,6 +263,10 @@ public class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
+        }
     }
 
     public static class StraightFlush extends Rank {
@@ -270,6 +295,10 @@ public class Rank implements Comparable<Rank> {
             return highestCard.value;
         }
 
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
+        }
     }
 
     public static class ThreeOfKind extends Rank {
@@ -303,5 +332,9 @@ public class Rank implements Comparable<Rank> {
             return value;
         }
 
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            return rankDisplay.display(this);
+        }
     }
 }

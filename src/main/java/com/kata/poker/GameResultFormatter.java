@@ -1,11 +1,14 @@
 package com.kata.poker;
 
 import com.kata.poker.GameResult.Tie;
-import com.kata.poker.Rank.*;
-
-import static com.kata.poker.Card.Value.Ace;
 
 public class GameResultFormatter {
+
+    private final RankFormatter rankFormatter;
+
+    public GameResultFormatter() {
+        rankFormatter = new RankFormatter();
+    }
 
     public String format(GameResult result) {
         if (result instanceof Tie) {
@@ -24,47 +27,7 @@ public class GameResultFormatter {
     }
 
     private String rankMessage(Rank rank) {
-        if (rank instanceof HighCard) {
-            HighCard highCard = (HighCard) rank;
-            return String.format("high card: %s", formatCardValue(highCard.value()));
-        }
-        if (rank instanceof Pair) {
-            Pair pair = (Pair) rank;
-            return String.format("pair: %ss", formatCardValue(pair.value()));
-        }
-        if (rank instanceof ThreeOfKind) {
-            ThreeOfKind threeOfKind = (ThreeOfKind) rank;
-            return String.format("three of a kind: %ss", formatCardValue(threeOfKind.value()));
-        }
-        if (rank instanceof Straight) {
-            Rank.Straight straight = (Straight) rank;
-            return String.format("straight: %s-high", formatCardValue(straight.highestCardValue()));
-        }
-        if (rank instanceof Flush) {
-            Flush flush = (Flush) rank;
-            return String.format("flush: %s-high", formatCardValue(flush.highestCardValue()));
-        }
-        if (rank instanceof StraightFlush) {
-            StraightFlush flush = (StraightFlush) rank;
-            return String.format("straight flush: %s-high", formatCardValue(flush.highestCardValue()));
-        }
-        if (rank instanceof TwoPair) {
-            TwoPair twoPair = (TwoPair) rank;
-            return String.format(
-                    "two pair: %ss and %ss",
-                    formatCardValue(twoPair.highestRankingPairValue()),
-                    formatCardValue(twoPair.lowestRankingPairValue()));
-        }
-        throw new IllegalStateException("Unexpected value: " + rank);
+        return rank.displayUsing(rankFormatter);
     }
 
-    private String formatCardValue(Card.Value cardValue) {
-        if (Ace.equals(cardValue)) {
-            return "Ace";
-        }
-        if (cardValue.numericValue > 10) {
-            throw new IllegalStateException("Unexpected card value: " + cardValue);
-        }
-        return cardValue.numericValue.toString();
-    }
 }
