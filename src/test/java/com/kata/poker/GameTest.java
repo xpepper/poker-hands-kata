@@ -205,19 +205,19 @@ public class GameTest {
     }
 
     @Test
-    public void two_hands_with_the_same_flush_are_tie() {
-        Player player = aPlayerWithHand(fourOf(Spades), sevenOf(Spades), aceOf(Spades), twoOf(Spades));
-        Player otherPlayer = aPlayerWithHand(fourOf(Diamonds), sevenOf(Diamonds), aceOf(Diamonds), twoOf(Diamonds));
-
-        assertThat(player, isTieWith(otherPlayer));
-    }
-
-    @Test
     public void a_flush_always_wins_against_a_straight() {
         Player playerWithFlush = aPlayerWithHand(twoOf(Diamonds), threeOf(Diamonds), fiveOf(Diamonds), twoOf(Diamonds));
         Player playerWithStraight = aPlayerWithHand(threeOf(Hearts), fourOf(Spades), fiveOf(Clubs), twoOf(Spades));
 
         assertThat(playerWithFlush, winsAgainst(playerWithStraight));
+    }
+
+    @Test
+    public void two_hands_with_the_same_flush_are_tie() {
+        Player player = aPlayerWithHand(fourOf(Spades), sevenOf(Spades), aceOf(Spades), twoOf(Spades));
+        Player otherPlayer = aPlayerWithHand(fourOf(Diamonds), sevenOf(Diamonds), aceOf(Diamonds), twoOf(Diamonds));
+
+        assertThat(player, isTieWith(otherPlayer));
     }
 
     @Test
