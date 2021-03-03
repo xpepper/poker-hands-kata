@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [R] should we keep the refactoring done in the `try_visitor` branch?
     * [F] four of a kind (poker) ranking
     * [R] pass down the priority to the single rules in the `GameRules` instead of Rank
 
