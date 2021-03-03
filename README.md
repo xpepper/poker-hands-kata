@@ -5,6 +5,8 @@
  
 * [F] Poker hand with four cards
     * [F] four of a kind (poker) ranking
+    * [R] Change the name of the player used in the tests (ex. "a name" should be "a test player")
+    * [R] Simplify the `winsAgainst#matchesSafely` method (why `firstResult` and `secondResult`?)  
     * [R] pass down the priority to the single rules in the `GameRules` instead of Rank
 
 * [R] try to generalize the use of `Hand#selectCoupleOfTwoCardsWithTheSameValue` for `Hand#selectTwoCardsWithTheSameValue` and `Hand#selectThreeCardsWithTheSameValue`
