@@ -54,6 +54,13 @@ public class GameRulesTest {
     }
 
     @Test
+    public void tell_when_an_hand_has_a_four_of_a_kind_rank() {
+        Hand hand = new Hand(fourOf(Hearts), fourOf(Diamonds), fourOf(Clubs), fourOf(Spades));
+
+        assertEquals(Rank.fourOfKind(Four), gameRules.evaluate(hand));
+    }
+
+    @Test
     public void tell_when_an_hand_has_a_straight_flush() {
         Hand hand = new Hand(fiveOf(Hearts), fourOf(Hearts), sixOf(Hearts), threeOf(Hearts));
 

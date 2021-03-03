@@ -8,6 +8,7 @@ public class GameRules {
 
     private final List<Rule> rules = asList(
             new StraightFlushRule(),
+            new FourOfKindRule(),
             new FlushRule(),
             new StraightRule(),
             new ThreeOfKindRule(),

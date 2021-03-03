@@ -4,10 +4,13 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [F] four of a kind (poker) ranking
-    * [R] Change the name of the player used in the tests (ex. "a name" should be "a test player")
-    * [R] Simplify the `winsAgainst#matchesSafely` method (why `firstResult` and `secondResult`?)  
-    * [R] pass down the priority to the single rules in the `GameRules` instead of Rank
+    * [R] take care of `FourOfKindRule` (which we assembled in a couple of minutes)
+    * [F] formatting the "four of a kind" ranking
+    * [R] change the name of the player used in the tests (ex. "a name" should be "a test player")
+    * [R] reorganize ranks inside `Rank` (also move out in separate classes?)
+    * [R] simplify the `winsAgainst#matchesSafely` method (why `firstResult` and `secondResult`?)
+  
+* [R] pass down the priority to the single rules in the `GameRules` instead of Rank
 
 * [R] try to generalize the use of `Hand#selectCoupleOfTwoCardsWithTheSameValue` for `Hand#selectTwoCardsWithTheSameValue` and `Hand#selectThreeCardsWithTheSameValue`
 

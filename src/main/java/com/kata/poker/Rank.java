@@ -32,8 +32,11 @@ public abstract class Rank implements Comparable<Rank> {
         return new Flush(6, highestCard);
     }
 
+    public static Rank fourOfKind(Value value) {
+        return new FourOfKind(7, value);
+    }
     public static Rank straightFlush(Card highestCard) {
-        return new StraightFlush(7, highestCard);
+        return new StraightFlush(8, highestCard);
     }
 
     private final int priority;
@@ -266,6 +269,43 @@ public abstract class Rank implements Comparable<Rank> {
         @Override
         public <T> T displayUsing(RankDisplay<T> rankDisplay) {
             return rankDisplay.display(this);
+        }
+    }
+
+    public static class FourOfKind extends Rank {
+
+        private final Value value;
+
+        public FourOfKind(int priority, Value value) {
+            super(priority, new Card(value, Card.Suit.Clubs));
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Four of a kind";
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            FourOfKind fourOfKind = (FourOfKind) o;
+            return Objects.equals(value, fourOfKind.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(value);
+        }
+
+        public Value value() {
+            return value;
+        }
+
+        @Override
+        public <T> T displayUsing(RankDisplay<T> rankDisplay) {
+            throw new RuntimeException("TODO");
         }
     }
 

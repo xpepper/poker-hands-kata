@@ -6,3 +6,4 @@ bin
 .project
 .classpath
 .java-version
+out
