@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [R] take care of `FourOfKindRule` (which we assembled in a couple of minutes)
     * [F] formatting the "four of a kind" ranking
     * [R] change the name of the player used in the tests (ex. "a name" should be "a test player")
     * [R] reorganize ranks inside `Rank` (also move out in separate classes?)
