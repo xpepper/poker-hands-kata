@@ -12,4 +12,8 @@ public class FourCards {
         this.third = third;
         this.fourth = fourth;
     }
+
+    public Card first() {
+        return first;
+    }
 }

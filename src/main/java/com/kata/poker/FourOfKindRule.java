@@ -11,9 +11,9 @@ public class FourOfKindRule implements Rule {
 
     @Override
     public Rank apply(Hand hand) {
-        List<TwoCards> twoPair = hand.selectCoupleOfTwoCardsWithTheSameValue().get();
+        FourCards fourCards = hand.selectFourCardsWithTheSameValue().get();
 
-        return Rank.fourOfKind(twoPair.get(0).first().value);
+        return Rank.fourOfKind(fourCards.first().value);
     }
 
 }
