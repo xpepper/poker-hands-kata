@@ -10,6 +10,8 @@
     * [R] reorganize ranks inside `Rank` (also move out in separate classes?)
     * [R] simplify the `winsAgainst#matchesSafely` method (why `firstResult` and `secondResult`?)
   
+* [?] `ThreeCards` and `FourCards` have unused fields. Why? Do we really need them?
+
 * [R] pass down the priority to the single rules in the `GameRules` instead of Rank
 
 * [R] try to generalize the use of `Hand#selectCoupleOfTwoCardsWithTheSameValue` for `Hand#selectTwoCardsWithTheSameValue` and `Hand#selectThreeCardsWithTheSameValue`

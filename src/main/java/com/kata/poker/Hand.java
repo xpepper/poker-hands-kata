@@ -9,8 +9,8 @@ import static java.util.Arrays.asList;
 public class Hand {
 
     public class FourCardsExpectedException extends RuntimeException {
-    }
 
+    }
     private final Cards cards;
 
     public Hand(Card... cards) {
@@ -38,6 +38,10 @@ public class Hand {
 
     public boolean hasThreeCardsWithTheSameValue() {
         return selectThreeCardsWithTheSameValue().isPresent();
+    }
+
+    boolean hasFourCardsWithTheSameValue() {
+        return selectFourCardsWithTheSameValue().isPresent();
     }
 
     public Cards allCardsExcept(Card... cardsToExclude) {
