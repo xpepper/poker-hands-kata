@@ -43,32 +43,32 @@
 
 * [R] Idea to avoid having many boilerplate equals / hashcode / ... : have a list of cards on the `Rank` superclass?
 
-* [F] `CardParserTest` add support to more values and suites?
+* [F] `CardParser` add support to more values and suites?
+
+* Add all the possible values for the poker `Cards`
+  * [F] add the formatting of all the remaining figures (K, Q, J)
 
 * [F] Should we add a validation when
     * Creating a `Card` (null values and suites should not be allowed) ?
     * Creating a kind of `Rank` (e.g. I should not be able to create a `Pair` with two cards with different values, or
-      a `Pair` with two cards with the same suit)
+    a `Pair` with two cards with the same suit)
 
 * [F] Make sure you cannot create invalid Cards.
     * Is not possible to have two same cards in a hand.
-      (See [Domain Primitives](https://livebook.manning.com/book/secure-by-design/chapter-5/))
+    (See [Domain Primitives](https://livebook.manning.com/book/secure-by-design/chapter-5/))
 
 * Write an AT (end-to-end!) that accepts an input like `Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH`
-  and prints the outcome of the match as a string like `White wins. - with high card: Ace`
+    and prints the outcome of the match as a string like `White wins. - with high card: Ace`
 
 * [R] Improve the Player tests: maybe using a builder would help in improving the readability of the test
     * like `aPlayer().with(highestHand())`...
     * add helper assertions to "hide" the pair of symmetric assertions
 
-* Add all the possible values for the poker `Cards`
-    * [F] add the formatting of all the remaining figures (K, Q, J)
-
-* From a single-card poker hand to a 5-cards poker hand
+* [F] From a single-card poker hand to a 5-cards poker hand
     * full house ranking ("5 cards" world)
     * Add the missing ranks in `Rank` enumeration
 
-* Are we sure we are testing all the possible combinations of hands?
+* [?] Are we sure we are testing all the possible combinations of hands?
     * parametrize test?
 
 * Building a Card is not easy (new Card(Value.Three, suit) vs some of builder / factory).
