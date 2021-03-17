@@ -22,4 +22,8 @@ class ThreeCards {
     public Card third() {
         return third;
     }
+
+    public Card takeOne() {
+        return first();
+    }
 }

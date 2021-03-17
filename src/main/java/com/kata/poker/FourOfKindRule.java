@@ -1,8 +1,5 @@
 package com.kata.poker;
 
-import java.util.List;
-import java.util.Optional;
-
 public class FourOfKindRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
