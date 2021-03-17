@@ -16,4 +16,8 @@ public class FourCards {
     public Card first() {
         return first;
     }
+
+    public Card takeOne() {
+        return first();
+    }
 }

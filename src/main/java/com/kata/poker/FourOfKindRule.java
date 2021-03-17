@@ -10,7 +10,7 @@ public class FourOfKindRule implements Rule {
     public Rank apply(Hand hand) {
         FourCards fourCards = hand.selectFourCardsWithTheSameValue().get();
 
-        return Rank.fourOfKind(fourCards.first().value);
+        return Rank.fourOfKind(fourCards.takeOne().value);
     }
 
 }
