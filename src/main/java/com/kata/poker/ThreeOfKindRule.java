@@ -1,5 +1,7 @@
 package com.kata.poker;
 
+import com.kata.poker.rank.Rank;
+
 public class ThreeOfKindRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {

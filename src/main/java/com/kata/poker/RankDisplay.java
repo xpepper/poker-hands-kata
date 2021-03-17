@@ -1,19 +1,21 @@
 package com.kata.poker;
 
+import com.kata.poker.rank.*;
+
 public interface RankDisplay<T> {
-    T display(Rank.TwoPair twoPair);
+    T display(TwoPair twoPair);
 
-    T display(Rank.StraightFlush flush);
+    T display(StraightFlush flush);
 
-    T display(Rank.Flush flush);
+    T display(Flush flush);
 
-    T display(Rank.Straight straight);
+    T display(Straight straight);
 
-    T display(Rank.ThreeOfKind threeOfKind);
+    T display(ThreeOfKind threeOfKind);
 
-    T display(Rank.Pair pair);
+    T display(Pair pair);
 
-    T display(Rank.HighCard highCard);
+    T display(HighCard highCard);
 
-    T display(Rank.FourOfKind fourOfKind);
+    T display(FourOfKind fourOfKind);
 }

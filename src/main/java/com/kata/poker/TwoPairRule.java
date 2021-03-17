@@ -1,5 +1,7 @@
 package com.kata.poker;
 
+import com.kata.poker.rank.Rank;
+
 import java.util.List;
 
 public class TwoPairRule implements Rule {

@@ -1,6 +1,7 @@
 package com.kata.poker;
 
 import com.kata.poker.GameResult.Tie;
+import com.kata.poker.rank.Rank;
 
 public class GameResultFormatter {
 

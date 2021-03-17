@@ -1,10 +1,12 @@
 package com.kata.poker;
 
+import com.kata.poker.rank.*;
+
 import static com.kata.poker.Card.Value.Ace;
 
 class RankFormatter implements RankDisplay<String> {
     @Override
-    public String display(Rank.TwoPair twoPair) {
+    public String display(TwoPair twoPair) {
         return String.format(
                 "two pair: %ss and %ss",
                 formatCardValue(twoPair.highestRankingPairValue()),
@@ -12,37 +14,37 @@ class RankFormatter implements RankDisplay<String> {
     }
 
     @Override
-    public String display(Rank.StraightFlush flush) {
+    public String display(StraightFlush flush) {
         return String.format("straight flush: %s-high", formatCardValue(flush.highestCardValue()));
     }
 
     @Override
-    public String display(Rank.Flush flush) {
+    public String display(Flush flush) {
         return String.format("flush: %s-high", formatCardValue(flush.highestCardValue()));
     }
 
     @Override
-    public String display(Rank.Straight straight) {
+    public String display(Straight straight) {
         return String.format("straight: %s-high", formatCardValue(straight.highestCardValue()));
     }
 
     @Override
-    public String display(Rank.ThreeOfKind threeOfKind) {
+    public String display(ThreeOfKind threeOfKind) {
         return String.format("three of a kind: %ss", formatCardValue(threeOfKind.value()));
     }
 
     @Override
-    public String display(Rank.Pair pair) {
+    public String display(Pair pair) {
         return String.format("pair: %ss", formatCardValue(pair.value()));
     }
 
     @Override
-    public String display(Rank.HighCard highCard) {
+    public String display(HighCard highCard) {
         return String.format("high card: %s", formatCardValue(highCard.value()));
     }
 
     @Override
-    public String display(Rank.FourOfKind fourOfKind) {
+    public String display(FourOfKind fourOfKind) {
         return String.format("four of a kind: %ss", formatCardValue(fourOfKind.value()));
     }
 

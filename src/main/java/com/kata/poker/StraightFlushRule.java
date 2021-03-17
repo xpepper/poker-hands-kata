@@ -1,5 +1,7 @@
 package com.kata.poker;
 
+import com.kata.poker.rank.Rank;
+
 public class StraightFlushRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {

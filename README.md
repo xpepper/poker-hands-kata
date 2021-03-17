@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [R] reorganize ranks inside `Rank` (also move out in separate classes?)
     * [R] simplify the `winsAgainst#matchesSafely` method (why `firstResult` and `secondResult`?)
   
 * [?] `ThreeCards` and `FourCards` have unused fields. Why? Do we really need them?

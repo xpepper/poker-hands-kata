@@ -1,5 +1,6 @@
 package com.kata.poker;
 
+import com.kata.poker.rank.Rank;
 import org.junit.Test;
 
 import static com.kata.poker.Card.Suit.*;
