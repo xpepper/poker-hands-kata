@@ -14,4 +14,6 @@ public interface RankDisplay<T> {
     T display(Rank.Pair pair);
 
     T display(Rank.HighCard highCard);
+
+    T display(Rank.FourOfKind fourOfKind);
 }

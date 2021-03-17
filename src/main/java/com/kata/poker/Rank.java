@@ -305,7 +305,7 @@ public abstract class Rank implements Comparable<Rank> {
 
         @Override
         public <T> T displayUsing(RankDisplay<T> rankDisplay) {
-            throw new RuntimeException("TODO");
+            return rankDisplay.display(this);
         }
     }
 

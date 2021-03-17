@@ -41,6 +41,11 @@ class RankFormatter implements RankDisplay<String> {
         return String.format("high card: %s", formatCardValue(highCard.value()));
     }
 
+    @Override
+    public String display(Rank.FourOfKind fourOfKind) {
+        return String.format("four of a kind: %ss", formatCardValue(fourOfKind.value()));
+    }
+
     private String formatCardValue(Card.Value cardValue) {
         if (Ace.equals(cardValue)) {
             return "Ace";
