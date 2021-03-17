@@ -325,7 +325,7 @@ public class GameTest {
     }
 
     private Player aPlayerWithHand(Card... cards) {
-        return new Player("a name", new Hand(cards[0], cards[1], cards[2], cards[3]));
+        return new Player("a test player", new Hand(cards[0], cards[1], cards[2], cards[3]));
     }
 
     private Matcher<Player> winsAgainst(Player player) {

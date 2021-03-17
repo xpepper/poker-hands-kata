@@ -4,7 +4,6 @@
 ### TODO
  
 * [F] Poker hand with four cards
-    * [R] change the name of the player used in the tests (ex. "a name" should be "a test player")
     * [R] reorganize ranks inside `Rank` (also move out in separate classes?)
     * [R] simplify the `winsAgainst#matchesSafely` method (why `firstResult` and `secondResult`?)
   
