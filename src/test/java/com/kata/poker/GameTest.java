@@ -328,7 +328,7 @@ public class GameTest {
         return new Player("a test player", new Hand(cards[0], cards[1], cards[2], cards[3]));
     }
 
-    private Matcher<Player> winsAgainst(Player player) {
+    private Matcher<Player> winsAgainst(Player loosingPlayer) {
         return new TypeSafeDiagnosingMatcher<Player>() {
             private final Game game = new Game(new GameRules());
             private Winner winner;
@@ -341,18 +341,18 @@ public class GameTest {
             @Override
             protected boolean matchesSafely(Player winningPlayer, Description mismatchDescription) {
                 winner = new Winner(winningPlayer);
-                GameResult firstResult = game.play(winningPlayer, player);
-                GameResult secondResult = game.play(player, winningPlayer);
+                GameResult gameResult = game.play(winningPlayer, loosingPlayer);
 
-                if (!firstResult.equals(winner)) {
-                    mismatchDescription.appendText("was " + firstResult);
+                if (isUnexpected(gameResult)) {
+                    mismatchDescription.appendText("was " + gameResult);
                     return false;
                 }
-                if (!secondResult.equals(winner)) {
-                    mismatchDescription.appendText("was " + secondResult);
-                    return false;
-                }
+
                 return true;
+            }
+
+            private boolean isUnexpected(GameResult gameResult) {
+                return !gameResult.equals(winner);
             }
         };
     }
@@ -368,14 +368,18 @@ public class GameTest {
 
             @Override
             protected boolean matchesSafely(Player player, Description mismatchDescription) {
-                GameResult result = game.play(player, otherPlayer);
+                GameResult gameResult = game.play(player, otherPlayer);
 
-                if (!result.equals(tie)) {
-                    mismatchDescription.appendText("was " + result);
+                if (isUnexpected(gameResult)) {
+                    mismatchDescription.appendText("was " + gameResult);
                     return false;
                 }
 
                 return true;
+            }
+
+            private boolean isUnexpected(GameResult gameResult) {
+                return !gameResult.equals(tie);
             }
         };
     }
