@@ -72,6 +72,11 @@ public class Hand {
                 .map(cards -> new ThreeCards(cards.get(0), cards.get(1), cards.get(2)));
     }
 
+    public Optional<FourCards> selectFourCardsWithTheSameValue() {
+        return cards.selectCardsWithTheSameValue(4)
+                .map(cards -> new FourCards(cards.get(0), cards.get(1), cards.get(2), cards.get(3)));
+    }
+
     @Override
     public String toString() {
         return cards.toString();

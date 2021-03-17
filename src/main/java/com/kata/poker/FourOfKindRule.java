@@ -6,10 +6,7 @@ import java.util.Optional;
 public class FourOfKindRule implements Rule {
     @Override
     public boolean canApply(Hand hand) {
-        Optional<List<TwoCards>> twoCards = hand.selectCoupleOfTwoCardsWithTheSameValue();
-        if (twoCards.isEmpty())
-            return false;
-        return twoCards.get().get(0).first().value == twoCards.get().get(1).first().value;
+        return hand.selectFourCardsWithTheSameValue().isPresent();
     }
 
     @Override
