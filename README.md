@@ -3,6 +3,8 @@
 
 ### TODO
 
+* [?] Are we able to shape our system in order to follow a more Clean Architecture-ish style?
+
 * [?] `ThreeCards` and `FourCards` have unused fields. Why? Do we really need them?
 
 * [R] pass down the priority to the single rules in the `GameRules` instead of Rank
