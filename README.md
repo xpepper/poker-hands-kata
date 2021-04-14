@@ -3,11 +3,14 @@
 
 ### TODO
 
+* [R] discuss on why we should pass down the priority to the single rules in the `GameRules` instead of Rank
+  - the actual order of the rules in `GameRules` is not relevant
+  - DON'T put the rules in any relevant order, to avoid giving fake meanings on the relevance of that order
+  - what if we want to handle different Poker versions?
+
 * [?] Are we able to shape our system in order to follow a more Clean Architecture-ish style?
 
 * [?] `ThreeCards` and `FourCards` have unused fields. Why? Do we really need them?
-
-* [R] pass down the priority to the single rules in the `GameRules` instead of Rank
 
 * [R] try to generalize the use of `Hand#selectCoupleOfTwoCardsWithTheSameValue`
   for `Hand#selectTwoCardsWithTheSameValue` and `Hand#selectThreeCardsWithTheSameValue`
