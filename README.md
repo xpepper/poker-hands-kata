@@ -164,3 +164,4 @@ es: (*2C, 2D, 2H, 2S*, 6C)
 
 es: (*TS, JS, QS, KS, AS*) 
 
+* hi!
